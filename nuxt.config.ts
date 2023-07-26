@@ -42,8 +42,6 @@ export default defineNuxtConfig({
         storage: 'localStorage'
     },
     image: {
-        providers: ['ipx'],
-        dir: 'assets/images',
         quality: 80
     },
     vite: {
