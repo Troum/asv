@@ -42,7 +42,7 @@
         :key="i"
     >
       <div class="w-100 fill-height position-relative" :style="`background: ${slide.background}`">
-        <nuxt-img class="position-absolute z-index-2" width="100%" height="100%" :src="slide.src"></nuxt-img>
+        <v-img class="position-absolute z-index-2" width="100%" height="100%" :src="slide.src"></v-img>
         <v-sheet
             class="z-index-3 position-relative"
             color="transparent"

@@ -145,25 +145,25 @@ const display = useDisplay()
 const slideGroupHeight = ref(0)
 
 const slides = [
-  new Slide('<span class="text-white">Title 1</span>', '<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque blanditiis consequatur consequuntur delectus deleniti doloremque eius enim eveniet fuga iste nostrum porro quasi, quis quod reiciendis repudiandae voluptates!</p>', '/', '/slide1.png', '#000'),
-  new Slide('<span class="text-white">Title 1</span>', '<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque blanditiis consequatur consequuntur delectus deleniti doloremque eius enim eveniet fuga iste nostrum porro quasi, quis quod reiciendis repudiandae voluptates!</p>', '/', '/slide1.png', '#000'),
+  new Slide('<span class="text-white">Title 1</span>', '<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque blanditiis consequatur consequuntur delectus deleniti doloremque eius enim eveniet fuga iste nostrum porro quasi, quis quod reiciendis repudiandae voluptates!</p>', '/', '/assets/slide1.png', '#000'),
+  new Slide('<span class="text-white">Title 1</span>', '<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque blanditiis consequatur consequuntur delectus deleniti doloremque eius enim eveniet fuga iste nostrum porro quasi, quis quod reiciendis repudiandae voluptates!</p>', '/', '/assets/slide1.png', '#000'),
 ]
 
 const group = [
   {
     slides: [
-      new Service('/logo1.svg'),
-      new Service('/logo2.svg'),
-      new Service('/logo3.svg'),
-      new Service('/logo4.svg')
+      new Service('/assets/logo1.svg'),
+      new Service('/assets/logo2.svg'),
+      new Service('/assets/logo3.svg'),
+      new Service('/assets/logo4.svg')
     ]
   },
   {
     slides: [
-      new Service('/logo4.svg'),
-      new Service('/logo3.svg'),
-      new Service('/logo2.svg'),
-      new Service('/logo1.svg')
+      new Service('/assets/logo4.svg'),
+      new Service('/assets/logo3.svg'),
+      new Service('/assets/logo2.svg'),
+      new Service('/assets/logo1.svg')
     ]
   }
 ]

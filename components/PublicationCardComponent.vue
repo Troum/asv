@@ -12,7 +12,7 @@
           </article>
         </v-card-text>
         <div class="position-relative" style="height: 420px">
-          <nuxt-img height="420px" class="w-100 h-100 position-relative z-index-1" src="/doc.png"></nuxt-img>
+          <v-img height="420px" class="w-100 h-100 position-relative z-index-1" src="/assets/doc.png"></v-img>
           <v-fade-transition>
             <div
                 v-if="isHovering"

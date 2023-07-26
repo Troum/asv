@@ -4,12 +4,12 @@
       :rounded="0"
       class="mx-auto"
   >
-    <nuxt-img
+    <v-img
         style="min-height: 200px"
         class="align-end text-white"
         :src="product.avatar"
     >
-    </nuxt-img>
+    </v-img>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9">
       {{ product.subtitle }}
     </v-card-subtitle>
