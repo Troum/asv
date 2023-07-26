@@ -1,0 +1,44 @@
+@import "./layouts/asv.layout";
+@import "./utilities";
+
+body {
+  font-family: 'Fira Sans Condensed', sans-serif;
+}
+@for $i from 1 to 72 {
+  .font-size-#{$i * 1} {
+    font-size: #{$i * 1}px !important;
+  }
+  .letter-spacing-#{$i} {
+    letter-spacing: #{$i * 0.1}px !important;
+  }
+  .z-index-#{$i} {
+    z-index: #{$i};
+  }
+}
+
+@for $i from 1 to 1000 {
+  .flex-column-gap-#{$i * 1} {
+    column-gap: #{$i * 1}px;
+  }
+  .flex-row-gap-#{$i} {
+    row-gap: #{$i * 1}px;
+  }
+  .grid-column-gap-#{$i * 1} {
+    grid-column-gap: #{$i * 1}px;
+  }
+  .grid-row-gap-#{$i} {
+    grid-row-gap: #{$i * 1}px;
+  }
+  .grid-gap-#{$i} {
+    grid-gap: #{$i * 1}px;
+  }
+}
+
+@for $i from 1 to 100 {
+  .w-#{$i * 1} {
+    width: #{$i * 1%};
+  }
+  .h-#{$i} {
+    height: #{$i * 1%};
+  }
+}
