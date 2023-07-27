@@ -10,7 +10,7 @@
            :style="`margin-top: ${slideGroupHeight + 40}px;`">
       <h2 class="text-uppercase text-center font-size-48"><span class="text-info">о</span> компании</h2>
       <div
-          :style="`background: url('/assets/images/doctor.jpeg') top center no-repeat; background-size: cover; width: 100%; min-height: ${$display.height(display.height.value, 500)}px`">
+          :style="`background: url('/doctor.jpeg') top center no-repeat; background-size: cover; width: 100%; min-height: ${$display.height(display.height.value, 500)}px`">
         <div class="d-flex flex-column justify-center align-start w-50 pa-10 text-white"
              :style="`background-color: rgba(0, 0, 0, .8); height: ${$display.height(display.height.value, 500)}px; row-gap: ${$display.height(display.height.value, 40)}px`">
           <h3 class="text-uppercase font-weight-bold font-size-21">
