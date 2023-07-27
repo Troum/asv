@@ -99,8 +99,8 @@
         </v-btn>
       </div>
       <div class="publications">
-        <template v-for="publication of 3" :key="publication">
-          <publication-card-component/>
+        <template v-for="(publication, key) of publications" :key="key">
+          <publication-card-component :publication="publication"/>
         </template>
       </div>
     </v-col>
@@ -131,6 +131,7 @@ import {useElementSize} from "@vueuse/core";
 import {useDisplay} from "vuetify";
 import Service from "~/models/Service";
 import SvgIcon from "@jamescoyle/vue-icon";
+import Publication from "~/models/Publication";
 
 const props = defineProps({
   appBarHeight: {
@@ -142,37 +143,63 @@ const {$display} = useNuxtApp()
 const slideComponent = ref(null)
 const {height} = useElementSize(slideComponent)
 const display = useDisplay()
+const {find} = useStrapi()
 const slideGroupHeight = ref(0)
+const slides = ref([])
+const group = ref([])
+const publications = ref([])
 
-const slides = [
-  new Slide('<span class="text-white">Title 1</span>', '<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque blanditiis consequatur consequuntur delectus deleniti doloremque eius enim eveniet fuga iste nostrum porro quasi, quis quod reiciendis repudiandae voluptates!</p>', '/', '/assets/slide1.png', '#000'),
-  new Slide('<span class="text-white">Title 1</span>', '<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam atque blanditiis consequatur consequuntur delectus deleniti doloremque eius enim eveniet fuga iste nostrum porro quasi, quis quod reiciendis repudiandae voluptates!</p>', '/', '/assets/slide1.png', '#000'),
-]
-
-const group = [
-  {
-    slides: [
-      new Service('/assets/logo1.svg'),
-      new Service('/assets/logo2.svg'),
-      new Service('/assets/logo3.svg'),
-      new Service('/assets/logo4.svg')
-    ]
-  },
-  {
-    slides: [
-      new Service('/assets/logo4.svg'),
-      new Service('/assets/logo3.svg'),
-      new Service('/assets/logo2.svg'),
-      new Service('/assets/logo1.svg')
-    ]
-  }
-]
+await find('main-page-carousels', {populate: 'src'})
+    .then((response) => {
+      slides.value = response.data.map((item) => {
+        return new Slide(
+            item.attributes.title,
+            item.attributes.description,
+            item.attributes.link,
+            item.attributes.src.data.attributes.url,
+            item.attributes.background
+        )
+      })
+    })
+    .then(async () => {
+      await find('slides', {populate: 'logo'})
+          .then((response) => {
+            group.value = response.data.reduce((all,one,i) => {
+              const ch = Math.floor(i/4);
+              all[ch] = [].concat((all[ch]||[]),one);
+              return all
+            }, [])
+                .map((item) => {
+                  return {
+                    slides: item.map((item) => {
+                      return new Service(item.attributes.logo.data.attributes.url)
+                    })
+                  }
+                })
+          })
+    })
+    .then(async () => {
+      await find('publications', {populate: 'image'})
+          .then((response) => {
+            publications.value = response.data.map((item) => {
+              return new Publication(
+                  item.attributes.title,
+                  item.attributes.article,
+                  item.attributes.image.data.attributes.url,
+                  item.attributes.slug,
+                  item.attributes.createdAt,
+              )
+            })
+          })
+    })
+console.log(publications.value)
 
 watch(height, (value) => {
   if (value > 0) {
     slideGroupHeight.value = display.height.value - value - props.appBarHeight + 20
   }
 })
+
 definePageMeta({
   breadcrumb: 'Главная'
 })

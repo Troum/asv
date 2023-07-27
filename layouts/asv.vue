@@ -84,7 +84,7 @@
     </template>
     <template v-else>
       <v-img class="position-absolute breadcrumbs-bar"
-             src="/assets/images/breadcrumbs-bg.png"
+             src="/breadcrumbs-bg.png"
              ref="image"
              :cover="true"
              :min-height="$display.height(display.height.value, 120)"

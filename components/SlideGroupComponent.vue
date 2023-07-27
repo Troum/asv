@@ -37,8 +37,8 @@
                       :height="isIndex ? '80%' : '100%'"
                       :class="['rounded-0 hover', { 'on': isHovering }]">
                 <v-card-text class="d-flex align-center justify-center pa-0 fill-height">
-                  <v-img :style="`max-width: ${$display.logo(display.width.value, 280)}px`"
-                            :src="item.logo"></v-img>
+                  <nuxt-img provider="strapi" :style="`max-width: ${$display.logo(display.width.value, 280)}px`"
+                            :src="item.logo"></nuxt-img>
                   <div class="line"></div>
                 </v-card-text>
               </v-card>

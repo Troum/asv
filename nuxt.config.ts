@@ -32,6 +32,7 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@pinia-plugin-persistedstate/nuxt',
         '@nuxt/image',
+        '@nuxtjs/strapi'
     ],
     plugins: [
         '~/plugins/mitt.ts',
@@ -41,8 +42,14 @@ export default defineNuxtConfig({
     piniaPersistedstate: {
         storage: 'localStorage'
     },
+    strapi: {
+        url: 'https://dashboard.a-sv.site'
+    },
     image: {
-        quality: 80
+        quality: 80,
+        strapi: {
+            baseURL: 'https://dashboard.a-sv.site'
+        }
     },
     vite: {
         define: {
