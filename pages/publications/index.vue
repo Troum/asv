@@ -21,36 +21,26 @@
 <script setup>
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
 import ChevronDown from "~/components/icons/chevronDown.vue";
-import Publication from "~/models/Publication";
 import {ref} from "vue"
 definePageMeta({
   breadcrumb: 'Все новости'
 })
 
-defineProps({
+const props = defineProps({
   frameMargin: {
     type: Number,
     default: 0
+  },
+  publications: {
+    type: Array,
+    default: []
   }
 })
 const {find} = useStrapi()
 const current = ref(3)
-const publications = ref([])
 
-await find('publications', {populate: 'image'})
-    .then((response) => {
-      publications.value = response.data.map((item) => {
-        return new Publication(
-            item.attributes.title,
-            item.attributes.article,
-            item.attributes.image.data.attributes.url,
-            item.attributes.slug,
-            item.attributes.createdAt,
-        )
-      })
-    })
 const loadMore = () => {
-  if (current.value < publications.value.length) {
+  if (current.value < props.publications.length) {
     current.value += 3
   }
 }

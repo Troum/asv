@@ -94,7 +94,13 @@
       </v-img>
     </template>
     <v-main class="d-flex flex-column align-center justify-center">
-      <NuxtPage :appBarHeight="$display.navBar(display.height.value, 157)" :frameMargin="marginTop"/>
+      <NuxtPage :appBarHeight="$display.navBar(display.height.value, 157)"
+                :services="services"
+                :products="products"
+                :filters="filters"
+                :publications="publications"
+                :clients="clients"
+                :frameMargin="marginTop"/>
     </v-main>
     <template v-if="!isIndex">
       <v-footer class="pa-0 mt-10"
@@ -221,6 +227,10 @@ import Ru from "~/components/icons/ru.vue"
 import Us from "~/components/icons/us.vue"
 import BreadcrumbsComponent from "~/components/BreadcrumbsComponent.vue";
 import Service from "~/models/Service";
+import Publication from "~/models/Publication";
+import Client from "~/models/Client";
+import Product from "~/models/Product";
+import Filter from "~/models/Filter";
 
 const {find} = useStrapi()
 const route = useRoute()
@@ -269,32 +279,85 @@ const menu = ref([
     title: 'контакты'
   }
 ])
-const group = []
+const services = ref([])
+const publications = ref([])
+const filters = ref([])
+const products = ref([])
+const clients = ref([])
 const isOpen = ref(false)
 
 $listen('set:component', () => {
   componentSet.value = true
 })
 
-watch(route, async (value) => {
-  if (value.name !== 'index') {
-    await find('slides', {populate: 'logo'})
-        .then((response) => {
-          group.value = response.data.reduce((all,one,i) => {
-            const ch = Math.floor(i/4);
-            all[ch] = [].concat((all[ch]||[]),one);
-            return all
-          }, [])
-              .map((item) => {
-                return {
-                  slides: item.map((item) => {
-                    return new Service(item.attributes.logo.data.attributes.url)
-                  })
-                }
+await find('slides', {populate: 'logo'})
+    .then((response) => {
+      services.value = response.data.reduce((all,one,i) => {
+        const ch = Math.floor(i/4);
+        all[ch] = [].concat((all[ch]||[]),one);
+        return all
+      }, [])
+          .map((item) => {
+            return {
+              slides: item.map((item) => {
+                return new Service(item.attributes.logo.data.attributes.url)
               })
-        })
-  }
-}, {deep: true, immediate: true})
+            }
+          })
+    })
+    .then(async () => {
+      await find('publications', {populate: 'image'})
+          .then((response) => {
+            publications.value = response.data.map((item) => {
+              return new Publication(
+                  item.attributes.title,
+                  item.attributes.article,
+                  item.attributes.image.data.attributes.url,
+                  item.attributes.slug,
+                  item.attributes.createdAt,
+              )
+            })
+          })
+    })
+    .then(async () => {
+      await find('clients', {populate: 'logo'})
+          .then((response) => {
+            clients.value = response.data.map((item) => {
+              return new Client(
+                  item.attributes.url,
+                  item.attributes.logo.data.attributes.url
+              )
+            })
+          })
+    })
+    .then(async () => {
+      await find('products', {populate: ['avatar', 'video', 'logo']})
+          .then((response) => {
+            products.value = response.data.map((item) => {
+              return new Product(
+                  item.attributes.avatar.data.attributes.url,
+                  item.attributes.title,
+                  item.attributes.subtitle,
+                  item.attributes.description,
+                  item.attributes.logo.data.attributes.url,
+                  item.attributes.slug,
+                  item.attributes.type,
+                  item.attributes.video
+              )
+            })
+          })
+    })
+    .then(async () => {
+      await find('filters')
+          .then((response) => {
+            filters.value = response.data.map((item) => {
+              return new Filter(
+                  item.attributes.title,
+                  item.attributes.value
+              )
+            })
+          })
+    })
 
 watch(width, (value) => {
   if (value > 0) {

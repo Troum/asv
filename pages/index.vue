@@ -2,7 +2,7 @@
   <v-container :fluid="true" class="ma-0 pa-0">
     <v-col cols="12" class="ma-0 pa-0 position-relative">
       <carousel-component ref="slideComponent" :slides="slides" style="z-index: 4"/>
-      <slide-group-component :height="slideGroupHeight" :slides="group"
+      <slide-group-component :height="slideGroupHeight" :slides="services"
                              class="position-absolute"
                              :style="`z-index: 5; top: ${height - 20}px; left: 0; right: 0;`"/>
     </v-col>
@@ -138,6 +138,18 @@ const props = defineProps({
   appBarHeight: {
     type: Number,
     default: 0
+  },
+  services: {
+    type: Array,
+    default: []
+  },
+  publications: {
+    type: Array,
+    default: []
+  },
+  clients: {
+    type: Array,
+    default: []
   }
 })
 const {$display} = useNuxtApp()
@@ -147,9 +159,6 @@ const display = useDisplay()
 const {find} = useStrapi()
 const slideGroupHeight = ref(0)
 const slides = ref([])
-const clients = ref([])
-const group = ref([])
-const publications = ref([])
 
 await find('main-page-carousels', {populate: 'src'})
     .then((response) => {
@@ -163,49 +172,6 @@ await find('main-page-carousels', {populate: 'src'})
         )
       })
     })
-    .then(async () => {
-      await find('slides', {populate: 'logo'})
-          .then((response) => {
-            group.value = response.data.reduce((all,one,i) => {
-              const ch = Math.floor(i/4);
-              all[ch] = [].concat((all[ch]||[]),one);
-              return all
-            }, [])
-                .map((item) => {
-                  return {
-                    slides: item.map((item) => {
-                      return new Service(item.attributes.logo.data.attributes.url)
-                    })
-                  }
-                })
-          })
-    })
-    .then(async () => {
-      await find('publications', {populate: 'image'})
-          .then((response) => {
-            publications.value = response.data.map((item) => {
-              return new Publication(
-                  item.attributes.title,
-                  item.attributes.article,
-                  item.attributes.image.data.attributes.url,
-                  item.attributes.slug,
-                  item.attributes.createdAt,
-              )
-            })
-          })
-    })
-    .then(async () => {
-      await find('clients', {populate: 'logo'})
-          .then((response) => {
-            clients.value = response.data.map((item) => {
-              return new Client(
-                  item.attributes.url,
-                  item.attributes.logo.data.attributes.url
-              )
-            })
-          })
-    })
-console.log(publications.value)
 
 watch(height, (value) => {
   if (value > 0) {

@@ -41,11 +41,9 @@
 <script setup>
 import _ from "lodash"
 import { ref } from "vue"
-import Filter from "~/models/Filter";
 import FiltersComponent from "~/components/FiltersComponent.vue";
 import ProductCardComponent from "~/components/ProductCardComponent.vue";
 import ChevronDown from "~/components/icons/chevronDown.vue";
-import Product from "~/models/Product";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiClose} from "@mdi/js";
 
@@ -53,61 +51,38 @@ definePageMeta({
   breadcrumb: 'Каталог'
 })
 
-defineProps({
+const props = defineProps({
   frameMargin: {
     type: Number,
     default: 0
+  },
+  products: {
+    type: Array,
+    default: []
+  },
+  filters: {
+    type: Array,
+    default: []
   }
 })
-const {find} = useStrapi()
-  const filters = ref([
-      // new Filter('all', 'Все товары'),
-  ])
-  const products = ref([])
+
   const noResults = ref(false)
   const current = ref(6)
   const filtered = ref([])
   const filteredProducts = computed(() => {
-    return !_.isEmpty(filtered.value) ? filtered.value : products.value
+    return !_.isEmpty(filtered.value) ? filtered.value : props.products
   })
   const filterData = (value) => {
     if (!_.isEqual(value, 'all')) {
-      filtered.value = products.value.filter((item) => item.type === value)
+      filtered.value = props.products.filter((item) => item.type === value)
       noResults.value = _.isEmpty(filtered.value);
     } else {
-      filtered.value = products.value
+      filtered.value = props.products
     }
   }
   const loadMore = () => {
-    current.value = products.value.length
+    current.value = props.products.length
   }
-
-await find('products', {populate: ['avatar', 'video', 'logo']})
-    .then((response) => {
-      products.value = response.data.map((item) => {
-        return new Product(
-            item.attributes.avatar.data.attributes.url,
-            item.attributes.title,
-            item.attributes.subtitle,
-            item.attributes.description,
-            item.attributes.logo.data.attributes.url,
-            item.attributes.slug,
-            item.attributes.type,
-            item.attributes.video
-        )
-      })
-    })
-.then(async () => {
-  await find('filters')
-      .then((response) => {
-        filters.value = response.data.map((item) => {
-          return new Filter(
-              item.attributes.title,
-              item.attributes.value
-          )
-        })
-      })
-})
 </script>
 
 <style lang="scss" scoped>
