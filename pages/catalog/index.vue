@@ -39,41 +39,31 @@
 </template>
 
 <script setup>
+import _ from "lodash"
+import { ref } from "vue"
+import Filter from "~/models/Filter";
+import FiltersComponent from "~/components/FiltersComponent.vue";
+import ProductCardComponent from "~/components/ProductCardComponent.vue";
+import ChevronDown from "~/components/icons/chevronDown.vue";
+import Product from "~/models/Product";
+import SvgIcon from "@jamescoyle/vue-icon";
+import {mdiClose} from "@mdi/js";
+
+definePageMeta({
+  breadcrumb: 'Каталог'
+})
+
 defineProps({
   frameMargin: {
     type: Number,
     default: 0
   }
 })
-  import _ from "lodash"
-  import { ref } from "vue"
-  import Filter from "~/models/Filter";
-  import FiltersComponent from "~/components/FiltersComponent.vue";
-  import ProductCardComponent from "~/components/ProductCardComponent.vue";
-  import ChevronDown from "~/components/icons/chevronDown.vue";
-  import Product from "~/models/Product";
-  import SvgIcon from "@jamescoyle/vue-icon";
-  import {mdiClose} from "@mdi/js";
+const {find} = useStrapi()
   const filters = ref([
-      new Filter('all', 'Все товары'),
-      new Filter('aesthetic', 'эстетическая косметология'),
-      new Filter('wellness', 'spa/wellness'),
-      new Filter('ophthalmology', 'офтальмология'),
-      new Filter('veterinary', 'ветеринария'),
-      new Filter('gynecology', 'гинекология')
+      // new Filter('all', 'Все товары'),
   ])
-  const products = ref([
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'gynecology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'gynecology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'gynecology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-      new Product('/product.png', 'CONSTELLATION® Vision System', 'офтальмология', 'Современная система для витректомии CONSTELLATION® Vision System объединяет функции для скоростного реза, контроля внутриглазного давления, освещения, лазерного излучения и других возможностей для удобства хирурга во время работы.', '/product-logo.svg', 'product', 'ophthalmology'),
-  ])
+  const products = ref([])
   const noResults = ref(false)
   const current = ref(6)
   const filtered = ref([])
@@ -91,9 +81,33 @@ defineProps({
   const loadMore = () => {
     current.value = products.value.length
   }
-  definePageMeta({
-    breadcrumb: 'Каталог'
-  })
+
+await find('products', {populate: ['avatar', 'video', 'logo']})
+    .then((response) => {
+      products.value = response.data.map((item) => {
+        return new Product(
+            item.attributes.avatar.data.attributes.url,
+            item.attributes.title,
+            item.attributes.subtitle,
+            item.attributes.description,
+            item.attributes.logo.data.attributes.url,
+            item.attributes.slug,
+            item.attributes.type,
+            item.attributes.video
+        )
+      })
+    })
+.then(async () => {
+  await find('filters')
+      .then((response) => {
+        filters.value = response.data.map((item) => {
+          return new Filter(
+              item.attributes.title,
+              item.attributes.value
+          )
+        })
+      })
+})
 </script>
 
 <style lang="scss" scoped>

@@ -1,10 +1,18 @@
 <template>
-  <NuxtLink to="/">
-    <v-img class="client-logo" src="/assets/images/client.svg"></v-img>
+  <NuxtLink :href="client.url">
+    <nuxt-img provider="strapi" class="client-logo" :src="client.logo"></nuxt-img>
   </NuxtLink>
 </template>
 
 <script setup>
+import Client from "~/models/Client";
+
+defineProps({
+  client: {
+    type: Object,
+    default: new Client()
+  }
+})
 </script>
 
 <style lang="scss" scoped>

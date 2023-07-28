@@ -108,8 +108,8 @@
            :style="`margin-top: ${slideGroupHeight + 40}px; margin-bottom: ${slideGroupHeight + 40}px;`">
       <h2 class="text-uppercase text-center font-size-48"><span class="text-info">Клиенты</span> компании</h2>
       <div class="clients">
-        <template v-for="client of 8" :key="client">
-          <client-card-component/>
+        <template v-for="(client, key) of clients" :key="key">
+          <client-card-component :client="client"/>
         </template>
       </div>
       <v-btn :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
@@ -132,6 +132,7 @@ import {useDisplay} from "vuetify";
 import Service from "~/models/Service";
 import SvgIcon from "@jamescoyle/vue-icon";
 import Publication from "~/models/Publication";
+import Client from "~/models/Client";
 
 const props = defineProps({
   appBarHeight: {
@@ -146,6 +147,7 @@ const display = useDisplay()
 const {find} = useStrapi()
 const slideGroupHeight = ref(0)
 const slides = ref([])
+const clients = ref([])
 const group = ref([])
 const publications = ref([])
 
@@ -188,6 +190,17 @@ await find('main-page-carousels', {populate: 'src'})
                   item.attributes.image.data.attributes.url,
                   item.attributes.slug,
                   item.attributes.createdAt,
+              )
+            })
+          })
+    })
+    .then(async () => {
+      await find('clients', {populate: 'logo'})
+          .then((response) => {
+            clients.value = response.data.map((item) => {
+              return new Client(
+                  item.attributes.url,
+                  item.attributes.logo.data.attributes.url
               )
             })
           })

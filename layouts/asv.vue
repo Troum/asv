@@ -222,6 +222,7 @@ import Us from "~/components/icons/us.vue"
 import BreadcrumbsComponent from "~/components/BreadcrumbsComponent.vue";
 import Service from "~/models/Service";
 
+const {find} = useStrapi()
 const route = useRoute()
 const {$display, $listen} = useNuxtApp()
 const display = useDisplay()
@@ -267,29 +268,27 @@ const menu = ref([
     title: 'контакты'
   }
 ])
-const group = [
-  {
-    slides: [
-      new Service('/logo1.svg'),
-      new Service('/logo2.svg'),
-      new Service('/logo3.svg'),
-      new Service('/logo4.svg')
-    ]
-  },
-  {
-    slides: [
-      new Service('/logo4.svg'),
-      new Service('/logo3.svg'),
-      new Service('/logo2.svg'),
-      new Service('/logo1.svg')
-    ]
-  }
-]
+const group = []
 const isOpen = ref(false)
 
 $listen('set:component', () => {
   componentSet.value = true
 })
+await find('slides', {populate: 'logo'})
+    .then((response) => {
+      group.value = response.data.reduce((all,one,i) => {
+        const ch = Math.floor(i/4);
+        all[ch] = [].concat((all[ch]||[]),one);
+        return all
+      }, [])
+          .map((item) => {
+            return {
+              slides: item.map((item) => {
+                return new Service(item.attributes.logo.data.attributes.url)
+              })
+            }
+          })
+    })
 watch(width, (value) => {
   if (value > 0) {
     networksContainer.value['style'].gridTemplateRows = `${value}px repeat(2, 1fr)`

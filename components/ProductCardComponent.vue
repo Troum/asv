@@ -4,12 +4,12 @@
       :rounded="0"
       class="mx-auto"
   >
-    <v-img
+    <nuxt-img provider="strapi"
         style="min-height: 200px"
         class="align-end text-white"
         :src="product.avatar"
     >
-    </v-img>
+    </nuxt-img>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9">
       {{ product.subtitle }}
     </v-card-subtitle>
@@ -17,10 +17,9 @@
       {{ product.title }}
     </v-card-title>
     <v-card-title>
-      <nuxt-img style="min-width: 120px" :src="product.logo"></nuxt-img>
+      <nuxt-img provider="strapi" style="min-width: 120px" :src="product.logo"></nuxt-img>
     </v-card-title>
-    <v-card-text class="text-secondary-light">
-      {{ product.description }}
+    <v-card-text class="text-secondary-light" v-html="product.description">
     </v-card-text>
 
     <v-card-actions class="px-4">
@@ -37,9 +36,7 @@ import Product from "~/models/Product";
 defineProps({
   product: {
     type: Object,
-    default: () => {
-      return new Product()
-    }
+    default: new Product()
   }
 })
 </script>
