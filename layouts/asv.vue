@@ -243,6 +243,7 @@ const componentSet = ref(false)
 const socialNetworks = computed(() => {
   return commonStore.getNetworks
 })
+
 const isIndex = computed(() => {
   return route.name === 'index' || route.name === 'Index' || route.name === 'INDEX'
 })
@@ -274,21 +275,27 @@ const isOpen = ref(false)
 $listen('set:component', () => {
   componentSet.value = true
 })
-await find('slides', {populate: 'logo'})
-    .then((response) => {
-      group.value = response.data.reduce((all,one,i) => {
-        const ch = Math.floor(i/4);
-        all[ch] = [].concat((all[ch]||[]),one);
-        return all
-      }, [])
-          .map((item) => {
-            return {
-              slides: item.map((item) => {
-                return new Service(item.attributes.logo.data.attributes.url)
+
+watch(route, async (value) => {
+  if (value.name !== 'index') {
+    await find('slides', {populate: 'logo'})
+        .then((response) => {
+          group.value = response.data.reduce((all,one,i) => {
+            const ch = Math.floor(i/4);
+            all[ch] = [].concat((all[ch]||[]),one);
+            return all
+          }, [])
+              .map((item) => {
+                return {
+                  slides: item.map((item) => {
+                    return new Service(item.attributes.logo.data.attributes.url)
+                  })
+                }
               })
-            }
-          })
-    })
+        })
+  }
+}, {deep: true, immediate: true})
+
 watch(width, (value) => {
   if (value > 0) {
     networksContainer.value['style'].gridTemplateRows = `${value}px repeat(2, 1fr)`
