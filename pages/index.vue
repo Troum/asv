@@ -147,7 +147,7 @@ const props = defineProps({
   }
 })
 const {$event, $display} = useNuxtApp()
-$event('set:component', {})
+$event('set:component', null)
 
 const slideComponent = ref(null)
 const {height} = useElementSize(slideComponent)

@@ -44,7 +44,7 @@ const loadMore = () => {
     current.value += 3
   }
 }
-$event('set:component', {})
+$event('set:component', null)
 </script>
 
 <style lang="scss" scoped>

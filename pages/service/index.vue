@@ -21,7 +21,7 @@ defineProps({
 })
 const {$event} = useNuxtApp()
 
-$event('set:component', {})
+$event('set:component', null)
 </script>
 
 <style lang="scss" scoped>

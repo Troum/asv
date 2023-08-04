@@ -305,11 +305,7 @@ const clients = useClientsStore()
 const isOpen = ref(false)
 
 $listen('set:component', (object) => {
-  if (_.isEmpty(object)) {
-    componentSet.value = false
-  } else {
-    componentSet.value = true
-  }
+  componentSet.value = !(_.isNull(object) || _.isEmpty(object));
 })
 
 await find('main-page', {

@@ -70,7 +70,7 @@ const products = useProductsStore()
 
 const {$event} = useNuxtApp()
 
-$event('set:component', {})
+$event('set:component', null)
 
 const filteredProducts = computed(() => {
   return !_.isEmpty(filtered.value) ? filtered.value : products.list
