@@ -34,6 +34,8 @@ defineProps({
     default: 0
   }
 })
+const {$event} = useNuxtApp()
+
 const {find} = useStrapi()
 const current = ref(3)
 const publications = usePublicationsStore()
@@ -42,6 +44,7 @@ const loadMore = () => {
     current.value += 3
   }
 }
+$event('set:component', {})
 </script>
 
 <style lang="scss" scoped>
