@@ -1,18 +1,19 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
     <v-col cols="12" class="ma-0 pa-0 position-relative">
-      <carousel-component ref="slideComponent" :slides="slides" style="z-index: 4"/>
-      <slide-group-component :height="slideGroupHeight" :slides="services"
-                             class="position-absolute"
-                             :style="`z-index: 5; top: ${height - 20}px; left: 0; right: 0;`"/>
+      <client-only>
+        <carousel-component ref="slideComponent" :slides="mainPageCarousel.list" style="z-index: 4"/>
+        <slide-group-component :height="slideGroupHeight" :slides="services.list"
+                               class="position-absolute"
+                               :style="`z-index: 5; top: ${height - 20}px; left: 0; right: 0;`"/>
+      </client-only>
     </v-col>
-    <v-col cols="10" class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative"
+    <v-col cols="10" class="d-flex flex-column pa-0 mx-auto flex-row-gap-46 position-relative"
            :style="`margin-top: ${slideGroupHeight + 40}px;`">
       <h2 class="text-uppercase text-center font-size-48"><span class="text-info">о</span> компании</h2>
-      <div
-          :style="`background: url('/doctor.jpeg') top center no-repeat; background-size: cover; width: 100%; min-height: ${$display.height(display.height.value, 500)}px`">
-        <div class="d-flex flex-column justify-center align-start w-50 pa-10 text-white"
-             :style="`background-color: rgba(0, 0, 0, .8); height: ${$display.height(display.height.value, 500)}px; row-gap: ${$display.height(display.height.value, 40)}px`">
+      <div class="position-relative" :style="`max-height: 431px`">
+        <div class="d-flex flex-column justify-center align-start w-50 pa-10 text-white position-absolute fill-height"
+             :style="`background-color: rgba(0, 0, 0, .8); row-gap: ${$display.height(display.height.value, 40)}px`">
           <h3 class="text-uppercase font-weight-bold font-size-21">
             ТЕХНОЛОГИИ БУДУЩЕГО УЖЕ СЕГОДНЯ!
           </h3>
@@ -23,6 +24,8 @@
             Япония, США, Франция, Германия, Израиль, Испания и др.
           </article>
         </div>
+        <nuxt-img fit="cover" src="/doctor.jpeg"
+                  :style="`max-height: 100%; width: 100%; top: 0; bottom: 0`"></nuxt-img>
       </div>
       <div class="about font-size-16">
         <article class="text-center">
@@ -99,7 +102,7 @@
         </v-btn>
       </div>
       <div class="publications">
-        <template v-for="(publication, key) of publications" :key="key">
+        <template v-for="(publication, key) of publications.list" :key="key">
           <publication-card-component :publication="publication"/>
         </template>
       </div>
@@ -108,7 +111,7 @@
            :style="`margin-top: ${slideGroupHeight + 40}px; margin-bottom: ${slideGroupHeight + 40}px;`">
       <h2 class="text-uppercase text-center font-size-48"><span class="text-info">Клиенты</span> компании</h2>
       <div class="clients">
-        <template v-for="(client, key) of clients" :key="key">
+        <template v-for="(client, key) of clients.list" :key="key">
           <client-card-component :client="client"/>
         </template>
       </div>
@@ -126,33 +129,26 @@ import CarouselComponent from "~/components/CarouselComponent.vue";
 import SlideGroupComponent from "~/components/SlideGroupComponent.vue";
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
 import ClientCardComponent from "~/components/ClientCardComponent.vue";
-import Slide from "~/models/Slide";
 import {useElementSize} from "@vueuse/core";
 import {useDisplay} from "vuetify";
-import Service from "~/models/Service";
 import SvgIcon from "@jamescoyle/vue-icon";
-import Publication from "~/models/Publication";
-import Client from "~/models/Client";
+import {useCarouselStore} from "~/store/carousel";
+import {useServicesStore} from "~/store/services";
+import {usePublicationsStore} from "~/store/publications";
+import {useClientsStore} from "~/store/clients";
 
+definePageMeta({
+  breadcrumb: 'Главная'
+})
 const props = defineProps({
   appBarHeight: {
     type: Number,
     default: 0
-  },
-  services: {
-    type: Array,
-    default: []
-  },
-  publications: {
-    type: Array,
-    default: []
-  },
-  clients: {
-    type: Array,
-    default: []
   }
 })
-const {$display} = useNuxtApp()
+const {$event, $display} = useNuxtApp()
+$event('set:component', {})
+
 const slideComponent = ref(null)
 const {height} = useElementSize(slideComponent)
 const display = useDisplay()
@@ -160,18 +156,10 @@ const {find} = useStrapi()
 const slideGroupHeight = ref(0)
 const slides = ref([])
 
-await find('main-page-carousels', {populate: 'src'})
-    .then((response) => {
-      slides.value = response.data.map((item) => {
-        return new Slide(
-            item.attributes.title,
-            item.attributes.description,
-            item.attributes.link,
-            item.attributes.src.data.attributes.url,
-            item.attributes.background
-        )
-      })
-    })
+const mainPageCarousel = useCarouselStore()
+const services = useServicesStore()
+const publications = usePublicationsStore()
+const clients = useClientsStore()
 
 watch(height, (value) => {
   if (value > 0) {
@@ -179,9 +167,6 @@ watch(height, (value) => {
   }
 })
 
-definePageMeta({
-  breadcrumb: 'Главная'
-})
 </script>
 
 <style lang="scss" scoped>

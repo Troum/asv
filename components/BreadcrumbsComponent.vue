@@ -14,7 +14,7 @@
       <template v-if="component">
         <div class="component" :style="`grid-column-gap: ${$display.width(display.width.value, 220)}px`">
           <p v-html="component.content" class="text-white font-size-16 my-5"></p>
-          <v-img :src="component.logo"></v-img>
+          <nuxt-img :src="component.logo"></nuxt-img>
         </div>
       </template>
     </div>

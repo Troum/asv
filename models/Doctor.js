@@ -5,4 +5,7 @@ export default class Doctor {
         this.avatar = avatar
         this.description = description
     }
+    toJson () {
+        return {...this}
+    }
 }

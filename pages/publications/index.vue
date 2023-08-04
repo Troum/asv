@@ -1,7 +1,7 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
     <v-col cols="12" class="page-frames publications-page" :style="`margin-top: ${frameMargin}px`">
-      <template v-for="(publication, key) of publications.slice(0, current)" :key="key">
+      <template v-for="(publication, key) of publications.list.slice(0, current)" :key="key">
         <div class="publication">
           <publication-card-component :publication="publication"/>
         </div>
@@ -22,25 +22,23 @@
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
 import ChevronDown from "~/components/icons/chevronDown.vue";
 import {ref} from "vue"
+import {usePublicationsStore} from "~/store/publications";
+
 definePageMeta({
   breadcrumb: 'Все новости'
 })
 
-const props = defineProps({
+defineProps({
   frameMargin: {
     type: Number,
     default: 0
-  },
-  publications: {
-    type: Array,
-    default: []
   }
 })
 const {find} = useStrapi()
 const current = ref(3)
-
+const publications = usePublicationsStore()
 const loadMore = () => {
-  if (current.value < props.publications.length) {
+  if (current.value < publications.list.length) {
     current.value += 3
   }
 }

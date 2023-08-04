@@ -3,4 +3,7 @@ export default class Filter {
         this.value = value
         this.title = title
     }
+    toJson () {
+        return {...this}
+    }
 }

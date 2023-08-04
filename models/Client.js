@@ -3,4 +3,7 @@ export default class Client {
         this.url = url
         this.logo = logo
     }
+    toJson () {
+        return {...this}
+    }
 }

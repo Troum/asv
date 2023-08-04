@@ -9,4 +9,7 @@ export default class Product {
         this.type = type
         this.video = video
     }
+    toJson () {
+        return {...this}
+    }
 }

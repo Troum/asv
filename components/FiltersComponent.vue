@@ -15,15 +15,15 @@
 </template>
 
 <script setup>
-import {ref} from "vue"
 import {useDisplay} from "vuetify";
+
 defineProps({
   filters: {
     type: Array,
     default: []
   }
 })
-const selected = ref('all')
+
 const emit = defineEmits(['setFilter'])
 const {$display} = useNuxtApp()
 const display = useDisplay()

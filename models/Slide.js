@@ -7,4 +7,8 @@ export default class Slide {
         this.src = src
         this.background = background
     }
+
+    toJson () {
+        return {...this}
+    }
 }

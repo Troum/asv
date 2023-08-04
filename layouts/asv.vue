@@ -59,53 +59,66 @@
         </div>
       </div>
     </v-app-bar>
-    <template v-if="isIndex">
-      <div class="z-index-5 position-absolute menu-bar"
-           :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-        <v-btn @click="isOpen = !isOpen" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
-               style="opacity: 1; width: fit-content;">
-          <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
-                fill="white"/>
-          </svg>
-        </v-btn>
-        <v-fade-transition>
-          <div v-if="isOpen" class="d-flex justify-space-between align-center w-75 ml-10 mr-auto">
-            <template v-for="item of menu">
-              <NuxtLink :to="item.route"
-                        class="d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
-                {{ item.title }}
-              </NuxtLink>
-            </template>
-          </div>
-        </v-fade-transition>
-      </div>
-    </template>
-    <template v-else>
-      <v-img class="position-absolute breadcrumbs-bar"
-             src="/breadcrumbs-bg.png"
-             ref="image"
-             :cover="true"
-             :min-height="$display.height(display.height.value, 120)"
-             :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
-             :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${componentSet ? 60 : 0}px; padding-top: ${componentSet ? 60 : 0}px`">
-        <breadcrumbs-component/>
-      </v-img>
-    </template>
+    <client-only>
+      <template v-if="isIndex">
+        <div class="z-index-5 position-absolute menu-bar"
+             :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+          <v-btn @click="isOpen = !isOpen" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
+                 style="opacity: 1; width: fit-content;">
+            <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
+                  fill="white"/>
+            </svg>
+          </v-btn>
+          <v-fade-transition>
+            <div v-if="isOpen" class="d-flex justify-space-between align-center w-75 ml-10 mr-auto">
+              <template v-for="item of menu">
+                <NuxtLink :to="item.route"
+                          transition="fade"
+                          class="d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
+                  {{ item.title }}
+                </NuxtLink>
+              </template>
+            </div>
+          </v-fade-transition>
+        </div>
+      </template>
+      <template v-else>
+        <template v-if="componentSet">
+          <v-img class="position-absolute breadcrumbs-bar"
+                 src="/breadcrumbs-bg.png"
+                 ref="image"
+                 :cover="true"
+                 :min-height="120"
+                 :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
+                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${componentSet ? 60 : 0}px; padding-top: ${componentSet ? 60 : 0}px`">
+            <breadcrumbs-component/>
+          </v-img>
+        </template>
+        <template v-else>
+          <v-img class="position-absolute breadcrumbs-bar"
+                 src="/breadcrumbs-bg.png"
+                 ref="image"
+                 :cover="true"
+                 :max-height="120"
+                 :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
+                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${componentSet ? 60 : 0}px; padding-top: ${componentSet ? 60 : 0}px`">
+            <breadcrumbs-component/>
+          </v-img>
+        </template>
+      </template>
+    </client-only>
     <v-main class="d-flex flex-column align-center justify-center">
       <NuxtPage :appBarHeight="$display.navBar(display.height.value, 157)"
-                :services="services"
-                :products="products"
-                :filters="filters"
-                :publications="publications"
-                :clients="clients"
                 :frameMargin="marginTop"/>
     </v-main>
     <template v-if="!isIndex">
       <v-footer class="pa-0 mt-10"
                 :style="`width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-        <slide-group-component :isIndex="isIndex" :height="100" :slides="group"/>
+        <client-only>
+          <slide-group-component :isIndex="isIndex" :height="100"/>
+        </client-only>
       </v-footer>
     </template>
     <v-footer class="d-flex flex-column bg-primary py-15 px-0"
@@ -191,26 +204,28 @@
         </div>
       </div>
     </v-footer>
-    <v-footer class="d-flex flex-column bg-primary py-15 flex-row-gap-15"
-              :style="`padding-left: calc((255 * 100%) / 1920); padding-right: calc((255 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-      <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
-      <div class="d-flex justify-space-between flex-column-gap-60">
-        <small class="text-secondary-light">
-          © 2023 СООО «АСВ Трейд Сервис» Все права на эксклюзивные материалы сайта www.asv-trade.by (далее Сайт)
-          регулируются в соответствии с Законом РБ «Об авторском праве и смежных правах». Нарушение авторских прав в
-          отношении портала преследуется по закону. Любое копирование, перепечатка и распространение материалов Сайта
-          без
-          активной обратной ссылки запрещены.
-        </small>
-        <div class="d-flex justify-space-between align-start flex-column-gap-15">
-          <small class="text-secondary-light text-right">
-            Дизайн и
-            разработка:
+    <client-only>
+      <v-footer class="d-flex flex-column bg-primary py-15 flex-row-gap-15"
+                :style="`padding-left: calc((255 * 100%) / 1920); padding-right: calc((255 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+        <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
+        <div class="d-flex justify-space-between flex-column-gap-60">
+          <small class="text-secondary-light">
+            © 2023 СООО «АСВ Трейд Сервис» Все права на эксклюзивные материалы сайта www.asv-trade.by (далее Сайт)
+            регулируются в соответствии с Законом РБ «Об авторском праве и смежных правах». Нарушение авторских прав в
+            отношении портала преследуется по закону. Любое копирование, перепечатка и распространение материалов Сайта
+            без
+            активной обратной ссылки запрещены.
           </small>
-          <v-img src="/fcb.svg" width="150"></v-img>
+          <div class="d-flex justify-space-between align-start flex-column-gap-15">
+            <small class="text-secondary-light text-right">
+              Дизайн и
+              разработка:
+            </small>
+            <v-img src="/fcb.svg" width="150"></v-img>
+          </div>
         </div>
-      </div>
-    </v-footer>
+      </v-footer>
+    </client-only>
   </v-layout>
 </template>
 
@@ -229,8 +244,12 @@ import BreadcrumbsComponent from "~/components/BreadcrumbsComponent.vue";
 import Service from "~/models/Service";
 import Publication from "~/models/Publication";
 import Client from "~/models/Client";
-import Product from "~/models/Product";
-import Filter from "~/models/Filter";
+import {useServicesStore} from "~/store/services";
+import {usePublicationsStore} from "~/store/publications";
+import {useClientsStore} from "~/store/clients";
+import {useCarouselStore} from "~/store/carousel";
+import Slide from "~/models/Slide";
+import _ from "lodash"
 
 const {find} = useStrapi()
 const route = useRoute()
@@ -279,84 +298,77 @@ const menu = ref([
     title: 'контакты'
   }
 ])
-const services = ref([])
-const publications = ref([])
-const filters = ref([])
-const products = ref([])
-const clients = ref([])
+const mainPageCarousel = useCarouselStore()
+const services = useServicesStore()
+const publications = usePublicationsStore()
+const clients = useClientsStore()
 const isOpen = ref(false)
 
-$listen('set:component', () => {
-  componentSet.value = true
+$listen('set:component', (object) => {
+  if (_.isEmpty(object)) {
+    componentSet.value = false
+  } else {
+    componentSet.value = true
+  }
 })
 
-await find('slides', {populate: 'logo'})
+await find('main-page', {
+  populate:
+      {
+        carousels: {
+          populate: 'src'
+        },
+        clients: {
+          populate: 'logo'
+        },
+        publications: {
+          populate: 'image'
+        },
+        services: {
+          populate: 'logo'
+        },
+      }
+})
     .then((response) => {
-      services.value = response.data.reduce((all,one,i) => {
-        const ch = Math.floor(i/4);
-        all[ch] = [].concat((all[ch]||[]),one);
-        return all
-      }, [])
-          .map((item) => {
-            return {
-              slides: item.map((item) => {
-                return new Service(item.attributes.logo.data.attributes.url)
+      mainPageCarousel.addItems(
+          response.data.attributes.carousels.data.map((item) => {
+            return new Slide(
+                item.attributes.title,
+                item.attributes.description,
+                item.attributes.link,
+                item.attributes.src.data.attributes.url,
+                item.attributes.background
+            ).toJson()
+          })
+      )
+      publications.addItems(response.data.attributes.publications.data.map((item) => {
+        return new Publication(
+            item.attributes.title,
+            item.attributes.article,
+            item.attributes.image.data.attributes.url,
+            item.attributes.slug,
+            item.attributes.createdAt,
+        ).toJson()
+      }))
+      clients.addItems(response.data.attributes.clients.data.map((item) => {
+        return new Client(
+            item.attributes.url,
+            item.attributes.logo.data.attributes.url
+        ).toJson()
+      }))
+      services.addItems(response.data.attributes.services.data.reduce((all,one,i) => {
+            const ch = Math.floor(i/4);
+            all[ch] = [].concat((all[ch]||[]),one);
+            return all
+          }, [])
+              .map((item) => {
+                return {
+                  slides: item.map((item) => {
+                    return new Service(item.attributes.logo.data.attributes.url).toJson()
+                  })
+                }
               })
-            }
-          })
-    })
-    .then(async () => {
-      await find('publications', {populate: 'image'})
-          .then((response) => {
-            publications.value = response.data.map((item) => {
-              return new Publication(
-                  item.attributes.title,
-                  item.attributes.article,
-                  item.attributes.image.data.attributes.url,
-                  item.attributes.slug,
-                  item.attributes.createdAt,
-              )
-            })
-          })
-    })
-    .then(async () => {
-      await find('clients', {populate: 'logo'})
-          .then((response) => {
-            clients.value = response.data.map((item) => {
-              return new Client(
-                  item.attributes.url,
-                  item.attributes.logo.data.attributes.url
-              )
-            })
-          })
-    })
-    .then(async () => {
-      await find('products', {populate: ['avatar', 'video', 'logo']})
-          .then((response) => {
-            products.value = response.data.map((item) => {
-              return new Product(
-                  item.attributes.avatar.data.attributes.url,
-                  item.attributes.title,
-                  item.attributes.subtitle,
-                  item.attributes.description,
-                  item.attributes.logo.data.attributes.url,
-                  item.attributes.slug,
-                  item.attributes.type,
-                  item.attributes.video
-              )
-            })
-          })
-    })
-    .then(async () => {
-      await find('filters')
-          .then((response) => {
-            filters.value = response.data.map((item) => {
-              return new Filter(
-                  item.attributes.title,
-                  item.attributes.value
-              )
-            })
-          })
+      )
     })
 
 watch(width, (value) => {

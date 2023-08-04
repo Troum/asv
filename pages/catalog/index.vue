@@ -15,12 +15,12 @@
             style="opacity: 1"
             @click="noResults = false"
         >
-          <svg-icon size="14" type="mdi" :path="mdiClose" />
+          <svg-icon size="14" type="mdi" :path="mdiClose"/>
         </v-btn>
       </template>
     </v-snackbar>
     <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
-      <filters-component @set-filter="filterData" :filters="filters"/>
+      <filters-component @set-filter="filterData" :filters="filters.list"/>
     </v-col>
     <v-col cols="12" class="ma-0 position-relative d-grid products-list grid-column-gap-30 grid-row-gap-40 page-frames">
       <template v-for="product of filteredProducts.slice(0, current)">
@@ -31,7 +31,7 @@
       <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
         <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
           <span class="font-weight-bold">Загрузить еще</span>
-          <chevron-down />
+          <chevron-down/>
         </div>
       </v-btn>
     </v-col>
@@ -40,12 +40,14 @@
 
 <script setup>
 import _ from "lodash"
-import { ref } from "vue"
+import {ref} from "vue"
 import FiltersComponent from "~/components/FiltersComponent.vue";
 import ProductCardComponent from "~/components/ProductCardComponent.vue";
 import ChevronDown from "~/components/icons/chevronDown.vue";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiClose} from "@mdi/js";
+import {useFiltersStore} from "~/store/filters";
+import {useProductsStore} from "~/store/products";
 
 definePageMeta({
   breadcrumb: 'Каталог'
@@ -56,33 +58,34 @@ const props = defineProps({
     type: Number,
     default: 0
   },
-  products: {
-    type: Array,
-    default: []
-  },
-  filters: {
-    type: Array,
-    default: []
-  }
 })
 
-  const noResults = ref(false)
-  const current = ref(6)
-  const filtered = ref([])
-  const filteredProducts = computed(() => {
-    return !_.isEmpty(filtered.value) ? filtered.value : props.products
-  })
-  const filterData = (value) => {
-    if (!_.isEqual(value, 'all')) {
-      filtered.value = props.products.filter((item) => item.type === value)
-      noResults.value = _.isEmpty(filtered.value);
-    } else {
-      filtered.value = props.products
-    }
+
+const noResults = ref(false)
+const current = ref(6)
+const filtered = ref([])
+
+const filters = useFiltersStore()
+const products = useProductsStore()
+
+const {$event} = useNuxtApp()
+
+$event('set:component', {})
+
+const filteredProducts = computed(() => {
+  return !_.isEmpty(filtered.value) ? filtered.value : products.list
+})
+const filterData = (value) => {
+  if (!_.isEqual(value, 'all')) {
+    filtered.value = products.list.filter((item) => item.type === value)
+    noResults.value = _.isEmpty(filtered.value);
+  } else {
+    filtered.value = products.list
   }
-  const loadMore = () => {
-    current.value = props.products.length
-  }
+}
+const loadMore = () => {
+  current.value = products.list.length
+}
 </script>
 
 <style lang="scss" scoped>

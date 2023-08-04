@@ -10,4 +10,7 @@ export default class Publication {
         this.slug = slug
         this.createdAt = moment(createdAt).format('L H:m')
     }
+    toJson () {
+        return {...this}
+    }
 }
