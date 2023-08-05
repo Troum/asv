@@ -7,14 +7,16 @@
         </div>
       </template>
     </v-col>
-    <v-col cols="12" class="d-flex justify-center position-relative">
-      <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
-        <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
-          <span class="font-weight-bold">Загрузить еще</span>
-          <chevron-down />
-        </div>
-      </v-btn>
-    </v-col>
+    <template v-if="publications.list.length > 3">
+      <v-col cols="12" class="d-flex justify-center position-relative">
+        <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
+          <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
+            <span class="font-weight-bold">Загрузить еще</span>
+            <chevron-down />
+          </div>
+        </v-btn>
+      </v-col>
+    </template>
   </v-container>
 </template>
 
@@ -23,6 +25,7 @@ import PublicationCardComponent from "~/components/PublicationCardComponent.vue"
 import ChevronDown from "~/components/icons/chevronDown.vue";
 import {ref} from "vue"
 import {usePublicationsStore} from "~/store/publications";
+import {useCommonStore} from "~/store/common";
 
 definePageMeta({
   breadcrumb: 'Все новости'
@@ -39,12 +42,14 @@ const {$event} = useNuxtApp()
 const {find} = useStrapi()
 const current = ref(3)
 const publications = usePublicationsStore()
+const commonStore = useCommonStore()
 const loadMore = () => {
   if (current.value < publications.list.length) {
     current.value += 3
   }
 }
-$event('set:component', null)
+commonStore.setComponent(null)
+commonStore.setTitle(null)
 </script>
 
 <style lang="scss" scoped>

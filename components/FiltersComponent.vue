@@ -4,7 +4,6 @@
       <v-item v-slot="{ isSelected, toggle }">
         <v-btn @click="setFilter(toggle, filter.value)" elevation="0"
                :ripple="false"
-               :min-height="$display.height(display.height.value, 50)"
                :class="['py-3 px-4', {'bg-info': isSelected }, {'bg-secondary-light': !isSelected}]"
                :rounded="0">
           <span class="text-white font-weight-bold font-size-12">{{ filter.title }}</span>

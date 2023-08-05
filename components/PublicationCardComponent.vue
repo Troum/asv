@@ -6,7 +6,7 @@
           <v-card-title class="pl-4 text-left font-weight-bold text-white letter-spacing-1 font-size-21 title-line"
                         style="white-space: pre-wrap">{{ publication.title }}
           </v-card-title>
-          <article class="pl-4 font-size-16" v-html="publication.article">
+          <article class="pl-4 font-size-16 text-white" v-text="text">
           </article>
         </v-card-text>
         <div class="position-relative" style="height: 420px">
@@ -34,12 +34,16 @@
 
 <script setup>
 import Publication from "~/models/Publication";
+import {computed} from "vue";
 
-defineProps({
+const props = defineProps({
   publication: {
     type: Object,
     default: new Publication()
   }
+})
+const text = computed(() => {
+  return props.publication['article'].replace(/(<([^>]+)>)/gi, "")
 })
 </script>
 
@@ -57,6 +61,12 @@ defineProps({
     bottom: 15%;
     background: #00EAFC;
     content: '';
+  }
+}
+.always-white {
+  color: #fff;
+  & {
+    color: #fff !important;
   }
 }
 </style>

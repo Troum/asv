@@ -10,13 +10,13 @@
             <NuxtLink to="/publications" class="ml-4 text-decoration-none text-primary">Назад</NuxtLink>
           </v-btn>
         </v-card-title>
-        <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">Заголовок новости H1</v-card-title>
+        <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
         <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333">
-          подзаголовок новости h4 / 30.04.2023 - 19:30
+          {{ publication.subtitle }} / {{ publication.createdAt }}
         </v-card-subtitle>
         <v-card-text class="px-0">
-          <nuxt-img class="my-10" src="/poster.png"></nuxt-img>
-          <article v-html="publication"></article>
+          <nuxt-img provider="strapi" class="my-10" width="100%" :src="publication.image"></nuxt-img>
+          <article class="text-body-1 text-primary" v-html="publication.article"></article>
         </v-card-text>
       </v-card>
     </v-col>
@@ -27,18 +27,36 @@
 import {ref} from "vue"
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiChevronLeft} from "@mdi/js";
-const {$event} = useNuxtApp()
-
+import {useCommonStore} from "~/store/common";
+import {useRoute, useRouter} from "vue-router";
+import Publication from "~/models/Publication";
 defineProps({
   frameMargin: {
     type: Number,
     default: 0
   }
 })
+const route = useRoute()
+const router = useRouter()
+const {find} = useStrapi()
+const commonStore = useCommonStore()
+const publication = ref({})
 
-$event('set:title', 'Заголовок новости H1')
+await find(`publications/${route.params.slug}`, {populate: 'image'})
+    .then((response) => {
+      publication.value = new Publication(
+          response.data.id,
+          response.data.attributes.title,
+          response.data.attributes.subtitle,
+          response.data.attributes.article,
+          response.data.attributes.image.data.attributes.url,
+          response.data.attributes.slug,
+          response.data.attributes.createdAt
+      )
+    })
 
-const publication = ref('')
+commonStore.setComponent(null)
+commonStore.setTitle('Заголовок новости H1')
 
 </script>
 

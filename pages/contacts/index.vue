@@ -41,7 +41,9 @@
                 </div>
               </v-card-subtitle>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
-                <v-img src="/marker.svg" width="24"></v-img>
+                <client-only>
+                  <v-img src="/marker.svg" max-width="24"></v-img>
+                </client-only>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">наш адрес</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
@@ -67,6 +69,7 @@ import MapComponent from "~/components/MapComponent.vue";
 import Phone from "~/components/icons/phone.vue";
 import Envelop from "~/components/icons/envelop.vue";
 import {useElementSize} from "@vueuse/core";
+import {useCommonStore} from "~/store/common";
 
 defineProps({
   frameMargin: {
@@ -79,11 +82,14 @@ definePageMeta({
 })
 const map = ref(null)
 const { width, height } = useElementSize(map)
-const {$event} = useNuxtApp()
-$event('set:component', {
+const commonStore = useCommonStore()
+
+commonStore.setComponent({
   content: 'СООО «АСВ Трейд Сервис» – ведущий белорусский дистрибьютор профессионального медицинского оборудования. Наша компания занимается поставкой оборудования под известными марками, производители которого являются лидерами в своей области. Вся продукция соответствует самым высоким требованиям и произведена в таких странах, как Япония, США, Франция, Германия, Израиль, Испания и др.',
   logo: '/logo-w.svg'
 })
+commonStore.setTitle(null)
+
 </script>
 
 <style lang="scss" scoped>

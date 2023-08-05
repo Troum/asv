@@ -18,10 +18,22 @@ export const useCommonStore = defineStore({
                     icon: mdiYoutube,
                     href: 'https://youtube.com'
                 }
-            ]
+            ],
+            component: null,
+            title: null,
+        }
+    },
+    actions: {
+        setComponent(component: any) {
+            this.component = component
+        },
+        setTitle(title: any) {
+            this.title = title
         }
     },
     getters: {
         getNetworks: state => state.networks,
+        getComponent: state => state.component,
+        getTitle: state => state.title,
     }
 })

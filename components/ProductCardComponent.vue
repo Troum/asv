@@ -19,7 +19,7 @@
     <v-card-title>
       <nuxt-img provider="strapi" style="min-width: 120px" :src="product.logo"></nuxt-img>
     </v-card-title>
-    <v-card-text class="text-secondary-light" v-html="product.description">
+    <v-card-text class="text-secondary-light" v-html="truncated">
     </v-card-text>
 
     <v-card-actions class="px-4">
@@ -32,12 +32,17 @@
 
 <script setup>
 import Product from "~/models/Product";
+import truncate from "truncate-html";
+import {computed} from "vue";
 
-defineProps({
+const props = defineProps({
   product: {
     type: Object,
     default: new Product()
   }
+})
+const truncated = computed(() => {
+  return truncate(props.product['description'], 20, {byWords: true})
 })
 </script>
 

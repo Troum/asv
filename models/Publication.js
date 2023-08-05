@@ -1,14 +1,15 @@
 import moment from "moment";
 
 export default class Publication {
-    constructor (title, article, image, slug, createdAt) {
+    constructor (id, title, subtitle, article, image, slug, createdAt) {
         moment.locale('ru')
-        this.image = image
+        this.id = id
         this.title = title
+        this.subtitle = subtitle
         this.article = article
         this.image = image
         this.slug = slug
-        this.createdAt = moment(createdAt).format('L H:m')
+        this.createdAt = moment(createdAt).format('DD.MM.YYYY - H:m')
     }
     toJson () {
         return {...this}

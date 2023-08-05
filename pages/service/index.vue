@@ -6,8 +6,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue"
-import {usePublicationsStore} from "~/store/publications";
+import {useCommonStore} from "~/store/common";
 
 definePageMeta({
   breadcrumb: 'Все новости'
@@ -19,9 +18,9 @@ defineProps({
     default: 0
   }
 })
-const {$event} = useNuxtApp()
-
-$event('set:component', null)
+const commonStore = useCommonStore()
+commonStore.setComponent(null)
+commonStore.setTitle(null)
 </script>
 
 <style lang="scss" scoped>

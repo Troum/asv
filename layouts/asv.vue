@@ -85,14 +85,14 @@
         </div>
       </template>
       <template v-else>
-        <template v-if="componentSet">
+        <template v-if="commonStore.getComponent">
           <v-img class="position-absolute breadcrumbs-bar"
                  src="/breadcrumbs-bg.png"
                  ref="image"
                  :cover="true"
                  :min-height="120"
                  :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
-                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${componentSet ? 60 : 0}px; padding-top: ${componentSet ? 60 : 0}px`">
+                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${commonStore.getComponent ? 60 : 0}px; padding-top: ${commonStore.getComponent ? 60 : 0}px`">
             <breadcrumbs-component/>
           </v-img>
         </template>
@@ -103,7 +103,7 @@
                  :cover="true"
                  :max-height="120"
                  :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
-                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${componentSet ? 60 : 0}px; padding-top: ${componentSet ? 60 : 0}px`">
+                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${commonStore.getComponent ? 60 : 0}px; padding-top: ${commonStore.getComponent ? 60 : 0}px`">
             <breadcrumbs-component/>
           </v-img>
         </template>
@@ -172,36 +172,43 @@
             </NuxtLink>
           </template>
         </div>
-        <div class="feedback-container">
+        <v-form @submit.prevent="onSubmit" class="feedback-container">
           <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-            <v-text-field label="Имя" type-text hide-details variant="outlined" density="compact"
+            <v-text-field label="Имя" type="text" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required]"
+                          v-model="feedback.name"
                           :rounded="0"
                           class="w-50"></v-text-field>
             <v-text-field label="Компания" type="text" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required]"
+                          v-model="feedback.company"
                           :rounded="0"
                           class="w-50"></v-text-field>
           </div>
           <div class="d-flex justify-space-between flex-column-gap-22 w-100">
             <v-text-field label="Телефон" type="text" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required]"
+                          v-model="feedback.phone"
                           :rounded="0"
                           class="w-50"></v-text-field>
             <v-text-field label="E-mail" type="email" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required, rules.email]"
+                          v-model="feedback.email"
                           :rounded="0"
                           class="w-50"></v-text-field>
           </div>
           <div class="d-flex w-100">
-            <v-textarea label="Сообщение" :rounded="0" hide-details variant="outlined" class="w-100"></v-textarea>
+            <v-textarea :rules="[rules.required]" v-model="feedback.feedback" label="Сообщение" :rounded="0" hide-details variant="outlined" class="w-100"></v-textarea>
           </div>
           <div class="d-flex justify-space-between flex-column-gap-22 w-100">
             <small class="text-secondary-light">
-              <sup>*</sup> Ваши данные не будут переданы третьим лицам. Мы гарантируем конфиденциальность и защищаем
-              персональные данные.
+              <sup>*</sup> {{ message }}
             </small>
-            <v-btn variant="outlined" class="rounded-0">
+            <v-btn type="submit" variant="outlined" class="rounded-0">
               отправить
             </v-btn>
           </div>
-        </div>
+        </v-form>
       </div>
     </v-footer>
     <client-only>
@@ -249,11 +256,10 @@ import {usePublicationsStore} from "~/store/publications";
 import {useClientsStore} from "~/store/clients";
 import {useCarouselStore} from "~/store/carousel";
 import Slide from "~/models/Slide";
-import _ from "lodash"
 
-const {find} = useStrapi()
+const {find, create} = useStrapi()
 const route = useRoute()
-const {$display, $listen} = useNuxtApp()
+const {$display} = useNuxtApp()
 const display = useDisplay()
 const commonStore = useCommonStore()
 const slogan = ref(null)
@@ -268,10 +274,10 @@ const {height} = useElementSize(networksContainer)
 const phonesContainerSize = useElementSize(phonesContainer)
 const breadcrumbsContainerSize = useElementSize(image)
 const marginTop = ref(0)
-const componentSet = ref(false)
 const socialNetworks = computed(() => {
   return commonStore.getNetworks
 })
+const message = ref('Ваши данные не будут переданы третьим лицам. Мы гарантируем конфиденциальность и защищаем персональные данные.')
 
 const isIndex = computed(() => {
   return route.name === 'index' || route.name === 'Index' || route.name === 'INDEX'
@@ -303,11 +309,29 @@ const services = useServicesStore()
 const publications = usePublicationsStore()
 const clients = useClientsStore()
 const isOpen = ref(false)
-
-$listen('set:component', (object) => {
-  componentSet.value = !(_.isNull(object) || _.isEmpty(object));
+const feedback = ref({
+  name: null,
+  company: null,
+  phone: null,
+  email: null,
+  feedback: null,
 })
-
+const rules = ref({
+  required: value => !!value || 'Поле обязательно к заполнению',
+  email: value => {
+    const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return pattern.test(value) || 'Поле должно быть валидным e-mail.'
+  },
+})
+const onSubmit = async () => {
+  await create('create-feedback', feedback.value)
+      .then(() => {
+        message.value = 'Ваше сообщение успешно отправлено'
+        setTimeout(() => {
+          message.value = 'Ваши данные не будут переданы третьим лицам. Мы гарантируем конфиденциальность и защищаем персональные данные.'
+        }, 5000)
+      })
+}
 await find('main-page', {
   populate:
       {
@@ -339,7 +363,9 @@ await find('main-page', {
       )
       publications.addItems(response.data.attributes.publications.data.map((item) => {
         return new Publication(
+            item.id,
             item.attributes.title,
+            item.attributes.subtitle,
             item.attributes.article,
             item.attributes.image.data.attributes.url,
             item.attributes.slug,
@@ -389,12 +415,11 @@ watch(phonesContainerSize.height, (value) => {
 
 watch(breadcrumbsContainerSize.height, (value) => {
   if (value > 0) {
-    if (componentSet.value) {
+    if (commonStore.getComponent) {
       marginTop.value = value + 120
     } else {
-      marginTop.value = value
+      marginTop.value = 150
     }
-
   }
 }, {immediate: true})
 </script>

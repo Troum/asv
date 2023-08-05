@@ -1,20 +1,18 @@
 <template>
   <div class="d-flex flex-column justify-center align-start w-full fill-height px-0">
     <div class="px-0">
-      <client-only>
-        <template v-for="breadcrumb of breadcrumbs">
-          <NuxtLink
-              class="text-white font-weight-bold breadcrumb"
-              :to="breadcrumb.link"
-          >
-            {{ breadcrumb.label }}
-          </NuxtLink>
-        </template>
-      </client-only>
-      <template v-if="component">
+      <template v-for="breadcrumb of breadcrumbs">
+        <NuxtLink
+            class="text-white font-weight-bold breadcrumb"
+            :to="breadcrumb.link"
+        >
+          {{ breadcrumb.label }}
+        </NuxtLink>
+      </template>
+      <template v-if="contactComponent">
         <div class="component" :style="`grid-column-gap: ${$display.width(display.width.value, 220)}px`">
-          <p v-html="component.content" class="text-white font-size-16 my-5"></p>
-          <v-img :src="component.logo"></v-img>
+          <p v-html="contactComponent.content" class="text-white font-size-16 my-5"></p>
+          <v-img width="200" :src="contactComponent.logo"></v-img>
         </div>
       </template>
     </div>
@@ -23,13 +21,14 @@
 
 <script setup>
 import _ from "lodash";
-import {computed, ref} from "vue"
+import {computed, watch, ref} from "vue"
 import {useBreadcrumbsStore} from "~/store/breadcrumbs";
 import {useRoute} from "vue-router";
 import {useDisplay} from "vuetify";
-const component = ref(null)
+import {useCommonStore} from "~/store/common";
+const commonStore = useCommonStore()
 const route = useRoute()
-const {$listen, $display} = useNuxtApp()
+const {$display} = useNuxtApp()
 const display = useDisplay()
 const {$breadcrumbs} = useNuxtApp()
 const breadcrumbsStore = useBreadcrumbsStore()
@@ -39,7 +38,6 @@ if (!_.isUndefined($breadcrumbs)) {
     breadcrumbsStore.addBreadcrumbToBreadcrumbs($breadcrumbs.value)
   }
 }
-
 const breadcrumbs = computed(() => {
   if (!_.isUndefined($breadcrumbs)) {
     return $breadcrumbs.value.length ? $breadcrumbs.value : breadcrumbsStore.list
@@ -47,21 +45,26 @@ const breadcrumbs = computed(() => {
   return breadcrumbsStore.list
 })
 
-$listen('set:title', (title) => {
-  if (!_.find(breadcrumbs.value, {label: title})) {
-    breadcrumbs.value.push({
-      current: true,
-      label: title,
-      link: route.path,
-      _path: route.path
-    })
+const contactComponent = computed(() => {
+  return commonStore.getComponent
+})
+
+const title = computed(() => {
+  return commonStore.getTitle
+})
+
+watch(title, (value) => {
+  if (value) {
+    if (!_.find(breadcrumbs.value, {label: value})) {
+      breadcrumbs.value.push({
+        current: true,
+        label: value,
+        link: route.path,
+        _path: route.path
+      })
+    }
   }
-})
-
-$listen('set:component', (object) => {
-  component.value = object
-})
-
+}, {immediate: true})
 </script>
 
 <style lang="scss" scoped>
