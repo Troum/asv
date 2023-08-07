@@ -9,14 +9,14 @@
         <div v-bind="props" class="d-flex align-center justify-center position-relative">
           <nuxt-img
               provider="strapi"
-              style="max-height: 600px"
+              :style="`max-height: ${display.lgAndDown ? 400 : 600}px`"
               class="align-end text-white"
               :src="certificate.image"
           >
           </nuxt-img>
           <v-fade-transition>
             <template v-if="isHovering">
-              <v-btn style="height: fit-content; width: fit-content; bottom: 60%; opacity: 1"
+              <v-btn :style="`height: fit-content; width: fit-content; bottom: ${display.lgAndDown ? 40 : 60}%; opacity: 1`"
                      class="position-absolute"
                      variant="plain" :ripple="false">
                 <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
               </v-btn>
             </template>
             <template v-else>
-              <v-btn style="height: fit-content; width: fit-content; bottom: 40%; opacity: 1"
+              <v-btn :style="`height: fit-content; width: fit-content; bottom: ${display.lgAndDown ? 15 : 40}%; opacity: 1`"
                      class="position-absolute"
                      variant="plain" :ripple="false">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,6 +45,8 @@
 </template>
 
 <script setup>
+import {useDisplay} from "vuetify";
+
 defineProps({
   certificate: {
     type: Object,
@@ -55,6 +57,7 @@ defineProps({
     }
   }
 })
+const display = useDisplay()
 </script>
 
 <style scoped>

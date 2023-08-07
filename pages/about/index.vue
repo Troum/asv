@@ -4,7 +4,7 @@
            :style="`margin-top: ${frameMargin}px`">
       <v-card flat style="padding-top: 60px; padding-bottom: 60px">
         <v-card-title tag="h1" class="text-uppercase font-size-36 px-0 text-pre-wrap">
-          {{  page.title }}
+          {{ page.title }}
         </v-card-title>
         <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0 text-pre-wrap mt-5" style="color: #333">
           {{ page.subtitle }}
@@ -14,11 +14,13 @@
           <article v-html="page.description"></article>
         </v-card-text>
         <v-card-subtitle tag="h4"
-                         class="text-uppercase font-size-18 font-weight-bold px-0 text-pre-wrap mt-5" style="color: #000;opacity: 1">
+                         class="text-uppercase font-size-18 font-weight-bold px-0 text-pre-wrap mt-5"
+                         style="color: #000;opacity: 1">
           сертификаты компании
         </v-card-subtitle>
         <v-card-subtitle tag="h4"
-                         class="text-uppercase font-size-18 font-weight-regular px-0 text-pre-wrap mt-5" style="color: #000; opacity: 1">
+                         class="text-uppercase font-size-18 font-weight-regular px-0 text-pre-wrap mt-5"
+                         style="color: #000; opacity: 1">
           качество продукции, сервиса и услуг нашей компании подтверждается сертификатами
         </v-card-subtitle>
         <v-card-text>
@@ -31,7 +33,8 @@
               :dragging-distance="70">
             <template #arrow-left>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="27" viewBox="0 0 13 27" fill="none">
-                <path d="M11 2L1 13.5L11 25" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                <path d="M11 2L1 13.5L11 25" stroke="black" stroke-width="2" stroke-linecap="square"
+                      stroke-linejoin="round"/>
               </svg>
             </template>
             <vueper-slide v-for="(certificate, index) of certificates" :key="index">
@@ -41,30 +44,34 @@
             </vueper-slide>
             <template #arrow-right>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="27" viewBox="0 0 13 27" fill="none">
-                <path d="M2 25L12 13.5L2 2" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                <path d="M2 25L12 13.5L2 2" stroke="black" stroke-width="2" stroke-linecap="square"
+                      stroke-linejoin="round"/>
               </svg>
             </template>
           </vueper-slides>
         </v-card-text>
         <v-card-subtitle tag="h4"
-                         class="text-uppercase font-size-18 font-weight-bold px-0 text-pre-wrap mt-5" style="color: #000;opacity: 1">
-          клинические тренеры нашей компании
+                         class="text-uppercase font-size-18 font-weight-bold px-0 text-pre-wrap mt-5"
+                         style="color: #000;opacity: 1">клинические тренеры нашей компании
         </v-card-subtitle>
         <v-card-subtitle tag="h4"
-                         class="text-uppercase font-size-18 font-weight-regular px-0 text-pre-wrap mt-5" style="color: #000; opacity: 1">
-          компания “АСВ трейдинг” располагает большим количествам ведущих специалистов для обучения работе с нашим оборудованием
+                         class="text-uppercase font-size-18 font-weight-regular px-0 text-pre-wrap mt-5"
+                         style="color: #000; opacity: 1">компания “АСВ трейдинг” располагает большим количествам ведущих
+          специалистов для обучения работе с нашим оборудованием
         </v-card-subtitle>
         <v-card-text>
           <vueper-slides
               class="no-shadow"
-              fixed-height="675px"
+              fixed-height="750px"
               :visible-slides="3"
               :slide-ratio="1 / 4"
               :arrows-outside="true"
+              :gap="8"
               :dragging-distance="70">
             <template #arrow-left>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="27" viewBox="0 0 13 27" fill="none">
-                <path d="M11 2L1 13.5L11 25" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                <path d="M11 2L1 13.5L11 25" stroke="black" stroke-width="2" stroke-linecap="square"
+                      stroke-linejoin="round"/>
               </svg>
             </template>
             <vueper-slide v-for="(doctor, index) of doctors" :key="index">
@@ -74,7 +81,8 @@
             </vueper-slide>
             <template #arrow-right>
               <svg xmlns="http://www.w3.org/2000/svg" width="13" height="27" viewBox="0 0 13 27" fill="none">
-                <path d="M2 25L12 13.5L2 2" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                <path d="M2 25L12 13.5L2 2" stroke="black" stroke-width="2" stroke-linecap="square"
+                      stroke-linejoin="round"/>
               </svg>
             </template>
           </vueper-slides>
@@ -92,6 +100,7 @@ import DoctorCardComponent from "~/components/DoctorCardComponent.vue";
 import CertificateCardComponent from "~/components/CertificateCardComponent.vue";
 import {ref} from "vue"
 import Doctor from "~/models/Doctor";
+
 defineProps({
   frameMargin: {
     type: Number,
@@ -106,13 +115,14 @@ const doctors = ref([])
 const certificates = ref([])
 const {find} = useStrapi()
 const commonStore = useCommonStore()
-await find('about', {populate: {
+await find('about', {
+  populate: {
     image: {
       fields: ['url']
     },
     doctors: {populate: 'avatar'},
     certificates: {populate: 'image'},
-    }
+  }
 })
     .then((response) => {
       page.value = {

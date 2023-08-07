@@ -44,7 +44,7 @@
     <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9">
       {{ doctor.position }}
     </v-card-subtitle>
-    <v-card-title class="font-size-18 font-weight-bold text-uppercase">
+    <v-card-title class="font-size-18 font-weight-bold text-uppercase" style="white-space: pre-wrap">
       {{ doctor.name }}
     </v-card-title>
     <v-card-text class="text-secondary-light" v-html="doctor.description">
