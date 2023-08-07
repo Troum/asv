@@ -5,9 +5,9 @@
       class="mx-auto"
   >
     <nuxt-img provider="strapi"
-        style="min-height: 200px"
-        class="align-end text-white"
-        :src="product.avatar"
+              style="min-height: 200px"
+              class="align-end text-white"
+              :src="product.avatar"
     >
     </nuxt-img>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9">
@@ -23,9 +23,13 @@
     </v-card-text>
 
     <v-card-actions class="px-4">
-      <v-btn :to="`/catalog/${product.slug}`" :height="50" elevation="0" :rounded="0" class="bg-info py-3 px-8">
-        <span class="text-white">Подробнее</span>
-      </v-btn>
+      <v-hover v-slot:default="{ isHovering, props }">
+        <v-btn v-bind="props" :to="`/catalog/${product.slug}`" :height="50" elevation="0" :rounded="0"
+               :class="['bg-primary py-3 px-8', { 'bg-info': isHovering }]">
+          <span class="text-white">Подробнее</span>
+        </v-btn>
+      </v-hover>
+
     </v-card-actions>
   </v-card>
 </template>

@@ -42,14 +42,14 @@ const {find} = useStrapi()
 const commonStore = useCommonStore()
 const publication = ref({})
 
-await find(`publications/${route.params.slug}`, {populate: 'image'})
+await find(`publications/${route.params.slug}`, {populate: 'detailImage'})
     .then((response) => {
       publication.value = new Publication(
           response.data.id,
           response.data.attributes.title,
           response.data.attributes.subtitle,
           response.data.attributes.article,
-          response.data.attributes.image.data.attributes.url,
+          response.data.attributes['detailImage'].data.attributes.url,
           response.data.attributes.slug,
           response.data.attributes.createdAt
       )
