@@ -53,10 +53,10 @@ await find(`publications/${route.params.slug}`, {populate: 'detailImage'})
           response.data.attributes.slug,
           response.data.attributes.createdAt
       )
+      commonStore.setTitle(publication.value['title'])
     })
 
 commonStore.setComponent(null)
-commonStore.setTitle('Заголовок новости H1')
 
 </script>
 
