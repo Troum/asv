@@ -35,7 +35,7 @@
 <script setup>
 import Publication from "~/models/Publication";
 import {computed} from "vue";
-
+import truncate from "truncate-html";
 const props = defineProps({
   publication: {
     type: Object,
@@ -43,7 +43,7 @@ const props = defineProps({
   }
 })
 const text = computed(() => {
-  return props.publication['article'].replace(/(<([^>]+)>)/gi, "")
+  return truncate(props.publication['article'].replace(/(<([^>]+)>)/gi, ""), 20, {byWords: true})
 })
 </script>
 
