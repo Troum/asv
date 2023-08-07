@@ -256,6 +256,10 @@ import {usePublicationsStore} from "~/store/publications";
 import {useClientsStore} from "~/store/clients";
 import {useCarouselStore} from "~/store/carousel";
 import Slide from "~/models/Slide";
+import Product from "~/models/Product";
+import Filter from "~/models/Filter";
+import {useProductsStore} from "~/store/products";
+import {useFiltersStore} from "~/store/filters";
 
 const {find, create} = useStrapi()
 const route = useRoute()
@@ -308,6 +312,8 @@ const mainPageCarousel = useCarouselStore()
 const services = useServicesStore()
 const publications = usePublicationsStore()
 const clients = useClientsStore()
+const products = useProductsStore()
+const filters = useFiltersStore()
 const isOpen = ref(false)
 const feedback = ref({
   name: null,
@@ -391,6 +397,42 @@ await find('main-page', {
                 }
               })
       )
+    })
+    .then(async () => {
+      await find('catalog', {
+        populate:
+            {
+              products: {
+                populate: ['logo', 'video', 'avatar']
+              },
+              filters: {
+                fields: ['title', 'value']
+              }
+            }
+      })
+          .then((response) => {
+            products.addItems(
+                response.data.attributes.products.data.map((item) => {
+                  return new Product(
+                      item.id,
+                      item.attributes.avatar.data.attributes.url,
+                      item.attributes.title,
+                      item.attributes.subtitle,
+                      item.attributes.description,
+                      item.attributes.logo.data.attributes.url,
+                      item.attributes.slug,
+                      item.attributes.type,
+                      item.attributes.logo.data.attributes.video
+                  ).toJson()
+                })
+            )
+            filters.addItems(response.data.attributes.filters.data.map((item) => {
+              return new Filter(
+                  item.attributes.value,
+                  item.attributes.title
+              ).toJson()
+            }))
+          })
     })
 
 watch(width, (value) => {

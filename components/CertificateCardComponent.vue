@@ -9,14 +9,14 @@
         <div v-bind="props" class="d-flex align-center justify-center position-relative">
           <nuxt-img
               provider="strapi"
-              style="min-height: 200px"
+              style="max-height: 600px"
               class="align-end text-white"
-              :src="doctor.avatar"
+              :src="certificate.image"
           >
           </nuxt-img>
           <v-fade-transition>
             <template v-if="isHovering">
-              <v-btn style="height: fit-content; width: fit-content; bottom: 40%; opacity: 1"
+              <v-btn style="height: fit-content; width: fit-content; bottom: 60%; opacity: 1"
                      class="position-absolute"
                      variant="plain" :ripple="false">
                 <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,7 @@
               </v-btn>
             </template>
             <template v-else>
-              <v-btn style="height: fit-content; width: fit-content; bottom: 5%; opacity: 1"
+              <v-btn style="height: fit-content; width: fit-content; bottom: 40%; opacity: 1"
                      class="position-absolute"
                      variant="plain" :ripple="false">
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,35 +41,17 @@
         </div>
       </template>
     </v-hover>
-    <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9">
-      {{ doctor.position }}
-    </v-card-subtitle>
-    <v-card-title class="font-size-18 font-weight-bold text-uppercase">
-      {{ doctor.name }}
-    </v-card-title>
-    <v-card-text class="text-secondary-light" v-html="doctor.description">
-    </v-card-text>
-
-      <v-card-actions class="px-4">
-        <v-hover v-slot:default="{isHovering, props}">
-        <v-btn v-bind="props" :height="50" elevation="0" :rounded="0" :class="['bg-primary py-3 px-8', {'bg-info': isHovering}]">
-          <span class="text-white">Подробнее</span>
-        </v-btn>
-        </v-hover>
-      </v-card-actions>
-
-
   </v-card>
 </template>
 
 <script setup>
-import Doctor from "~/models/Doctor";
-
 defineProps({
-  doctor: {
+  certificate: {
     type: Object,
     default: () => {
-      return new Doctor()
+      return {
+        image: ''
+      }
     }
   }
 })

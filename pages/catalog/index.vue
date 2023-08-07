@@ -1,24 +1,5 @@
 <template>
   <v-container :fluid="true" class="mx-0 pa-0">
-    <v-snackbar color="info-darken" :rounded="0" v-model="noResults" location="top"
-                :timeout="5000">
-      <template v-slot:default>
-        <div class="d-flex justify-center">
-          Для данного фильтра нет результатов
-        </div>
-      </template>
-      <template v-slot:actions>
-        <v-btn
-            icon
-            color="#fff"
-            variant="plain"
-            style="opacity: 1"
-            @click="noResults = false"
-        >
-          <svg-icon size="14" type="mdi" :path="mdiClose"/>
-        </v-btn>
-      </template>
-    </v-snackbar>
     <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
       <template v-if="filters.list.length">
         <v-row class="ma-0 pa-0">
@@ -34,21 +15,28 @@
               <product-card-component :product="product"/>
             </template>
           </v-col>
+          <template v-if="products.list.length > 6">
+            <v-col cols="12" class="d-flex justify-center position-relative">
+              <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
+                <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
+                  <span class="font-weight-bold">Загрузить еще</span>
+                  <chevron-down />
+                </div>
+              </v-btn>
+            </v-col>
+          </template>
         </v-row>
       </template>
     </v-col>
   </v-container>
 </template>
 <script setup>
-import Product from "~/models/Product";
-import Filter from "~/models/Filter";
 import {useProductsStore} from "~/store/products";
 import {useFiltersStore} from "~/store/filters";
 import {ref} from "vue";
 import _ from "lodash";
 import {useCommonStore} from "~/store/common";
-import {mdiClose} from "@mdi/js";
-import SvgIcon from "@jamescoyle/vue-icon";
+import ChevronDown from "~/components/icons/chevronDown.vue";
 
 definePageMeta({
   breadcrumb: 'Каталог'
@@ -62,46 +50,13 @@ defineProps({
 const commonStore = useCommonStore()
 const products = useProductsStore()
 const filters = useFiltersStore()
-const {find} = useStrapi()
-const noResults = ref(false)
+
 const current = ref(6)
 const filtered = ref([])
+const loading = ref(true)
+
 commonStore.setComponent(null)
 commonStore.setTitle(null)
-await find('catalog', {
-  populate:
-      {
-        products: {
-          populate: ['logo', 'video', 'avatar']
-        },
-        filters: {
-          fields: ['title', 'value']
-        }
-      }
-})
-    .then((response) => {
-      products.addItems(
-          response.data.attributes.products.data.map((item) => {
-            return new Product(
-                item.id,
-                item.attributes.avatar.data.attributes.url,
-                item.attributes.title,
-                item.attributes.subtitle,
-                item.attributes.description,
-                item.attributes.logo.data.attributes.url,
-                item.attributes.slug,
-                item.attributes.type,
-                item.attributes.logo.data.attributes.video
-            ).toJson()
-          })
-      )
-      filters.addItems(response.data.attributes.filters.data.map((item) => {
-        return new Filter(
-            item.attributes.value,
-            item.attributes.title
-        ).toJson()
-      }))
-    })
 
 const filteredProducts = computed(() => {
   return !_.isEmpty(filtered?.value) ? filtered?.value : products.list
