@@ -41,9 +41,7 @@
                 </div>
               </v-card-subtitle>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
-                <client-only>
-                  <v-img src="/marker.svg" max-width="24"></v-img>
-                </client-only>
+                <place />
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">наш адрес</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
@@ -70,6 +68,7 @@ import Phone from "~/components/icons/phone.vue";
 import Envelop from "~/components/icons/envelop.vue";
 import {useElementSize} from "@vueuse/core";
 import {useCommonStore} from "~/store/common";
+import Place from "~/components/icons/place.vue";
 
 defineProps({
   frameMargin: {
