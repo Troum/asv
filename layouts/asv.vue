@@ -351,7 +351,7 @@ await find('main-page', {
           populate: 'image'
         },
         services: {
-          populate: 'logo'
+          populate: ['logo', 'whiteLogo']
         },
       }
 })
@@ -392,7 +392,15 @@ await find('main-page', {
               .map((item) => {
                 return {
                   slides: item.map((item) => {
-                    return new Service(item.attributes.logo.data.attributes.url).toJson()
+
+                    return new Service(
+                        item.id,
+                        item.attributes.logo.data.attributes.url,
+                        item.attributes.name,
+                        item.attributes.slug,
+                        item.attributes.description,
+                        item.attributes.whiteLogo.data.attributes.url,
+                    ).toJson()
                   })
                 }
               })

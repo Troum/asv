@@ -53,7 +53,6 @@ const filters = useFiltersStore()
 
 const current = ref(6)
 const filtered = ref([])
-const loading = ref(true)
 
 commonStore.setComponent(null)
 commonStore.setTitle(null)
@@ -64,7 +63,6 @@ const filteredProducts = computed(() => {
 const filterData = (value) => {
   if (!_.isEqual(value, 'all')) {
     filtered.value = products.list.filter((item) => item.type === value)
-    noResults.value = _.isEmpty(filtered.value);
   } else {
     filtered.value = products.list
   }

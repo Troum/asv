@@ -32,6 +32,9 @@
           <v-hover>
             <template v-slot:default="{ isHovering, props }">
               <v-card :tile="true" :flat="true"
+                      :ripple="false"
+                      :hover="false"
+                      :to="`/service/${item.slug}`"
                       v-bind="props"
                       width="25%"
                       :height="isIndex ? '80%' : '100%'"
@@ -98,6 +101,9 @@ const current = ref(0)
 
     & .line {
       background-color: #00EAFC;
+    }
+    & > .v-card__overlay {
+      opacity: 0 !important;
     }
   }
 }

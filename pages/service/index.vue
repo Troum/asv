@@ -9,7 +9,7 @@
 import {useCommonStore} from "~/store/common";
 
 definePageMeta({
-  breadcrumb: 'Все новости'
+  breadcrumb: 'Все сервисы'
 })
 
 defineProps({

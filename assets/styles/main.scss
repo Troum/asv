@@ -84,3 +84,7 @@ article {
     height: #{$i * 1%};
   }
 }
+
+.v-card__overlay {
+  opacity: 0 !important;
+}

@@ -54,7 +54,7 @@
             <div class="d-flex flex-column fill-height justify-center align-start"
                  style="row-gap: 40px">
               <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-              <p v-html="slide.description"></p>
+              <p class="text-white">{{ slide.description }}</p>
               <template v-if="slide.link">
                 <v-btn rounded="0" :ripple="false" variant="outlined" class="more_info__button">Подробнее</v-btn>
               </template>

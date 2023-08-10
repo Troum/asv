@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia'
 import {mdiFacebook, mdiInstagram, mdiYoutube} from "@mdi/js";
 
+interface ServiceFilter {
+    value: string;
+    title: string;
+}
 export const useCommonStore = defineStore({
     id: 'common-store',
     state: () => {
@@ -21,6 +25,7 @@ export const useCommonStore = defineStore({
             ],
             component: null,
             title: null,
+            serviceFilter: {}
         }
     },
     actions: {
@@ -29,11 +34,15 @@ export const useCommonStore = defineStore({
         },
         setTitle(title: any) {
             this.title = title
+        },
+        setServiceFilter(value: ServiceFilter) {
+            this.serviceFilter = value
         }
     },
     getters: {
         getNetworks: state => state.networks,
         getComponent: state => state.component,
         getTitle: state => state.title,
+        getServiceFilter: state => state.serviceFilter,
     }
 })

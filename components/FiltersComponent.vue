@@ -1,5 +1,15 @@
 <template>
   <v-item-group class="d-flex flex-wrap flex-column-gap-20 flex-row-gap-20">
+    <template v-if="!_.isEmpty(serviceFilter)">
+      <v-item>
+        <v-btn :ripple="false"
+               class="py-3 px-4 bg-info"
+               :rounded="0">
+          <span class="text-white font-weight-bold font-size-12 mr-2">{{ serviceFilter.title }}</span>
+          <svg-icon size="14" type="mdi" :path="mdiClose" color="#fff">mdi-close</svg-icon>
+        </v-btn>
+      </v-item>
+    </template>
     <template v-for="filter of filters">
       <v-item v-slot="{ isSelected, toggle }">
         <v-btn @click="setFilter(toggle, filter.value)" elevation="0"
@@ -20,6 +30,8 @@
 import {useDisplay} from "vuetify";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiClose} from "@mdi/js";
+import {useCommonStore} from "~/store/common";
+import _ from "lodash"
 
 defineProps({
   filters: {
@@ -31,10 +43,14 @@ defineProps({
 const emit = defineEmits(['setFilter'])
 const {$display} = useNuxtApp()
 const display = useDisplay()
+const commonStore = useCommonStore()
 const setFilter = (toggle, value) => {
   toggle()
   emit('setFilter', value)
 }
+const serviceFilter = computed(() => {
+  return commonStore.getServiceFilter
+})
 </script>
 
 <style scoped>
