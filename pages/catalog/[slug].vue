@@ -147,6 +147,7 @@ watch(locale, async () => {
     locale: langStore.getLang ?? locale.value
   })
       .then((response) => {
+        tabs.value = []
         product.value = new Product(
             response.data.id,
             response.data.attributes.avatar.data.attributes.url,
