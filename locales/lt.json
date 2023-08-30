@@ -101,5 +101,31 @@
     "subtitle": "\"ASV TRADING\" ĮMONĖJE DIRBA DAUG PIRMAUJANČIŲ SPECIALISTŲ, APMOKYTŲ DIRBTI SU MŪSŲ ĮRANGA.",
     "name": "UAB „ASV Trade“ ",
     "description": "\"ASV Trade Service\" yra pirmaujanti Baltarusijos profesionalios medicininės įrangos platintoja. Mūsų įmonė tiekia gerai žinomų prekės ženklų įrangą, kurios gamintojai yra savo srities lyderiai. Visi gaminiai atitinka aukščiausius reikalavimus ir yra pagaminti tokiose šalyse kaip Japonija, JAV, Prancūzija, Vokietija, Izraelis, Ispanija, Ispanija ir kt."
+  },
+  "pages": {
+    "main": {
+      "title": "Pagrindinis puslapis",
+      "route": "/"
+    },
+    "about": {
+      "title": "Apie",
+      "route": "/about"
+    },
+    "catalog": {
+      "title": "Katalogas",
+      "route": "/catalog"
+    },
+    "blog": {
+      "title": "Naujienos",
+      "route": "/publications"
+    },
+    "service": {
+      "title": "Paslaugos",
+      "route": "/service"
+    },
+    "contacts": {
+      "title": "Kontaktai",
+      "route": "/contacts"
+    }
   }
 }

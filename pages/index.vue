@@ -123,6 +123,9 @@ import {useRoute} from "vue-router";
 import {useCommonStore} from "~/store/common";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
+definePageMeta({
+  breadcrumb: 'pages.main.title'
+})
 const props = defineProps({
   appBarHeight: {
     type: Number,
@@ -131,25 +134,6 @@ const props = defineProps({
 })
 const langStore = useLangStore()
 const { tm, locale } = useI18n()
-const currentLocale = ref(langStore.getLang ?? locale.value)
-
-switch (currentLocale.value) {
-  case 'en':
-    definePageMeta({
-      breadcrumb: 'Main Page'
-    })
-        break;
-  case 'ru':
-    definePageMeta({
-      breadcrumb: 'Главная'
-    })
-        break;
-  default:
-    definePageMeta({
-      breadcrumb: 'Pagrindinis puslapis'
-    })
-}
-
 const {$display} = useNuxtApp()
 
 const current = computed(() => {
@@ -163,7 +147,6 @@ const {height} = useElementSize(slideComponent)
 const display = useDisplay()
 const {find} = useStrapi()
 const slideGroupHeight = ref(0)
-const slides = ref([])
 
 const mainPageCarousel = useCarouselStore()
 const services = useServicesStore()
@@ -180,6 +163,7 @@ watch(height, (value) => {
     slideGroupHeight.value = display.height.value - value - props.appBarHeight + 20
   }
 })
+
 
 </script>
 

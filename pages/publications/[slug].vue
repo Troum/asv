@@ -16,7 +16,7 @@
           </v-card-title>
           <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
           <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333">
-            {{ publication.subtitle }} / {{ publication.createdAt }}
+            {{ publication.subtitle }} / {{ publication.createdAt.replace('/(<([^>]+)>)/ig', '') }}
           </v-card-subtitle>
           <v-card-text class="px-0">
             <nuxt-img provider="strapi" class="my-10" style="width: 100%" :src="publication.image"></nuxt-img>
@@ -51,7 +51,7 @@
 
 <script setup>
 import _ from "lodash"
-import {computed, onBeforeMount, ref} from "vue"
+import {computed, watch, ref} from "vue"
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiChevronLeft} from "@mdi/js";
 import {useCommonStore} from "~/store/common";
@@ -84,7 +84,43 @@ const next = ref(null)
 
 commonStore.setComponent(null)
 
-onBeforeMount(async () => {
+await find(`publications/${route.params.slug}`, {
+  populate: 'detailImage',
+  locale: langStore.getLang ?? locale.value
+})
+    .then((response) => {
+      publication.value = new Publication(
+          response.data.id,
+          response.data.attributes.current.title,
+          response.data.attributes.current.subtitle,
+          response.data.attributes.current.article,
+          response.data.attributes.current['detailImage'].url,
+          response.data.attributes.current.slug,
+          $dateTime.formatDate(response.data.attributes.current.createdAt, langStore.getLang ?? locale.value)
+      )
+      commonStore.setTitle(publication.value['title'])
+      previous.value = response.data.attributes.previous
+      next.value = response.data.attributes.next
+      breadcrumbsStore.removeFromBreadcrumbs(previous.value)
+    })
+    .then(() => {
+      timeout.value = false
+    })
+const nextSlug = computed(() => {
+  if (!_.isNull(next.value)) {
+    return next.value?.slug ?? ''
+  }
+  return ''
+})
+const previousSlug = computed(() => {
+  if (!_.isNull(previous.value)) {
+    return previous.value?.slug ?? ''
+  }
+  return ''
+})
+watch(locale, async (value) => {
+  timeout.value = true
+
   await find(`publications/${route.params.slug}`, {
     populate: 'detailImage',
     locale: langStore.getLang ?? locale.value
@@ -97,28 +133,17 @@ onBeforeMount(async () => {
             response.data.attributes.current.article,
             response.data.attributes.current['detailImage'].url,
             response.data.attributes.current.slug,
-            $dateTime.formatDate(response.data.attributes.current.createdAt)
+            $dateTime.formatDate(response.data.attributes.current.createdAt, value)
         )
-        commonStore.setTitle(publication.value['title'])
+
         previous.value = response.data.attributes.previous
         next.value = response.data.attributes.next
         breadcrumbsStore.removeFromBreadcrumbs(previous.value)
+        commonStore.setTitle(publication.value['title'])
       })
       .then(() => {
         timeout.value = false
       })
-})
-const nextSlug = computed(() => {
-  if (!_.isNull(next.value)) {
-    return next.value?.slug ?? ''
-  }
-  return ''
-})
-const previousSlug = computed(() => {
-  if (!_.isNull(previous.value)) {
-    return previous.value?.slug ?? ''
-  }
-  return ''
 })
 
 </script>

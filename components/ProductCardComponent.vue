@@ -26,7 +26,7 @@
       <v-hover v-slot:default="{ isHovering, props }">
         <v-btn v-bind="props" :to="`/catalog/${product.slug}`" :height="50" elevation="0" :rounded="0"
                :class="['bg-primary py-3 px-8', { 'bg-info': isHovering }]">
-          <span class="text-white">Подробнее</span>
+          <span class="text-white">{{ $t('buttons.details') }}</span>
         </v-btn>
       </v-hover>
 

@@ -37,22 +37,10 @@ import {useLangStore} from "~/store/lang";
 
 const { locale } = useI18n()
 const langStore = useLangStore()
-switch (locale.value) {
-  case 'en':
-    definePageMeta({
-      breadcrumb: 'News'
-    })
-    break;
-  case 'ru':
-    definePageMeta({
-      breadcrumb: 'Все новости'
-    })
-    break;
-  default:
-    definePageMeta({
-      breadcrumb: 'Naujienos'
-    })
-}
+
+definePageMeta({
+  breadcrumb: 'pages.blog.title'
+})
 
 defineProps({
   frameMargin: {
@@ -68,6 +56,7 @@ const count = computed(() => {
 })
 const {$dateTime} = useNuxtApp()
 const current = ref(count.value)
+commonStore.setTitle(null)
 
 await find('publications', {
   populate: 'image',
@@ -91,8 +80,6 @@ const loadMore = () => {
     current.value += count.value
   }
 }
-commonStore.setComponent(null)
-commonStore.setTitle(null)
 </script>
 
 <style lang="scss" scoped>

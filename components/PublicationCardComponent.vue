@@ -9,7 +9,7 @@
           <article class="pl-4 font-size-16 text-white" v-text="text">
           </article>
           <client-only>
-            <v-card-subtitle>{{ publication.createdAt }}</v-card-subtitle>
+            <v-card-subtitle style="font-size: 12px" v-html="publication.createdAt"></v-card-subtitle>
           </client-only>
         </v-card-text>
         <div class="position-relative" style="height: 420px">

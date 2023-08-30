@@ -41,9 +41,8 @@
   </v-container>
 </template>
 <script setup>
-import {useProductsStore} from "~/store/products";
 import {useFiltersStore} from "~/store/filters";
-import {ref, computed, onBeforeMount} from "vue";
+import {ref, computed, watch} from "vue";
 import _ from "lodash";
 import {useCommonStore} from "~/store/common";
 import {useRoute} from "vue-router";
@@ -53,6 +52,7 @@ import Product from "~/models/Product";
 import {useLangStore} from "~/store/lang";
 import {useI18n} from "vue-i18n";
 const { locale } = useI18n()
+
 defineProps({
   frameMargin: {
     type: Number,
@@ -64,7 +64,6 @@ const route = useRoute()
 const {find} = useStrapi()
 const commonStore = useCommonStore()
 const products = ref([])
-const services = useServicesStore()
 const filters = useFiltersStore()
 const page = ref({
   title: null,
@@ -75,59 +74,39 @@ const page = ref({
 const current = ref(6)
 const filtered = ref([])
 
-const service = computed(() => {
-  return _(services.list)
-      .map('slides')
-      .flatten()
-      .find({slug: route.params.slug})
-})
 const timeout = ref(true)
 const langStore = useLangStore()
-onBeforeMount(async () => {
-  await find(`slides/${service.value.id}`, {populate: {
-      whiteLogo: {
-        fields: ['url']
-      },
-      products: {
-        populate: {
-          logo: {
-            fields: ['url']
-          },
-          avatar: {
-            fields: ['url']
-          }
-        }
-      }
-    },
-    locale: langStore.getLang ?? locale.value
-  }).then((response) => {
 
-    page.value.title = response.data.attributes.name
-    page.value.description = response.data.attributes.description
-    page.value.logo = `https://dashboard.a-sv.site${response.data.attributes.whiteLogo.data.attributes.url}`
+await find(`slides/${route.params.slug}`, {
+  locale: langStore.getLang ?? locale.value
+}).then((response) => {
 
-    products.value = response.data.attributes.products.data.map((item) => {
-      return new Product(
-          item.id,
-          item.attributes.avatar.data.attributes.url,
-          item.attributes.title,
-          item.attributes.subtitle,
-          item.attributes.description,
-          item.attributes.logo.data.attributes.url,
-          item.attributes.slug,
-          item.attributes.type,
-          item.attributes.logo.data.attributes.video
-      ).toJson()
-    })
-    commonStore.setTitle(page.value.title)
-    commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
+  page.value.title = response.name
+  page.value.description = response.description
+  page.value.logo = `https://dashboard.a-sv.site${response.whiteLogo.url}`
 
-    commonStore.setComponent({
-      content: page.value.description,
-      logo: page.value.logo
-    })
-    timeout.value = false
+  products.value = response.products.map((item) => {
+    return new Product(
+        item.id,
+        item.avatar.url,
+        item.title,
+        item.subtitle,
+        item.description,
+        item.logo.url,
+        item.slug,
+        item.type,
+        item.video.url
+    ).toJson()
   })
+
+  commonStore.setTitle(page.value.title)
+  commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
+
+  commonStore.setComponent({
+    content: page.value.description,
+    logo: page.value.logo
+  })
+  timeout.value = false
 })
 
 const filteredProducts = computed(() => {
@@ -143,6 +122,36 @@ const filterData = (value) => {
 const loadMore = () => {
   current.value = products.value.length
 }
+watch(locale, async (value) => {
+  await find(`slides/${route.params.slug}`, { locale: value}).then((response) => {
+
+    page.value.title = response.name
+    page.value.description = response.description
+    page.value.logo = response.whiteLogo.url
+
+    products.value = response.products.map((item) => {
+      return new Product(
+          item.id,
+          item.avatar.url,
+          item.title,
+          item.subtitle,
+          item.description,
+          item.logo.url,
+          item.slug,
+          item.type,
+          item.video.url
+      ).toJson()
+    })
+    commonStore.setTitle(page.value.title)
+    commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
+
+    commonStore.setComponent({
+      content: page.value.description,
+      logo: page.value.logo
+    })
+    timeout.value = false
+  })
+})
 </script>
 <style scoped lang="scss">
 .products {

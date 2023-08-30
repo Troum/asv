@@ -44,26 +44,10 @@
 import {useCommonStore} from "~/store/common";
 import {useI18n} from "vue-i18n";
 import {useDisplay} from "vuetify";
-const { $display } = useNuxtApp()
-const display = useDisplay()
-const { locale, tm } = useI18n()
 
-switch (locale.value) {
-  case 'en':
-    definePageMeta({
-      breadcrumb: 'Medical Equipment Service'
-    })
-    break;
-  case 'ru':
-    definePageMeta({
-      breadcrumb: 'Сервис медицинского оборудования'
-    })
-    break;
-  default:
-    definePageMeta({
-      breadcrumb: 'Medicinos įrangos servisas'
-    })
-}
+definePageMeta({
+  breadcrumb: 'pages.service.title'
+})
 
 defineProps({
   frameMargin: {
@@ -71,9 +55,15 @@ defineProps({
     default: 0
   }
 })
+
+const { $display } = useNuxtApp()
+const display = useDisplay()
+const { locale, tm } = useI18n()
 const commonStore = useCommonStore()
-commonStore.setComponent(null)
+
 commonStore.setTitle(null)
+commonStore.setComponent(null)
+
 </script>
 
 <style lang="scss" scoped>

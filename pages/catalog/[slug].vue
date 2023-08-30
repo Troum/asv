@@ -33,15 +33,15 @@
         >
           <v-tab @click="tab = 'description'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
                  style="opacity: 1; border-right: 1px solid #c4c4c4">
-            Описание
+            {{ $t('tabs.description') }}
           </v-tab>
           <v-tab @click="tab = 'characteristic'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
                  style="opacity: 1">
-            Характеристики
+            {{ $t('tabs.characteristics') }}
           </v-tab>
           <v-tab @click="tab = 'video'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
                  style="opacity: 1; border-left: 1px solid #c4c4c4">
-            видео
+            {{ $t('tabs.video') }}
           </v-tab>
         </v-tabs>
         <v-window v-model="tab" style="grid-column: 1 / -1">
@@ -84,7 +84,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {ref, watch} from "vue";
 import {useDisplay} from "vuetify";
 import {mdiChevronLeft} from "@mdi/js";
 import {useRoute, useRouter} from "vue-router";
@@ -111,6 +111,7 @@ const tab = ref('')
 const tabs = ref([])
 const product = ref({})
 const langStore = useLangStore()
+
 await find(`products/${route.params.slug}`, {
   populate: ['video', 'logo', 'avatar'],
   locale: langStore.getLang ?? locale.value
@@ -139,8 +140,38 @@ await find(`products/${route.params.slug}`, {
           })
       commonStore.setTitle(product.value['title'])
     })
-commonStore.setComponent(null)
 
+watch(locale, async () => {
+  await find(`products/${route.params.slug}`, {
+    populate: ['video', 'logo', 'avatar'],
+    locale: langStore.getLang ?? locale.value
+  })
+      .then((response) => {
+        product.value = new Product(
+            response.data.id,
+            response.data.attributes.avatar.data.attributes.url,
+            response.data.attributes.title,
+            response.data.attributes.subtitle,
+            response.data.attributes.description,
+            response.data.attributes.logo.data.attributes.url,
+            response.data.attributes.slug,
+            response.data.attributes.type,
+            response.data.attributes.video.data.attributes.url,
+            response.data.attributes.company,
+            response.data.attributes.proclamation,
+            response.data.attributes.characteristic
+        ).toJson()
+        Array.from(['description', 'characteristic'])
+            .forEach((item) => {
+              tabs.value.push({
+                value: item,
+                html: product.value[item]
+              })
+            })
+        commonStore.setTitle(product.value['title'])
+      })
+})
+commonStore.setComponent(null)
 </script>
 
 <style lang="scss" scoped>

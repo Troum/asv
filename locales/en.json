@@ -102,5 +102,31 @@
     "subtitle": "\"ASV TRADING\" COMPANY HAS A LARGE NUMBER OF LEADING SPECIALISTS FOR TRAINING TO WORK WITH OUR EQUIPMENT",
     "name": "JSC «ASV Trade» ",
     "description": "\"ASV Trade Service\" is a leading Belarusian distributor of professional medical equipment. Our company is engaged in supplying equipment under well-known brands, the manufacturers of which are leaders in their field. All products meet the highest requirements and are manufactured in such countries as Japan, USA, France, Germany, Israel, Spain and others."
+  },
+  "pages": {
+    "main": {
+      "title": "Main Page",
+      "route": "/"
+    },
+    "about": {
+      "title": "About",
+      "route": "/about"
+    },
+    "catalog": {
+      "title": "Catalog",
+      "route": "/catalog"
+    },
+    "blog": {
+      "title": "News",
+      "route": "/publications"
+    },
+    "service": {
+      "title": "Service",
+      "route": "/service"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "route": "/contacts"
+    }
   }
 }

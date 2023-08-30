@@ -1,13 +1,34 @@
 <template>
   <v-layout class="asv rounded rounded-md">
-    <v-navigation-drawer style="z-index: 9" :class="`d-flex align-center ${rail ? 'justify-start' : 'justify-center'}`"
-                         :rail="rail"
-                         v-model="drawer"
+    <v-navigation-drawer v-model="drawer"
+                         location="right"
+                         :temporary="true"
+                         @click="drawer = false"
+                         :width="$display.socialBar(display.width.value, 320)" color="secondary">
+      <div class="d-flex justify-center align-center flex-column position-relative">
+        <v-btn color="#fff" class="position-absolute" icon variant="plain"
+               :ripple="false" style="top: -30%; right: -25%">
+          <svg-icon type="mdi" :path="mdiClose" size="24"/>
+        </v-btn>
+        <NuxtLink to="/"
+                  transition="fade"
+                  class="text-h6 my-6 d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
+          {{ $t('pages.main.title') }}
+        </NuxtLink>
+        <template v-for="item of menu">
+          <NuxtLink :to="item.route"
+                    transition="fade"
+                    class="text-h6 my-6 d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
+            {{ item.title }}
+          </NuxtLink>
+        </template>
+      </div>
+    </v-navigation-drawer>
+    <v-navigation-drawer style="z-index: 9" class="d-flex align-center justify-center"
+                         location="left"
                          :permanent="true"
-                         :rail-width="display.width.value"
-                         @click="rail = false"
                          :width="$display.socialBar(display.width.value, 150)" color="secondary">
-      <div ref="networksContainer" :class="`network__container ${rail ? 'open' : ''}`">
+      <div ref="networksContainer" class="network__container">
         <div ref="sloganContainer" class="network__container-slogan">
           <h1 ref="slogan" class="text-uppercase text-accent font-size-18">{{ $t('titles.networks') }}</h1>
         </div>
@@ -24,22 +45,6 @@
           </template>
         </div>
       </div>
-      <template v-if="rail">
-        <div class="d-flex justify-center align-center flex-column position-relative"
-             style="width: calc(100% - 300px)">
-          <v-btn color="#fff" class="position-absolute" icon variant="plain"
-                 :ripple="false" style="top: -25%; right: -10%">
-            <svg-icon type="mdi" :path="mdiClose" size="48"/>
-          </v-btn>
-          <template v-for="item of menu">
-            <NuxtLink :to="item.route"
-                      transition="fade"
-                      class="text-h3 my-6 d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
-              {{ item.title }}
-            </NuxtLink>
-          </template>
-        </div>
-      </template>
     </v-navigation-drawer>
     <v-app-bar :fixed="true" elevation="0" :height="$display.navBar(display.height.value, 157)">
       <div class="appbar">
@@ -91,7 +96,7 @@
           </div>
           <div class="d-flex flex-column justify-center align-center flex-row-gap-4 ml-12">
             <v-btn variant="plain" icon
-                   @click="rail = true"
+                   @click="drawer = true"
                    :ripple="false" style="opacity: 1" class="lang_link font-weight-bold text-uppercase pa-0">
               <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -308,8 +313,7 @@ import Slide from "~/models/Slide";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 
-const rail = ref(false)
-const drawer = ref(true)
+const drawer = ref(false)
 const {find, create} = useStrapi()
 const route = useRoute()
 const {$display, $dateTime} = useNuxtApp()
@@ -330,16 +334,16 @@ const marginTop = ref(0)
 const socialNetworks = computed(() => {
   return commonStore.getNetworks
 })
-
+const langStore = useLangStore()
 const isIndex = computed(() => {
   return route.name === 'index' || route.name === 'Index' || route.name === 'INDEX'
 })
 const {locale, tm} = useI18n()
-const currentLocale = ref(locale.value)
+const currentLocale = ref(langStore.getLang ?? locale.value)
 let message = ref(tm('form.notice'))
 let menu = ref(tm('menu'))
 
-const langStore = useLangStore()
+
 const mainPageCarousel = useCarouselStore()
 const services = useServicesStore()
 const publications = usePublicationsStore()
@@ -361,6 +365,9 @@ const rules = ref({
   },
 })
 const setLocale = (lang) => {
+  if (isOpen.value) {
+    isOpen.value = !isOpen.value
+  }
   locale.value = lang
   langStore.setLang(lang)
 }
@@ -417,7 +424,7 @@ await find('main-page', {
             item.attributes.article,
             item.attributes.image.data.attributes.url,
             item.attributes.slug,
-            $dateTime.formatDate(item.attributes.createdAt),
+            $dateTime.formatDate(item.attributes.createdAt, locale.value),
         ).toJson()
       }))
       clients.addItems(response.data.attributes.clients.data.map((item) => {
@@ -480,81 +487,79 @@ watch(breadcrumbsContainerSize.height, (value) => {
 }, {immediate: true})
 
 watch(locale, async (value) => {
-  if (value !== currentLocale.value) {
-    menu = tm('menu')
-    message = tm('form.notice')
+  menu = tm('menu')
+  message = tm('form.notice')
 
-    await find('main-page', {
-      populate:
-          {
-            carousels: {
-              populate: 'src'
-            },
-            clients: {
-              populate: 'logo'
-            },
-            publications: {
-              populate: 'image'
-            },
-            services: {
-              populate: ['logo', 'whiteLogo']
-            },
+  await find('main-page', {
+    populate:
+        {
+          carousels: {
+            populate: 'src'
           },
-      locale: value
-    })
-        .then((response) => {
-          mainPageCarousel.addItems(
-              response.data.attributes.carousels.data.map((item) => {
-                return new Slide(
-                    item.attributes.title,
-                    item.attributes.description,
-                    item.attributes.link,
-                    item.attributes.src.data.attributes.url,
-                    item.attributes.background
-                ).toJson()
-              })
-          )
-          publications.addItems(response.data.attributes.publications.data.map((item) => {
+          clients: {
+            populate: 'logo'
+          },
+          publications: {
+            populate: 'image'
+          },
+          services: {
+            populate: ['logo', 'whiteLogo']
+          },
+        },
+    locale: value
+  })
+      .then((response) => {
+        mainPageCarousel.addItems(
+            response.data.attributes.carousels.data.map((item) => {
+              return new Slide(
+                  item.attributes.title,
+                  item.attributes.description,
+                  item.attributes.link,
+                  item.attributes.src.data.attributes.url,
+                  item.attributes.background
+              ).toJson()
+            })
+        )
+        publications.addItems(response.data.attributes.publications.data.map((item) => {
 
-            return new Publication(
-                item.id,
-                item.attributes.title,
-                item.attributes.subtitle,
-                item.attributes.article,
-                item.attributes.image.data.attributes.url,
-                item.attributes.slug,
-                $dateTime.formatDate(item.attributes.createdAt),
-            ).toJson()
-          }))
-          clients.addItems(response.data.attributes.clients.data.map((item) => {
-            return new Client(
-                item.attributes.url,
-                item.attributes.logo.data.attributes.url
-            ).toJson()
-          }))
-          services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
-                const ch = Math.floor(i / 4);
-                all[ch] = [].concat((all[ch] || []), one);
-                return all
-              }, [])
-                  .map((item) => {
-                    return {
-                      slides: item.map((item) => {
+          return new Publication(
+              item.id,
+              item.attributes.title,
+              item.attributes.subtitle,
+              item.attributes.article,
+              item.attributes.image.data.attributes.url,
+              item.attributes.slug,
+              $dateTime.formatDate(item.attributes.createdAt, value),
+          ).toJson()
+        }))
+        clients.addItems(response.data.attributes.clients.data.map((item) => {
+          return new Client(
+              item.attributes.url,
+              item.attributes.logo.data.attributes.url
+          ).toJson()
+        }))
+        services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
+              const ch = Math.floor(i / 4);
+              all[ch] = [].concat((all[ch] || []), one);
+              return all
+            }, [])
+                .map((item) => {
+                  return {
+                    slides: item.map((item) => {
 
-                        return new Service(
-                            item.id,
-                            item.attributes.logo.data.attributes.url,
-                            item.attributes.name,
-                            item.attributes.slug,
-                            item.attributes.description,
-                            item.attributes.whiteLogo.data.attributes.url,
-                        ).toJson()
-                      })
-                    }
-                  })
-          )
-        })
-  }
+                      return new Service(
+                          item.id,
+                          item.attributes.logo.data.attributes.url,
+                          item.attributes.name,
+                          item.attributes.slug,
+                          item.attributes.description,
+                          item.attributes.whiteLogo.data.attributes.url,
+                      ).toJson()
+                    })
+                  }
+                })
+        )
+      })
 }, {immediate: true})
 
 onMounted(() => {

@@ -6,7 +6,7 @@
             class="text-white font-weight-bold breadcrumb"
             :to="breadcrumb.link"
         >
-          {{ breadcrumb.label }}
+          {{ _.isEmpty(tm(breadcrumb.label))  ? breadcrumb.label : tm(breadcrumb.label) }}
         </NuxtLink>
       </template>
       <template v-if="contactComponent">
@@ -26,13 +26,14 @@ import {useBreadcrumbsStore} from "~/store/breadcrumbs";
 import {useRoute} from "vue-router";
 import {useDisplay} from "vuetify";
 import {useCommonStore} from "~/store/common";
+import {useI18n} from "vue-i18n";
 const commonStore = useCommonStore()
 const route = useRoute()
 const {$display} = useNuxtApp()
 const display = useDisplay()
 const {$breadcrumbs} = useNuxtApp()
 const breadcrumbsStore = useBreadcrumbsStore()
-
+const { tm } = useI18n()
 if (!_.isUndefined($breadcrumbs)) {
   if ($breadcrumbs.value.length) {
     breadcrumbsStore.addBreadcrumbToBreadcrumbs($breadcrumbs.value)
@@ -55,7 +56,7 @@ const title = computed(() => {
 
 watch(title, (value) => {
   if (value) {
-    if (!_.find(breadcrumbs.value, {_path: route.path})) {
+    if (!_.find(breadcrumbs.value, {link: route.path})) {
       breadcrumbs.value.push({
         current: true,
         label: value,
@@ -63,7 +64,16 @@ watch(title, (value) => {
         _path: route.path
       })
     } else {
-      _.remove(breadcrumbs.value, {_path: route.path})
+      if (route.path.includes('publications') || route.path.includes('products')) {
+        _.remove(breadcrumbs.value, {link: route.path})
+
+        breadcrumbs.value.push({
+          current: true,
+          label: value,
+          link: route.path,
+          _path: route.path
+        })
+      }
     }
   }
 }, {immediate: true})

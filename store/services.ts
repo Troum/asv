@@ -4,6 +4,7 @@ export const useServicesStore = defineStore({
     id: 'services-store',
     state: () => {
         return {
+            serviceId: 0,
             items: [],
         }
     },
@@ -11,9 +12,9 @@ export const useServicesStore = defineStore({
     actions: {
         addItems(value: any) {
             this.items = value
-        },
+        }
     },
     getters: {
-        list: (state) => state.items,
+        list: (state) => state.items
     }
 })

@@ -109,7 +109,9 @@ import {ref, watch} from "vue"
 import Doctor from "~/models/Doctor";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
-
+definePageMeta({
+  breadcrumb: 'pages.about.title'
+})
 defineProps({
   frameMargin: {
     type: Number,
@@ -187,46 +189,47 @@ commonStore.setComponent({
 commonStore.setTitle(null)
 
 watch(locale, async (value) => {
-  if (value !== currentLocale.value) {
-    await find('about', {
-      populate: {
-        image: {
-          fields: ['url']
-        },
-        doctors: {populate: 'avatar'},
-        certificates: {populate: 'image'},
+  await find('about', {
+    populate: {
+      image: {
+        fields: ['url']
       },
-      locale: value
-    })
-        .then((response) => {
-          doctors.value = []
+      doctors: {populate: 'avatar'},
+      certificates: {populate: 'image'},
+    },
+    locale: value
+  })
+      .then((response) => {
+        doctors.value = []
 
-          page.value = {
-            title: response.data.attributes.title,
-            subtitle: response.data.attributes.subtitle,
-            description: response.data.attributes.description,
-            image: response.data.attributes.image.data.attributes.url,
-          }
+        page.value = {
+          title: response.data.attributes.title,
+          subtitle: response.data.attributes.subtitle,
+          description: response.data.attributes.description,
+          image: response.data.attributes.image.data.attributes.url,
+        }
 
-          response.data.attributes.doctors.data.forEach((item) => {
-            doctors.value.push(
-                new Doctor(
-                    item.attributes.name,
-                    item.attributes.position,
-                    item.attributes.description,
-                    item.attributes.avatar.data.attributes.url
-                )
-            )
-          })
-          response.data.attributes.certificates.data.forEach((item) => {
-            certificates.value.push(
-                {image: item.attributes.image.data.attributes.url}
-            )
-          })
-
+        response.data.attributes.doctors.data.forEach((item) => {
+          doctors.value.push(
+              new Doctor(
+                  item.attributes.name,
+                  item.attributes.position,
+                  item.attributes.description,
+                  item.attributes.avatar.data.attributes.url
+              )
+          )
         })
-        .then(() => timeout.value = false)
-  }
+        response.data.attributes.certificates.data.forEach((item) => {
+          certificates.value.push(
+              {image: item.attributes.image.data.attributes.url}
+          )
+        })
+        commonStore.setComponent({
+          content: t('contacts.description'),
+          logo: '/logo-w.svg'
+        })
+      })
+      .then(() => timeout.value = false)
 }, {immediate: true})
 </script>
 

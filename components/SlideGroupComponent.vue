@@ -36,7 +36,7 @@
               <v-card :tile="true" :flat="true"
                       :ripple="false"
                       :hover="false"
-                      :to="`/service/${item.slug}`"
+                      :to="`/manufacturer/${item.slug}`"
                       v-bind="props"
                       width="25%"
                       :height="isIndex ? '95%' : '100%'"

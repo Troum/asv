@@ -5,10 +5,10 @@
         <div class="py-16">
           <v-card flat>
             <v-card-title class="mb-16">
-              {{ $t('contact.name') }}
+              {{ $t('contacts.name') }}
             </v-card-title>
             <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
-              <template v-if="false">
+              <template v-if="locale === 'ru'">
                 <v-card-subtitle style="opacity: 1" class="d-flex flex-column">
                   <span>УНП: 690658079О</span>
                   <span>КПО: 302620456000</span>
@@ -62,7 +62,7 @@
             </v-card-text>
           </v-card>
         </div>
-        <template v-if="false">
+        <template v-if="locale === 'ru'">
           <div ref="map" style="filter: grayscale(100%)">
             <map-component :width="width" :height="height"/>
           </div>
@@ -73,7 +73,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue"
+import {ref, watch} from "vue"
 import MapComponent from "~/components/MapComponent.vue";
 import Phone from "~/components/icons/phone.vue";
 import Envelop from "~/components/icons/envelop.vue";
@@ -81,7 +81,9 @@ import {useElementSize} from "@vueuse/core";
 import {useCommonStore} from "~/store/common";
 import Place from "~/components/icons/place.vue";
 import {useI18n} from "vue-i18n";
-
+definePageMeta({
+  breadcrumb: 'pages.contacts.title'
+})
 defineProps({
   frameMargin: {
     type: Number,
@@ -90,22 +92,6 @@ defineProps({
 })
 const { locale, tm } = useI18n()
 
-switch (locale.value) {
-  case 'en':
-    definePageMeta({
-      breadcrumb: 'Contacts'
-    })
-    break;
-  case 'ru':
-    definePageMeta({
-      breadcrumb: 'Контакты'
-    })
-    break;
-  default:
-    definePageMeta({
-      breadcrumb: 'Kontaktai'
-    })
-}
 const map = ref(null)
 const { width, height } = useElementSize(map)
 const commonStore = useCommonStore()
@@ -115,7 +101,12 @@ commonStore.setComponent({
   logo: '/logo-w.svg'
 })
 commonStore.setTitle(null)
-
+watch(locale, () => {
+  commonStore.setComponent({
+    content: tm('contacts.description'),
+    logo: '/logo-w.svg'
+  })
+})
 </script>
 
 <style lang="scss" scoped>
