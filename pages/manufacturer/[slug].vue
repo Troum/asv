@@ -42,7 +42,7 @@
 </template>
 <script setup>
 import {useFiltersStore} from "~/store/filters";
-import {ref, computed, watch} from "vue";
+import {ref, computed, watch, onBeforeMount} from "vue";
 import _ from "lodash";
 import {useCommonStore} from "~/store/common";
 import {useRoute} from "vue-router";
@@ -50,6 +50,7 @@ import ChevronDown from "~/components/icons/chevronDown.vue";
 import Product from "~/models/Product";
 import {useLangStore} from "~/store/lang";
 import {useI18n} from "vue-i18n";
+import Filter from "~/models/Filter";
 const { locale } = useI18n()
 
 defineProps({
@@ -76,36 +77,44 @@ const filtered = ref([])
 const timeout = ref(true)
 const langStore = useLangStore()
 
-await find(`slides/${route.params.slug}`, {
-  locale: langStore.getLang ?? locale.value
-}).then((response) => {
+onBeforeMount(async () => {
+  await find(`slides/${route.params.slug}`, {
+    locale: langStore.getLang ?? locale.value
+  }).then((response) => {
 
-  page.value.title = response.name
-  page.value.description = response.description
-  page.value.logo = `https://dashboard.a-sv.site${response.whiteLogo.url}`
+    page.value.title = response.name
+    page.value.description = response.description
+    page.value.logo = `https://dashboard.a-sv.site${response.whiteLogo.url}`
 
-  products.value = response.products.map((item) => {
-    return new Product(
-        item.id,
-        item.avatar.url,
-        item.title,
-        item.subtitle,
-        item.description,
-        item.logo.url,
-        item.slug,
-        item.type,
-        item.video.url
-    ).toJson()
+    products.value = response.products.map((item) => {
+      return new Product(
+          item.id,
+          item.avatar.url,
+          item.title,
+          item.subtitle,
+          item.description,
+          item.logo.url,
+          item.slug,
+          item.type,
+          item.video.url
+      ).toJson()
+    })
+    filters.addItems(response.filters.map((item) => {
+      return new Filter(
+          item.value,
+          item.title
+      ).toJson()
+    }))
+
+    commonStore.setTitle(page.value.title)
+    commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
+
+    commonStore.setComponent({
+      content: page.value.description,
+      logo: page.value.logo
+    })
+    timeout.value = false
   })
-
-  commonStore.setTitle(page.value.title)
-  commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
-
-  commonStore.setComponent({
-    content: page.value.description,
-    logo: page.value.logo
-  })
-  timeout.value = false
 })
 
 const filteredProducts = computed(() => {
@@ -141,6 +150,12 @@ watch(locale, async (value) => {
           item.video.url
       ).toJson()
     })
+    filters.addItems(response.filters.map((item) => {
+      return new Filter(
+          item.value,
+          item.title
+      ).toJson()
+    }))
     commonStore.setTitle(page.value.title)
     commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
 
