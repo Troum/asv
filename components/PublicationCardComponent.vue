@@ -8,9 +8,13 @@
           </v-card-title>
           <article class="pl-4 font-size-16 text-white" v-text="text">
           </article>
+          <client-only>
+            <v-card-subtitle>{{ publication.createdAt }}</v-card-subtitle>
+          </client-only>
         </v-card-text>
         <div class="position-relative" style="height: 420px">
-          <nuxt-img provider="strapi" height="420px" class="w-100 h-100 position-relative z-index-1" :src="publication.image"></nuxt-img>
+          <nuxt-img provider="strapi" height="420px" class="w-100 h-100 position-relative z-index-1"
+                    :src="publication.image"></nuxt-img>
           <v-fade-transition>
             <div
                 v-if="isHovering"
@@ -39,11 +43,11 @@ import truncate from "truncate-html";
 const props = defineProps({
   publication: {
     type: Object,
-    default: new Publication()
+    default: new Publication().toJson()
   }
 })
 const text = computed(() => {
-  return truncate(props.publication['article'].replace(/(<([^>]+)>)/gi, ""), 20, {byWords: true})
+  return truncate(props.publication.article.replace(/(<([^>]+)>)/gi, ""), 20, {byWords: true})
 })
 </script>
 

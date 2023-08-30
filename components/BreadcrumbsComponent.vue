@@ -62,6 +62,8 @@ watch(title, (value) => {
         link: route.path,
         _path: route.path
       })
+    } else {
+      _.remove(breadcrumbs.value, {label: value})
     }
   }
 }, {immediate: true})

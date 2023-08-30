@@ -5,7 +5,7 @@
       class="mx-auto"
   >
     <nuxt-img provider="strapi"
-              style="min-height: 200px"
+              style="min-height: 200px; max-height: 200px"
               class="align-end text-white"
               :src="product.avatar"
     >
@@ -17,7 +17,7 @@
       {{ product.title }}
     </v-card-title>
     <v-card-title>
-      <nuxt-img provider="strapi" style="min-width: 120px" :src="product.logo"></nuxt-img>
+      <nuxt-img provider="strapi" style="min-width: 120px; max-width: 120px" :src="product.logo"></nuxt-img>
     </v-card-title>
     <v-card-text class="text-secondary-light" v-html="truncated">
     </v-card-text>

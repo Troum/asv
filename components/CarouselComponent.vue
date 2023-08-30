@@ -2,7 +2,7 @@
   <v-carousel
       v-model="current"
       ref="carousel"
-      style="position: relative;"
+      class="position-relative z-index-4"
       :cycle="true"
       :height="$display.height(display.height.value, 790)"
       hide-delimiters
@@ -56,7 +56,9 @@
               <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
               <p class="text-white">{{ slide.description }}</p>
               <template v-if="slide.link">
-                <v-btn rounded="0" :ripple="false" variant="outlined" class="more_info__button">Подробнее</v-btn>
+                <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button">
+                  {{ $t('buttons.details') }}
+                </v-btn>
               </template>
             </div>
           </lazy-client-only>
@@ -96,7 +98,7 @@ const getColor = (index) => {
 
 watch(carouselSize.height, (value) => {
   if (value > 0) {
-    delimitersContainer.value['style'].bottom = `calc((99 * 100%) / ${value})`
+    delimitersContainer.value['style'].bottom = `calc((80 * 100%) / ${value})`
   }
 })
 </script>
@@ -108,6 +110,7 @@ watch(carouselSize.height, (value) => {
   justify-content: space-between;
   column-gap: 15px;
   left: calc((255 * 100%) / 1920);
+  bottom: 2%;
   z-index: 3;
 
   & .delimiter_button {
@@ -121,8 +124,8 @@ watch(carouselSize.height, (value) => {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 60px;
+  width: 150px !important;
+  height: 60px !important;
   color: #fff;
 }
 </style>

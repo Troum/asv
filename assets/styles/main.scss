@@ -6,17 +6,20 @@ body {
 }
 blockquote {
   position: relative;
+  display: flex;
+  align-items: center;
   background-color: #000;
   color: #fff;
   font-style: italic;
-  padding: 30px 30px 30px 118px;
+  padding: 30px 30px 30px 158px;
+  min-height: 170px;
 
   &::before {
     position: absolute;
     display: block;
     content: url("/assets/images/bloquote.svg");
-    width: 48px;
-    height: 40px;
+    width: 78px;
+    height: auto;
     top: 15%;
     left: 2%;
   }
@@ -87,4 +90,11 @@ article {
 
 .v-card__overlay {
   opacity: 0 !important;
+}
+.v-field--variant-outlined {
+  &.v-field--focused {
+    & .v-field__outline {
+      border-width: 5px !important;
+    }
+  }
 }

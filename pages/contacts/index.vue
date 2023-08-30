@@ -4,30 +4,40 @@
       <div class="contact-page">
         <div class="py-16">
           <v-card flat>
-            <v-card-title>
-              СООО “АСВ Трейд Сервис”
+            <v-card-title class="mb-16">
+              {{ $t('contact.name') }}
             </v-card-title>
-            <v-card-text class="pa-0 d-flex flex-column flex-row-gap-32">
-              <v-card-subtitle style="opacity: 1" class="d-flex flex-column">
-                <span>УНП: 690658079О</span>
-                <span>КПО: 302620456000</span>
-                <span>р/с: BY55BLBB30120690658079001001</span>
-                <span style="white-space: pre-wrap">В банк: ОАО «Белинвестбанк» ГОПЕРУ код BLBBBY2X, г. Минск, пр-т Машерова, 29</span>
-              </v-card-subtitle>
+            <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
+              <template v-if="false">
+                <v-card-subtitle style="opacity: 1" class="d-flex flex-column">
+                  <span>УНП: 690658079О</span>
+                  <span>КПО: 302620456000</span>
+                  <span>р/с: BY55BLBB30120690658079001001</span>
+                  <span style="white-space: pre-wrap">В банк: ОАО «Белинвестбанк» ГОПЕРУ код BLBBBY2X, г. Минск, пр-т Машерова, 29</span>
+                </v-card-subtitle>
+              </template>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">отдел продаж</span>
+                  <span class="text-uppercase font-size-16">{{ $t('salesDepartment') }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="tel:+375173362300">+375 17 336 23 00</a>
+                     href="tel:+37068655420">+370 686 55 420</a>
                 </div>
               </v-card-subtitle>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">сервис</span>
+                  <span class="text-uppercase font-size-16">{{ $t('serviceDepartment') }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
                      href="tel:+375291661880">+375 29 166 18 80</a>
+                </div>
+              </v-card-subtitle>
+              <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
+                <phone/>
+                <div class="d-flex flex-column flex-row-gap-10">
+                  <span class="text-uppercase font-size-16">{{ $t('financialDepartment') }}</span>
+                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
+                     href="tel:+370604855564">+370 604 855564</a>
                 </div>
               </v-card-subtitle>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
@@ -35,27 +45,28 @@
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">e-mail</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="mailto:inbox@asv-trade.by">inbox@asv-trade.by</a>
-                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="mailto:service@asv-trade.by">service@asv-trade.by</a>
+                     href="mailto:info@asvtrade.lt">info@asvtrade.lt</a>
                 </div>
               </v-card-subtitle>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
                 <place />
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">наш адрес</span>
+                  <span class="text-uppercase font-size-16">{{ $t('titles.address') }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
                      style="white-space: pre-wrap"
-                     href="#">220089, г.Минск, ул. Железнодорожная 33А, корп.1 (5 этаж)
+                     href="#">
+                    Ул. П. Жвиркос 6-2,<br> ЛТ-02223 Вильнюс
                   </a>
                 </div>
               </v-card-subtitle>
             </v-card-text>
           </v-card>
         </div>
-        <div ref="map" style="filter: grayscale(100%)">
-          <map-component :width="width" :height="height"/>
-        </div>
+        <template v-if="false">
+          <div ref="map" style="filter: grayscale(100%)">
+            <map-component :width="width" :height="height"/>
+          </div>
+        </template>
       </div>
     </v-col>
   </v-container>
@@ -69,6 +80,7 @@ import Envelop from "~/components/icons/envelop.vue";
 import {useElementSize} from "@vueuse/core";
 import {useCommonStore} from "~/store/common";
 import Place from "~/components/icons/place.vue";
+import {useI18n} from "vue-i18n";
 
 defineProps({
   frameMargin: {
@@ -76,15 +88,30 @@ defineProps({
     default: 0
   }
 })
-definePageMeta({
-  breadcrumb: 'Контакты'
-})
+const { locale, tm } = useI18n()
+
+switch (locale.value) {
+  case 'en':
+    definePageMeta({
+      breadcrumb: 'Contacts'
+    })
+    break;
+  case 'ru':
+    definePageMeta({
+      breadcrumb: 'Контакты'
+    })
+    break;
+  default:
+    definePageMeta({
+      breadcrumb: 'Kontaktai'
+    })
+}
 const map = ref(null)
 const { width, height } = useElementSize(map)
 const commonStore = useCommonStore()
 
 commonStore.setComponent({
-  content: 'СООО «АСВ Трейд Сервис» – ведущий белорусский дистрибьютор профессионального медицинского оборудования. Наша компания занимается поставкой оборудования под известными марками, производители которого являются лидерами в своей области. Вся продукция соответствует самым высоким требованиям и произведена в таких странах, как Япония, США, Франция, Германия, Израиль, Испания и др.',
+  content: tm('contacts.description'),
   logo: '/logo-w.svg'
 })
 commonStore.setTitle(null)

@@ -1,6 +1,6 @@
 <template>
   <v-item-group class="d-flex flex-wrap flex-column-gap-20 flex-row-gap-20">
-    <template v-if="!_.isEmpty(serviceFilter)">
+    <template v-if="!_.isNull(serviceFilter)">
       <v-item>
         <v-btn :ripple="false"
                class="py-3 px-4 bg-info"
@@ -12,7 +12,7 @@
     </template>
     <template v-for="filter of filters">
       <v-item v-slot="{ isSelected, toggle }">
-        <v-btn @click="setFilter(toggle, filter.value)" elevation="0"
+        <v-btn @click="setFilter(toggle, filter.value, isSelected)" elevation="0"
                :ripple="false"
                :class="['py-3 px-4', {'bg-info': isSelected }, {'bg-secondary-light': !isSelected}]"
                :rounded="0">
@@ -44,9 +44,14 @@ const emit = defineEmits(['setFilter'])
 const {$display} = useNuxtApp()
 const display = useDisplay()
 const commonStore = useCommonStore()
-const setFilter = (toggle, value) => {
+const setFilter = (toggle, value, isSelected) => {
   toggle()
-  emit('setFilter', value)
+  if (isSelected) {
+    emit('setFilter', 'all')
+  } else {
+    emit('setFilter', value)
+  }
+
 }
 const serviceFilter = computed(() => {
   return commonStore.getServiceFilter

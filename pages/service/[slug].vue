@@ -15,14 +15,14 @@
               </v-col>
             </v-row>
           </template>
-          <template v-if="products.list.length">
+          <template v-if="products.length">
             <v-row class="ma-0 pa-0">
               <v-col cols="12" class="ma-0 position-relative d-grid products-list grid-column-gap-30 grid-row-gap-40 px-0">
                 <template v-for="product of filteredProducts.slice(0, current)">
                   <product-card-component :product="product"/>
                 </template>
               </v-col>
-              <template v-if="products.list.length > 6">
+              <template v-if="products.length > 6">
                 <v-col cols="12" class="d-flex justify-center position-relative">
                   <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
                     <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
@@ -61,7 +61,7 @@ const {$event} = useNuxtApp()
 const route = useRoute()
 const {find} = useStrapi()
 const commonStore = useCommonStore()
-const products = useProductsStore()
+const products = ref([])
 const services = useServicesStore()
 const filters = useFiltersStore()
 const page = ref({
@@ -102,21 +102,19 @@ onBeforeMount(async () => {
     page.value.description = response.data.attributes.description
     page.value.logo = `https://dashboard.a-sv.site${response.data.attributes.whiteLogo.data.attributes.url}`
 
-    products.addItems(
-        response.data.attributes.products.data.map((item) => {
-          return new Product(
-              item.id,
-              item.attributes.avatar.data.attributes.url,
-              item.attributes.title,
-              item.attributes.subtitle,
-              item.attributes.description,
-              item.attributes.logo.data.attributes.url,
-              item.attributes.slug,
-              item.attributes.type,
-              item.attributes.logo.data.attributes.video
-          ).toJson()
-        })
-    )
+    products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })
     commonStore.setTitle(page.value.title)
     commonStore.setServiceFilter({value: page.value.title, title: page.value.title})
 
@@ -129,17 +127,17 @@ onBeforeMount(async () => {
 })
 
 const filteredProducts = computed(() => {
-  return !_.isEmpty(filtered?.value) ? filtered?.value : products.list
+  return !_.isEmpty(filtered?.value) ? filtered?.value : products.value
 })
 const filterData = (value) => {
   if (!_.isEqual(value, 'all')) {
-    filtered.value = products.list.filter((item) => item.type === value)
+    filtered.value = products.value.filter((item) => item.type === value)
   } else {
-    filtered.value = products.list
+    filtered.value = products.value
   }
 }
 const loadMore = () => {
-  current.value = products.list.length
+  current.value = products.value.length
 }
 </script>
 <style scoped lang="scss">

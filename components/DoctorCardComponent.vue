@@ -41,21 +41,19 @@
         </div>
       </template>
     </v-hover>
-    <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9">
+    <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0">
       {{ doctor.position }}
     </v-card-subtitle>
-    <v-card-title class="font-size-18 font-weight-bold text-uppercase" style="white-space: pre-wrap">
+    <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0" style="white-space: pre-wrap">
       {{ doctor.name }}
     </v-card-title>
-    <v-card-text class="text-secondary-light" v-html="doctor.description">
+    <v-card-text class="text-secondary-light px-0" v-html="description">
     </v-card-text>
 
-      <v-card-actions class="px-4">
-        <v-hover v-slot:default="{isHovering, props}">
-        <v-btn v-bind="props" :height="50" elevation="0" :rounded="0" :class="['bg-primary py-3 px-8', {'bg-info': isHovering}]">
-          <span class="text-white">Подробнее</span>
+      <v-card-actions class="px-0">
+        <v-btn @click="more" style="opacity: 1" :ripple="false" variant="plain" class="px-0">
+          <span class="text-info">Развернуть</span>
         </v-btn>
-        </v-hover>
       </v-card-actions>
 
 
@@ -64,14 +62,23 @@
 
 <script setup>
 import Doctor from "~/models/Doctor";
+import {computed} from "vue";
+import truncate from "truncate-html";
 
-defineProps({
+const length = ref(10)
+const props = defineProps({
   doctor: {
     type: Object,
     default: () => {
-      return new Doctor()
+      return new Doctor().toJson()
     }
   }
+})
+const more = () => {
+  length.value = props.doctor.description.trim().split(/\s+/).length
+}
+const description = computed(() => {
+  return truncate(props.doctor.description, length.value, {byWords: true})
 })
 </script>
 

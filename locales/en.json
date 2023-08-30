@@ -1,0 +1,106 @@
+{
+  "loading": "Loading...",
+  "search": "Search",
+  "salesDepartment": "Sales Department",
+  "serviceDepartment": "Service Department",
+  "financialDepartment": "Financial Department",
+  "menu": [
+    {
+      "route": "/catalog",
+      "title": "Catalog"
+    },
+    {
+      "route": "/about",
+      "title": "About"
+    },
+    {
+      "route": "/service",
+      "title": "Service"
+    },
+    {
+      "route": "/publications",
+      "title": "News"
+    },
+    {
+      "route": "/contacts",
+      "title": "Contacts"
+    }
+  ],
+  "buttons": {
+    "details": "More details",
+    "all": "See All",
+    "loadAll": "Load All",
+    "allClients": "All Clients",
+    "back": "Back",
+    "previous": "Previous",
+    "next": "Next",
+    "request": "Request"
+  },
+  "tabs": {
+    "description": "Description",
+    "characteristics": "Characteristics",
+    "video": "Video"
+  },
+  "mainPage": {
+    "title": "Main Page",
+    "about": {
+      "title": "<span class=\"text-info\">About</span>",
+      "description": "Joint Stock Company „ASV Trade“ was established on 08th April 2013. The main activity of the company is wholesale trade of medical equipment and consumables.<br/>We are representing the best known manufacturers of medical equipment in the fields of ophthalmology, aesthetics, rehabilitation & gynecology <br/> JSC “ASV Trade” is part of a Companies group, therefore, in cooperation with other Group companies, we provide professional technical service of the equipment.",
+      "articles": {
+        "first": "<span class=\"text-info\">ASV Trade</span> is a leading Lithuanian distributor of professional medical equipment. Our company supplies medical equipment of well-known brands whose manufacturers are leaders in their field. All products meet the highest requirements and standards.",
+        "second": "<span class=\"text-info\">ASV Trade</span> understands the importance of equipping medical institutions, so we supply only high quality medical equipment. All questions concerning prices and equipment set can be clarified by telephone with our employees.",
+        "third": "<span class=\"text-info\">ASV Trade</span> specialists regularly undergo training abroad and can expertly help you choose the necessary equipment and consumables.",
+        "fourth": "<span class=\"text-info\">ASV Trade</span> performs commissioning, warranty and post-warranty repair of equipment. In addition, the company can offer a comprehensive annual maintenance of your equipment on the most favorable terms."
+      }
+    },
+    "service": {
+      "title": "<span class=\"text-info\">Medical</span> Equipment Service",
+      "articles": {
+        "first": "We carry out a complete diagnosis of the equipment for faults, which includes testing of individual equipment blocks with an indication of the identified faults ",
+        "second": "Equipment repairs, including warranty repairs, are performed in the shortest possible time and at a high technological level. Service support includes consultation, diagnostics and repair of equipment.",
+        "third": {
+          "content": "You can leave a request at: <a href=\"{link}\">{address}{'@'}{domain}</a>"
+        },
+        "fourth": "Our service center provides services in the area of warranty and post-warranty maintenance and equipment repair. Availability of the first class equipment, material and technical base of components and a large experience in the field of repair allows performing works at a high level in a short time. A warranty is provided for all types of work.",
+        "list": {
+          "title": "A wide range of services for service support of medical equipment",
+          "items": [
+            "Commissioning, warranty and post-warranty repair of equipment",
+            "Comprehensive annual maintenance of your equipment on the most favorable conditions",
+            "Qualified and experienced specialists, who were trained at leading medical equipment manufacturers and certified to conduct repairs",
+            "Developed warehouse system and prompt delivery service - in most cases, customers do not have to wait for delivery of spare parts from abroad",
+            "Customer confidence, excellent references"
+          ]
+
+        }
+      }
+    }
+  },
+  "titles": {
+    "news": "<span class=\"text-info\">News</span>",
+    "clients": "<span class=\"text-info\">Clients</span>",
+    "menu": "Menu",
+    "service": "Service",
+    "askQuestion": "Ask Question",
+    "address": "Address",
+    "trainers": "Clinical Mentors",
+    "networks": "We are on social networks"
+  },
+  "form": {
+    "name": "Name",
+    "company": "Company",
+    "phoneNumber": "Phone Number",
+    "message": "Your Message",
+    "submit": "Send",
+    "success": "You're message has been successfully sent",
+    "notice": "Your data will not be shared with third parties. We guarantee confidentiality and protect personal data"
+  },
+  "copyright": "JSC «ASV Trade» All rights to exclusive materials of <a href=\"www.asvtrade.lt\">www.asvtrade.lt</a> website (hereinafter referred to as the Site) are governed by the Lithuanian Law on Copyright and Related Rights. Infringement of copyrights on the Site is prosecuted by law. Any copying, reprinting and dissemination of materials on the Site is prohibited without an active reverse link.",
+  "development": "Design and Development",
+  "address": "P. Žvyrkos Str. 6-2,<br />LT-02223 Vilnius",
+  "contacts": {
+    "subtitle": "\"ASV TRADING\" COMPANY HAS A LARGE NUMBER OF LEADING SPECIALISTS FOR TRAINING TO WORK WITH OUR EQUIPMENT",
+    "name": "JSC «ASV Trade» ",
+    "description": "\"ASV Trade Service\" is a leading Belarusian distributor of professional medical equipment. Our company is engaged in supplying equipment under well-known brands, the manufacturers of which are leaders in their field. All products meet the highest requirements and are manufactured in such countries as Japan, USA, France, Germany, Israel, Spain and others."
+  }
+}

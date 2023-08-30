@@ -1,5 +1,6 @@
 <template>
   <v-carousel
+      class="z-index-5"
       v-model="current"
       :height="`${height}px`"
       :cycle="true"
@@ -27,7 +28,8 @@
       </v-btn>
     </template>
     <v-carousel-item v-for="(slide, index) of services.list" :key="index">
-      <div class="d-flex justify-center align-center w-100" :style="`height: ${isIndex ? 110 : 100}%`">
+      <div class="d-flex justify-center align-center w-100 position-relative"
+           :style="`overflow: hidden; height: ${isIndex ? 95 : 100}%`">
         <template v-for="(item, i) of slide.slides" :key="i">
           <v-hover>
             <template v-slot:default="{ isHovering, props }">
@@ -37,7 +39,7 @@
                       :to="`/service/${item.slug}`"
                       v-bind="props"
                       width="25%"
-                      :height="isIndex ? '80%' : '100%'"
+                      :height="isIndex ? '95%' : '100%'"
                       :class="['rounded-0 hover', { 'on': isHovering }]">
                 <v-card-text class="d-flex align-center justify-center pa-0 fill-height">
                   <nuxt-img provider="strapi"

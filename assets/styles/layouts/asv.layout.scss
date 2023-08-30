@@ -9,7 +9,10 @@
       align-items: center;
       align-content: center;
       justify-content: center;
-
+      &.open {
+        max-width: 150px;
+        align-items: baseline;
+      }
       &-slogan {
         max-width: 100%;
 
@@ -79,7 +82,7 @@
         height: fit-content;
         width: fit-content;
         font-size: 13px;
-        &:active, &:hover {
+        &:active, &:hover, &.active__lang {
           position: relative;
           color: #00EAFC;
         }

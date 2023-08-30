@@ -38,7 +38,9 @@ export default defineNuxtConfig({
     plugins: [
         '~/plugins/mitt.ts',
         '~/plugins/breadcrumbs.js',
-        '~/plugins/display.js'
+        '~/plugins/display.js',
+        '~/plugins/datetime.js',
+        '~/plugins/i18n.ts',
     ],
     piniaPersistedstate: {
         storage: 'localStorage'
@@ -57,4 +59,16 @@ export default defineNuxtConfig({
             'process.env.DEBUG': false,
         },
     },
+    devServer: {
+        host: 'asv.test',
+        port: 8000
+    },
+    nitro: {
+        devProxy: {
+            '/uploads': {
+                target: 'https://dashboard.a-sv.site/uploads',
+                changeOrigin: true
+            }
+        }
+    }
 })

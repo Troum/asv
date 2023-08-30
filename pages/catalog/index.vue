@@ -1,26 +1,26 @@
 <template>
   <v-container :fluid="true" class="mx-0 pa-0">
     <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
-      <template v-if="filters.list.length">
+      <template v-if="filters.length">
         <v-row class="ma-0 pa-0">
           <v-col cols="12" class="mx-0 position-relative px-0">
-            <filters-component @set-filter="filterData" :filters="filters.list"/>
+            <filters-component @set-filter="filterData" :filters="filters"/>
           </v-col>
         </v-row>
       </template>
-      <template v-if="products.list.length">
+      <template v-if="products.length">
         <v-row class="ma-0 pa-0">
           <v-col cols="12" class="ma-0 position-relative d-grid products-list grid-column-gap-30 grid-row-gap-40 px-0">
             <template v-for="product of filteredProducts.slice(0, current)">
               <product-card-component :product="product"/>
             </template>
           </v-col>
-          <template v-if="products.list.length > 6">
+          <template v-if="products.length > 6">
             <v-col cols="12" class="d-flex justify-center position-relative">
               <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
                 <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
                   <span class="font-weight-bold">Загрузить еще</span>
-                  <chevron-down />
+                  <chevron-down/>
                 </div>
               </v-btn>
             </v-col>
@@ -31,50 +31,96 @@
   </v-container>
 </template>
 <script setup>
-import {useProductsStore} from "~/store/products";
-import {useFiltersStore} from "~/store/filters";
-import {ref} from "vue";
+import {ref, onBeforeMount} from "vue";
 import _ from "lodash";
 import {useCommonStore} from "~/store/common";
 import ChevronDown from "~/components/icons/chevronDown.vue";
+import Product from "~/models/Product";
+import Filter from "~/models/Filter";
+import {useI18n} from "vue-i18n";
+const { locale } = useI18n()
 
-definePageMeta({
-  breadcrumb: 'Каталог'
-})
+switch (locale.value) {
+  case 'en':
+    definePageMeta({
+      breadcrumb: 'Catalog'
+    })
+    break;
+  case 'ru':
+    definePageMeta({
+      breadcrumb: 'Каталог'
+    })
+    break;
+  default:
+    definePageMeta({
+      breadcrumb: 'Katalogas'
+    })
+}
 defineProps({
   frameMargin: {
     type: Number,
     default: 0
   },
 })
+const {find} = useStrapi()
 const commonStore = useCommonStore()
-const products = useProductsStore()
-const filters = useFiltersStore()
+const products = ref([])
+const filters = ref([])
 
 const current = ref(6)
 const filtered = ref([])
 
+onBeforeMount(async () => {
+  await find('catalog', {
+    populate: {
+      products: {populate: ['logo', 'video', 'avatar']},
+      filters: {fields: ['title', 'value']}
+    }
+  }).then((response) => {
+    products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })
+    filters.value = response.data.attributes.filters.data.map((item) => {
+      return new Filter(
+          item.attributes.value,
+          item.attributes.title
+      ).toJson()
+    })
+  })
+})
+
 commonStore.setComponent(null)
 commonStore.setTitle(null)
+commonStore.setServiceFilter(null)
 
 const filteredProducts = computed(() => {
-  return !_.isEmpty(filtered?.value) ? filtered?.value : products.list
+  return !_.isEmpty(filtered?.value) ? filtered?.value : products.value
 })
 const filterData = (value) => {
   if (!_.isEqual(value, 'all')) {
-    filtered.value = products.list.filter((item) => item.type === value)
+    filtered.value = products.value.filter((item) => item.type === value)
   } else {
-    filtered.value = products.list
+    filtered.value = products.value
   }
 }
 const loadMore = () => {
-  current.value = products.list.length
+  current.value = products.value.length
 }
 </script>
 <style scoped lang="scss">
 .products {
   &-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, calc((100% / 3) - 60px));
     grid-auto-rows: minmax(700px, 1fr);
   }
 }

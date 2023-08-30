@@ -4,3 +4,46 @@
 .d-grid {
   display: grid;
 }
+table {
+  width: 100%;
+  border: none;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+table thead th {
+  font-weight: bold;
+  text-align: left;
+  vertical-align: center;
+  padding: 10px 15px;
+  background: #d8d8d8;
+  font-size: 14px;
+  border-left: 1px solid #716561;
+  border-right: 1px solid #716561;
+  border-top: 2px solid #716561;
+  border-bottom: 2px solid #716561;
+}
+table tbody td {
+  text-align: center;
+  border-left: 1px solid #716561;
+  border-right: 1px solid #716561;
+  border-top: 2px solid #716561;
+  border-bottom: 2px solid #716561;
+  padding: 10px 15px;
+  font-size: 14px;
+  vertical-align: middle;
+  & p {
+    margin-bottom: 0 !important;
+  }
+}
+.v-input__control {
+ & .v-field__field {
+   background-color: #444;
+ }
+}
+.v-navigation-drawer__content {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100% !important;
+}
