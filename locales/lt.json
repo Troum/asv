@@ -104,7 +104,7 @@
   },
   "pages": {
     "main": {
-      "title": "Pagrindinis puslapis",
+      "title": "Pagrindinis",
       "route": "/"
     },
     "about": {
