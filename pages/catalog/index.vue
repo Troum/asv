@@ -39,6 +39,7 @@ import Product from "~/models/Product";
 import Filter from "~/models/Filter";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
+import {useFiltersStore} from "~/store/filters";
 
 definePageMeta({
   breadcrumb: 'pages.catalog.title'
@@ -59,6 +60,7 @@ const products = ref([])
 const filters = ref([])
 const current = ref(6)
 const filtered = ref([])
+const filtersStore = useFiltersStore()
 
 onBeforeMount(async () => {
   await find('catalog', {
@@ -87,6 +89,7 @@ onBeforeMount(async () => {
           item.attributes.title
       ).toJson()
     })
+    filtersStore.addItems(filters.value)
     commonStore.setServiceFilter(null)
     commonStore.setComponent(null)
     commonStore.setTitle(null)
@@ -133,6 +136,7 @@ watch(locale, async (value) => {
           item.attributes.title
       ).toJson()
     })
+    filtersStore.addItems(filters.value)
     commonStore.setServiceFilter(null)
     commonStore.setComponent(null)
     commonStore.setTitle(null)

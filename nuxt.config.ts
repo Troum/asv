@@ -59,7 +59,7 @@ export default defineNuxtConfig({
     vite: {
         define: {
             'process.env.DEBUG': false,
-        },
+        }
     },
     devServer: {
         host: 'asv.test',

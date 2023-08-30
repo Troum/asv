@@ -8,7 +8,7 @@
     <template v-else>
       <client-only>
         <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
-          <template v-if="filters.list.length">
+          <template v-if="filters.list.length && products.length">
             <v-row class="ma-0 pa-0">
               <v-col cols="12" class="mx-0 position-relative px-0">
                 <filters-component @set-filter="filterData" :filters="filters.list"/>
@@ -47,7 +47,6 @@ import _ from "lodash";
 import {useCommonStore} from "~/store/common";
 import {useRoute} from "vue-router";
 import ChevronDown from "~/components/icons/chevronDown.vue";
-import {useServicesStore} from "~/store/services";
 import Product from "~/models/Product";
 import {useLangStore} from "~/store/lang";
 import {useI18n} from "vue-i18n";
@@ -83,7 +82,7 @@ await find(`slides/${route.params.slug}`, {
 
   page.value.title = response.name
   page.value.description = response.description
-  page.value.logo = response.whiteLogo.url
+  page.value.logo = `https://dashboard.a-sv.site${response.whiteLogo.url}`
 
   products.value = response.products.map((item) => {
     return new Product(
