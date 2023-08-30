@@ -16,6 +16,7 @@
     "@types/lodash": "^4.14.195",
     "@types/node": "^18.16.19",
     "nuxt": "^3.6.2",
+    "nuxt-delay-hydration": "^1.2.1",
     "video.js": "^8.3.0",
     "vue-i18n": "^9.2.2"
   },

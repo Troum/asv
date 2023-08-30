@@ -33,6 +33,6 @@ nuxtApp.hook("page:start", () => {
   commonStore.setLoading(true)
 });
 nuxtApp.hook("page:finish", () => {
-  setTimeout(() => commonStore.setLoading(false), 800)
+  commonStore.setLoading(false)
 })
 </script>

@@ -13,7 +13,8 @@ export default defineNuxtConfig({
             ],
             script: [
                 {src: 'https://api-maps.yandex.ru/3.0/?apikey=0845768b-3f33-453f-970b-be8e7b249bd7&lang=ru_RU'}
-            ]
+            ],
+            title: 'ASV Trade'
         }
     },
     devtools: {enabled: true},
@@ -33,7 +34,8 @@ export default defineNuxtConfig({
         '@pinia/nuxt',
         '@pinia-plugin-persistedstate/nuxt',
         '@nuxt/image',
-        '@nuxtjs/strapi'
+        '@nuxtjs/strapi',
+        'nuxt-delay-hydration',
     ],
     plugins: [
         '~/plugins/mitt.ts',
@@ -70,5 +72,8 @@ export default defineNuxtConfig({
                 changeOrigin: true
             }
         }
+    },
+    delayHydration: {
+        mode: 'mount'
     }
 })
