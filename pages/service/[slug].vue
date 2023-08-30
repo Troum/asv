@@ -50,7 +50,9 @@ import {useRoute} from "vue-router";
 import ChevronDown from "~/components/icons/chevronDown.vue";
 import {useServicesStore} from "~/store/services";
 import Product from "~/models/Product";
-
+import {useLangStore} from "~/store/lang";
+import {useI18n} from "vue-i18n";
+const { locale } = useI18n()
 defineProps({
   frameMargin: {
     type: Number,
@@ -80,7 +82,7 @@ const service = computed(() => {
       .find({slug: route.params.slug})
 })
 const timeout = ref(true)
-
+const langStore = useLangStore()
 onBeforeMount(async () => {
   await find(`slides/${service.value.id}`, {populate: {
       whiteLogo: {
@@ -96,7 +98,9 @@ onBeforeMount(async () => {
           }
         }
       }
-    }}).then((response) => {
+    },
+    locale: langStore.getLang ?? locale.value
+  }).then((response) => {
 
     page.value.title = response.data.attributes.name
     page.value.description = response.data.attributes.description

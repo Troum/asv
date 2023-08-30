@@ -1,276 +1,280 @@
 <template>
   <v-layout class="asv rounded rounded-md">
-      <v-navigation-drawer style="z-index: 9" :class="`d-flex align-center ${rail ? 'justify-start' : 'justify-center'}`"
-                           :rail="rail"
-                           v-model="drawer"
-                           :permanent="true"
-                           :rail-width="display.width.value"
-                           @click="rail = false"
-                           :width="$display.socialBar(display.width.value, 150)" color="secondary">
-        <div ref="networksContainer" :class="`network__container ${rail ? 'open' : ''}`">
-          <div ref="sloganContainer" class="network__container-slogan">
-            <h1 ref="slogan" class="text-uppercase text-accent font-size-18">{{ $t('titles.networks') }}</h1>
-          </div>
-          <div class="network__container-line"></div>
-          <div class="d-flex align-center justify-center flex-column">
-            <template v-for="(social, index) of socialNetworks" :key="index">
-              <v-hover>
-                <template v-slot:default="{ isHovering, props }">
-                  <v-btn v-bind="props" icon variant="plain" :ripple="false" style="opacity: 1" :href="social.href">
-                    <svg-icon type="mdi" :class="isHovering ? 'text-info' : 'text-white'" :path="social.icon"></svg-icon>
-                  </v-btn>
-                </template>
-              </v-hover>
-            </template>
-          </div>
+    <v-navigation-drawer style="z-index: 9" :class="`d-flex align-center ${rail ? 'justify-start' : 'justify-center'}`"
+                         :rail="rail"
+                         v-model="drawer"
+                         :permanent="true"
+                         :rail-width="display.width.value"
+                         @click="rail = false"
+                         :width="$display.socialBar(display.width.value, 150)" color="secondary">
+      <div ref="networksContainer" :class="`network__container ${rail ? 'open' : ''}`">
+        <div ref="sloganContainer" class="network__container-slogan">
+          <h1 ref="slogan" class="text-uppercase text-accent font-size-18">{{ $t('titles.networks') }}</h1>
         </div>
-        <template v-if="rail">
-          <div class="d-flex justify-center align-center flex-column position-relative"
-               style="width: calc(100% - 300px)">
-            <v-btn color="#fff" class="position-absolute" icon variant="plain"
-                   :ripple="false" style="top: -25%; right: -10%">
-              <svg-icon type="mdi" :path="mdiClose" size="48" />
-            </v-btn>
-            <template v-for="item of menu">
-              <NuxtLink :to="item.route"
-                        transition="fade"
-                        class="text-h3 my-6 d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
-                {{ item.title }}
-              </NuxtLink>
-            </template>
-          </div>
-        </template>
-      </v-navigation-drawer>
-      <v-app-bar :fixed="true" elevation="0" :height="$display.navBar(display.height.value, 157)">
-        <div class="appbar">
-          <NuxtLink to="/">
-            <v-img :width="$display.logo(display.width.value, 200)" src="/logo.svg"></v-img>
-          </NuxtLink>
-          <v-btn style="opacity: 1; text-transform: initial; font-size: 18px" variant="plain"
-                 :ripple="false"
-                 class="d-flex align-center">
-            <span class="mr-4">{{ $t('search') }}</span>
-            <svg-icon size="26" type="mdi" :path="mdiMagnify"/>
+        <div class="network__container-line"></div>
+        <div class="d-flex align-center justify-center flex-column">
+          <template v-for="(social, index) of socialNetworks" :key="index">
+            <v-hover>
+              <template v-slot:default="{ isHovering, props }">
+                <v-btn v-bind="props" icon variant="plain" :ripple="false" style="opacity: 1" :href="social.href">
+                  <svg-icon type="mdi" :class="isHovering ? 'text-info' : 'text-white'" :path="social.icon"></svg-icon>
+                </v-btn>
+              </template>
+            </v-hover>
+          </template>
+        </div>
+      </div>
+      <template v-if="rail">
+        <div class="d-flex justify-center align-center flex-column position-relative"
+             style="width: calc(100% - 300px)">
+          <v-btn color="#fff" class="position-absolute" icon variant="plain"
+                 :ripple="false" style="top: -25%; right: -10%">
+            <svg-icon type="mdi" :path="mdiClose" size="48"/>
           </v-btn>
-          <div ref="phonesContainer" class="d-flex align-center phones__container">
-            <div class="d-flex flex-column justify-center align-end">
-              <span class="font-weight-bold text-uppercase font-size-13">{{ $t('salesDepartment') }}</span>
-              <span class="font-weight-bold text-uppercase font-size-13">{{ $t('serviceDepartment') }}</span>
-            </div>
-            <div ref="phoneSeparator" class="separator"></div>
-            <div class="d-flex flex-column justify-center align-start">
-              <a href="tel:+37068655420" class="phone_link font-weight-bold text-uppercase font-size-13">+370 686 55 420</a>
-              <a href="tel:+375173362302" class="phone_link font-weight-bold text-uppercase font-size-13">+375 17 336 23 02</a>
-            </div>
+          <template v-for="item of menu">
+            <NuxtLink :to="item.route"
+                      transition="fade"
+                      class="text-h3 my-6 d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
+              {{ item.title }}
+            </NuxtLink>
+          </template>
+        </div>
+      </template>
+    </v-navigation-drawer>
+    <v-app-bar :fixed="true" elevation="0" :height="$display.navBar(display.height.value, 157)">
+      <div class="appbar">
+        <NuxtLink to="/">
+          <v-img :width="$display.logo(display.width.value, 200)" src="/logo.svg"></v-img>
+        </NuxtLink>
+        <v-btn style="opacity: 1; text-transform: initial; font-size: 18px" variant="plain"
+               :ripple="false"
+               class="d-flex align-center">
+          <span class="mr-4">{{ $t('search') }}</span>
+          <svg-icon size="26" type="mdi" :path="mdiMagnify"/>
+        </v-btn>
+        <div ref="phonesContainer" class="d-flex align-center phones__container">
+          <div class="d-flex flex-column justify-center align-end">
+            <span class="font-weight-bold text-uppercase font-size-13">{{ $t('salesDepartment') }}</span>
+            <span class="font-weight-bold text-uppercase font-size-13">{{ $t('serviceDepartment') }}</span>
           </div>
-          <div ref="phonesContainer" class="d-flex align-center langs__container">
-            <div class="d-flex flex-column justify-center align-end flex-row-gap-4">
-              <lt />
-              <ru />
-              <us />
-            </div>
-            <div ref="langSeparator" class="separator"></div>
-            <div class="d-flex flex-column justify-center align-start flex-row-gap-4">
-              <v-btn variant="plain" icon
-                     @click="locale = 'lt'"
-                     :ripple="false" style="opacity: 1"
-                     :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
-              </v-btn>
-              <v-btn variant="plain" icon
-                     @click="locale = 'ru'"
-                     :ripple="false" style="opacity: 1"
-                     :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
-              </v-btn>
-              <v-btn variant="plain" icon
-                     @click="locale = 'en'"
-                     :ripple="false" style="opacity: 1"
-                     :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
-              </v-btn>
-            </div>
-            <div class="d-flex flex-column justify-center align-center flex-row-gap-4 ml-12">
-              <v-btn variant="plain" icon
-                     @click="rail = true"
-                     :ripple="false" style="opacity: 1" class="lang_link font-weight-bold text-uppercase pa-0">
-                <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                      d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
-                      fill="#000"/>
-                </svg>
-              </v-btn>
-            </div>
+          <div ref="phoneSeparator" class="separator"></div>
+          <div class="d-flex flex-column justify-center align-start">
+            <a href="tel:+37068655420" class="phone_link font-weight-bold text-uppercase font-size-13">+370 686 55
+              420</a>
+            <a href="tel:+375173362302" class="phone_link font-weight-bold text-uppercase font-size-13">+375 17 336 23
+              02</a>
           </div>
         </div>
-      </v-app-bar>
-      <client-only>
-        <template v-if="isIndex">
-          <div class="z-index-5 position-absolute menu-bar"
-               :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-            <v-btn @click="isOpen = !isOpen" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
-                   style="opacity: 1; width: fit-content;">
+        <div ref="phonesContainer" class="d-flex align-center langs__container">
+          <div class="d-flex flex-column justify-center align-end flex-row-gap-4">
+            <lt/>
+            <ru/>
+            <us/>
+          </div>
+          <div ref="langSeparator" class="separator"></div>
+          <div class="d-flex flex-column justify-center align-start flex-row-gap-4">
+            <v-btn variant="plain" icon
+                   @click="setLocale('lt')"
+                   :ripple="false" style="opacity: 1"
+                   :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
+            </v-btn>
+            <v-btn variant="plain" icon
+                   @click="setLocale('ru')"
+                   :ripple="false" style="opacity: 1"
+                   :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
+            </v-btn>
+            <v-btn variant="plain" icon
+                   @click="setLocale('en')"
+                   :ripple="false" style="opacity: 1"
+                   :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
+            </v-btn>
+          </div>
+          <div class="d-flex flex-column justify-center align-center flex-row-gap-4 ml-12">
+            <v-btn variant="plain" icon
+                   @click="rail = true"
+                   :ripple="false" style="opacity: 1" class="lang_link font-weight-bold text-uppercase pa-0">
               <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
-                    fill="white"/>
+                    fill="#000"/>
               </svg>
             </v-btn>
-            <v-fade-transition>
-              <div v-if="isOpen" class="d-flex justify-space-between align-center w-75 ml-10 mr-auto">
-                <template v-for="item of menu">
-                  <NuxtLink :to="item.route"
-                            transition="fade"
-                            class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover">
-                    {{ item.title }}
-                  </NuxtLink>
-                </template>
-              </div>
-            </v-fade-transition>
           </div>
+        </div>
+      </div>
+    </v-app-bar>
+    <client-only>
+      <template v-if="isIndex">
+        <div class="z-index-5 position-absolute menu-bar"
+             :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+          <v-btn @click="isOpen = !isOpen" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
+                 style="opacity: 1; width: fit-content;">
+            <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
+                  fill="white"/>
+            </svg>
+          </v-btn>
+          <v-fade-transition>
+            <div v-if="isOpen" class="d-flex justify-space-between align-center w-75 ml-10 mr-auto">
+              <template v-for="item of menu">
+                <NuxtLink :to="item.route"
+                          transition="fade"
+                          class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover">
+                  {{ item.title }}
+                </NuxtLink>
+              </template>
+            </div>
+          </v-fade-transition>
+        </div>
+      </template>
+      <template v-else>
+        <template v-if="commonStore.getComponent">
+          <v-img class="position-absolute breadcrumbs-bar"
+                 src="/breadcrumbs-bg.png"
+                 ref="image"
+                 :cover="true"
+                 :min-height="120"
+                 :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
+                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${commonStore.getComponent ? 60 : 0}px; padding-top: ${commonStore.getComponent ? 60 : 0}px`">
+            <breadcrumbs-component/>
+          </v-img>
         </template>
         <template v-else>
-          <template v-if="commonStore.getComponent">
-            <v-img class="position-absolute breadcrumbs-bar"
-                   src="/breadcrumbs-bg.png"
-                   ref="image"
-                   :cover="true"
-                   :min-height="120"
-                   :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
-                   :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${commonStore.getComponent ? 60 : 0}px; padding-top: ${commonStore.getComponent ? 60 : 0}px`">
-              <breadcrumbs-component/>
-            </v-img>
-          </template>
-          <template v-else>
-            <v-img class="position-absolute breadcrumbs-bar"
-                   src="/breadcrumbs-bg.png"
-                   ref="image"
-                   :cover="true"
-                   :max-height="120"
-                   :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
-                   :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${commonStore.getComponent ? 60 : 0}px; padding-top: ${commonStore.getComponent ? 60 : 0}px`">
-              <breadcrumbs-component/>
-            </v-img>
-          </template>
+          <v-img class="position-absolute breadcrumbs-bar"
+                 src="/breadcrumbs-bg.png"
+                 ref="image"
+                 :cover="true"
+                 :max-height="120"
+                 :width="$display.footer(display.width.value, $display.socialBar(display.width.value, 150))"
+                 :style="`top: ${$display.navBar(display.height.value, 157)}px; margin-left: ${$display.socialBar(display.width.value, 150)}px; padding-bottom: ${commonStore.getComponent ? 60 : 0}px; padding-top: ${commonStore.getComponent ? 60 : 0}px`">
+            <breadcrumbs-component/>
+          </v-img>
         </template>
-      </client-only>
-      <v-main class="d-flex flex-column align-center justify-center">
-        <NuxtPage :appBarHeight="$display.navBar(display.height.value, 157)"
-                  :frameMargin="marginTop"/>
-      </v-main>
-      <template v-if="!isIndex">
-        <v-footer class="pa-0 mt-10"
-                  :style="`width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-          <client-only>
-            <slide-group-component :isIndex="isIndex" :height="100"/>
-          </client-only>
-        </v-footer>
       </template>
-      <v-footer class="d-flex flex-column bg-primary py-15 px-0"
-                :style="`min-height: 700px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-        <div class="footer-bar">
-          <v-img :max-width="$display.logo(display.width.value, 200)" src="/logo-w.svg"></v-img>
-          <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.menu') }}</h4>
-          <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
-        </div>
-        <div class="footer-info">
-          <div class="contacts-container">
-            <div class="d-flex flex-column flex-row-gap-5">
+    </client-only>
+    <v-main class="d-flex flex-column align-center justify-center">
+      <NuxtPage :appBarHeight="$display.navBar(display.height.value, 157)"
+                :frameMargin="marginTop"/>
+    </v-main>
+    <template v-if="!isIndex">
+      <v-footer class="pa-0 mt-10"
+                :style="`width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+        <client-only>
+          <slide-group-component :isIndex="isIndex" :height="100"/>
+        </client-only>
+      </v-footer>
+    </template>
+    <v-footer class="d-flex flex-column bg-primary py-15 px-0"
+              :style="`min-height: 700px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+      <div class="footer-bar">
+        <v-img :max-width="$display.logo(display.width.value, 200)" src="/logo-w.svg"></v-img>
+        <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.menu') }}</h4>
+        <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
+      </div>
+      <div class="footer-info">
+        <div class="contacts-container">
+          <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('salesDepartment') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375173362300">+375
-                17
-                336 23 00</a>
-            </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375173362300">+375
+              17
+              336 23 00</a>
+          </div>
+          <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('titles.service') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375291661880">+375
-                29
-                166 18 80</a>
-            </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375291661880">+375
+              29
+              166 18 80</a>
+          </div>
+          <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 e-mail
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="mailto:inbox@asv-trade.by">inbox@asv-trade.by</a>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="mailto:service@asv-trade.by">service@asv-trade.by</a>
-            </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+               href="mailto:inbox@asv-trade.by">inbox@asv-trade.by</a>
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+               href="mailto:service@asv-trade.by">service@asv-trade.by</a>
+          </div>
+          <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('titles.address') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="" v-html="$t('address')">
-              </a>
-            </div>
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href=""
+               v-html="$t('address')">
+            </a>
           </div>
-          <div class="menu-container">
-            <template v-for="item of menu">
-              <NuxtLink :to="item.route"
-                        class="d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
-                {{ item.title }}
-              </NuxtLink>
-            </template>
+        </div>
+        <div class="menu-container">
+          <template v-for="item of menu">
+            <NuxtLink :to="item.route"
+                      class="d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
+              {{ item.title }}
+            </NuxtLink>
+          </template>
+        </div>
+        <v-form @submit.prevent="onSubmit" class="feedback-container">
+          <div class="d-flex justify-space-between flex-column-gap-22 w-100">
+            <v-text-field :label="$t('form.name')" type="text" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required]"
+                          v-model="feedback.name"
+                          :rounded="0"
+                          class="w-50"></v-text-field>
+            <v-text-field :label="$t('form.company')" type="text" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required]"
+                          v-model="feedback.company"
+                          :rounded="0"
+                          class="w-50"></v-text-field>
           </div>
-          <v-form @submit.prevent="onSubmit" class="feedback-container">
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <v-text-field :label="$t('form.name')" type="text" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required]"
-                            v-model="feedback.name"
-                            :rounded="0"
-                            class="w-50"></v-text-field>
-              <v-text-field :label="$t('form.company')" type="text" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required]"
-                            v-model="feedback.company"
-                            :rounded="0"
-                            class="w-50"></v-text-field>
-            </div>
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required]"
-                            v-model="feedback.phone"
-                            :rounded="0"
-                            class="w-50 border-opacity-100"></v-text-field>
-              <v-text-field label="E-mail" type="email" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required, rules.email]"
-                            v-model="feedback.email"
-                            :rounded="0"
-                            class="w-50"></v-text-field>
-            </div>
-            <div class="d-flex w-100">
-              <v-textarea :rules="[rules.required]" v-model="feedback.feedback" label="Сообщение" :rounded="0" hide-details variant="outlined" class="w-100"></v-textarea>
-            </div>
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <small class="text-secondary-light">
-                <sup>*</sup> {{ message }}
-              </small>
-              <v-btn type="submit" variant="outlined" class="rounded-0">
-                {{ $t('form.submit') }}
-              </v-btn>
-            </div>
-          </v-form>
+          <div class="d-flex justify-space-between flex-column-gap-22 w-100">
+            <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required]"
+                          v-model="feedback.phone"
+                          :rounded="0"
+                          class="w-50 border-opacity-100"></v-text-field>
+            <v-text-field label="E-mail" type="email" hide-details variant="outlined" density="compact"
+                          :rules="[rules.required, rules.email]"
+                          v-model="feedback.email"
+                          :rounded="0"
+                          class="w-50"></v-text-field>
+          </div>
+          <div class="d-flex w-100">
+            <v-textarea :rules="[rules.required]" v-model="feedback.feedback" label="Сообщение" :rounded="0"
+                        hide-details variant="outlined" class="w-100"></v-textarea>
+          </div>
+          <div class="d-flex justify-space-between flex-column-gap-22 w-100">
+            <small class="text-secondary-light">
+              <sup>*</sup> {{ message }}
+            </small>
+            <v-btn type="submit" variant="outlined" class="rounded-0">
+              {{ $t('form.submit') }}
+            </v-btn>
+          </div>
+        </v-form>
+      </div>
+    </v-footer>
+    <client-only>
+      <v-footer class="d-flex flex-column bg-primary py-15 flex-row-gap-15"
+                :style="`padding-left: calc((255 * 100%) / 1920); padding-right: calc((255 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+        <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
+        <div class="d-flex justify-space-between flex-column-gap-60">
+          <small class="text-secondary-light">
+            © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
+          </small>
+          <div class="d-flex justify-space-between align-start flex-column-gap-15">
+            <small class="text-secondary-light text-right">
+              {{
+                $t('development')
+              }}
+            </small>
+            <v-img src="/fcb.svg" width="150"></v-img>
+          </div>
         </div>
       </v-footer>
-      <client-only>
-        <v-footer class="d-flex flex-column bg-primary py-15 flex-row-gap-15"
-                  :style="`padding-left: calc((255 * 100%) / 1920); padding-right: calc((255 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-          <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
-          <div class="d-flex justify-space-between flex-column-gap-60">
-            <small class="text-secondary-light">
-              © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
-            </small>
-            <div class="d-flex justify-space-between align-start flex-column-gap-15">
-              <small class="text-secondary-light text-right">
-                {{
-                  $t('development')
-                }}
-              </small>
-              <v-img src="/fcb.svg" width="150"></v-img>
-            </div>
-          </div>
-        </v-footer>
-      </client-only>
+    </client-only>
   </v-layout>
 </template>
 
@@ -295,6 +299,7 @@ import {useClientsStore} from "~/store/clients";
 import {useCarouselStore} from "~/store/carousel";
 import Slide from "~/models/Slide";
 import {useI18n} from "vue-i18n";
+import {useLangStore} from "~/store/lang";
 
 const rail = ref(false)
 const drawer = ref(true)
@@ -322,16 +327,18 @@ const socialNetworks = computed(() => {
 const isIndex = computed(() => {
   return route.name === 'index' || route.name === 'Index' || route.name === 'INDEX'
 })
-const { locale, tm } = useI18n()
+const {locale, tm} = useI18n()
 const currentLocale = ref(locale.value)
 let message = ref(tm('form.notice'))
 let menu = ref(tm('menu'))
 
+const langStore = useLangStore()
 const mainPageCarousel = useCarouselStore()
 const services = useServicesStore()
 const publications = usePublicationsStore()
 const clients = useClientsStore()
 const isOpen = ref(false)
+
 const feedback = ref({
   name: null,
   company: null,
@@ -346,6 +353,10 @@ const rules = ref({
     return pattern.test(value) || 'Поле должно быть валидным e-mail.'
   },
 })
+const setLocale = (lang) => {
+  locale.value = lang
+  langStore.setLang(lang)
+}
 const onSubmit = async () => {
   await create('feedbacks', feedback.value)
       .then(() => {
@@ -376,7 +387,7 @@ await find('main-page', {
           populate: ['logo', 'whiteLogo']
         },
       },
-  locale: locale.value
+  locale: langStore.getLang ?? locale.value
 })
     .then((response) => {
       mainPageCarousel.addItems(
@@ -408,9 +419,9 @@ await find('main-page', {
             item.attributes.logo.data.attributes.url
         ).toJson()
       }))
-      services.addItems(response.data.attributes.services.data.reduce((all,one,i) => {
-            const ch = Math.floor(i/4);
-            all[ch] = [].concat((all[ch]||[]),one);
+      services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
+            const ch = Math.floor(i / 4);
+            all[ch] = [].concat((all[ch] || []), one);
             return all
           }, [])
               .map((item) => {
@@ -514,9 +525,9 @@ watch(locale, async (value) => {
                 item.attributes.logo.data.attributes.url
             ).toJson()
           }))
-          services.addItems(response.data.attributes.services.data.reduce((all,one,i) => {
-                const ch = Math.floor(i/4);
-                all[ch] = [].concat((all[ch]||[]),one);
+          services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
+                const ch = Math.floor(i / 4);
+                all[ch] = [].concat((all[ch] || []), one);
                 return all
               }, [])
                   .map((item) => {
@@ -541,6 +552,9 @@ watch(locale, async (value) => {
 
 onMounted(() => {
   commonStore.setLoading(false)
+  if (langStore.getLang !== locale.value) {
+    setLocale(langStore.getLang)
+  }
 })
 
 </script>
@@ -553,6 +567,7 @@ onMounted(() => {
     color: inherit !important;
   }
 }
+
 .on-hover {
   transition: all .3s ease-in-out;
 

@@ -122,14 +122,18 @@ import {useClientsStore} from "~/store/clients";
 import {useRoute} from "vue-router";
 import {useCommonStore} from "~/store/common";
 import {useI18n} from "vue-i18n";
+import {useLangStore} from "~/store/lang";
 const props = defineProps({
   appBarHeight: {
     type: Number,
     default: 0
   }
 })
+const langStore = useLangStore()
 const { tm, locale } = useI18n()
-switch (locale.value) {
+const currentLocale = ref(langStore.getLang ?? locale.value)
+
+switch (currentLocale.value) {
   case 'en':
     definePageMeta({
       breadcrumb: 'Main Page'

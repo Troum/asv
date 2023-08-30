@@ -38,20 +38,27 @@ import ChevronDown from "~/components/icons/chevronDown.vue";
 import Product from "~/models/Product";
 import Filter from "~/models/Filter";
 import {useI18n} from "vue-i18n";
+import {useLangStore} from "~/store/lang";
+const langStore = useLangStore()
 const { locale } = useI18n()
 
-switch (locale.value) {
+const currentLocale = ref(langStore.getLang ?? locale.value)
+
+switch (currentLocale.value) {
   case 'en':
+    console.log(currentLocale.value)
     definePageMeta({
       breadcrumb: 'Catalog'
     })
     break;
   case 'ru':
+    console.log(currentLocale.value)
     definePageMeta({
       breadcrumb: 'Каталог'
     })
     break;
   default:
+    console.log(currentLocale.value)
     definePageMeta({
       breadcrumb: 'Katalogas'
     })
@@ -66,7 +73,6 @@ const {find} = useStrapi()
 const commonStore = useCommonStore()
 const products = ref([])
 const filters = ref([])
-
 const current = ref(6)
 const filtered = ref([])
 
@@ -75,7 +81,8 @@ onBeforeMount(async () => {
     populate: {
       products: {populate: ['logo', 'video', 'avatar']},
       filters: {fields: ['title', 'value']}
-    }
+    },
+    locale: langStore.getLang ?? locale.value
   }).then((response) => {
     products.value = response.data.attributes.products.data.map((item) => {
       return new Product(

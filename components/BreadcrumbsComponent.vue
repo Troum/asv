@@ -55,7 +55,7 @@ const title = computed(() => {
 
 watch(title, (value) => {
   if (value) {
-    if (!_.find(breadcrumbs.value, {label: value})) {
+    if (!_.find(breadcrumbs.value, {_path: route.path})) {
       breadcrumbs.value.push({
         current: true,
         label: value,
@@ -63,7 +63,7 @@ watch(title, (value) => {
         _path: route.path
       })
     } else {
-      _.remove(breadcrumbs.value, {label: value})
+      _.remove(breadcrumbs.value, {_path: route.path})
     }
   }
 }, {immediate: true})

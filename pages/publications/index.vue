@@ -33,9 +33,10 @@ import {useCommonStore} from "~/store/common";
 import {useDisplay} from "vuetify";
 import {useI18n} from "vue-i18n";
 import Publication from "~/models/Publication";
+import {useLangStore} from "~/store/lang";
 
 const { locale } = useI18n()
-
+const langStore = useLangStore()
 switch (locale.value) {
   case 'en':
     definePageMeta({
@@ -70,7 +71,7 @@ const current = ref(count.value)
 
 await find('publications', {
   populate: 'image',
-  locale: locale.value
+  locale: langStore.getLang ?? locale.value
 })
     .then((response) => {
       publications.addItems(response.data.map((item) => {

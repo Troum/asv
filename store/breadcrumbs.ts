@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import _ from "lodash"
+import { useRoute } from "vue-router";
 
 export const useBreadcrumbsStore = defineStore({
     id: 'breadcrumbs-store',
@@ -16,7 +17,7 @@ export const useBreadcrumbsStore = defineStore({
         removeFromBreadcrumbs(value: any) {
             if (!_.isNull(value)) {
                 // @ts-ignore
-                _.remove(this.breadcrumbs, {label: value?.title})
+                _.remove(this.breadcrumbs, {_path: useRoute().path})
             }
         }
     },

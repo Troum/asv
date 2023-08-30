@@ -108,6 +108,7 @@ import CertificateCardComponent from "~/components/CertificateCardComponent.vue"
 import {ref, watch} from "vue"
 import Doctor from "~/models/Doctor";
 import {useI18n} from "vue-i18n";
+import {useLangStore} from "~/store/lang";
 
 defineProps({
   frameMargin: {
@@ -134,6 +135,7 @@ switch (locale.value) {
       breadcrumb: 'Apie mus'
     })
 }
+const langStore = useLangStore()
 const page = ref({})
 const doctors = ref([])
 const certificates = ref([])
@@ -149,7 +151,7 @@ onBeforeMount(async() => {
       doctors: {populate: 'avatar'},
       certificates: {populate: 'image'},
     },
-    locale: locale.value
+    locale: langStore.getLang ?? locale.value
   })
       .then((response) => {
         page.value = {

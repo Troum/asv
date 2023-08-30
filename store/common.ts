@@ -5,6 +5,7 @@ export const useCommonStore = defineStore({
     id: 'common-store',
     state: () => {
         return {
+            lang: 'lt',
             networks: [
                 {
                     icon: mdiFacebook,
@@ -38,6 +39,9 @@ export const useCommonStore = defineStore({
         setLoading(value: any) {
             this.loading = value
         },
+        setLang(value: string) {
+            this.lang = value
+        }
     },
     getters: {
         getNetworks: state => state.networks,
@@ -45,5 +49,6 @@ export const useCommonStore = defineStore({
         getTitle: state => state.title,
         getServiceFilter: state => state.serviceFilter,
         getLoading: state => state.loading,
+        getLang: state => state.lang,
     }
 })

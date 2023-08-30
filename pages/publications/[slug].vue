@@ -61,6 +61,7 @@ import ChevronLeft from "~/components/icons/chevronLeft.vue";
 import ChevronRight from "~/components/icons/chevronRight.vue";
 import {useBreadcrumbsStore} from "~/store/breadcrumbs";
 import {useI18n} from "vue-i18n";
+import {useLangStore} from "~/store/lang";
 
 defineProps({
   frameMargin: {
@@ -68,6 +69,7 @@ defineProps({
     default: 0
   }
 })
+const langStore = useLangStore()
 const { locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
@@ -83,7 +85,10 @@ const next = ref(null)
 commonStore.setComponent(null)
 
 onBeforeMount(async () => {
-  await find(`publications/${route.params.slug}`, {populate: 'detailImage', locale: locale.value})
+  await find(`publications/${route.params.slug}`, {
+    populate: 'detailImage',
+    locale: langStore.getLang ?? locale.value
+  })
       .then((response) => {
         publication.value = new Publication(
             response.data.id,

@@ -9,7 +9,10 @@
           <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
           </v-card-text>
           <v-card-actions class="px-0">
-            <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{ $t('buttons.request') }}</v-btn>
+            <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{
+                $t('buttons.request')
+              }}
+            </v-btn>
           </v-card-actions>
           <v-card-actions class="px-0 d-flex justify-end">
             <v-btn @click="router.back()"
@@ -75,13 +78,13 @@
       </svg>
     </v-col>
     <v-col cols="12" class="page-frames">
-    <v-divider />
+      <v-divider/>
     </v-col>
   </v-container>
 </template>
 
 <script setup>
-import {ref, onMounted} from "vue";
+import {ref} from "vue";
 import {useDisplay} from "vuetify";
 import {mdiChevronLeft} from "@mdi/js";
 import {useRoute, useRouter} from "vue-router";
@@ -89,6 +92,7 @@ import SvgIcon from "@jamescoyle/vue-icon";
 import {useCommonStore} from "~/store/common";
 import Product from "~/models/Product";
 import {useI18n} from "vue-i18n";
+import {useLangStore} from "~/store/lang";
 
 defineProps({
   frameMargin: {
@@ -96,7 +100,7 @@ defineProps({
     default: 0
   }
 })
-const { locale } = useI18n()
+const {locale} = useI18n()
 const commonStore = useCommonStore()
 const route = useRoute()
 const router = useRouter()
@@ -106,7 +110,11 @@ const display = useDisplay()
 const tab = ref('')
 const tabs = ref([])
 const product = ref({})
-await find(`products/${route.params.slug}`, {populate: ['video', 'logo', 'avatar'], locale: locale.value})
+const langStore = useLangStore()
+await find(`products/${route.params.slug}`, {
+  populate: ['video', 'logo', 'avatar'],
+  locale: langStore.getLang ?? locale.value
+})
     .then((response) => {
       product.value = new Product(
           response.data.id,
@@ -122,7 +130,7 @@ await find(`products/${route.params.slug}`, {populate: ['video', 'logo', 'avatar
           response.data.attributes.proclamation,
           response.data.attributes.characteristic
       ).toJson()
-      Array.from(['description','characteristic'])
+      Array.from(['description', 'characteristic'])
           .forEach((item) => {
             tabs.value.push({
               value: item,
@@ -143,6 +151,7 @@ commonStore.setComponent(null)
     max-width: 320px;
   }
 }
+
 .product-card {
   display: grid;
   grid-auto-rows: max-content;
