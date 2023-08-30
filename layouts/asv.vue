@@ -254,7 +254,7 @@
                           class="w-50"></v-text-field>
           </div>
           <div class="d-flex w-100">
-            <v-textarea :rules="[rules.required]" v-model="feedback.feedback" label="Сообщение" :rounded="0"
+            <v-textarea :rules="[rules.required]" v-model="feedback.feedback" :label="$t('form.message')" :rounded="0"
                         hide-details variant="outlined" class="w-100"></v-textarea>
           </div>
           <div class="d-flex justify-space-between flex-column-gap-22 w-100">
