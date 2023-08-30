@@ -178,17 +178,24 @@
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('salesDepartment') }}
               </span>
-            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375173362300">+375
-              17
-              336 23 00</a>
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+37068655420">+370
+              686 554 20</a>
           </div>
           <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
-                {{ $t('titles.service') }}
+                {{ $t('serviceDepartment') }}
               </span>
-            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375291661880">+375
-              29
-              166 18 80</a>
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375173362302">
+              +375 17 336 23 02
+            </a>
+          </div>
+          <div class="d-flex flex-column flex-row-gap-5">
+              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+                {{ $t('financialDepartment') }}
+              </span>
+            <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+370604855564">
+              +370 604 855564
+            </a>
           </div>
           <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
@@ -279,7 +286,7 @@
 </template>
 
 <script setup>
-import {computed, ref, watch, onMounted} from "vue";
+import {computed, onMounted, ref, watch} from "vue";
 import {useDisplay} from "vuetify";
 import SvgIcon from '@jamescoyle/vue-icon'
 import {useCommonStore} from "~/store/common";
