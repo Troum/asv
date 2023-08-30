@@ -101,6 +101,7 @@ commonStore.setComponent({
   logo: '/logo-w.svg'
 })
 commonStore.setTitle(null)
+
 watch(locale, () => {
   commonStore.setComponent({
     content: tm('contacts.description'),

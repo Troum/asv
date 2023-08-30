@@ -83,7 +83,7 @@ await find(`slides/${route.params.slug}`, {
 
   page.value.title = response.name
   page.value.description = response.description
-  page.value.logo = `https://dashboard.a-sv.site${response.whiteLogo.url}`
+  page.value.logo = response.whiteLogo.url
 
   products.value = response.products.map((item) => {
     return new Product(

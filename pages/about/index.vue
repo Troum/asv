@@ -105,7 +105,7 @@ import 'vueperslides/dist/vueperslides.css'
 import {useCommonStore} from "~/store/common";
 import DoctorCardComponent from "~/components/DoctorCardComponent.vue";
 import CertificateCardComponent from "~/components/CertificateCardComponent.vue";
-import {ref, watch} from "vue"
+import {ref, watch, onBeforeMount} from "vue"
 import Doctor from "~/models/Doctor";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";

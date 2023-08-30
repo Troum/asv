@@ -60,35 +60,37 @@ const filters = ref([])
 const current = ref(6)
 const filtered = ref([])
 
-await find('catalog', {
-  populate: {
-    products: {populate: ['logo', 'video', 'avatar']},
-    filters: {fields: ['title', 'value']}
-  },
-  locale: langStore.getLang ?? locale.value
-}).then((response) => {
-  products.value = response.data.attributes.products.data.map((item) => {
-    return new Product(
-        item.id,
-        item.attributes.avatar.data.attributes.url,
-        item.attributes.title,
-        item.attributes.subtitle,
-        item.attributes.description,
-        item.attributes.logo.data.attributes.url,
-        item.attributes.slug,
-        item.attributes.type,
-        item.attributes.logo.data.attributes.video
-    ).toJson()
+onBeforeMount(async () => {
+  await find('catalog', {
+    populate: {
+      products: {populate: ['logo', 'video', 'avatar']},
+      filters: {fields: ['title', 'value']}
+    },
+    locale: langStore.getLang ?? locale.value
+  }).then((response) => {
+    products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })
+    filters.value = response.data.attributes.filters.data.map((item) => {
+      return new Filter(
+          item.attributes.value,
+          item.attributes.title
+      ).toJson()
+    })
+    commonStore.setServiceFilter(null)
+    commonStore.setComponent(null)
+    commonStore.setTitle(null)
   })
-  filters.value = response.data.attributes.filters.data.map((item) => {
-    return new Filter(
-        item.attributes.value,
-        item.attributes.title
-    ).toJson()
-  })
-  commonStore.setServiceFilter(null)
-  commonStore.setComponent(null)
-  commonStore.setTitle(null)
 })
 
 const filteredProducts = computed(() => {

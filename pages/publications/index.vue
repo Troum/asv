@@ -27,7 +27,7 @@
 <script setup>
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
 import ChevronDown from "~/components/icons/chevronDown.vue";
-import {ref, computed} from "vue"
+import {ref, computed, onBeforeMount} from "vue"
 import {usePublicationsStore} from "~/store/publications";
 import {useCommonStore} from "~/store/common";
 import {useDisplay} from "vuetify";
@@ -58,23 +58,25 @@ const {$dateTime} = useNuxtApp()
 const current = ref(count.value)
 commonStore.setTitle(null)
 
-await find('publications', {
-  populate: 'image',
-  locale: langStore.getLang ?? locale.value
-})
-    .then((response) => {
-      publications.addItems(response.data.map((item) => {
-        return new Publication(
-            item.id,
-            item.attributes.title,
-            item.attributes.subtitle,
-            item.attributes.article,
-            item.attributes.image.data.attributes.url,
-            item.attributes.slug,
-            $dateTime.formatDate(item.attributes.createdAt),
-        ).toJson()
-      }))
-    })
+onBeforeMount(async () => {
+  await find('publications', {
+    populate: 'image',
+    locale: langStore.getLang ?? locale.value
+  })
+      .then((response) => {
+        publications.addItems(response.data.map((item) => {
+          return new Publication(
+              item.id,
+              item.attributes.title,
+              item.attributes.subtitle,
+              item.attributes.article,
+              item.attributes.image.data.attributes.url,
+              item.attributes.slug,
+              $dateTime.formatDate(item.attributes.createdAt),
+          ).toJson()
+        }))
+      })
+} )
 const loadMore = () => {
   if (current.value < publications.list.length) {
     current.value += count.value
