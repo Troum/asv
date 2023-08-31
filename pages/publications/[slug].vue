@@ -133,7 +133,7 @@ watch(locale, async (value) => {
             response.data.attributes.current.article,
             response.data.attributes.current['detailImage'].url,
             response.data.attributes.current.slug,
-            $dateTime.formatDate(response.data.attributes.current.createdAt, value)
+            $dateTime.formatDate(response.data.attributes.current.createdAt, langStore.getLang ?? locale.value)
         )
 
         previous.value = response.data.attributes.previous

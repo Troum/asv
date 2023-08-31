@@ -27,7 +27,7 @@
 <script setup>
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
 import ChevronDown from "~/components/icons/chevronDown.vue";
-import {ref, computed, onBeforeMount} from "vue"
+import {ref, computed, onBeforeMount, watch} from "vue"
 import {usePublicationsStore} from "~/store/publications";
 import {useCommonStore} from "~/store/common";
 import {useDisplay} from "vuetify";
@@ -72,7 +72,7 @@ onBeforeMount(async () => {
               item.attributes.article,
               item.attributes.image.data.attributes.url,
               item.attributes.slug,
-              $dateTime.formatDate(item.attributes.createdAt),
+              $dateTime.formatDate(item.attributes.createdAt, langStore.getLang ?? locale.value),
           ).toJson()
         }))
       })
@@ -82,6 +82,25 @@ const loadMore = () => {
     current.value += count.value
   }
 }
+watch(locale, async () => {
+  await find('publications', {
+    populate: 'image',
+    locale: langStore.getLang ?? locale.value
+  })
+      .then((response) => {
+        publications.addItems(response.data.map((item) => {
+          return new Publication(
+              item.id,
+              item.attributes.title,
+              item.attributes.subtitle,
+              item.attributes.article,
+              item.attributes.image.data.attributes.url,
+              item.attributes.slug,
+              $dateTime.formatDate(item.attributes.createdAt, langStore.getLang ?? locale.value),
+          ).toJson()
+        }))
+      })
+})
 </script>
 
 <style lang="scss" scoped>

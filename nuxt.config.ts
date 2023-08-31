@@ -35,8 +35,7 @@ export default defineNuxtConfig({
         '@pinia-plugin-persistedstate/nuxt',
         '@nuxt/image',
         '@nuxtjs/strapi',
-        'nuxt-delay-hydration',
-        '@nuxt-alt/proxy'
+        'nuxt-delay-hydration'
     ],
     plugins: [
         '~/plugins/mitt.ts',
@@ -76,13 +75,5 @@ export default defineNuxtConfig({
     },
     delayHydration: {
         mode: 'mount'
-    },
-    proxy: {
-        proxies: {
-            '/uploads': {
-                target: 'https://dashboard.a-sv.site/uploads',
-                changeOrigin: true
-            }
-        }
     }
 })
