@@ -10,10 +10,19 @@
         </NuxtLink>
       </template>
       <template v-if="contactComponent">
-        <div class="component" :style="`grid-column-gap: ${$display.width(display.width.value, 220)}px`">
-          <p v-html="contactComponent.content" class="text-white font-size-16 my-5"></p>
-          <v-img width="200" :src="contactComponent.logo"></v-img>
-        </div>
+        <template v-if="mobile">
+          <div>
+            <v-img max-width="400" :src="contactComponent.logo" class="mx-auto my-8"></v-img>
+            <p v-html="contactComponent.content" class="text-white font-size-16 my-5"></p>
+          </div>
+        </template>
+        <template v-else>
+          <div class="component" :style="`grid-column-gap: ${$display.width(display.width.value, 220)}px`">
+            <p v-html="contactComponent.content" class="text-white font-size-16 my-5"></p>
+            <v-img width="200" :src="contactComponent.logo"></v-img>
+          </div>
+        </template>
+
       </template>
     </div>
   </div>
@@ -31,6 +40,7 @@ const commonStore = useCommonStore()
 const route = useRoute()
 const {$display} = useNuxtApp()
 const display = useDisplay()
+const { mobile } = useDisplay()
 const {$breadcrumbs} = useNuxtApp()
 const breadcrumbsStore = useBreadcrumbsStore()
 const { tm } = useI18n()
@@ -87,7 +97,9 @@ watch(title, (value) => {
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.4em;
-
+  @media (max-width: 1280px) {
+    font-size: 14px;
+  }
   &::after {
     content: url("~/assets/images/arrow.svg");
     margin-left: 30px;
@@ -99,6 +111,13 @@ watch(title, (value) => {
 
     &::after {
       content: '';
+    }
+  }
+
+  @media (max-width: 1280px) {
+    &::after {
+      margin-left: 10px;
+      margin-right: 10px;
     }
   }
 }

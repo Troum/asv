@@ -1,12 +1,13 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
-    <v-row class="pa-0" :style="`margin-top: ${frameMargin}px`">
-      <v-col cols="12" class="mx-0 position-relative page-frames">
+    <v-row class="pa-0" :style="`margin-top: ${mobile ? frameMargin - 60 : frameMargin}px`">
+      <v-col cols="12" class="mx-0 position-relative"
+             :class="{'page-frames': !mobile, 'px-6': mobile}">
         <template v-if="timeout">
           {{ $t('loading') }}
         </template>
         <template v-else>
-          <v-card flat class="px-0" style="padding-top: 60px; padding-bottom: 60px">
+          <v-card color="transparent" flat class="px-0" style="padding-top: 60px; padding-bottom: 60px">
             <v-card-title class="d-flex justify-end">
               <v-btn style="opacity: 1;" variant="plain"
                      :ripple="false"
@@ -64,6 +65,7 @@ import ChevronRight from "~/components/icons/chevronRight.vue";
 import {useBreadcrumbsStore} from "~/store/breadcrumbs";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
+import {useDisplay} from "vuetify";
 
 defineProps({
   frameMargin: {
@@ -71,6 +73,7 @@ defineProps({
     default: 0
   }
 })
+const { mobile } = useDisplay()
 const langStore = useLangStore()
 const { locale } = useI18n()
 const route = useRoute()

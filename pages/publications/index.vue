@@ -1,6 +1,8 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
-    <v-col cols="12" class="page-frames publications-page" :style="`margin-top: ${frameMargin}px`">
+    <v-col cols="12" class="publications-page"
+           :class="{'page-frames': !mobile, 'px-6': mobile}"
+           :style="`margin-top: ${frameMargin}px`">
       <client-only>
         <template v-for="(publication, key) of publications.list.slice(0, current)" :key="key">
           <div class="publication">
@@ -48,6 +50,7 @@ defineProps({
     default: 0
   }
 })
+const { mobile } = useDisplay()
 const {find} = useStrapi()
 const publications = usePublicationsStore()
 const commonStore = useCommonStore()
@@ -114,6 +117,9 @@ watch(locale, async () => {
     flex: 0 0 calc(33.333% - 30px);
     @media (min-width: 1920px) {
       flex: 0 0 calc(25% - 30px);
+    }
+    @media (max-width: 1280px) {
+      flex: 0 0 100%;
     }
   }
 

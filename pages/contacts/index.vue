@@ -1,10 +1,12 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
-    <v-col cols="12" class="mx-0 position-relative page-frames pr-0 pt-0 pb-0" :style="`margin-top: ${frameMargin}px`">
+    <v-col cols="12" class="mx-0 position-relative pr-0 pt-0 pb-0"
+           :class="{'page-frames': !mobile, 'px-6': mobile}"
+           :style="`margin-top: ${frameMargin}px`">
       <div class="contact-page">
         <div class="py-16">
           <v-card flat>
-            <v-card-title class="mb-16">
+            <v-card-title class="mb-16" :class="{'font-size-36': mobile}">
               {{ $t('contacts.name') }}
             </v-card-title>
             <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
@@ -81,6 +83,7 @@ import {useElementSize} from "@vueuse/core";
 import {useCommonStore} from "~/store/common";
 import Place from "~/components/icons/place.vue";
 import {useI18n} from "vue-i18n";
+import {useDisplay} from "vuetify";
 definePageMeta({
   breadcrumb: 'pages.contacts.title'
 })
@@ -91,7 +94,7 @@ defineProps({
   }
 })
 const { locale, tm } = useI18n()
-
+const { mobile } = useDisplay()
 const map = ref(null)
 const { width, height } = useElementSize(map)
 const commonStore = useCommonStore()
@@ -115,5 +118,8 @@ watch(locale, () => {
   display: grid;
   grid-template-columns: calc((100% - 55%) - 40px) calc((100% - 45%) - 40px);
   grid-column-gap: 80px;
+  @media (max-width: 1280px) {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
-    <v-col cols="12" class="mx-0 position-relative page-frames"
+    <v-col cols="12" class="mx-0 position-relative"
+           :class="{'page-frames': !mobile, 'px-6': mobile}"
            :style="`margin-top: ${frameMargin}px`">
       <template v-if="timeout">
         {{ $t('loading') }}
@@ -64,13 +65,17 @@
                            class="text-uppercase font-size-18 font-weight-regular px-0 text-pre-wrap mt-5"
                            style="color: #000; opacity: 1">{{ $t('titles.trainers') }}
           </v-card-subtitle>
-          <v-card-text>
+          <template v-if="timeout">
+            {{ $t('loading') }}
+          </template>
+          <template v-else>
+            <v-card-text>
             <vueper-slides
                 class="no-shadow"
                 fixed-height="750px"
-                :visible-slides="3"
+                :visible-slides=" mobile ? 1 : 3"
                 :slide-ratio="1 / 4"
-                :arrows-outside="true"
+                :arrows-outside="!mobile"
                 :bullets="doctors.length > 3"
                 :gap="8"
                 :dragging-distance="70">
@@ -93,6 +98,8 @@
               </template>
             </vueper-slides>
           </v-card-text>
+          </template>
+
         </v-card>
       </template>
     </v-col>
@@ -109,6 +116,7 @@ import {ref, watch, onBeforeMount} from "vue"
 import Doctor from "~/models/Doctor";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
+import {useDisplay} from "vuetify";
 definePageMeta({
   breadcrumb: 'pages.about.title'
 })
@@ -119,7 +127,7 @@ defineProps({
   }
 })
 const { locale, t } = useI18n()
-const currentLocale = ref(locale.value)
+const { mobile } = useDisplay()
 
 switch (locale.value) {
   case 'en':
@@ -157,6 +165,7 @@ onBeforeMount(async() => {
     locale: langStore.getLang ?? locale.value
   })
       .then((response) => {
+        doctors.value = []
         page.value = {
           title: response.data.attributes.title,
           subtitle: response.data.attributes.subtitle,
@@ -190,6 +199,7 @@ commonStore.setComponent({
 commonStore.setTitle(null)
 
 watch(locale, async (value) => {
+  timeout.value = true
   await find('about', {
     populate: {
       image: {

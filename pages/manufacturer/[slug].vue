@@ -2,14 +2,15 @@
   <v-container :fluid="true" class="mx-0 pa-0">
     <v-row class="pa-0" :style="`margin-top: ${frameMargin}px`">
     <template v-if="timeout">
-        <v-col cols="12" class="d-flex mx-0 position-relative page-frames pb-4 pt-8">
+        <v-col cols="12" class="d-flex mx-0 position-relative pb-4 pt-8"
+               :class="{'page-frames': !mobile, 'px-6': mobile}">
           <span class="display-3">{{ $t('loading') }}</span>
         </v-col>
     </template>
     <template v-else>
       <client-only>
-        <v-col cols="12" class="mx-0 position-relative page-frames"
-               :class="{'pb-4 pt-8': !(filters.list.length && products.length)}">
+        <v-col cols="12" class="mx-0 position-relative"
+               :class="{'pb-4 pt-8': !(filters.list.length && products.length), 'page-frames': !mobile, 'px-6': mobile}">
           <template v-if="filters.list.length && products.length">
             <v-row class="ma-0 pa-0">
               <v-col cols="12" class="mx-0 position-relative px-0">
@@ -60,6 +61,7 @@ import Product from "~/models/Product";
 import {useLangStore} from "~/store/lang";
 import {useI18n} from "vue-i18n";
 import Filter from "~/models/Filter";
+import {useDisplay} from "vuetify";
 const { locale } = useI18n()
 
 defineProps({
@@ -79,7 +81,7 @@ const page = ref({
   description: null,
   logo: ''
 })
-
+const { mobile } = useDisplay()
 const current = ref(6)
 const filtered = ref([])
 
@@ -180,8 +182,13 @@ watch(locale, async (value) => {
 <style scoped lang="scss">
 .products {
   &-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, calc((100% / 3) - 60px));
     grid-auto-rows: minmax(700px, 1fr);
+
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: minmax(500px, 1fr);
+    }
   }
 }
 </style>

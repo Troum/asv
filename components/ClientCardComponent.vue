@@ -1,11 +1,21 @@
 <template>
   <NuxtLink :href="client.url">
-    <nuxt-img provider="strapi" class="client-logo" :src="client.logo"></nuxt-img>
+    <template v-if="mobile">
+      <nuxt-img provider="strapi"
+                style="max-width: 100%"
+                class="client-logo" :src="client.logo"></nuxt-img>
+    </template>
+    <template v-else>
+      <nuxt-img provider="strapi"
+                class="client-logo" :src="client.logo"></nuxt-img>
+    </template>
+
   </NuxtLink>
 </template>
 
 <script setup>
 import Client from "~/models/Client";
+import {useDisplay} from "vuetify";
 
 defineProps({
   client: {
@@ -13,6 +23,9 @@ defineProps({
     default: new Client()
   }
 })
+
+const { mobile } = useDisplay()
+
 </script>
 
 <style lang="scss" scoped>

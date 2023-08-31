@@ -30,26 +30,49 @@
     <v-carousel-item v-for="(slide, index) of services.list" :key="index">
       <div class="d-flex justify-center align-center w-100 position-relative"
            :style="`overflow: hidden; height: ${isIndex ? 95 : 100}%`">
-        <template v-for="(item, i) of slide.slides" :key="i">
+        <template v-if="mobile">
           <v-hover>
             <template v-slot:default="{ isHovering, props }">
               <v-card :tile="true" :flat="true"
                       :ripple="false"
                       :hover="false"
-                      :to="`/manufacturer/${item.slug}`"
+                      :to="`/manufacturer/${slide.slug}`"
                       v-bind="props"
-                      width="25%"
+                      width="100%"
                       :height="isIndex ? '95%' : '100%'"
                       :class="['rounded-0 hover', { 'on': isHovering }]">
                 <v-card-text class="d-flex align-center justify-center pa-0 fill-height">
                   <nuxt-img provider="strapi"
                             width="200px"
-                            :src="item.logo"></nuxt-img>
+                            :src="slide.logo"></nuxt-img>
                   <div class="line"></div>
                 </v-card-text>
               </v-card>
             </template>
           </v-hover>
+        </template>
+        <template v-else>
+          <template v-for="(item, i) of slide.slides" :key="i">
+            <v-hover>
+              <template v-slot:default="{ isHovering, props }">
+                <v-card :tile="true" :flat="true"
+                        :ripple="false"
+                        :hover="false"
+                        :to="`/manufacturer/${item.slug}`"
+                        v-bind="props"
+                        width="25%"
+                        :height="isIndex ? '95%' : '100%'"
+                        :class="['rounded-0 hover', { 'on': isHovering }]">
+                  <v-card-text class="d-flex align-center justify-center pa-0 fill-height">
+                    <nuxt-img provider="strapi"
+                              width="200px"
+                              :src="item.logo"></nuxt-img>
+                    <div class="line"></div>
+                  </v-card-text>
+                </v-card>
+              </template>
+            </v-hover>
+          </template>
         </template>
       </div>
     </v-carousel-item>
@@ -79,6 +102,7 @@ const {$display} = useNuxtApp()
 const services = useServicesStore()
 const display = useDisplay()
 const current = ref(0)
+const { mobile } = useDisplay()
 </script>
 
 <style lang="scss" scoped>

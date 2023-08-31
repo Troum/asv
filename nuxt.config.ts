@@ -14,7 +14,13 @@ export default defineNuxtConfig({
             script: [
                 {src: 'https://api-maps.yandex.ru/3.0/?apikey=0845768b-3f33-453f-970b-be8e7b249bd7&lang=ru_RU'}
             ],
-            title: 'ASV Trade'
+            title: 'ASV Trade',
+            meta: [
+                {
+                    name: 'viewport',
+                    content: 'width=device-width, initial-scale=1.0'
+                }
+            ]
         }
     },
     devtools: {enabled: true},
@@ -35,7 +41,7 @@ export default defineNuxtConfig({
         '@pinia-plugin-persistedstate/nuxt',
         '@nuxt/image',
         '@nuxtjs/strapi',
-        'nuxt-delay-hydration'
+        'nuxt-delay-hydration',
     ],
     plugins: [
         '~/plugins/mitt.ts',
@@ -61,10 +67,10 @@ export default defineNuxtConfig({
             'process.env.DEBUG': false,
         }
     },
-    devServer: {
+    /*devServer: {
         host: 'asv.test',
         port: 8000
-    },
+    },*/
     delayHydration: {
         mode: 'mount'
     }

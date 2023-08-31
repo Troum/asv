@@ -1,37 +1,46 @@
 <template>
   <v-container :fluid="true" class="mx-0 pa-0">
-    <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
-      <template v-if="filters.length">
-        <v-row class="ma-0 pa-0">
-          <v-col cols="12" class="mx-0 position-relative px-0">
-            <filters-component @set-filter="filterData" :filters="filters"/>
-          </v-col>
-        </v-row>
+    <v-row class="pa-0" :style="`margin-top: ${frameMargin}px`">
+      <template v-if="timeout">
+        <v-col cols="12" class="d-flex mx-0 position-relative pb-4 pt-8" :class="{'page-frames': !mobile, 'px-6': mobile}">
+          <span class="display-3">{{ $t('loading') }}</span>
+        </v-col>
       </template>
-      <template v-if="products.length">
-        <v-row class="ma-0 pa-0">
-          <v-col cols="12" class="ma-0 position-relative d-grid products-list grid-column-gap-30 grid-row-gap-40 px-0">
-            <template v-for="product of filteredProducts.slice(0, current)">
-              <product-card-component :product="product"/>
-            </template>
-          </v-col>
-          <template v-if="products.length > 6">
-            <v-col cols="12" class="d-flex justify-center position-relative">
-              <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
-                <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
-                  <span class="font-weight-bold">{{ $t('buttons.loadAll') }}</span>
-                  <chevron-down/>
-                </div>
-              </v-btn>
-            </v-col>
+      <template v-else>
+        <v-col cols="12" class="mx-0 position-relative" :class="{'page-frames': !mobile, 'px-6': mobile}">
+          <template v-if="filters.length">
+            <v-row class="ma-0 pa-0">
+              <v-col cols="12" class="mx-0 position-relative px-0">
+                <filters-component @set-filter="filterData" :filters="filters"/>
+              </v-col>
+            </v-row>
           </template>
-        </v-row>
+          <template v-if="products.length">
+            <v-row class="ma-0 pa-0">
+              <v-col cols="12" class="ma-0 position-relative d-grid products-list grid-column-gap-30 grid-row-gap-40 px-0">
+                <template v-for="product of filteredProducts.slice(0, current)">
+                  <product-card-component :product="product"/>
+                </template>
+              </v-col>
+              <template v-if="products.length > 6">
+                <v-col cols="12" class="d-flex justify-center position-relative">
+                  <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
+                    <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
+                      <span class="font-weight-bold">{{ $t('buttons.loadAll') }}</span>
+                      <chevron-down/>
+                    </div>
+                  </v-btn>
+                </v-col>
+              </template>
+            </v-row>
+          </template>
+        </v-col>
       </template>
-    </v-col>
+    </v-row>
   </v-container>
 </template>
 <script setup>
-import {ref, onBeforeMount} from "vue";
+import {ref, onBeforeMount, watch} from "vue";
 import _ from "lodash";
 import {useCommonStore} from "~/store/common";
 import ChevronDown from "~/components/icons/chevronDown.vue";
@@ -40,6 +49,7 @@ import Filter from "~/models/Filter";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 import {useFiltersStore} from "~/store/filters";
+import {useDisplay} from "vuetify";
 
 definePageMeta({
   breadcrumb: 'pages.catalog.title'
@@ -51,8 +61,10 @@ defineProps({
     default: 0
   },
 })
+const timeout = ref(true)
 const langStore = useLangStore()
 const { locale } = useI18n()
+const { mobile } = useDisplay()
 
 const {find} = useStrapi()
 const commonStore = useCommonStore()
@@ -93,6 +105,7 @@ onBeforeMount(async () => {
     commonStore.setServiceFilter(null)
     commonStore.setComponent(null)
     commonStore.setTitle(null)
+    timeout.value = false
   })
 })
 
@@ -110,6 +123,7 @@ const loadMore = () => {
   current.value = products.value.length
 }
 watch(locale, async (value) => {
+  timeout.value = true
   await find('catalog', {
     populate: {
       products: {populate: ['logo', 'video', 'avatar']},
@@ -140,6 +154,7 @@ watch(locale, async (value) => {
     commonStore.setServiceFilter(null)
     commonStore.setComponent(null)
     commonStore.setTitle(null)
+    timeout.value = false
   })
 })
 </script>
@@ -148,6 +163,11 @@ watch(locale, async (value) => {
   &-list {
     grid-template-columns: repeat(3, calc((100% / 3) - 60px));
     grid-auto-rows: minmax(700px, 1fr);
+
+    @media (max-width: 1280px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: minmax(500px, 1fr);
+    }
   }
 }
 </style>

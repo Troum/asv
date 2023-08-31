@@ -7,84 +7,158 @@
         </v-col>
       </template>
       <template v-else>
-        <v-col cols="12" class="mx-0 position-relative page-frames">
-          <div class="product-card" :style="`grid-template-columns: ${$display.width(display.width.value, 540)}px 1fr`">
-            <nuxt-img provider="strapi" :src="product.avatar" style="max-width: 320px"></nuxt-img>
-            <v-card :rounded="0" :elevation="0">
-              <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
-              <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
-              <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
-              </v-card-text>
-              <v-card-actions class="px-0">
-                <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{
-                    $t('buttons.request')
-                  }}
-                </v-btn>
-              </v-card-actions>
-              <v-card-actions class="px-0 d-flex justify-end">
-                <v-btn @click="router.back()"
-                       style="opacity: 1; width: fit-content; height: fit-content"
-                       class="d-flex" variant="plain"
-                       :rounded="0" :ripple="false">
-                  <svg-icon size="28" class="text-primary" type="mdi" :path="mdiChevronLeft"/>
-                  <span class="font-weight-bold">{{ $t('buttons.back') }}</span>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-            <v-tabs
-                style="grid-column: 1 / -1; border-top: 1px solid #c4c4c4"
-                selected-class="font-weight-medium"
-                :ripple="false"
-                :hide-slider="true"
-                bg-color="transparent"
-            >
-              <v-tab @click="tab = 'description'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
-                     style="opacity: 1; border-right: 1px solid #c4c4c4">
-                {{ $t('tabs.description') }}
-              </v-tab>
-              <v-tab @click="tab = 'characteristic'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
-                     style="opacity: 1">
-                {{ $t('tabs.characteristics') }}
-              </v-tab>
-              <v-tab @click="tab = 'video'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
-                     style="opacity: 1; border-left: 1px solid #c4c4c4">
-                {{ $t('tabs.video') }}
-              </v-tab>
-            </v-tabs>
-            <v-window v-model="tab" style="grid-column: 1 / -1">
-              <v-window-item
-                  class="window_item"
-                  v-for="(item, index) of tabs.slice(0, 2)"
-                  :key="index"
-                  :value="item.value"
+        <v-col cols="12" class="mx-0 position-relative" :class="{'page-frames': !mobile, 'px-6': mobile}">
+          <template v-if="mobile">
+            <div>
+              <nuxt-img provider="strapi" :src="product.avatar" style="max-width: 320px"></nuxt-img>
+              <v-card :rounded="0" :elevation="0">
+                <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
+                <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
+                <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
+                </v-card-text>
+                <v-card-actions class="px-0">
+                  <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{
+                      $t('buttons.request')
+                    }}
+                  </v-btn>
+                </v-card-actions>
+                <v-card-actions class="px-0 d-flex justify-end">
+                  <v-btn @click="router.back()"
+                         style="opacity: 1; width: fit-content; height: fit-content"
+                         class="d-flex" variant="plain"
+                         :rounded="0" :ripple="false">
+                    <svg-icon size="28" class="text-primary" type="mdi" :path="mdiChevronLeft"/>
+                    <span class="font-weight-bold">{{ $t('buttons.back') }}</span>
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+              <v-tabs
+                  style="border-top: 1px solid #c4c4c4"
+                  selected-class="font-weight-medium"
+                  :ripple="false"
+                  :hide-slider="true"
+                  bg-color="transparent"
+                  fixed-tabs
               >
-                <v-card :flat="true">
-                  <v-card-text v-html="item.html"></v-card-text>
-                </v-card>
-              </v-window-item>
-              <v-window-item
-                  value="video"
+                <v-tab @click="tab = 'description'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1; border-right: 1px solid #c4c4c4">
+                  {{ $t('tabs.description') }}
+                </v-tab>
+                <v-tab @click="tab = 'characteristic'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1">
+                  {{ $t('tabs.characteristics') }}
+                </v-tab>
+                <v-tab @click="tab = 'video'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1; border-left: 1px solid #c4c4c4">
+                  {{ $t('tabs.video') }}
+                </v-tab>
+              </v-tabs>
+              <v-window v-model="tab" style="grid-column: 1 / -1">
+                <v-window-item
+                    class="window_item"
+                    v-for="(item, index) of tabs.slice(0, 2)"
+                    :key="index"
+                    :value="item.value"
+                >
+                  <v-card :flat="true">
+                    <v-card-text v-html="item.html"></v-card-text>
+                  </v-card>
+                </v-window-item>
+                <v-window-item
+                    value="video"
+                >
+                  <v-card :flat="true">
+                    <v-card-text class="px-0">
+                      <video
+                          controls
+                          style="max-width: 100%"
+                          preload="auto"
+                          :src="`https://dashboard.a-sv.site${product.video}`"/>
+                    </v-card-text>
+                  </v-card>
+                </v-window-item>
+              </v-window>
+            </div>
+          </template>
+          <template v-else>
+            <div class="product-card" :style="`grid-template-columns: ${$display.width(display.width.value, 540)}px 1fr`">
+              <nuxt-img provider="strapi" :src="product.avatar" style="max-width: 320px"></nuxt-img>
+              <v-card :rounded="0" :elevation="0">
+                <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
+                <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
+                <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
+                </v-card-text>
+                <v-card-actions class="px-0">
+                  <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{
+                      $t('buttons.request')
+                    }}
+                  </v-btn>
+                </v-card-actions>
+                <v-card-actions class="px-0 d-flex justify-end">
+                  <v-btn @click="router.back()"
+                         style="opacity: 1; width: fit-content; height: fit-content"
+                         class="d-flex" variant="plain"
+                         :rounded="0" :ripple="false">
+                    <svg-icon size="28" class="text-primary" type="mdi" :path="mdiChevronLeft"/>
+                    <span class="font-weight-bold">{{ $t('buttons.back') }}</span>
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+              <v-tabs
+                  style="grid-column: 1 / -1; border-top: 1px solid #c4c4c4"
+                  selected-class="font-weight-medium"
+                  :ripple="false"
+                  :hide-slider="true"
+                  bg-color="transparent"
               >
-                <v-card :flat="true">
-                  <v-card-text class="px-0">
-                    <video
-                        controls
-                        preload="auto"
-                        :src="`https://dashboard.a-sv.site${product.video}`"/>
-                  </v-card-text>
-                </v-card>
-              </v-window-item>
-            </v-window>
-          </div>
+                <v-tab @click="tab = 'description'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1; border-right: 1px solid #c4c4c4">
+                  {{ $t('tabs.description') }}
+                </v-tab>
+                <v-tab @click="tab = 'characteristic'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1">
+                  {{ $t('tabs.characteristics') }}
+                </v-tab>
+                <v-tab @click="tab = 'video'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1; border-left: 1px solid #c4c4c4">
+                  {{ $t('tabs.video') }}
+                </v-tab>
+              </v-tabs>
+              <v-window v-model="tab" style="grid-column: 1 / -1">
+                <v-window-item
+                    class="window_item"
+                    v-for="(item, index) of tabs.slice(0, 2)"
+                    :key="index"
+                    :value="item.value"
+                >
+                  <v-card :flat="true">
+                    <v-card-text v-html="item.html"></v-card-text>
+                  </v-card>
+                </v-window-item>
+                <v-window-item
+                    value="video"
+                >
+                  <v-card :flat="true">
+                    <v-card-text class="px-0">
+                      <video
+                          controls
+                          preload="auto"
+                          :src="`https://dashboard.a-sv.site${product.video}`"/>
+                    </v-card-text>
+                  </v-card>
+                </v-window-item>
+              </v-window>
+            </div>
+          </template>
         </v-col>
-        <v-col cols="12" class="d-flex justify-center align-center flex-column page-frames pb-0">
+        <v-col cols="12" class="d-flex justify-center align-center flex-column pb-0" :class="{'page-frames': !mobile, 'px-6': mobile}">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="4" viewBox="0 0 16 4" fill="none">
             <rect width="3.2" height="3.2" fill="black"/>
             <rect x="6.39844" width="3.2" height="3.2" fill="black"/>
             <rect x="12.7969" width="3.2" height="3.2" fill="black"/>
           </svg>
         </v-col>
-        <v-col cols="12" class="page-frames">
+        <v-col cols="12" class="page-frames" :class="{'page-frames': !mobile, 'px-6': mobile}">
           <v-divider/>
         </v-col>
       </template>
@@ -116,6 +190,7 @@ const router = useRouter()
 const {$event, $display} = useNuxtApp()
 const {find} = useStrapi()
 const display = useDisplay()
+const { mobile } = useDisplay()
 const tab = ref('')
 const tabs = ref([])
 const product = ref({})
