@@ -1,51 +1,53 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
-    <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
-      <template v-if="timeout">
-        Загрузка контента
-      </template>
-      <template v-else>
-        <v-card flat class="px-0" style="padding-top: 60px; padding-bottom: 60px">
-          <v-card-title class="d-flex justify-end">
-            <v-btn style="opacity: 1;" variant="plain"
-                   :ripple="false"
-                   class="d-flex align-center font-size-18 font-weight-bold">
-              <svg-icon size="26" type="mdi" :path="mdiChevronLeft"/>
-              <NuxtLink to="/publications" class="ml-4 text-decoration-none text-primary">{{ $t('buttons.back') }}</NuxtLink>
-            </v-btn>
-          </v-card-title>
-          <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
-          <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333">
-            {{ publication.subtitle }} / {{ publication.createdAt }}
-          </v-card-subtitle>
-          <v-card-text class="px-0">
-            <nuxt-img provider="strapi" class="my-10" style="width: 100%" :src="publication.image"></nuxt-img>
-            <article class="text-body-1 text-primary" v-html="publication.article"></article>
-          </v-card-text>
-        </v-card>
-        <v-row class="ma-0 pa-0">
-          <v-col class="d-flex justify-center align-center flex-column-gap-82" cols="12">
-            <v-btn variant="plain"
-                   style="width: fit-content"
-                   :ripple="false"
-                   :disabled="_.isNull(previous)"
-                   :to="`/publications/${previousSlug}`"
-                   class="d-flex align-center justify-space-between text-initial px-0">
-              <chevron-left/>
-              <span class="ml-8">{{ $t('buttons.previous') }}</span>
-            </v-btn>
-            <v-btn :ripple="false" variant="plain"
-                   style="width: fit-content"
-                   :disabled="_.isNull(next)"
-                   :to="`/publications/${nextSlug}`"
-                   class="d-flex align-center justify-space-between text-initial px-0">
-              <span class="mr-8">{{ $t('buttons.next') }}</span>
-              <chevron-right/>
-            </v-btn>
-          </v-col>
-        </v-row>
-      </template>
-    </v-col>
+    <v-row class="pa-0" :style="`margin-top: ${frameMargin}px`">
+      <v-col cols="12" class="mx-0 position-relative page-frames">
+        <template v-if="timeout">
+          {{ $t('loading') }}
+        </template>
+        <template v-else>
+          <v-card flat class="px-0" style="padding-top: 60px; padding-bottom: 60px">
+            <v-card-title class="d-flex justify-end">
+              <v-btn style="opacity: 1;" variant="plain"
+                     :ripple="false"
+                     class="d-flex align-center font-size-18 font-weight-bold">
+                <svg-icon size="26" type="mdi" :path="mdiChevronLeft"/>
+                <NuxtLink to="/publications" class="ml-4 text-decoration-none text-primary">{{ $t('buttons.back') }}</NuxtLink>
+              </v-btn>
+            </v-card-title>
+            <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
+            <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333">
+              {{ publication.subtitle }} / {{ publication.createdAt }}
+            </v-card-subtitle>
+            <v-card-text class="px-0">
+              <nuxt-img provider="strapi" class="my-10" style="width: 100%" :src="publication.image"></nuxt-img>
+              <article class="text-body-1 text-primary" v-html="publication.article"></article>
+            </v-card-text>
+          </v-card>
+          <v-row class="ma-0 pa-0">
+            <v-col class="d-flex justify-center align-center flex-column-gap-82" cols="12">
+              <v-btn variant="plain"
+                     style="width: fit-content"
+                     :ripple="false"
+                     :disabled="_.isNull(previous)"
+                     :to="`/publications/${previousSlug}`"
+                     class="d-flex align-center justify-space-between text-initial px-0">
+                <chevron-left/>
+                <span class="ml-8">{{ $t('buttons.previous') }}</span>
+              </v-btn>
+              <v-btn :ripple="false" variant="plain"
+                     style="width: fit-content"
+                     :disabled="_.isNull(next)"
+                     :to="`/publications/${nextSlug}`"
+                     class="d-flex align-center justify-space-between text-initial px-0">
+                <span class="mr-8">{{ $t('buttons.next') }}</span>
+                <chevron-right/>
+              </v-btn>
+            </v-col>
+          </v-row>
+        </template>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
