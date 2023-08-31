@@ -17,7 +17,6 @@ export default defineNuxtPlugin(() => {
                     return createdDate
                         .replace('г. в', '/')
                         .replace('at', '/')
-                        .replace('d.', 'd. <br/>')
                 }
             }
         }

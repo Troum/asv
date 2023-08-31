@@ -65,14 +65,6 @@ export default defineNuxtConfig({
         host: 'asv.test',
         port: 8000
     },
-    nitro: {
-        devProxy: {
-            '/uploads': {
-                target: 'https://dashboard.a-sv.site/uploads',
-                changeOrigin: true
-            }
-        }
-    },
     delayHydration: {
         mode: 'mount'
     }

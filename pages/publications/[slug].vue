@@ -16,7 +16,7 @@
           </v-card-title>
           <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
           <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333">
-            {{ publication.subtitle }} / {{ publication.createdAt.replace('/(<([^>]+)>)/ig', '') }}
+            {{ publication.subtitle }} / {{ publication.createdAt }}
           </v-card-subtitle>
           <v-card-text class="px-0">
             <nuxt-img provider="strapi" class="my-10" style="width: 100%" :src="publication.image"></nuxt-img>
@@ -99,7 +99,7 @@ await find(`publications/${route.params.slug}`, {
           $dateTime.formatDate(response.data.attributes.current.createdAt, langStore.getLang ?? locale.value)
       )
       commonStore.setTitle(publication.value['title'])
-      previous.value = response.data.attributes.previous
+      previous.value = Object.hasOwn(response.data.attributes, 'previous') ? response.data.attributes.previous : null
       next.value = response.data.attributes.next
       breadcrumbsStore.removeFromBreadcrumbs(previous.value)
     })
@@ -136,7 +136,7 @@ watch(locale, async (value) => {
             $dateTime.formatDate(response.data.attributes.current.createdAt, langStore.getLang ?? locale.value)
         )
 
-        previous.value = response.data.attributes.previous
+        previous.value = Object.hasOwn(response.data.attributes, 'previous') ? response.data.attributes.previous : null
         next.value = response.data.attributes.next
         breadcrumbsStore.removeFromBreadcrumbs(previous.value)
         commonStore.setTitle(publication.value['title'])

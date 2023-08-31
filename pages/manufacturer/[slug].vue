@@ -1,17 +1,26 @@
 <template>
   <v-container :fluid="true" class="mx-0 pa-0">
+    <v-row class="pa-0" :style="`margin-top: ${frameMargin}px`">
     <template v-if="timeout">
-      <v-col cols="12" class="d-flex mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
-        <span class="display-3">Подождите, идет загрузка...</span>
-      </v-col>
+        <v-col cols="12" class="d-flex mx-0 position-relative page-frames pb-4 pt-8">
+          <span class="display-3">{{ $t('loading') }}</span>
+        </v-col>
     </template>
     <template v-else>
       <client-only>
-        <v-col cols="12" class="mx-0 position-relative page-frames" :style="`margin-top: ${frameMargin}px`">
+        <v-col cols="12" class="mx-0 position-relative page-frames"
+               :class="{'pb-4 pt-8': !(filters.list.length && products.length)}">
           <template v-if="filters.list.length && products.length">
             <v-row class="ma-0 pa-0">
               <v-col cols="12" class="mx-0 position-relative px-0">
                 <filters-component @set-filter="filterData" :filters="filters.list"/>
+              </v-col>
+            </v-row>
+          </template>
+          <template v-else>
+            <v-row class="px-0 mx-0">
+              <v-col cols="12" class="d-flex mx-0 position-relative">
+                <span class="display-3">{{ $t('noProducts') }}</span>
               </v-col>
             </v-row>
           </template>
@@ -37,7 +46,7 @@
         </v-col>
       </client-only>
     </template>
-
+    </v-row>
   </v-container>
 </template>
 <script setup>
@@ -84,7 +93,7 @@ onBeforeMount(async () => {
 
     page.value.title = response.name
     page.value.description = response.description
-    page.value.logo = `https://dashboard.a-sv.site${response.whiteLogo.url}`
+    page.value.logo = response.whiteLogo.url
 
     products.value = response.products.map((item) => {
       return new Product(
@@ -131,6 +140,7 @@ const loadMore = () => {
   current.value = products.value.length
 }
 watch(locale, async (value) => {
+  timeout.value = true
   await find(`slides/${route.params.slug}`, { locale: value}).then((response) => {
 
     page.value.title = response.name
