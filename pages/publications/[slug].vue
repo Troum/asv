@@ -51,7 +51,7 @@
 
 <script setup>
 import _ from "lodash"
-import {computed, watch, ref} from "vue"
+import {computed, watch, ref, onBeforeMount} from "vue"
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiChevronLeft} from "@mdi/js";
 import {useCommonStore} from "~/store/common";
@@ -84,28 +84,30 @@ const next = ref(null)
 
 commonStore.setComponent(null)
 
-await find(`publications/${route.params.slug}`, {
-  populate: 'detailImage',
-  locale: langStore.getLang ?? locale.value
+onBeforeMount(async () => {
+  await find(`publications/${route.params.slug}`, {
+    populate: 'detailImage',
+    locale: langStore.getLang ?? locale.value
+  })
+      .then((response) => {
+        publication.value = new Publication(
+            response.data.id,
+            response.data.attributes.current.title,
+            response.data.attributes.current.subtitle,
+            response.data.attributes.current.article,
+            response.data.attributes.current['detailImage'].url,
+            response.data.attributes.current.slug,
+            $dateTime.formatDate(response.data.attributes.current.createdAt, langStore.getLang ?? locale.value)
+        )
+        commonStore.setTitle(publication.value['title'])
+        previous.value = Object.hasOwn(response.data.attributes, 'previous') ? response.data.attributes.previous : null
+        next.value = response.data.attributes.next
+        breadcrumbsStore.removeFromBreadcrumbs(previous.value)
+      })
+      .then(() => {
+        timeout.value = false
+      })
 })
-    .then((response) => {
-      publication.value = new Publication(
-          response.data.id,
-          response.data.attributes.current.title,
-          response.data.attributes.current.subtitle,
-          response.data.attributes.current.article,
-          response.data.attributes.current['detailImage'].url,
-          response.data.attributes.current.slug,
-          $dateTime.formatDate(response.data.attributes.current.createdAt, langStore.getLang ?? locale.value)
-      )
-      commonStore.setTitle(publication.value['title'])
-      previous.value = Object.hasOwn(response.data.attributes, 'previous') ? response.data.attributes.previous : null
-      next.value = response.data.attributes.next
-      breadcrumbsStore.removeFromBreadcrumbs(previous.value)
-    })
-    .then(() => {
-      timeout.value = false
-    })
 const nextSlug = computed(() => {
   if (!_.isNull(next.value)) {
     return next.value?.slug ?? ''

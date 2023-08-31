@@ -84,7 +84,7 @@
 </template>
 
 <script setup>
-import {ref, watch} from "vue";
+import {ref, watch, onBeforeMount} from "vue";
 import {useDisplay} from "vuetify";
 import {mdiChevronLeft} from "@mdi/js";
 import {useRoute, useRouter} from "vue-router";
@@ -112,34 +112,36 @@ const tabs = ref([])
 const product = ref({})
 const langStore = useLangStore()
 
-await find(`products/${route.params.slug}`, {
-  populate: ['video', 'logo', 'avatar'],
-  locale: langStore.getLang ?? locale.value
-})
-    .then((response) => {
-      product.value = new Product(
-          response.data.id,
-          response.data.attributes.avatar.data.attributes.url,
-          response.data.attributes.title,
-          response.data.attributes.subtitle,
-          response.data.attributes.description,
-          response.data.attributes.logo.data.attributes.url,
-          response.data.attributes.slug,
-          response.data.attributes.type,
-          response.data.attributes.video.data.attributes.url,
-          response.data.attributes.company,
-          response.data.attributes.proclamation,
-          response.data.attributes.characteristic
-      ).toJson()
-      Array.from(['description', 'characteristic'])
-          .forEach((item) => {
-            tabs.value.push({
-              value: item,
-              html: product.value[item]
+onBeforeMount(async () => {
+  await find(`products/${route.params.slug}`, {
+    populate: ['video', 'logo', 'avatar'],
+    locale: langStore.getLang ?? locale.value
+  })
+      .then((response) => {
+        product.value = new Product(
+            response.data.id,
+            response.data.attributes.avatar.data.attributes.url,
+            response.data.attributes.title,
+            response.data.attributes.subtitle,
+            response.data.attributes.description,
+            response.data.attributes.logo.data.attributes.url,
+            response.data.attributes.slug,
+            response.data.attributes.type,
+            response.data.attributes.video.data.attributes.url,
+            response.data.attributes.company,
+            response.data.attributes.proclamation,
+            response.data.attributes.characteristic
+        ).toJson()
+        Array.from(['description', 'characteristic'])
+            .forEach((item) => {
+              tabs.value.push({
+                value: item,
+                html: product.value[item]
+              })
             })
-          })
-      commonStore.setTitle(product.value['title'])
-    })
+        commonStore.setTitle(product.value['title'])
+      })
+})
 
 watch(locale, async () => {
   await find(`products/${route.params.slug}`, {

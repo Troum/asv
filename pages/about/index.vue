@@ -144,6 +144,7 @@ const certificates = ref([])
 const timeout = ref(true)
 const {find} = useStrapi()
 const commonStore = useCommonStore()
+
 onBeforeMount(async() => {
   await find('about', {
     populate: {
