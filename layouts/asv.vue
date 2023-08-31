@@ -595,7 +595,7 @@ await find('main-page', {
           populate: ['logo', 'whiteLogo']
         },
       },
-  locale: langStore.getLang ?? locale.value
+  locale: locale.value
 })
     .then((response) => {
       mainPageCarousel.addItems(
@@ -716,7 +716,7 @@ watch(locale, async (value) => {
             populate: ['logo', 'whiteLogo']
           },
         },
-    locale: value
+    locale: locale.value
   })
       .then((response) => {
         mainPageCarousel.addItems(
@@ -748,27 +748,42 @@ watch(locale, async (value) => {
               item.attributes.logo.data.attributes.url
           ).toJson()
         }))
-        services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
-              const ch = Math.floor(i / 4);
-              all[ch] = [].concat((all[ch] || []), one);
-              return all
-            }, [])
-                .map((item) => {
-                  return {
-                    slides: item.map((item) => {
+        if (mobile.value) {
+          services.addItems(response.data.attributes.services.data
+              .map((item) => {
+                return new Service(
+                    item.id,
+                    item.attributes.logo.data.attributes.url,
+                    item.attributes.name,
+                    item.attributes.slug,
+                    item.attributes.description,
+                    item.attributes.whiteLogo.data.attributes.url,
+                ).toJson()
+              })
+          )
+        } else {
+          services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
+                const ch = Math.floor(i / 4);
+                all[ch] = [].concat((all[ch] || []), one);
+                return all
+              }, [])
+                  .map((item) => {
+                    return {
+                      slides: item.map((item) => {
 
-                      return new Service(
-                          item.id,
-                          item.attributes.logo.data.attributes.url,
-                          item.attributes.name,
-                          item.attributes.slug,
-                          item.attributes.description,
-                          item.attributes.whiteLogo.data.attributes.url,
-                      ).toJson()
-                    })
-                  }
-                })
-        )
+                        return new Service(
+                            item.id,
+                            item.attributes.logo.data.attributes.url,
+                            item.attributes.name,
+                            item.attributes.slug,
+                            item.attributes.description,
+                            item.attributes.whiteLogo.data.attributes.url,
+                        ).toJson()
+                      })
+                    }
+                  })
+          )
+        }
       })
 }, {immediate: true})
 
