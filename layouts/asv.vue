@@ -7,9 +7,26 @@
                            @click="drawer = false" color="secondary">
         <div class="d-flex justify-center align-center flex-column position-relative">
           <v-btn color="#fff" class="position-absolute" icon variant="plain"
-                 :ripple="false" style="top: -15%; right: -30.5%">
+                 :ripple="false" style="top: -7.5%; right: -30.5%">
             <svg-icon type="mdi" :path="mdiClose" size="24"/>
           </v-btn>
+          <div class="d-flex justify-center align-center flex-row-gap-4">
+            <v-btn variant="plain" icon
+                   @click="setLocale('lt')"
+                   :ripple="false" style="opacity: 1"
+                   :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
+            </v-btn>
+            <v-btn variant="plain" icon
+                   @click="setLocale('ru')"
+                   :ripple="false" style="opacity: 1"
+                   :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
+            </v-btn>
+            <v-btn variant="plain" icon
+                   @click="setLocale('en')"
+                   :ripple="false" style="opacity: 1"
+                   :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
+            </v-btn>
+          </div>
           <NuxtLink to="/"
                     transition="fade"
                     class="text-h6 my-6 d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
