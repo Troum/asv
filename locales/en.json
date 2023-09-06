@@ -35,7 +35,8 @@
     "back": "Back",
     "previous": "Previous",
     "next": "Next",
-    "request": "Request"
+    "request": "Request",
+    "expand": "Expand"
   },
   "tabs": {
     "description": "Description",
@@ -85,7 +86,8 @@
     "askQuestion": "Ask Question",
     "address": "Address",
     "trainers": "Clinical Mentors",
-    "networks": "We are on social networks"
+    "networks": "We are on social networks",
+    "about": "About Us"
   },
   "form": {
     "name": "Name",

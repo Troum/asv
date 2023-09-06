@@ -35,7 +35,8 @@
     "back": "Назад",
     "previous": "Пред",
     "next": "След",
-    "request": "Запрос"
+    "request": "Запрос",
+    "expand": "Развернуть"
   },
   "tabs": {
     "description": "Описание",
@@ -84,7 +85,8 @@
     "askQuestion":  "Задать вопрос",
     "address":  "Наш адрес",
     "trainers":  "Клинические тренеры ",
-    "networks":  "Мы в социальных сетях"
+    "networks":  "Мы в социальных сетях",
+    "about": "O "
   },
   "form": {
     "name":  "Имя",

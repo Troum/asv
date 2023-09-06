@@ -399,9 +399,7 @@
                 e-mail
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="mailto:inbox@asv-trade.by">inbox@asv-trade.by</a>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="mailto:service@asv-trade.by">service@asv-trade.by</a>
+                 href="mailto:info@asvtrade.lt">info@asvtrade.lt</a>
             </div>
             <div class="d-flex flex-column flex-row-gap-5">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">

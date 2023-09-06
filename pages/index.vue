@@ -34,7 +34,7 @@
             </article>
           </div>
           <div class="d-flex justify-center align-center w-100">
-            <v-btn :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal" to="/services">
+            <v-btn :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal" to="/about">
               <span class="text-white font-weight-bold">{{ $t('buttons.details') }}</span>
             </v-btn>
           </div>

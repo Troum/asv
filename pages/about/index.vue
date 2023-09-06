@@ -129,22 +129,9 @@ defineProps({
 const { locale, t } = useI18n()
 const { mobile } = useDisplay()
 
-switch (locale.value) {
-  case 'en':
-    definePageMeta({
-      breadcrumb: 'About Company'
-    })
-    break;
-  case 'ru':
-    definePageMeta({
-      breadcrumb: 'О компании'
-    })
-    break;
-  default:
-    definePageMeta({
-      breadcrumb: 'Apie mus'
-    })
-}
+definePageMeta({
+  breadcrumb: 'pages.about.title'
+})
 const langStore = useLangStore()
 const page = ref({})
 const doctors = ref([])

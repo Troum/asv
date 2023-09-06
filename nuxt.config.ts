@@ -67,10 +67,10 @@ export default defineNuxtConfig({
             'process.env.DEBUG': false,
         }
     },
-    /*devServer: {
+    devServer: {
         host: 'asv.test',
         port: 8000
-    },*/
+    },
     delayHydration: {
         mode: 'mount'
     }

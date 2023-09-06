@@ -10,14 +10,6 @@
               {{ $t('contacts.name') }}
             </v-card-title>
             <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
-              <template v-if="locale === 'ru'">
-                <v-card-subtitle style="opacity: 1" class="d-flex flex-column">
-                  <span>УНП: 690658079О</span>
-                  <span>КПО: 302620456000</span>
-                  <span>р/с: BY55BLBB30120690658079001001</span>
-                  <span style="white-space: pre-wrap">В банк: ОАО «Белинвестбанк» ГОПЕРУ код BLBBBY2X, г. Минск, пр-т Машерова, 29</span>
-                </v-card-subtitle>
-              </template>
               <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
@@ -64,11 +56,6 @@
             </v-card-text>
           </v-card>
         </div>
-        <template v-if="locale === 'ru'">
-          <div ref="map" style="filter: grayscale(100%)">
-            <map-component :width="width" :height="height"/>
-          </div>
-        </template>
       </div>
     </v-col>
   </v-container>

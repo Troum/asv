@@ -52,7 +52,7 @@
 
       <v-card-actions class="px-0">
         <v-btn @click="more" style="opacity: 1" :ripple="false" variant="plain" class="px-0">
-          <span class="text-info">Развернуть</span>
+          <span class="text-info">{{ $t('buttons.expand') }}</span>
         </v-btn>
       </v-card-actions>
 

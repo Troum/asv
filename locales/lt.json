@@ -35,7 +35,8 @@
     "back": "Atgal",
     "previous": "Prieš",
     "next": "Sekantis",
-    "request": "Užklausa"
+    "request": "Užklausa",
+    "expand": "Išsiskleisti"
   },
   "tabs": {
     "description": "Aprašymas",
@@ -84,7 +85,8 @@
     "askQuestion": "Užduoti klausimą",
     "address": "Mūsų adresas",
     "trainers": "Klinikiniai treneriai",
-    "networks": "Mes socialiniuose tikluose"
+    "networks": "Mes socialiniuose tikluose",
+    "about": "Apie mus"
   },
   "form": {
     "name": "Vardas",
