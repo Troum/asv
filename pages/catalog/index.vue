@@ -110,7 +110,7 @@ onBeforeMount(async () => {
 })
 
 const filteredProducts = computed(() => {
-  return !_.isEmpty(filtered?.value) ? filtered?.value : products.value
+  return !_.isEmpty(filtered?.value) ? filtered?.value : []
 })
 const filterData = (value) => {
   if (!_.isEqual(value, 'all')) {

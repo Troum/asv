@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     css: [
         'vuetify/lib/styles/main.sass',
+        '~/assets/styles/global.scss',
         '~/assets/styles/main.scss'
     ],
     build: {

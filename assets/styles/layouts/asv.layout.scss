@@ -131,7 +131,7 @@
   & .menu-bar {
     display: flex;
     align-content: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-left: calc((255 * 100%) / 1920);
     padding-right: calc((255 * 100%) / 1920);
   }

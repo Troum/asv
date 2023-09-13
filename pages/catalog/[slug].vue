@@ -17,7 +17,7 @@
                 <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
                 </v-card-text>
                 <v-card-actions class="px-0">
-                  <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{
+                  <v-btn @click="openRequestDialog" :rounded="0" width="160" height="50" class="bg-primary text-white">{{
                       $t('buttons.request')
                     }}
                   </v-btn>
@@ -89,7 +89,7 @@
                 <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
                 </v-card-text>
                 <v-card-actions class="px-0">
-                  <v-btn :rounded="0" width="160" height="50" class="bg-primary text-white">{{
+                  <v-btn @click="openRequestDialog" :rounded="0" width="160" height="50" class="bg-primary text-white">{{
                       $t('buttons.request')
                     }}
                   </v-btn>
@@ -164,6 +164,7 @@
       </template>
     </v-row>
   </v-container>
+  <product-request-dialog :status="requestDialog" @close-dialog="closeRequestDialog"/>
 </template>
 
 <script setup>
@@ -176,6 +177,7 @@ import {useCommonStore} from "~/store/common";
 import Product from "~/models/Product";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
+import ProductRequestDialog from "~/components/ProductRequestDialog.vue";
 
 defineProps({
   frameMargin: {
@@ -183,6 +185,7 @@ defineProps({
     default: 0
   }
 })
+const requestDialog = ref(false)
 const {locale} = useI18n()
 const commonStore = useCommonStore()
 const route = useRoute()
@@ -263,6 +266,12 @@ watch(locale, async () => {
       })
 })
 commonStore.setComponent(null)
+const openRequestDialog = () => {
+  requestDialog.value = true
+}
+const closeRequestDialog = () => {
+  requestDialog.value = false
+}
 </script>
 
 <style lang="scss" scoped>

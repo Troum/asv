@@ -13,12 +13,12 @@
         <template v-if="mobile">
           <div>
             <v-img max-width="400" :src="contactComponent.logo" class="mx-auto my-8"></v-img>
-            <p v-html="contactComponent.content" class="text-white font-size-16 my-5"></p>
+            <p v-html="contactComponent.content" class="text-white font-size-20 my-5"></p>
           </div>
         </template>
         <template v-else>
           <div class="component" :style="`grid-column-gap: ${$display.width(display.width.value, 220)}px`">
-            <p v-html="contactComponent.content" class="text-white font-size-16 my-5"></p>
+            <p v-html="contactComponent.content" class="text-white font-size-20 my-5"></p>
             <v-img width="200" :src="contactComponent.logo"></v-img>
           </div>
         </template>

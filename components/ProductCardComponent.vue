@@ -19,7 +19,7 @@
     <v-card-title>
       <nuxt-img provider="strapi" style="min-width: 120px; max-width: 120px" :src="product.logo"></nuxt-img>
     </v-card-title>
-    <v-card-text class="text-secondary-light" v-html="truncated">
+    <v-card-text :style="computedWidth" class="text-secondary-light" v-html="truncated">
     </v-card-text>
 
     <v-card-actions class="px-4">
@@ -38,6 +38,7 @@
 import Product from "~/models/Product";
 import truncate from "truncate-html";
 import {computed} from "vue";
+import {useDisplay} from "vuetify";
 
 const props = defineProps({
   product: {
@@ -45,8 +46,17 @@ const props = defineProps({
     default: new Product()
   }
 })
+const { width, mobile } = useDisplay()
 const truncated = computed(() => {
   return truncate(props.product['description'], 20, {byWords: true})
+})
+const computedWidth = computed(() => {
+  switch (true) {
+    case width.value <= 1280:
+      return `width: ${width}px`
+    default:
+      return `width: ${width / 3 - 60}px`
+  }
 })
 </script>
 

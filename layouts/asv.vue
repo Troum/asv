@@ -113,13 +113,13 @@
         <v-btn style="opacity: 1; text-transform: initial; font-size: 18px" variant="plain"
                :ripple="false"
                class="d-flex align-center">
-          <span class="mr-4">{{ $t('search') }}</span>
+          <span class="mr-4 font-size-20">{{ $t('search') }}</span>
           <svg-icon size="26" type="mdi" :path="mdiMagnify"/>
         </v-btn>
         <template v-if="mobile">
           <v-btn @click="drawer = !drawer" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
                  style="opacity: 1; width: fit-content;">
-            <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                   d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
                   fill="#000"/>
@@ -129,14 +129,14 @@
         <template v-if="!mobile">
           <div ref="phonesContainer" class="d-flex align-center phones__container">
             <div class="d-flex flex-column justify-center align-end">
-              <span class="font-weight-bold text-uppercase font-size-13">{{ $t('salesDepartment') }}</span>
-              <span class="font-weight-bold text-uppercase font-size-13">{{ $t('serviceDepartment') }}</span>
+              <span class="font-weight-bold text-uppercase font-size-16">{{ $t('salesDepartment') }}</span>
+              <span class="font-weight-bold text-uppercase font-size-16">{{ $t('serviceDepartment') }}</span>
             </div>
             <div ref="phoneSeparator" class="separator"></div>
             <div class="d-flex flex-column justify-center align-start">
-              <a href="tel:+37068655420" class="phone_link font-weight-bold text-uppercase font-size-13">+370 686 55
+              <a href="tel:+37068655420" class="phone_link font-weight-bold text-uppercase font-size-16">+370 686 55
                 420</a>
-              <a href="tel:+375173362302" class="phone_link font-weight-bold text-uppercase font-size-13">+375 17 336 23
+              <a href="tel:+375173362302" class="phone_link font-weight-bold text-uppercase font-size-16">+375 17 336 23
                 02</a>
             </div>
           </div>
@@ -151,17 +151,17 @@
               <v-btn variant="plain" icon
                      @click="setLocale('lt')"
                      :ripple="false" style="opacity: 1"
-                     :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
+                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
               </v-btn>
               <v-btn variant="plain" icon
                      @click="setLocale('ru')"
                      :ripple="false" style="opacity: 1"
-                     :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
+                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
               </v-btn>
               <v-btn variant="plain" icon
                      @click="setLocale('en')"
                      :ripple="false" style="opacity: 1"
-                     :class="`lang_link font-weight-bold text-uppercase pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
+                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
               </v-btn>
             </div>
             <div class="d-flex flex-column justify-center align-center flex-row-gap-4 ml-12">
@@ -184,25 +184,46 @@
         <template v-if="!mobile">
           <div class="z-index-5 position-absolute menu-bar"
                :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-            <v-btn @click="isOpen = !isOpen" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
-                   style="opacity: 1; width: fit-content;">
-              <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
-                    fill="white"/>
-              </svg>
-            </v-btn>
-            <v-fade-transition>
-              <div v-if="isOpen" class="d-flex justify-space-between align-center w-75 ml-10 mr-auto">
-                <template v-for="item of menu">
+            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, minmax(70px, max-content)); grid-column-gap: 66px; grid-template-rows: max-content`">
+              <v-btn class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
+                     style="opacity: 1; width: fit-content;">
+                <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                      d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
+                      fill="white"/>
+                </svg>
+              </v-btn>
+              <template v-for="item of menu">
+                <template v-if="item.route.includes('catalog')">
+                  <v-menu :open-on-hover="true">
+                    <template v-slot:activator="{ props }">
+                      <NuxtLink :to="item.route"
+                                v-bind="props"
+                                transition="fade"
+                                class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover font-size-20 on-hover menu">
+                        {{ item.title }}
+                      </NuxtLink>
+                    </template>
+                    <div class="d-flex flex-column mt-3" style="row-gap: 5px;">
+                      <template v-for="(filter, index) in filters" :key="index">
+                        <NuxtLink :to="`${item.route}?filter=${filter.value}`"
+                                  transition="fade"
+                                  class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover font-size-20">
+                          {{ filter.title }}
+                        </NuxtLink>
+                      </template>
+                    </div>
+                  </v-menu>
+                </template>
+                <template v-else>
                   <NuxtLink :to="item.route"
                             transition="fade"
-                            class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover">
+                            class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover font-size-20">
                     {{ item.title }}
                   </NuxtLink>
                 </template>
-              </div>
-            </v-fade-transition>
+              </template>
+            </div>
           </div>
         </template>
       </template>
@@ -365,47 +386,47 @@
       <v-footer class="d-flex flex-column bg-primary py-15 px-0"
                 :style="`min-height: 700px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
         <div class="footer-bar">
-          <v-img :max-width="$display.logo(display.width.value, 200)" src="/logo-w.svg"></v-img>
+          <v-img :max-width="$display.logo(display.width.value, 200)" max-height="150" src="/logo-w.svg"></v-img>
           <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.menu') }}</h4>
           <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
         </div>
         <div class="footer-info">
           <div class="contacts-container">
             <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
                 {{ $t('salesDepartment') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+37068655420">+370
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+37068655420">+370
                 686 554 20</a>
             </div>
             <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
                 {{ $t('serviceDepartment') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375173362302">
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+375173362302">
                 +375 17 336 23 02
               </a>
             </div>
             <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
                 {{ $t('financialDepartment') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+370604855564">
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+370604855564">
                 +370 604 855564
               </a>
             </div>
             <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
                 e-mail
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
                  href="mailto:info@asvtrade.lt">info@asvtrade.lt</a>
             </div>
             <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
                 {{ $t('titles.address') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href=""
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href=""
                  v-html="$t('address')">
               </a>
             </div>
@@ -413,7 +434,7 @@
           <div class="menu-container">
             <template v-for="item of menu">
               <NuxtLink :to="item.route"
-                        class="d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover">
+                        class="d-flex align-center text-uppercase text-decoration-none font-weight-bold text-white on-hover font-size-20">
                 {{ item.title }}
               </NuxtLink>
             </template>
@@ -504,6 +525,7 @@ import {useCarouselStore} from "~/store/carousel";
 import Slide from "~/models/Slide";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
+import Filter from "~/models/Filter";
 
 const drawer = ref(false)
 const {find, create} = useStrapi()
@@ -541,6 +563,7 @@ const services = useServicesStore()
 const publications = usePublicationsStore()
 const clients = useClientsStore()
 const isOpen = ref(false)
+const filters = ref([])
 
 const feedback = ref({
   name: null,
@@ -580,6 +603,7 @@ const onSubmit = async () => {
 await find('main-page', {
   populate:
       {
+        filters: {fields: ['title', 'value']},
         carousels: {
           populate: 'src'
         },
@@ -626,41 +650,73 @@ await find('main-page', {
             item.attributes.logo.data.attributes.url
         ).toJson()
       }))
-      if (mobile.value) {
-        services.addItems(response.data.attributes.services.data
-                .map((item) => {
-                  return new Service(
-                      item.id,
-                      item.attributes.logo.data.attributes.url,
-                      item.attributes.name,
-                      item.attributes.slug,
-                      item.attributes.description,
-                      item.attributes.whiteLogo.data.attributes.url,
-                  ).toJson()
-                })
-        )
-      } else {
-        services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
-              const ch = Math.floor(i / 4);
-              all[ch] = [].concat((all[ch] || []), one);
-              return all
-            }, [])
-                .map((item) => {
-                  return {
-                    slides: item.map((item) => {
+      filters.value = response.data.attributes.filters.data.map((item) => {
+        return new Filter(
+            item.attributes.value,
+            item.attributes.title
+        ).toJson()
+      })
+      switch (true) {
+        case display.width.value <= 768:
+          services.addItems(response.data.attributes.services.data
+              .map((item) => {
+                return new Service(
+                    item.id,
+                    item.attributes.logo.data.attributes.url,
+                    item.attributes.name,
+                    item.attributes.slug,
+                    item.attributes.description,
+                    item.attributes.whiteLogo.data.attributes.url,
+                ).toJson()
+              })
+          )
+              break;
+        case display.width.value > 768 && display.width.value <= 920:
+          services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
+                const ch = Math.floor(i / 2);
+                all[ch] = [].concat((all[ch] || []), one);
+                return all
+              }, [])
+                  .map((item) => {
+                    return {
+                      slides: item.map((item) => {
 
-                      return new Service(
-                          item.id,
-                          item.attributes.logo.data.attributes.url,
-                          item.attributes.name,
-                          item.attributes.slug,
-                          item.attributes.description,
-                          item.attributes.whiteLogo.data.attributes.url,
-                      ).toJson()
-                    })
-                  }
-                })
-        )
+                        return new Service(
+                            item.id,
+                            item.attributes.logo.data.attributes.url,
+                            item.attributes.name,
+                            item.attributes.slug,
+                            item.attributes.description,
+                            item.attributes.whiteLogo.data.attributes.url,
+                        ).toJson()
+                      })
+                    }
+                  })
+          )
+              break
+        default:
+          services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
+                const ch = Math.floor(i / 4);
+                all[ch] = [].concat((all[ch] || []), one);
+                return all
+              }, [])
+                  .map((item) => {
+                    return {
+                      slides: item.map((item) => {
+
+                        return new Service(
+                            item.id,
+                            item.attributes.logo.data.attributes.url,
+                            item.attributes.name,
+                            item.attributes.slug,
+                            item.attributes.description,
+                            item.attributes.whiteLogo.data.attributes.url,
+                        ).toJson()
+                      })
+                    }
+                  })
+          )
+          break
       }
     })
 
@@ -808,6 +864,22 @@ onMounted(() => {
 
   &:hover {
     color: #00EAFC !important;
+  }
+  &.menu {
+    position: relative;
+    transition: .3s ease-in-out;
+
+    &:hover {
+      &::before {
+        position: absolute;
+        bottom: -6px;
+        left: calc(100% / 2 - 12px);
+        content: url("/chevron.svg");
+        display: block;
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
 }
 </style>

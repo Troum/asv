@@ -58,7 +58,7 @@
               <div class="d-flex flex-column fill-height justify-center align-start"
                    style="row-gap: 40px">
                 <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                <p class="text-white">{{ slide.description }}</p>
+                <p class="text-white font-size-16">{{ slide.description }}</p>
                 <template v-if="slide.link">
                   <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link"
                           class="more_info__button">
@@ -83,7 +83,7 @@
               <div class="d-flex flex-column fill-height justify-center align-start"
                    style="row-gap: 40px">
                 <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                <p class="text-white">{{ slide.description }}</p>
+                <p class="text-white font-size-16">{{ slide.description }}</p>
                 <template v-if="slide.link">
                   <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button">
                     {{ $t('buttons.details') }}
@@ -130,7 +130,7 @@ const getColor = (index) => {
 watch(carouselSize.height, (value) => {
   if (value > 0) {
     delimitersContainer.value['style'].bottom = `calc((${mobile ? 60 : 80} * 100%) / ${value})`
-    delimitersContainer.value['style'].left = `calc((12 * 100%) / ${display.width.value})`
+    delimitersContainer.value['style'].left = `calc((255 * 100%) / ${display.width.value})`
   }
 })
 </script>
@@ -141,7 +141,7 @@ watch(carouselSize.height, (value) => {
   display: flex;
   justify-content: space-between;
   column-gap: 15px;
-  left: calc((255 * 100%) / 1920);
+  left: calc(((255 + 150) * 100%) / 1920);
   z-index: 3;
   & .delimiter_button {
     padding: 0;
@@ -157,5 +157,7 @@ watch(carouselSize.height, (value) => {
   width: 150px !important;
   height: 60px !important;
   color: #fff;
+  font-size: 18px;
+  font-weight: 600;
 }
 </style>

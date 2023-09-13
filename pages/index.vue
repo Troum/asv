@@ -166,7 +166,7 @@
              :style="`margin-top: ${!mobile ? slideGroupHeight + 40 : 40}px; margin-bottom: ${!mobile ? slideGroupHeight + 40 : 40}px;`">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
         <div class="clients">
-          <template v-for="(client, key) of clients.list" :key="key">
+          <template v-for="(client, key) of clients.list.slice(0, current)" :key="key">
             <client-card-component :client="client"/>
           </template>
         </div>

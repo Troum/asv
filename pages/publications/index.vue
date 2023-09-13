@@ -118,7 +118,10 @@ watch(locale, async () => {
     @media (min-width: 1920px) {
       flex: 0 0 calc(25% - 30px);
     }
-    @media (max-width: 1280px) {
+    @media (max-width: 920px) {
+      flex: 0 0 calc(50% - 30px);
+    }
+    @media (max-width: 768px) {
       flex: 0 0 100%;
     }
   }
