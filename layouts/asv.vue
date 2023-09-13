@@ -184,15 +184,7 @@
         <template v-if="!mobile">
           <div class="z-index-5 position-absolute menu-bar"
                :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, minmax(70px, max-content)); grid-column-gap: 66px; grid-template-rows: max-content`">
-              <v-btn class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
-                     style="opacity: 1; width: fit-content;">
-                <svg width="27" height="21" viewBox="0 0 27 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                      d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
-                      fill="white"/>
-                </svg>
-              </v-btn>
+            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, minmax(80px, max-content)); grid-column-gap: 66px; grid-template-rows: max-content`">
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
                   <v-menu :open-on-hover="true">
