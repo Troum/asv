@@ -184,10 +184,10 @@
         <template v-if="!mobile">
           <div class="z-index-5 position-absolute menu-bar"
                :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, minmax(90px, max-content)); grid-column-gap: 66px; grid-template-rows: max-content`">
+            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, 5%); grid-column-gap: 66px; grid-template-rows: max-content`">
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
-                  <v-menu :open-on-hover="true">
+                  <v-menu :open-on-hover="true" style="transition: background-color 0.3s ease-in-out; background-color: rgba(0,0,0, .84)">
                     <template v-slot:activator="{ props }">
                       <NuxtLink :to="item.route"
                                 v-bind="props"
@@ -196,7 +196,7 @@
                         {{ item.title }}
                       </NuxtLink>
                     </template>
-                    <div class="d-flex flex-column mt-3" style="row-gap: 5px;">
+                    <div class="d-flex flex-column mt-5" style="row-gap: 15px;">
                       <template v-for="(filter, index) in filters" :key="index">
                         <NuxtLink :to="`${item.route}?filter=${filter.value}`"
                                   transition="fade"
@@ -222,7 +222,6 @@
       <template v-else>
         <template v-if="commonStore.getComponent">
           <v-img class="position-absolute breadcrumbs-bar"
-                 src="/breadcrumbs-bg.png"
                  ref="image"
                  :cover="true"
                  :min-height="120"
@@ -464,7 +463,7 @@
               <small class="text-secondary-light">
                 <sup>*</sup> {{ message }}
               </small>
-              <v-btn type="submit" variant="outlined" class="rounded-0">
+              <v-btn type="submit" variant="outlined" class="rounded-0 font-size-20">
                 {{ $t('form.submit') }}
               </v-btn>
             </div>
@@ -545,9 +544,13 @@ const isIndex = computed(() => {
   return route.name === 'index' || route.name === 'Index' || route.name === 'INDEX'
 })
 const {locale, tm} = useI18n()
-const currentLocale = ref(langStore.getLang ?? locale.value)
-let message = ref(tm('form.notice'))
-let menu = ref(tm('menu'))
+
+let message = computed(() => {
+  return tm('form.notice')
+})
+let menu = computed(() => {
+  return tm('menu')
+})
 
 const { mobile } = useDisplay()
 const mainPageCarousel = useCarouselStore()
@@ -743,12 +746,13 @@ watch(breadcrumbsContainerSize.height, (value) => {
 }, {immediate: true})
 
 watch(locale, async (value) => {
-  menu = tm('menu')
-  message = tm('form.notice')
 
   await find('main-page', {
     populate:
         {
+          filters: {
+            fields: ['title', 'value']
+          },
           carousels: {
             populate: 'src'
           },
@@ -794,6 +798,12 @@ watch(locale, async (value) => {
               item.attributes.logo.data.attributes.url
           ).toJson()
         }))
+        filters.value = response.data.attributes.filters.data.map((item) => {
+          return new Filter(
+              item.attributes.value,
+              item.attributes.title
+          ).toJson()
+        })
         if (mobile.value) {
           services.addItems(response.data.attributes.services.data
               .map((item) => {
@@ -864,8 +874,10 @@ onMounted(() => {
     &:hover {
       &::before {
         position: absolute;
-        bottom: -6px;
-        left: calc(100% / 2 - 12px);
+        bottom: -15px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
         content: url("/chevron.svg");
         display: block;
         width: 24px;

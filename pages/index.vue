@@ -172,7 +172,7 @@
         </div>
       </v-col>
       <v-col cols="10"
-             :style="`margin-top: ${slideGroupHeight}px;margin-bottom: ${slideGroupHeight}px;`"
+             :style="`margin-bottom: ${slideGroupHeight}px;`"
              class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative">
         <v-btn :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
           <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>

@@ -6,6 +6,8 @@ export default defineNuxtPlugin(({ vueApp }) => {
     const i18n = createI18n({
         legacy: false,
         globalInjection: true,
+        warnHtmlInMessage: false,
+        warnHtmlMessage: false,
         locale: 'lt',
         specialCharacters: {
             linked: '@',
