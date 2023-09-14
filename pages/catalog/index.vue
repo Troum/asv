@@ -17,9 +17,14 @@
           </template>
           <template v-if="products.length">
             <v-row class="ma-0 pa-0">
-              <v-col cols="12" class="ma-0 position-relative d-grid products-list grid-column-gap-30 grid-row-gap-40 px-0">
-                <template v-for="product of filteredProducts.slice(0, current)">
-                  <product-card-component :product="product"/>
+              <v-col cols="12" :class="`ma-0 position-relative d-grid ${filteredProducts.length ? 'products-list' : ''} grid-column-gap-30 grid-row-gap-40 px-0`">
+                <template v-if="filteredProducts.length">
+                  <template v-for="product of filteredProducts">
+                    <product-card-component :product="product"/>
+                  </template>
+                </template>
+                <template v-else>
+                  <span class="display-3">{{ $t('noProducts') }}</span>
                 </template>
               </v-col>
               <template v-if="products.length > 6">
