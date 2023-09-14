@@ -66,6 +66,7 @@ import {computed} from "vue";
 import truncate from "truncate-html";
 
 const length = ref(10)
+const showMore = ref(false)
 const props = defineProps({
   doctor: {
     type: Object,
@@ -75,7 +76,13 @@ const props = defineProps({
   }
 })
 const more = () => {
-  length.value = props.doctor.description.trim().split(/\s+/).length
+  if (showMore.value) {
+    length.value = 10
+    showMore.value = false
+  } else {
+    length.value = props.doctor.description.trim().split(/\s+/).length
+    showMore.value = true
+  }
 }
 const description = computed(() => {
   return truncate(props.doctor.description, length.value, {byWords: true})

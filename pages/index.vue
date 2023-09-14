@@ -174,7 +174,7 @@
       <v-col cols="10"
              :style="`margin-bottom: ${slideGroupHeight}px;`"
              class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative">
-        <v-btn @click="click = true" :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
+        <v-btn @click="showMore = true" :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
           <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>
         </v-btn>
       </v-col>
@@ -214,7 +214,7 @@ const langStore = useLangStore()
 const { tm, locale } = useI18n()
 const {$display} = useNuxtApp()
 const { mobile, width } = useDisplay()
-const click = ref(false)
+const showMore = ref(false)
 const isIndex = computed(() => {
   return useRoute().name === 'index'
 })
@@ -231,7 +231,7 @@ const clients = useClientsStore()
 const commonStore = useCommonStore()
 
 const current = computed(() => {
-  return click ? clients.list.length : (useDisplay().xlAndUp ? 4 : 2)
+  return showMore.value ? clients.list.length : (useDisplay().xlAndUp ? 4 : 2)
 })
 
 commonStore.setComponent(null)
