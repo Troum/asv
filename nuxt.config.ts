@@ -43,6 +43,9 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxtjs/strapi',
         'nuxt-delay-hydration',
+        ['@nuxt-modules/compression', {
+            algorithm: 'brotliCompress'
+        }]
     ],
     plugins: [
         '~/plugins/mitt.ts',

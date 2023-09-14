@@ -23,6 +23,7 @@
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.2.96",
+    "@nuxt-modules/compression": "^0.1.0",
     "@nuxtjs/ngrok": "^2.0.0",
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
     "@pinia/nuxt": "^0.4.11",
@@ -36,6 +37,7 @@
     "sass": "^1.63.6",
     "truncate-html": "^1.0.4",
     "typescript": "^5.1.6",
+    "vite-plugin-compression": "^0.5.1",
     "vite-plugin-vuetify": "^1.0.2",
     "vue": "^3.3.4",
     "vue-3-breadcrumbs": "^2.0.0",
