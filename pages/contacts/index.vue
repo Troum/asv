@@ -85,16 +85,18 @@ const { mobile } = useDisplay()
 const map = ref(null)
 const { width, height } = useElementSize(map)
 const commonStore = useCommonStore()
-
+const description = computed(() => {
+  return tm('contacts.description')
+})
 commonStore.setComponent({
-  content: tm('contacts.description'),
+  content: description.value,
   logo: '/logo-w.svg'
 })
 commonStore.setTitle(null)
 
 watch(locale, () => {
   commonStore.setComponent({
-    content: tm('contacts.description'),
+    content: description.value,
     logo: '/logo-w.svg'
   })
 })
