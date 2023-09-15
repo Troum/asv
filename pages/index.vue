@@ -1,7 +1,7 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
     <v-row class="ma-0 pa-0">
-      <v-col cols="12" class="ma-0 pa-0 position-relative">
+      <v-col cols="12" class="ma-0 pa-0 position-relative" :style="`min-height: ${$display.height(display.height.value, 790)}px`">
         <client-only>
           <carousel-component ref="slideComponent" :slides="mainPageCarousel.list"/>
           <slide-group-component :height="slideGroupHeight" :slides="services.list"

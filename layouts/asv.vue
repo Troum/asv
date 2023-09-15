@@ -184,7 +184,7 @@
         <template v-if="!mobile">
           <div class="z-index-5 position-absolute menu-bar"
                :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, fit-content(15%)); grid-column-gap: 66px; grid-template-rows: max-content`">
+            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, fit-content(20%)); grid-column-gap: 66px; grid-template-rows: max-content`">
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
                   <v-menu :open-on-hover="true" style="transition: background-color 0.3s ease-in-out; background-color: rgba(0,0,0, .84)">

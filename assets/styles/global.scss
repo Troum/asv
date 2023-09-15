@@ -1,11 +1,13 @@
 @font-face {
-  font-family: "Plumb Condensed";
+  font-family: "Open Sans Condensed";
+  font-weight: 400;
   src: local("Plumb Condensed"),
-  url(/fonts/PlumbCondensedRegular.ttf) format("truetype");
+  url(/fonts/OpenSans-CondensedRegular.ttf) format("truetype");
 }
 
 @font-face {
   font-family: "Open Sans Condensed Bold";
+  font-weight: 600;
   src: local("Plumb Condensed"),
-  url(/fonts/OpenSansCondensedBold.ttf) format("truetype");
+  url(/fonts/OpenSans-CondensedBold.ttf) format("truetype");
 }

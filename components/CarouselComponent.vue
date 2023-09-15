@@ -44,7 +44,7 @@
     >
       <div class="w-100 fill-height position-relative"
            :class="{'d-flex align-center': mobile}"
-           :style="`background: ${slide.background}`">
+           :style="`background-color: ${slide.background}; background-image: url('https://dashboard.a-sv.site${slide.src}'); background-size: contain; background-repeat: no-repeat`">
         <template v-if="mobile">
           <nuxt-img provider="strapi"
                     class="position-absolute z-index-2"
@@ -70,12 +70,11 @@
           </v-sheet>
         </template>
         <template v-else>
-          <nuxt-img provider="strapi" class="position-absolute z-index-2"
-                                   width="100%" height="100%" :src="slide.src"></nuxt-img>
+<!--          <nuxt-img provider="strapi" class="position-absolute z-index-2" :src="slide.src"></nuxt-img>-->
           <v-sheet
               class="z-index-3 position-relative"
               color="transparent"
-              :width="$display.slideContentWidth(display.width.value, 600)"
+              :width="$display.slideContentWidth(display.width.value, 540)"
               style="margin-left: calc((255 * 100%) / 1920)"
               height="100%"
           >
