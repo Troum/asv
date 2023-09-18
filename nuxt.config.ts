@@ -45,7 +45,8 @@ export default defineNuxtConfig({
         'nuxt-delay-hydration',
         ['@nuxt-modules/compression', {
             algorithm: 'brotliCompress'
-        }]
+        }],
+        'nuxt-meilisearch'
     ],
     plugins: [
         '~/plugins/mitt.ts',
@@ -77,5 +78,14 @@ export default defineNuxtConfig({
     },
     delayHydration: {
         mode: 'mount'
+    },
+    meilisearch: {
+        hostUrl: 'https://search.a-sv.site',
+        searchApiKey: '43fa440fbf9eae9420b94d167c1454f60b0a005cba1d6463170d8c9993d24174',
+        adminApiKey: '2ccz6NqdQcA4EXOOvV8cGi8sbnW9L6iJ',
+        serverSideUsage: true,
+        instantSearch: {
+            theme: 'satellite'
+        }
     }
 })

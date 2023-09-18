@@ -36,7 +36,8 @@
     "previous": "Пред",
     "next": "След",
     "request": "Запрос",
-    "expand": "Развернуть"
+    "expand": "Развернуть",
+    "collapse": "Свернуть"
   },
   "tabs": {
     "description": "Описание",

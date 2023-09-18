@@ -111,6 +111,7 @@
           <v-img :width="$display.logo(display.width.value, mobile ? 500 : 200)" src="/logo.svg"></v-img>
         </NuxtLink>
         <v-btn style="opacity: 1; text-transform: initial; font-size: 18px" variant="plain"
+               @click="openSearch"
                :ripple="false"
                class="d-flex align-center">
           <span class="mr-4 font-size-20">{{ $t('search') }}</span>
@@ -196,7 +197,7 @@
                         {{ item.title }}
                       </NuxtLink>
                     </template>
-                    <div class="d-flex flex-column mt-5" style="row-gap: 15px;">
+                    <div class="d-flex flex-column mt-5 pa-4" style="row-gap: 15px;">
                       <template v-for="(filter, index) in filters" :key="index">
                         <NuxtLink :to="`${item.route}?filter=${filter.value}`"
                                   transition="fade"
@@ -493,6 +494,7 @@
     </template>
 
   </v-layout>
+  <search-dialog />
 </template>
 
 <script setup>
@@ -601,7 +603,7 @@ await find('main-page', {
       {
         filters: {fields: ['title', 'value']},
         carousels: {
-          populate: 'src'
+          populate: ['src', 'mobile_src']
         },
         clients: {
           populate: 'logo'
@@ -622,7 +624,7 @@ await find('main-page', {
                 item.attributes.title,
                 item.attributes.description,
                 item.attributes.link,
-                mobile.value ? item.attributes.src.data.attributes.formats.small.url :
+                mobile.value ? item.attributes.mobile_src.data.attributes.url :
                     item.attributes.src.data.attributes.url,
                 item.attributes.background
             ).toJson()
@@ -755,7 +757,7 @@ watch(locale, async (value) => {
             fields: ['title', 'value']
           },
           carousels: {
-            populate: 'src'
+            populate: ['src', 'mobile_src']
           },
           clients: {
             populate: 'logo'
@@ -776,8 +778,8 @@ watch(locale, async (value) => {
                   item.attributes.title,
                   item.attributes.description,
                   item.attributes.link,
-                  item.attributes.src.data.attributes.url,
-                  item.attributes.background
+                  mobile.value ? item.attributes.mobile_src.data.attributes.url : item.attributes.src.data.attributes.url,
+                  item.attributes.background,
               ).toJson()
             })
         )
@@ -843,7 +845,9 @@ watch(locale, async (value) => {
         }
       })
 }, {immediate: true})
-
+const openSearch = () => {
+  commonStore.setSearch(true)
+}
 onMounted(() => {
   commonStore.setLoading(false)
   if (langStore.getLang !== locale.value) {

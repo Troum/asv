@@ -36,7 +36,8 @@
     "previous": "Previous",
     "next": "Next",
     "request": "Request",
-    "expand": "Expand"
+    "expand": "Expand",
+    "collapse": "Collapse"
   },
   "tabs": {
     "description": "Description",

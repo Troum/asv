@@ -17,12 +17,14 @@
     "@types/node": "^18.16.19",
     "nuxt": "^3.6.2",
     "nuxt-delay-hydration": "^1.2.1",
+    "nuxt-meilisearch": "^0.1.9",
     "video.js": "^8.3.0",
     "vue-i18n": "^9.2.2"
   },
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.2.96",
+    "@meilisearch/instant-meilisearch": "^0.13.5",
     "@nuxt-modules/compression": "^0.1.0",
     "@nuxtjs/ngrok": "^2.0.0",
     "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
@@ -42,6 +44,7 @@
     "vue": "^3.3.4",
     "vue-3-breadcrumbs": "^2.0.0",
     "vue-core-video-player": "^0.2.0",
+    "vue-instantsearch": "^4.10.11",
     "vue-mc": "^0.6.0",
     "vue-router": "^4.2.4",
     "vue-yandex-maps": "^0.12.7",

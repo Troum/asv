@@ -55,6 +55,9 @@ import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 import {useFiltersStore} from "~/store/filters";
 import {useDisplay} from "vuetify";
+import * as ruProd from '~/assets/mock/products-ru.json'
+import * as enProd from '~/assets/mock/products-en.json'
+import * as ltProd from '~/assets/mock/products-lt.json'
 
 definePageMeta({
   breadcrumb: 'pages.catalog.title'
@@ -87,7 +90,21 @@ onBeforeMount(async () => {
     },
     locale: langStore.getLang ?? locale.value
   }).then((response) => {
-    products.value = response.data.attributes.products.data.map((item) => {
+
+    let prodJson = []
+    switch (langStore.getLang) {
+      case 'lt':
+        prodJson = ltProd.products
+            break
+      case 'ru':
+        prodJson = ruProd.products
+        break
+      case 'en':
+        prodJson = enProd.products
+        break
+    }
+
+    products.value = prodJson.map((item) => {
       return new Product(
           item.id,
           item.attributes.avatar.data.attributes.url,
@@ -100,6 +117,19 @@ onBeforeMount(async () => {
           item.attributes.logo.data.attributes.video
       ).toJson()
     })
+    /*products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })*/
     filters.value = response.data.attributes.filters.data.map((item) => {
       return new Filter(
           item.attributes.value,
@@ -136,7 +166,20 @@ watch(locale, async (value) => {
     },
     locale: langStore.getLang ?? value
   }).then((response) => {
-    products.value = response.data.attributes.products.data.map((item) => {
+    let prodJson = []
+    switch (langStore.getLang) {
+      case 'lt':
+        prodJson = ltProd.products
+        break
+      case 'ru':
+        prodJson = ruProd.products
+        break
+      case 'en':
+        prodJson = enProd.products
+        break
+    }
+
+    products.value = prodJson.map((item) => {
       return new Product(
           item.id,
           item.attributes.avatar.data.attributes.url,
@@ -149,6 +192,19 @@ watch(locale, async (value) => {
           item.attributes.logo.data.attributes.video
       ).toJson()
     })
+    /*products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })*/
     filters.value = response.data.attributes.filters.data.map((item) => {
       return new Filter(
           item.attributes.value,
@@ -171,6 +227,10 @@ watch(locale, async (value) => {
 
     @media (max-width: 1280px) {
       grid-template-columns: repeat(1, 1fr);
+      grid-auto-rows: minmax(500px, 1fr);
+    }
+    @media (min-width: 2000px) {
+      grid-template-columns: repeat(5, 1fr);
       grid-auto-rows: minmax(500px, 1fr);
     }
   }

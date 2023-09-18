@@ -36,7 +36,8 @@
     "previous": "Prieš",
     "next": "Sekantis",
     "request": "Užklausa",
-    "expand": "Išsiskleisti"
+    "expand": "Išsiskleisti",
+    "collapse": "Žlugti"
   },
   "tabs": {
     "description": "Aprašymas",

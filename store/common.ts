@@ -23,7 +23,8 @@ export const useCommonStore = defineStore({
             component: null,
             title: null,
             serviceFilter: null,
-            loading: true
+            loading: true,
+            search: false
         }
     },
     actions: {
@@ -41,6 +42,9 @@ export const useCommonStore = defineStore({
         },
         setLang(value: string) {
             this.lang = value
+        },
+        setSearch(value: boolean) {
+            this.search = value
         }
     },
     getters: {
@@ -50,5 +54,6 @@ export const useCommonStore = defineStore({
         getServiceFilter: state => state.serviceFilter,
         getLoading: state => state.loading,
         getLang: state => state.lang,
+        getSearch: state => state.search,
     }
 })

@@ -1,0 +1,1639 @@
+{
+  "products": [
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "veterinary",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "veterinary",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "veterinary",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "gynecology",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "gynecology",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "gynecology",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "ophtalmology",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "ophtalmology",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "ophtalmology",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "wellness",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "wellness",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "wellness",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "aesthetic",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "aesthetic",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "attributes": {
+        "title": "VET905",
+        "description": "<p><strong>Описание</strong></p><p>Аппарат VET905 компании INDIBA Animal Health - это инструмент для восстановительного лечения лошадей, как в острых, так и в хронических случаях, до или после операции. Применение VET905 также показано для улучшения спортивных результатов лошади-спортсмена, благодаря тому, что его воздействие также приносит пользу здоровым тканям.</p><p>Эти преимущества обеспечиваются уникальными эффектами технологии INDIBA:</p><ul><li><p>Обеспечивает обезболивающий эффект</p></li><li><p>Увеличивает объем и интенсивность кровотока</p></li><li><p>Улучшает снабжение кислородом и питательными веществами</p></li><li><p>Повышает температуру тканей</p></li><li><p>Усиливает клеточный метаболизм</p></li><li><p>Контролирует воспаление</p></li><li><p>Нормализует и оптимизирует клеточную активность</p></li><li><p>Приводит в норму ионный баланс</p></li><li><p>Биостимуляция клеток</p></li><li><p>Позволяет проводить лечение в зонах, традиционно не подходящих для электротерапии</p></li><li><p>Ускоряет заживление при лечении вокруг хирургических ран</p></li><li><p>Позволяет выполнять пассивные упражнения во время лечения</p></li><li><p>Лечение совместимо с металлическими имплантатами</p></li></ul><p><strong>Технология</strong></p><p>Терапевтическое применение радиочастот основывает свое воздействие на тепловом повышении в обрабатываемых тканях (диатермия). Кроме того, технология INDIBA генерирует уникальное и научно доказанное электрическое воздействие частоты 448 кГц на структуру клеток, способствуя ускорению механизмов восстановления тканей.</p><p>Технология INDIBA позволяет воздействовать на очаг поражения посредством биостимуляции, создаваемой электрическим воздействием, или посредством биостимуляции и генерации тканевого тепла вместе.</p><p>Основные аспекты технологии:</p><ul><li><p>Тепловое и субтепловое воздействие</p></li><li><p>Неограниченная глубина благодаря использованию в замкнутом контуре</p></li><li><p>Неограниченная частота использования на больших участках тела</p></li><li><p>Сочетание с другими методами терапии и реабилитации</p></li></ul>",
+        "subtitle": "Новая эра в реабилитации животных.",
+        "type": "aesthetic",
+        "characteristic": "<p><strong>Аксессуары и расходные материалы</strong></p><p><img src=\"/uploads/IAH_Pictures_Accessories_Suitcase_IMG_3967_112eddb2c5.PNG\" alt=\"IAH_Pictures_Accessories_Suitcase_IMG_3967.PNG\" width=\"853\" height=\"1280\"><strong>Транспортный кейс</strong></p><p>С учетом особенностей мобильной клиники, продукты этой серии тщательно разработаны для облегчения и защиты оборудования и аксессуаров во время транспортировки</p><p><img src=\"/uploads/Electrode_Case_de8aa3de85.jpg\" alt=\"Electrode-Case.jpg\" width=\"709\" height=\"472\"><strong>Кейс для электродов</strong></p><p>Идеально подходит для хранения и транспортировки электродов, гарантируя, что они не будут повреждены при перемещении</p><p><strong><img src=\"/uploads/IAH_Pictures_Accessories_Handles_ea293a4b82.jpg\" alt=\"IAH_Pictures_Accessories_Handles.jpg\" width=\"1024\" height=\"446\">Возвратные пластины, Рукоятки и Электроды</strong></p><p>Все основные аксессуары, необходимые для проведения тока, всегда адаптированы к размеру животного и потребностям. Найдите то, что совместимо с вашим устройством и с вашей практикой.</p><p><img src=\"/uploads/IND_Pro_Creams_VET_accesories_1_1024x897_e268267e99.jpg\" alt=\"IND_ProCreams_VET_accesories-1-1024x897.jpg\" width=\"1024\" height=\"897\"></p><p><strong>Проводящий гель INDIBA® VET</strong></p><p>Гель, предназначенный не только для проведения уникального электромагнитного тока INDIBA с частотой 448 кГц, но и для защиты электродов от преждевременного износа.</p><p><img src=\"/uploads/INDIBA_VET_LOTION_1024x683_cbd02800ab.jpg\" alt=\"INDIBA-VET-LOTION-1024x683.jpg\" width=\"1024\" height=\"683\"><strong>Proionic VET Lotion</strong></p><p>Больше комфорта при проведении процедур.</p><p>Он легко проникает в шерсть животного и обеспечивает больший комфорт при проведении процедур.</p>",
+        "proclamation": "<p>Новая эра в реабилитации животных.</p><p>Специальное устройство для использования на лошадях, с питанием, протоколами и аксессуарами, адаптированными для этого вида.</p>",
+        "company": "Indiba Deep Beauty",
+        "createdAt": "2023-08-29T18:32:14.913Z",
+        "updatedAt": "2023-08-30T13:43:25.137Z",
+        "publishedAt": "2023-08-29T18:34:44.108Z",
+        "locale": "ru",
+        "slug": "vet-905",
+        "logo": {
+          "data": {
+            "id": 4,
+            "attributes": {
+              "name": "logo1.svg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 293,
+              "height": 93,
+              "formats": null,
+              "hash": "logo1_b374bff8a3",
+              "ext": ".svg",
+              "mime": "image/svg+xml",
+              "size": 6.47,
+              "url": "/uploads/logo1_b374bff8a3.svg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-07-27T13:07:59.002Z",
+              "updatedAt": "2023-07-27T13:07:59.002Z"
+            }
+          }
+        },
+        "video": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "Oliver Anthony - Rich Men North Of Richmond.mp4",
+              "alternativeText": null,
+              "caption": null,
+              "width": null,
+              "height": null,
+              "formats": null,
+              "hash": "Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33",
+              "ext": ".mp4",
+              "mime": "video/mp4",
+              "size": 25261.46,
+              "url": "/uploads/Oliver_Anthony_Rich_Men_North_Of_Richmond_87310a6b33.mp4",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:18:32.341Z",
+              "updatedAt": "2023-08-29T18:18:32.341Z"
+            }
+          }
+        },
+        "avatar": {
+          "data": {
+            "id": 30,
+            "attributes": {
+              "name": "vet905.jpg",
+              "alternativeText": null,
+              "caption": null,
+              "width": 700,
+              "height": 476,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "/uploads/small_vet905_5b285cd57c.jpg",
+                  "hash": "small_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "small_vet905.jpg",
+                  "path": null,
+                  "size": 14.07,
+                  "width": 500,
+                  "height": 340
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "/uploads/thumbnail_vet905_5b285cd57c.jpg",
+                  "hash": "thumbnail_vet905_5b285cd57c",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_vet905.jpg",
+                  "path": null,
+                  "size": 4.32,
+                  "width": 229,
+                  "height": 156
+                }
+              },
+              "hash": "vet905_5b285cd57c",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 23.13,
+              "url": "/uploads/vet905_5b285cd57c.jpg",
+              "previewUrl": null,
+              "provider": "local",
+              "provider_metadata": null,
+              "createdAt": "2023-08-29T18:12:43.606Z",
+              "updatedAt": "2023-08-29T18:12:43.606Z"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
