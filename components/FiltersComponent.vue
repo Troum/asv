@@ -60,7 +60,7 @@ const {$display} = useNuxtApp()
 const commonStore = useCommonStore()
 
 const setFilter = (value) => {
-  useRouter().push(`/catalog?filter=${value}`).then(() => emit('setFilter', value))
+  useRouter().push(`?filter=${value}`).then(() => emit('setFilter', value))
 }
 const serviceFilter = computed(() => {
   return commonStore.getServiceFilter
