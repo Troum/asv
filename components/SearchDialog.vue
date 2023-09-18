@@ -14,7 +14,9 @@ const status = computed(() => {
 </script>
 
 <template>
-  <v-dialog max-width="576" v-model="status" @update:model-value="commonStore.setSearch(false)">
+  <v-dialog max-width="576"
+            v-model="status"
+            @update:model-value="commonStore.setSearch(false)">
     <v-card color="primary">
       <v-card-text>
         <ais-instant-search
@@ -22,19 +24,20 @@ const status = computed(() => {
             index-name="product"
         >
           <ais-search-box
-              placeholder="Search here…"
-              class="searchbox"
+              :placeholder="$t('search')"
+              class="v-field__input"
           ></ais-search-box>
           <ais-hits>
             <template v-slot="{ items }">
-              <ul>
-                <li
-                    v-for="{ id,title } in items"
+              <v-list lines="one" bg-color="primary">
+                <v-list-item
+                    @click="commonStore.setSearch(false)"
+                    v-for="{ id,title, slug } in items"
+                    :to="`/catalog/${slug}`"
                     :key="id"
-                >
-                  <h1>{{ title }}</h1>
-                </li>
-              </ul>
+                    :title="title"
+                ></v-list-item>
+              </v-list>
             </template>
           </ais-hits>
         </ais-instant-search>
