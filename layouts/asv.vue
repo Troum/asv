@@ -129,7 +129,8 @@
         </template>
         <template v-if="!mobile">
           <div ref="phonesContainer" class="d-flex align-center phones__container">
-            <div class="d-flex flex-column justify-center align-end">
+            <div class="d-flex flex-column justify-center align-end"
+                 style="font-family: 'Open Sans Condensed Bold', sans-serif">
               <span class="font-weight-bold text-uppercase font-size-16">{{ $t('salesDepartment') }}</span>
               <span class="font-weight-bold text-uppercase font-size-16">{{ $t('serviceDepartment') }}</span>
             </div>
@@ -142,7 +143,7 @@
             </div>
           </div>
           <div ref="phonesContainer" class="d-flex align-center langs__container">
-            <div class="d-flex flex-column justify-center align-end flex-row-gap-4">
+            <div class="d-flex flex-column justify-center align-end flex-row-gap-1">
               <lt/>
               <ru/>
               <us/>
@@ -151,17 +152,17 @@
             <div class="d-flex flex-column justify-center align-start flex-row-gap-4">
               <v-btn variant="plain" icon
                      @click="setLocale('lt')"
-                     :ripple="false" style="opacity: 1"
+                     :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
                      :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
               </v-btn>
               <v-btn variant="plain" icon
                      @click="setLocale('ru')"
-                     :ripple="false" style="opacity: 1"
+                     :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
                      :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
               </v-btn>
               <v-btn variant="plain" icon
                      @click="setLocale('en')"
-                     :ripple="false" style="opacity: 1"
+                     :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
                      :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
               </v-btn>
             </div>
@@ -185,7 +186,11 @@
         <template v-if="!mobile">
           <div class="z-index-5 position-absolute menu-bar"
                :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
-            <div class="d-grid w-75 py-15" :style="`grid-template-columns: repeat(${menu.length + 1}, fit-content(20%)); grid-column-gap: 66px; grid-template-rows: max-content`">
+            <div class="py-15"
+                 :style="`display: grid; grid-template-columns: repeat(${menu.length + 1}, auto); grid-column-gap: 42px; grid-template-rows: max-content`">
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="21" viewBox="0 0 27 21" fill="none">
+                <path d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z" fill="white"/>
+              </svg>
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
                   <v-menu :open-on-hover="true" style="transition: background-color 0.3s ease-in-out; background-color: rgba(0,0,0, .84)">
@@ -377,7 +382,7 @@
     </template>
     <template v-else>
       <v-footer class="d-flex flex-column bg-primary py-15 px-0"
-                :style="`min-height: 700px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+                :style="`width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
         <div class="footer-bar">
           <v-img :max-width="$display.logo(display.width.value, 200)" max-height="150" src="/logo-w.svg"></v-img>
           <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.menu') }}</h4>
@@ -385,41 +390,41 @@
         </div>
         <div class="footer-info">
           <div class="contacts-container">
-            <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
+            <div class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ $t('salesDepartment') }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+37068655420">+370
                 686 554 20</a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
+            <div class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ $t('serviceDepartment') }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+375173362302">
                 +375 17 336 23 02
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
+            <div class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ $t('financialDepartment') }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+370604855564">
                 +370 604 855564
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
+            <div class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 e-mail
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
                  href="mailto:info@asvtrade.lt">info@asvtrade.lt</a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase font-size-20" style="letter-spacing: .00005rem">
+            <div class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ $t('titles.address') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href=""
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="" style="word-wrap: break-word"
                  v-html="$t('address')">
               </a>
             </div>
@@ -461,11 +466,14 @@
               <v-textarea :rules="[rules.required]" v-model="feedback.feedback" :label="$t('form.message')" :rounded="0"
                           hide-details variant="outlined" class="w-100"></v-textarea>
             </div>
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <small class="text-secondary-light">
+            <div class="d-flex justify-space-between flex-column-gap-22 w-100"
+                 style="font-family: 'Arial', sans-serif">
+              <small class="text-secondary-light font-size-14" style="line-height: 16px;">
                 <sup>*</sup> {{ message }}
               </small>
-              <v-btn type="submit" variant="outlined" class="rounded-0 font-size-20">
+              <v-btn type="submit" height="50" max-width="190" min-width="190"
+                     style="font-family: 'Open Sans Condensed Bold', sans-serif"
+                     variant="outlined" class="rounded-0 font-weight-bold font-size-18">
                 {{ $t('form.submit') }}
               </v-btn>
             </div>
@@ -474,9 +482,9 @@
       </v-footer>
       <client-only>
         <v-footer class="d-flex flex-column bg-primary py-15 flex-row-gap-15"
-                  :style="`padding-left: calc((255 * 100%) / 1920); padding-right: calc((255 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+                  :style="`padding-left: calc((240 * 100%) / 1920); padding-right: calc((240 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
           <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
-          <div class="d-flex justify-space-between flex-column-gap-60">
+          <div class="d-flex justify-space-between flex-column-gap-60" style="font-family: 'Arial', sans-serif">
             <small class="text-secondary-light">
               © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
             </small>
@@ -748,8 +756,9 @@ watch(breadcrumbsContainerSize.height, (value) => {
   }
 }, {immediate: true})
 
-watch(locale, async (value) => {
+const contentPixels = ref(5)
 
+watch(locale, async (value) => {
   await find('main-page', {
     populate:
         {
@@ -855,6 +864,7 @@ onMounted(() => {
   }
 })
 
+
 </script>
 
 <style lang="scss" scoped>
@@ -867,6 +877,7 @@ onMounted(() => {
 }
 
 .on-hover {
+  letter-spacing: 2px;
   transition: all .3s ease-in-out;
 
   &:hover {

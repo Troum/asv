@@ -91,12 +91,13 @@ watch(title, (value) => {
 
 <style lang="scss" scoped>
 .breadcrumb {
+  font-family: "Open Sans Condensed Bold", sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  line-height: 115%;
+  font-size: 20px;
+  line-height: normal;
   text-transform: uppercase;
   text-decoration: none;
-  letter-spacing: 0.4em;
+  letter-spacing: 2px;
   @media (max-width: 1280px) {
     font-size: 14px;
   }

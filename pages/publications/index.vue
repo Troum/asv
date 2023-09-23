@@ -60,7 +60,7 @@ const count = computed(() => {
 const {$dateTime} = useNuxtApp()
 const current = ref(count.value)
 commonStore.setTitle(null)
-
+commonStore.setComponent(null)
 onBeforeMount(async () => {
   await find('publications', {
     populate: 'image',

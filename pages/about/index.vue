@@ -8,10 +8,10 @@
       </template>
       <template v-else>
         <v-card flat style="padding-top: 60px; padding-bottom: 60px">
-          <v-card-title tag="h1" class="text-uppercase font-size-36 px-0 text-pre-wrap">
+          <v-card-title tag="h1" class="text-uppercase font-size-36 px-0 text-pre-wrap" style="line-height: 40px">
             {{ page.title }}
           </v-card-title>
-          <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0 text-pre-wrap mt-5" style="color: #333">
+          <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0 text-pre-wrap mt-5" style="color: #333; line-height: 22px">
             {{ page.subtitle }}
           </v-card-subtitle>
           <v-card-text class="px-0">

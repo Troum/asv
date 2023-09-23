@@ -46,9 +46,11 @@
         background-color: #000;
       }
       & .phone_link {
+        font-family: 'Open Sans Condensed Bold', sans-serif;
         text-decoration: none;
         color: #000;
         transition: .3s ease-in-out;
+        font-weight: 700 !important;
         &::after {
           content: '';
           display: block;
@@ -77,6 +79,7 @@
         background-color: #000;
       }
       & .lang_link {
+        font-family: 'Open Sans Condensed Bold', sans-serif;
         color: #000;
         transition: .3s ease-in-out;
         height: fit-content;
@@ -91,7 +94,7 @@
   }
   & .footer-bar {
     display: grid;
-    grid-template-columns: 24.5% 15% 1fr;
+    grid-template-columns: 18% 15% 1fr;
     grid-column-gap: 7.5%;
     width: 100%;
     padding-left: calc((255 * 100%) / 1920);
@@ -99,26 +102,32 @@
   }
   & .footer-info {
     display: grid;
-    grid-template-columns: 24.5% 15% 1fr;
+    grid-template-columns: 18% 15% 1fr;
     grid-auto-rows: minmax(2px, 320px);
     grid-column-gap: 7.5%;
     padding-top: 80px;
     width: 100%;
     padding-left: calc((255 * 100%) / 1920);
     padding-right: calc((255 * 100%) / 1920);
+    font-family: "Open Sans Condensed", sans-serif !important;
     & .contacts-container {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: flex-start;
-      row-gap: 28px;
+      row-gap: 18px;
+      & a {
+        font-family: "Arial Narrow", sans-serif !important;
+        letter-spacing: .8px;
+      }
     }
     & .menu-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      row-gap: 28px;
+      row-gap: 22px;
+      font-weight: 700;
     }
     & .feedback-container {
       display: flex;
@@ -134,6 +143,8 @@
     justify-content: flex-start;
     padding-left: calc((255 * 100%) / 1920);
     padding-right: calc((255 * 100%) / 1920);
+    font-family: "Open Sans Condensed Bold", sans-serif;
+    font-weight: 700;
   }
   & .breadcrumbs-bar {
     display: flex;

@@ -17,7 +17,7 @@
                  :height="50"
                  :ripple="false"
                  :class="`py-3 px-4 ${queryFilter === filter.value ? 'bg-info' : 'bg-secondary-light'}`"
-                 :rounded="0">
+                 style="border-radius: 3px; font-family: 'Open Sans Condensed Bold', sans-serif">
             <span :class="['text-white font-weight-bold font-size-18', {'mr-2': queryFilter === filter.value}]">{{ filter.title }}</span>
             <template v-if="queryFilter === filter.value">
               <svg-icon size="14" type="mdi" :path="mdiClose" color="#fff">mdi-close</svg-icon>
@@ -28,8 +28,8 @@
           <v-btn @click="setFilter('all')" elevation="0"
                  :height="50"
                  :ripple="false"
-                 :class="`py-3 px-4 ${filter.value === 'all' ? 'bg-info' : 'bg-secondary-light'}`"
-                 :rounded="0">
+                 style="border-radius: 3px; font-family: 'Open Sans Condensed Bold', sans-serif"
+                 :class="`py-3 px-4 ${filter.value === 'all' ? 'bg-info' : 'bg-secondary-light'}`">
             <span :class="['text-white font-weight-bold font-size-18', {'mr-2': isSelected}]">{{ filter.title }}</span>
             <template v-if="filter.value === 'all'">
               <svg-icon size="14" type="mdi" :path="mdiClose" color="#fff">mdi-close</svg-icon>

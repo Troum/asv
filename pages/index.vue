@@ -1,7 +1,7 @@
 <template>
   <v-container :fluid="true" class="ma-0 pa-0">
     <v-row class="ma-0 pa-0">
-      <v-col cols="12" class="ma-0 pa-0 position-relative" :style="`min-height: ${$display.height(display.height.value, 790)}px`">
+      <v-col cols="12" class="ma-0 pa-0 position-relative">
         <client-only>
           <carousel-component ref="slideComponent" :slides="mainPageCarousel.list"/>
           <slide-group-component :height="slideGroupHeight" :slides="services.list"
@@ -12,7 +12,7 @@
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
              :class="{'flex-row-gap-46': !mobile}"
-             :style="`margin-top: ${slideGroupHeight + 40}px;`">
+             :style="`margin-top: ${slideGroupHeight + 40}px; font-family: 'Arial', sans-serif`">
         <h2 class="text-uppercase text-center font-size-48" :class="{ 'mb-16': mobile }" v-html="$t('mainPage.about.title')"></h2>
         <template v-if="!mobile">
           <div class="position-relative py-0">
@@ -34,7 +34,7 @@
             </article>
           </div>
           <div class="d-flex justify-center align-center w-100">
-            <v-btn :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal" to="/about">
+            <v-btn :height="50" :width="160" style="font-family: 'Open Sans Condensed Bold', sans-serif" class="rounded-0 mx-auto bg-primary" variant="tonal" to="/about">
               <span class="text-white font-weight-bold">{{ $t('buttons.details') }}</span>
             </v-btn>
           </div>
@@ -57,7 +57,7 @@
         </template>
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
-             :style="`margin-top: ${slideGroupHeight + 40}px; row-gap: 48px; height: auto`">
+             :style="`margin-top: ${slideGroupHeight - 40}px; row-gap: 48px; font-family: 'Arial', sans-serif`">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('mainPage.service.title')"></h2>
         <template v-if="mobile">
           <div class="d-flex flex-column pa-4 text-center flex-row-gap-40">
@@ -125,11 +125,11 @@
           </div>
         </template>
       </v-col>
-      <v-col cols="10" class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative"
-             :style="`margin-top: ${slideGroupHeight + 40}px;`">
-        <div class="d-flex justify-space-between align-center">
+      <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
+             :style="`margin-top: ${slideGroupHeight}px;margin-bottom: ${slideGroupHeight}px; font-family: 'Arial', sans-serif`">
+        <div class="d-flex justify-space-between align-center mb-15">
           <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.news')"></h2>
-          <v-btn style="opacity: 1;" variant="plain"
+          <v-btn style="opacity: 1; font-family: 'Open Sans Condensed Bold', sans-serif" variant="plain"
                  :ripple="false"
                  class="d-flex align-center font-size-18 font-weight-bold">
             <NuxtLink to="/publications" class="mr-4 text-decoration-none text-primary">{{ $t('buttons.all') }}</NuxtLink>
@@ -162,21 +162,22 @@
           </template>
         </client-only>
       </v-col>
-      <v-col cols="10" class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative"
-             :style="`margin-top: ${!mobile ? slideGroupHeight + 40 : 40}px; margin-bottom: ${!mobile ? slideGroupHeight + 40 : 40}px;`">
+      <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative" style="font-family: 'Arial', sans-serif">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
         <div class="clients">
           <template v-for="(client, key) of clients.list.slice(0, current)" :key="key">
             <client-card-component :client="client"/>
           </template>
         </div>
-      </v-col>
-      <v-col cols="10"
-             :style="`margin-bottom: ${slideGroupHeight}px;`"
-             class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative">
-        <v-btn @click="showMore = true" :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
-          <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>
-        </v-btn>
+        <v-row class="ma-0 pa-0">
+          <v-col cols="10"
+                 :style="`margin-bottom: ${slideGroupHeight}px;`"
+                 class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative">
+            <v-btn @click="showMore = true" style="font-family: 'Open Sans Condensed Bold', sans-serif" :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
+              <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>
+            </v-btn>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -231,7 +232,7 @@ const clients = useClientsStore()
 const commonStore = useCommonStore()
 
 const current = computed(() => {
-  return showMore.value ? clients.list.length : (useDisplay().xlAndUp ? 4 : 2)
+  return showMore.value ? clients.list.length : (useDisplay().xlAndUp ? 8 : 2)
 })
 
 commonStore.setComponent(null)
@@ -285,8 +286,10 @@ watch(height, (value) => {
 .clients {
   display: grid;
   grid-template-columns: repeat(4, 20%);
-  grid-gap: calc((100% - (4 * 20%)) / 3);
+  grid-gap: 80px;
   grid-auto-rows: minmax(100px, 100px);
+  margin-top: 70px;
+  margin-bottom: 60px;
   @media (max-width: 1280px) {
     grid-template-columns: repeat(2, 40%);
     grid-gap: calc((100% - (2 * 40%)) / 2);
