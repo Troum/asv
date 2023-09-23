@@ -19,7 +19,7 @@
             <v-row class="ma-0 pa-0">
               <v-col cols="12" :class="`ma-0 position-relative d-grid ${filteredProducts.length ? 'products-list' : ''} grid-column-gap-30 grid-row-gap-40 px-0`">
                 <template v-if="filteredProducts.length">
-                  <template v-for="product of filteredProducts">
+                  <template v-for="product of filteredProducts.slice(0, current)">
                     <product-card-component :product="product"/>
                   </template>
                 </template>
@@ -27,7 +27,7 @@
                   <span class="display-3">{{ $t('noProducts') }}</span>
                 </template>
               </v-col>
-              <template v-if="products.length > 6">
+              <template v-if="filteredProducts.length > 6">
                 <v-col cols="12" class="d-flex justify-center position-relative">
                   <v-btn @click="loadMore" :ripple="false" variant="plain" style="opacity: 1;">
                     <div class="d-flex align-center justify-center flex-column flex-row-gap-5">
@@ -223,7 +223,7 @@ watch(locale, async (value) => {
 .products {
   &-list {
     grid-template-columns: repeat(3, calc((100% / 3) - 60px));
-    grid-auto-rows: minmax(700px, 1fr);
+    grid-auto-rows: minmax(350px, auto);
 
     @media (max-width: 1280px) {
       grid-template-columns: repeat(1, 1fr);

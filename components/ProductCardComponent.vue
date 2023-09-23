@@ -24,9 +24,9 @@
 
     <v-card-actions class="px-4">
       <v-hover v-slot:default="{ isHovering, props }">
-        <v-btn v-bind="props" :to="`/catalog/${product.slug}`" :height="50" elevation="0" :rounded="0"
-               :class="['bg-primary py-3 px-8', { 'bg-info': isHovering }]">
-          <span class="text-white">{{ $t('buttons.details') }}</span>
+        <v-btn v-bind="props" :to="`/catalog/${product.slug}`" :width="160" :height="40" elevation="0" :rounded="0"
+               :class="['bg-primary px-8', { 'bg-info': isHovering }]">
+          <span class="text-white font-weight-bold font-size-18" style="font-family: 'Open Sans Condensed Bold', sans-serif">{{ $t('buttons.details') }}</span>
         </v-btn>
       </v-hover>
 
