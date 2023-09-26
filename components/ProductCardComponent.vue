@@ -1,16 +1,18 @@
 <template>
   <v-card
+      max-width="100%"
+      height="100%"
       elevation="0"
       :rounded="0"
-      class="mx-auto position-relative"
+      class="mx-auto position-relative pb-16"
   >
     <nuxt-img provider="strapi"
-              style="min-height: 200px; max-height: 200px"
+              style="height: auto; width: 320px"
               class="align-end text-white"
               :src="product.avatar"
     >
     </nuxt-img>
-    <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9">
+    <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9" style="white-space: pre-wrap">
       {{ product.subtitle }}
     </v-card-subtitle>
     <v-card-title class="font-size-18 font-weight-bold text-uppercase">
@@ -21,8 +23,7 @@
     </v-card-title>
     <v-card-text :style="computedWidth" class="text-secondary-light" v-html="truncated">
     </v-card-text>
-
-    <v-card-actions class="px-4 position-absolute py-4" style="bottom: 1%">
+    <v-card-actions class="px-4 py-4 position-absolute" style="bottom: 0">
       <v-hover v-slot:default="{ isHovering, props }">
         <v-btn v-bind="props" :to="`/catalog/${product.slug}`" :width="160" :height="40" elevation="0" :rounded="0"
                :class="['bg-primary px-8', { 'bg-info': isHovering }]">

@@ -223,15 +223,15 @@ watch(locale, async (value) => {
 <style scoped lang="scss">
 .products {
   &-list {
-    grid-template-columns: repeat(3, calc((100% / 3) - 60px));
-    grid-auto-rows: minmax(350px, auto);
+    grid-template-columns: repeat(3, minmax(calc(100% / 3 - 30px), auto));
+    grid-auto-rows: max-content;
 
     @media (max-width: 1280px) {
       grid-template-columns: repeat(1, 1fr);
       grid-auto-rows: minmax(500px, 1fr);
     }
     @media (min-width: 2000px) {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(5, auto);
       grid-auto-rows: minmax(500px, 1fr);
     }
   }
