@@ -2,7 +2,7 @@
   <v-card
       elevation="0"
       :rounded="0"
-      class="mx-auto"
+      class="mx-auto position-relative"
   >
     <nuxt-img provider="strapi"
               style="min-height: 200px; max-height: 200px"
@@ -22,7 +22,7 @@
     <v-card-text :style="computedWidth" class="text-secondary-light" v-html="truncated">
     </v-card-text>
 
-    <v-card-actions class="px-4">
+    <v-card-actions class="px-4 position-absolute py-4" style="bottom: 1%">
       <v-hover v-slot:default="{ isHovering, props }">
         <v-btn v-bind="props" :to="`/catalog/${product.slug}`" :width="160" :height="40" elevation="0" :rounded="0"
                :class="['bg-primary px-8', { 'bg-info': isHovering }]">
