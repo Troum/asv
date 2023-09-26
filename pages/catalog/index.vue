@@ -92,6 +92,7 @@ onBeforeMount(async () => {
   }).then((response) => {
 
     let prodJson = []
+
     switch (langStore.getLang) {
       case 'lt':
         prodJson = ltProd.products
@@ -104,20 +105,7 @@ onBeforeMount(async () => {
         break
     }
 
-    products.value = prodJson.map((item) => {
-      return new Product(
-          item.id,
-          item.attributes.avatar.data.attributes.url,
-          item.attributes.title,
-          item.attributes.subtitle,
-          item.attributes.description,
-          item.attributes.logo.data.attributes.url,
-          item.attributes.slug,
-          item.attributes.type,
-          item.attributes.logo.data.attributes.video
-      ).toJson()
-    })
-    /*products.value = response.data.attributes.products.data.map((item) => {
+    /*products.value = prodJson.map((item) => {
       return new Product(
           item.id,
           item.attributes.avatar.data.attributes.url,
@@ -130,6 +118,19 @@ onBeforeMount(async () => {
           item.attributes.logo.data.attributes.video
       ).toJson()
     })*/
+    products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })
     filters.value = response.data.attributes.filters.data.map((item) => {
       return new Filter(
           item.attributes.value,
@@ -179,20 +180,7 @@ watch(locale, async (value) => {
         break
     }
 
-    products.value = prodJson.map((item) => {
-      return new Product(
-          item.id,
-          item.attributes.avatar.data.attributes.url,
-          item.attributes.title,
-          item.attributes.subtitle,
-          item.attributes.description,
-          item.attributes.logo.data.attributes.url,
-          item.attributes.slug,
-          item.attributes.type,
-          item.attributes.logo.data.attributes.video
-      ).toJson()
-    })
-    /*products.value = response.data.attributes.products.data.map((item) => {
+    /*products.value = prodJson.map((item) => {
       return new Product(
           item.id,
           item.attributes.avatar.data.attributes.url,
@@ -205,6 +193,19 @@ watch(locale, async (value) => {
           item.attributes.logo.data.attributes.video
       ).toJson()
     })*/
+    products.value = response.data.attributes.products.data.map((item) => {
+      return new Product(
+          item.id,
+          item.attributes.avatar.data.attributes.url,
+          item.attributes.title,
+          item.attributes.subtitle,
+          item.attributes.description,
+          item.attributes.logo.data.attributes.url,
+          item.attributes.slug,
+          item.attributes.type,
+          item.attributes.logo.data.attributes.video
+      ).toJson()
+    })
     filters.value = response.data.attributes.filters.data.map((item) => {
       return new Filter(
           item.attributes.value,
