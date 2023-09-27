@@ -1,14 +1,16 @@
 <template>
   <v-card
-      max-width="350px"
+      :width="$display.width(width, 350)"
       height="100%"
       elevation="0"
       :rounded="0"
       class="mx-auto position-relative pb-16"
   >
-    <div
-        :style="`width: calc(350px * 100% / 1920px); min-height: 350px; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
-    ></div>
+    <div :style="`display: grid; grid-template-columns: ${$display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
+      <div
+          :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+      ></div>
+    </div>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9" style="white-space: pre-wrap">
       {{ product.subtitle }}
     </v-card-subtitle>
@@ -44,7 +46,8 @@ const props = defineProps({
     default: new Product()
   }
 })
-const { width, mobile } = useDisplay()
+const {$display} = useNuxtApp()
+const { width, height, mobile } = useDisplay()
 const truncated = computed(() => {
   return truncate(props.product['description'], 20, {byWords: true})
 })
@@ -56,6 +59,7 @@ const computedWidth = computed(() => {
       return `width: ${width / 3 - 60}px`
   }
 })
+
 </script>
 
 <style scoped>

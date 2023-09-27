@@ -85,7 +85,7 @@
           <template v-else>
             <div class="product-card" :style="`grid-template-columns: ${$display.width(display.width.value, 540)}px 1fr`">
               <div
-                  :style="`width: calc(540px * 100% / 1920px); min-height: 540; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+                  :style="`width: ${$display.width(display.width.value, 540)}px; height: ${$display.height(display.height.value, 540)}px; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
               ></div>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
@@ -98,7 +98,7 @@
                     }}
                   </v-btn>
                 </v-card-actions>
-                <v-card-actions class="px-0 d-flex justify-end">
+                <v-card-actions class="px-0 d-flex justify-end align-self-end" style="position: absolute;bottom: 0;right: 0;">
                   <v-btn @click="router.back()"
                          style="opacity: 1; width: fit-content; height: fit-content"
                          class="d-flex" variant="plain"
