@@ -17,7 +17,7 @@
           </template>
           <template v-if="products.length">
             <v-row class="ma-0 pa-0">
-              <v-col cols="12" :class="`ma-0 position-relative d-grid ${filteredProducts.length ? 'products-list' : ''} grid-column-gap-30 grid-row-gap-40 px-0`">
+              <v-col cols="12" :class="`ma-0 position-relative d-grid ${filteredProducts.length ? 'products-list' : ''} grid-column-gap-40 grid-row-gap-40 px-0`">
                 <template v-if="filteredProducts.length">
                   <template v-for="product of filteredProducts.slice(0, current)">
                     <product-card-component :product="product"/>
@@ -226,8 +226,12 @@ watch(locale, async (value) => {
     grid-template-columns: repeat(3, minmax(calc(100% / 3 - 30px), auto));
     grid-auto-rows: max-content;
 
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(1, auto);
+      grid-auto-rows: minmax(500px, 1fr);
+    }
     @media (max-width: 1280px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, auto);
       grid-auto-rows: minmax(500px, 1fr);
     }
     @media (min-width: 2000px) {

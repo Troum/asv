@@ -1,13 +1,13 @@
 <template>
   <v-card
-      max-width="100%"
+      max-width="350px"
       height="100%"
       elevation="0"
       :rounded="0"
       class="mx-auto position-relative pb-16"
   >
     <div
-        :style="`width: 350px; height: 350px; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat`"
+        :style="`width: calc(350px * 100% / 1920px); min-height: 350px; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
     ></div>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9" style="white-space: pre-wrap">
       {{ product.subtitle }}

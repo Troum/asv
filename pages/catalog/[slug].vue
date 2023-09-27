@@ -17,7 +17,9 @@
                 <v-card-text class="font-size-18 font-weight-regular px-0" v-html="product.proclamation">
                 </v-card-text>
                 <v-card-actions class="px-0">
-                  <v-btn @click="openRequestDialog" :rounded="0" width="160" height="50" class="bg-primary text-white">{{
+                  <v-btn @click="openRequestDialog" :rounded="0" width="160" height="50"
+                         style="font-family: 'Open Sans Condensed Bold', sans-serif"
+                         class="bg-primary text-white font-size-18 font-weight-bold">{{
                       $t('buttons.request')
                     }}
                   </v-btn>
@@ -82,7 +84,9 @@
           </template>
           <template v-else>
             <div class="product-card" :style="`grid-template-columns: ${$display.width(display.width.value, 540)}px 1fr`">
-              <nuxt-img provider="strapi" :src="product.avatar" style="max-width: 320px"></nuxt-img>
+              <div
+                  :style="`width: calc(540px * 100% / 1920px); min-height: 540; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+              ></div>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
                 <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
