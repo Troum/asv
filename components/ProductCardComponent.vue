@@ -6,12 +6,9 @@
       :rounded="0"
       class="mx-auto position-relative pb-16"
   >
-    <nuxt-img provider="strapi"
-              style="height: auto; width: 320px"
-              class="align-end text-white"
-              :src="product.avatar"
-    >
-    </nuxt-img>
+    <div
+        :style="`width: 350px; height: 350px; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat`"
+    ></div>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9" style="white-space: pre-wrap">
       {{ product.subtitle }}
     </v-card-subtitle>
