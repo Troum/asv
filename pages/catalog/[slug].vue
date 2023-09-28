@@ -10,7 +10,7 @@
         <v-col cols="12" class="mx-0 position-relative" :class="{'page-frames': !mobile, 'px-6': mobile}">
           <template v-if="mobile">
             <div>
-              <nuxt-img provider="strapi" :src="product.avatar" style="max-width: 320px"></nuxt-img>
+              <nuxt-img provider="strapi" :src="product.avatar[0].attributes.url" style="max-width: 320px"></nuxt-img>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
                 <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
@@ -50,6 +50,10 @@
                        style="opacity: 1">
                   {{ $t('tabs.characteristics') }}
                 </v-tab>
+                <v-tab @click="tab = 'accessories'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1">
+                  {{ $t('tabs.accessories') }}
+                </v-tab>
                 <v-tab @click="tab = 'video'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
                        style="opacity: 1; border-left: 1px solid #c4c4c4">
                   {{ $t('tabs.video') }}
@@ -84,9 +88,19 @@
           </template>
           <template v-else>
             <div class="product-card" :style="`grid-template-columns: ${$display.width(display.width.value, 540)}px 1fr`">
-              <div
-                  :style="`width: ${$display.width(display.width.value, 540)}px; height: ${$display.height(display.height.value, 540)}px; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
-              ></div>
+              <div class="position-relative d-flex justify-center"
+                  :style="`width: ${$display.width(display.width.value, 540)}px; height: ${$display.height(display.height.value, 540)}px; background-image: url('https://dashboard.a-sv.site${product.avatar[indexOfPhotos].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+              >
+                <div class="position-absolute" style="bottom: 15px">
+                  <v-btn @click="indexOfPhotos < (product.avatar.length - 1) ? indexOfPhotos++ : indexOfPhotos = 0"
+                         class="pa-0 mr-3" max-width="50" height="50" :ripple="false" color="primary" icon>
+                    <svg-icon :path="mdiChevronLeft" type="mdi"></svg-icon>
+                  </v-btn>
+                  <v-btn @click="indexOfPhotos > 0 ? indexOfPhotos-- : indexOfPhotos = (product.avatar.length - 1)" class="pa-0 ml-3" max-width="50" height="50" :ripple="false" color="info" icon>
+                    <svg-icon :path="mdiChevronRight" type="mdi" style="color: #ffffff"></svg-icon>
+                  </v-btn>
+                </div>
+              </div>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
                 <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
@@ -123,6 +137,10 @@
                        style="opacity: 1">
                   {{ $t('tabs.characteristics') }}
                 </v-tab>
+                <v-tab @click="tab = 'accessories'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
+                       style="opacity: 1; border-left: 1px solid #c4c4c4">
+                  {{ $t('tabs.accessories') }}
+                </v-tab>
                 <v-tab @click="tab = 'video'" class="font-weight-light" variant="plain" :rounded="0" :ripple="false"
                        style="opacity: 1; border-left: 1px solid #c4c4c4">
                   {{ $t('tabs.video') }}
@@ -131,7 +149,7 @@
               <v-window v-model="tab" style="grid-column: 1 / -1">
                 <v-window-item
                     class="window_item"
-                    v-for="(item, index) of tabs.slice(0, 2)"
+                    v-for="(item, index) of tabs.slice(0, 3)"
                     :key="index"
                     :value="item.value"
                 >
@@ -174,7 +192,7 @@
 <script setup>
 import {ref, watch, onBeforeMount} from "vue";
 import {useDisplay} from "vuetify";
-import {mdiChevronLeft} from "@mdi/js";
+import {mdiChevronLeft, mdiChevronRight} from "@mdi/js";
 import {useRoute, useRouter} from "vue-router";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {useCommonStore} from "~/store/common";
@@ -203,6 +221,7 @@ const tabs = ref([])
 const product = ref({})
 const langStore = useLangStore()
 const timeout = ref(true)
+const indexOfPhotos = ref(0)
 
 onBeforeMount(async () => {
   await find(`products/${route.params.slug}`, {
@@ -212,7 +231,7 @@ onBeforeMount(async () => {
       .then((response) => {
         product.value = new Product(
             response.data.id,
-            response.data.attributes.avatar.data.attributes.url,
+            response.data.attributes.avatar.data,
             response.data.attributes.title,
             response.data.attributes.subtitle,
             response.data.attributes.description,
@@ -224,7 +243,7 @@ onBeforeMount(async () => {
             response.data.attributes.proclamation,
             response.data.attributes.characteristic
         ).toJson()
-        Array.from(['description', 'characteristic'])
+        Array.from(['description', 'characteristic', 'accessories'])
             .forEach((item) => {
               tabs.value.push({
                 value: item,
@@ -246,7 +265,7 @@ watch(locale, async () => {
         tabs.value = []
         product.value = new Product(
             response.data.id,
-            response.data.attributes.avatar.data.attributes.url,
+            response.data.attributes.avatar.data,
             response.data.attributes.title,
             response.data.attributes.subtitle,
             response.data.attributes.description,

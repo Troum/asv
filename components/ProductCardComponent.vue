@@ -8,7 +8,7 @@
   >
     <div :style="`display: grid; grid-template-columns: ${$display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
       <div
-          :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${product.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+          :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${product.avatar[0].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
       ></div>
     </div>
     <v-card-subtitle class="font-size-16 text-info-darken text-uppercase font-weight-bold pt-9" style="white-space: pre-wrap">

@@ -121,7 +121,7 @@ onBeforeMount(async () => {
     products.value = response.data.attributes.products.data.map((item) => {
       return new Product(
           item.id,
-          item.attributes.avatar.data.attributes.url,
+          item.attributes.avatar.data,
           item.attributes.title,
           item.attributes.subtitle,
           item.attributes.description,

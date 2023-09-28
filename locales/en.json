@@ -41,7 +41,8 @@
   },
   "tabs": {
     "description": "Description",
-    "characteristics": "Characteristics",
+    "characteristics": "Technical Characteristics",
+    "accessories": "Accessories & Consumables",
     "video": "Video"
   },
   "mainPage": {

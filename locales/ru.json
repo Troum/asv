@@ -41,7 +41,8 @@
   },
   "tabs": {
     "description": "Описание",
-    "characteristics": "Характеристики",
+    "characteristics": "Технические характеристики",
+    "accessories": "Аксессуары и расходные материалы",
     "video": "Видео"
   },
   "mainPage": {
