@@ -100,7 +100,7 @@ onBeforeMount(async () => {
     products.value = response.products.map((item) => {
       return new Product(
           item.id,
-          item.avatar.url,
+          item.avatar,
           item.title,
           item.subtitle,
           item.description,
@@ -152,7 +152,7 @@ watch(locale, async (value) => {
     products.value = response.products.map((item) => {
       return new Product(
           item.id,
-          item.avatar.url,
+          item.avatar,
           item.title,
           item.subtitle,
           item.description,

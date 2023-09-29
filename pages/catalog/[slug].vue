@@ -96,7 +96,8 @@
                          class="pa-0 mr-3" max-width="50" height="50" :ripple="false" color="primary" icon>
                     <svg-icon :path="mdiChevronLeft" type="mdi"></svg-icon>
                   </v-btn>
-                  <v-btn @click="indexOfPhotos > 0 ? indexOfPhotos-- : indexOfPhotos = (product.avatar.length - 1)" class="pa-0 ml-3" max-width="50" height="50" :ripple="false" color="info" icon>
+                  <v-btn @click="indexOfPhotos > 0 ? indexOfPhotos-- : indexOfPhotos = (product.avatar.length - 1)"
+                         class="pa-0 ml-3" max-width="50" height="50" :ripple="false" color="info" icon>
                     <svg-icon :path="mdiChevronRight" type="mdi" style="color: #ffffff"></svg-icon>
                   </v-btn>
                 </div>
