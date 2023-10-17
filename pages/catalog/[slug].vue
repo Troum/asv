@@ -245,11 +245,19 @@ onBeforeMount(async () => {
             response.data.attributes.characteristic,
             response.data.attributes.accessories,
         ).toJson()
+        const replace = (html) => {
+          const container = document.createElement('div')
+          container.innerHTML = html
+          container.querySelectorAll('img').forEach((img) => {
+            img.src = `https://dashboard.a-sv.site${img.src}`
+          })
+          return container.innerHTML
+        }
         Array.from(['description', 'characteristic', 'accessories'])
             .forEach((item) => {
               tabs.value.push({
                 value: item,
-                html: product.value[item]
+                html: replace(product.value[item])
               })
             })
         commonStore.setTitle(product.value['title'])
