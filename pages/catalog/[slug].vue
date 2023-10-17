@@ -164,6 +164,7 @@
                   <v-card :flat="true">
                     <v-card-text class="px-0">
                       <video
+                          style="max-width: 100%"
                           controls
                           preload="auto"
                           :src="`https://dashboard.a-sv.site${product.video}`"/>
