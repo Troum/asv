@@ -259,7 +259,7 @@ onBeforeMount(async () => {
             .forEach((item) => {
               tabs.value.push({
                 value: item,
-                html: item === 'accessories' ? replace(product.value[item]) : product.value[item]
+                html: product.value[item]
               })
             })
         commonStore.setTitle(product.value['title'])
@@ -294,7 +294,7 @@ watch(locale, async () => {
             .forEach((item) => {
               tabs.value.push({
                 value: item,
-                html: item === 'accessories' ? replace(product.value[item]) : product.value[item]
+                html: product.value[item]
               })
             })
         commonStore.setTitle(product.value['title'])
