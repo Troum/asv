@@ -242,7 +242,8 @@ onBeforeMount(async () => {
             response.data.attributes.video.data.attributes.url,
             response.data.attributes.company,
             response.data.attributes.proclamation,
-            response.data.attributes.characteristic
+            response.data.attributes.characteristic,
+            response.data.attributes.accessories,
         ).toJson()
         Array.from(['description', 'characteristic', 'accessories'])
             .forEach((item) => {
@@ -276,7 +277,8 @@ watch(locale, async () => {
             response.data.attributes.video.data.attributes.url,
             response.data.attributes.company,
             response.data.attributes.proclamation,
-            response.data.attributes.characteristic
+            response.data.attributes.characteristic,
+            response.data.attributes.accessories,
         ).toJson()
         Array.from(['description', 'characteristic'])
             .forEach((item) => {
