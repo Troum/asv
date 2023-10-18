@@ -227,11 +227,19 @@ watch(locale, async (value) => {
     grid-auto-rows: max-content;
 
     @media (max-width: 576px) {
-      grid-template-columns: repeat(1, auto);
+      grid-template-columns: repeat(1, 1fr);
       grid-auto-rows: minmax(500px, 1fr);
     }
-    @media (max-width: 1280px) {
+    @media (min-width: 576px) {
       grid-template-columns: repeat(2, auto);
+      grid-auto-rows: minmax(500px, 1fr);
+    }
+    @media (min-width: 1280px) {
+      grid-template-columns: repeat(2, auto);
+      grid-auto-rows: minmax(500px, 1fr);
+    }
+    @media (min-width: 1440px) {
+      grid-template-columns: repeat(3, minmax(calc(100% / 3 - 30px), auto));
       grid-auto-rows: minmax(500px, 1fr);
     }
     @media (min-width: 2000px) {

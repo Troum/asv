@@ -1,12 +1,12 @@
 <template>
   <v-card
-      :width="$display.width(width, 350)"
+      :width="mobile ? '100%' : $display.width(width, 350)"
       height="100%"
       elevation="0"
       :rounded="0"
       class="mx-auto position-relative pb-16"
   >
-    <div :style="`display: grid; grid-template-columns: ${$display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
+    <div :style="`display: grid; grid-template-columns: ${mobile ? '100%' : $display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
       <template v-if="Object.hasOwn(product.avatar[0], 'attributes')">
         <div
             :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${product.avatar[0].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
