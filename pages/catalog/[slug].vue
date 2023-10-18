@@ -62,7 +62,7 @@
               <v-window v-model="tab" style="grid-column: 1 / -1">
                 <v-window-item
                     class="window_item"
-                    v-for="(item, index) of tabs.slice(0, 2)"
+                    v-for="(item, index) of tabs.slice(0, 3)"
                     :key="index"
                     :value="item.value"
                 >
