@@ -67,7 +67,9 @@
                     :value="item.value"
                 >
                   <v-card :flat="true">
-                    <v-card-text v-html="item.html"></v-card-text>
+                    <v-card-text>
+                      <article v-html="item.html"></article>
+                    </v-card-text>
                   </v-card>
                 </v-window-item>
                 <v-window-item
@@ -155,7 +157,9 @@
                     :value="item.value"
                 >
                   <v-card :flat="true">
-                    <v-card-text v-html="item.html"></v-card-text>
+                    <v-card-text>
+                      <article v-html="item.html"></article>
+                    </v-card-text>
                   </v-card>
                 </v-window-item>
                 <v-window-item
