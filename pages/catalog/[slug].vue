@@ -10,7 +10,9 @@
         <v-col cols="12" class="mx-0 position-relative" :class="{'page-frames': !mobile, 'px-6': mobile}">
           <template v-if="mobile">
             <div>
-              <nuxt-img provider="strapi" :src="product.avatar[0].attributes.url" style="max-width: 320px"></nuxt-img>
+              <div class="text-center">
+                <nuxt-img provider="strapi" :src="product.avatar[0].attributes.url" style="max-width: 320px"></nuxt-img>
+              </div>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
                 <v-card-title class="font-size-24 font-weight-bold px-0">{{ product.title }}</v-card-title>
