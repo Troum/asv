@@ -51,7 +51,7 @@
                   {{ $t('tabs.characteristics') }}
                 </v-tab>
                 <v-tab @click="tab = 'accessories'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
-                       style="opacity: 1">
+                       style="opacity: 1; border-left: 1px solid #c4c4c4">
                   {{ $t('tabs.accessories') }}
                 </v-tab>
                 <v-tab @click="tab = 'video'" class="font-weight-light font-size-14" variant="plain" :rounded="0" :ripple="false"
