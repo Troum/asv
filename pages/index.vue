@@ -173,9 +173,12 @@
           <v-col cols="10"
                  :style="`margin-bottom: ${slideGroupHeight}px;`"
                  class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative">
-            <v-btn @click="showMore = true" style="font-family: 'Open Sans Condensed Bold', sans-serif" :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
-              <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>
-            </v-btn>
+            <template v-if="clients.list.length > 8">
+              <v-btn @click="showMore = true" style="font-family: 'Open Sans Condensed Bold', sans-serif"
+                     :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
+                <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>
+              </v-btn>
+            </template>
           </v-col>
         </v-row>
       </v-col>
