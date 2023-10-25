@@ -287,12 +287,17 @@ watch(height, (value) => {
   display: grid;
   grid-template-columns: repeat(4, 20%);
   grid-gap: 80px;
-  grid-auto-rows: minmax(100px, 100px);
+  grid-auto-rows: max-content;
   margin-top: 70px;
   margin-bottom: 60px;
   @media (max-width: 1280px) {
     grid-template-columns: repeat(2, 40%);
     grid-gap: calc((100% - (2 * 40%)) / 2);
+  }
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

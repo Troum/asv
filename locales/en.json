@@ -1,6 +1,7 @@
 {
   "loading": "Loading...",
   "noProducts": "Items of this manufacturer are not yet available",
+  "empty": "No content has been added yet",
   "search": "Search",
   "salesDepartment": "Sales Department",
   "serviceDepartment": "Service Department",
@@ -102,7 +103,7 @@
   },
   "copyright": "JSC «ASV Trade» All rights to exclusive materials of <a href=\"www.asvtrade.lt\">www.asvtrade.lt</a> website (hereinafter referred to as the Site) are governed by the Lithuanian Law on Copyright and Related Rights. Infringement of copyrights on the Site is prosecuted by law. Any copying, reprinting and dissemination of materials on the Site is prohibited without an active reverse link.",
   "development": "Design and Development",
-  "address": "P. Žvirkos Street 6-2, LT-02223 Vilnius",
+  "address": "P. Žvirkos g. 6-2, LT-02223 Vilnius",
   "contacts": {
     "subtitle": "\"ASV TRADING\" COMPANY HAS A LARGE NUMBER OF LEADING SPECIALISTS FOR TRAINING TO WORK WITH OUR EQUIPMENT",
     "name": "JSC «ASV Trade» ",

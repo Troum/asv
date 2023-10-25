@@ -2,11 +2,12 @@
   <NuxtLink :href="client.url">
     <template v-if="mobile">
       <nuxt-img provider="strapi"
-                style="max-width: 100%"
+                width="180"
                 class="client-logo" :src="client.logo"></nuxt-img>
     </template>
     <template v-else>
       <nuxt-img provider="strapi"
+                width="180"
                 class="client-logo" :src="client.logo"></nuxt-img>
     </template>
 

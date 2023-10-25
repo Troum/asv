@@ -1,6 +1,7 @@
 {
   "loading": "Turinio įkėlimas",
-  "noProducts": "Šio gamintojo prekių dar nėra",
+  "noProducts": "Dar nepridėta jokio turinio",
+  "empty": "Šio gamintojo prekių dar nėra",
   "search": "Paieška",
   "salesDepartment": "Pardavimų skyrius",
   "serviceDepartment": "Servisas",
@@ -101,7 +102,7 @@
   },
   "copyright": "UAB „ASV Trade“ Visos teisės į ekskliuzyvinę medžiagą, talpinamą svetainėje <a href=\"www.asvtrade.lt\">www.asvtrade.lt</a> (toliau vadinama Svetainė) saugomos Lietuvos autorių teisių ir gretutinių teisių įstatymu. Autorinių teisių pažeidimai yra persekiojami pagal įstatymus. Bet koks medžiagų kopijavimas, spausdinimas ir\nplatinimas nenurodant šaltinio yra draudžiamas.",
   "development": "Dizainas ir plėtra",
-  "address": "P. Žvyrkosas 6-2, LT-02223 Vilnius",
+  "address": "P. Žvirkos str. 6-2, LT-02223 Vilnius",
   "contacts": {
     "subtitle": "\"ASV TRADING\" ĮMONĖJE DIRBA DAUG PIRMAUJANČIŲ SPECIALISTŲ, APMOKYTŲ DIRBTI SU MŪSŲ ĮRANGA.",
     "name": "UAB „ASV Trade“ ",
