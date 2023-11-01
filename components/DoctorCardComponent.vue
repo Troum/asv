@@ -43,7 +43,7 @@
         </div>
       </template>
     </v-hover>
-    <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0">
+    <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0" style="white-space: pre-wrap">
       {{ doctor.position }}
     </v-card-subtitle>
     <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0" style="white-space: pre-wrap">
