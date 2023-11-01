@@ -43,12 +43,14 @@
         </div>
       </template>
     </v-hover>
-    <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0" style="white-space: pre-wrap">
-      {{ doctor.position }}
-    </v-card-subtitle>
-    <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0" style="white-space: pre-wrap">
-      {{ doctor.name }}
-    </v-card-title>
+    <div style="display: grid; grid-template-columns: 1fr; grid-auto-rows: minmax(120px, auto) 50px">
+      <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0" style="white-space: pre-wrap">
+        {{ doctor.position }}
+      </v-card-subtitle>
+      <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0" style="white-space: pre-wrap">
+        {{ doctor.name }}
+      </v-card-title>
+    </div>
     <v-card-text class="text-secondary-light px-0" v-html="description">
     </v-card-text>
 
