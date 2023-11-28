@@ -3,8 +3,8 @@
     <template v-slot:default="{ isHovering, props }">
       <v-card :height="420" v-bind="props" elevation="0" class="d-flex align-center justify-space-between rounded-0 pa-0 position-relative">
         <v-card-text class="d-flex flex-column flex-row-gap-20 pl-0 pr-4 py-8 w-62 fill-height bg-primary z-index-2">
-          <v-card-title class="pl-4 text-left font-weight-bold text-white letter-spacing-1 font-size-21 title-line"
-                        style="white-space: pre-wrap">{{ publication.title }}
+          <v-card-title class="pl-4 text-left font-weight-bold text-white text-uppercase letter-spacing-1 font-size-21 title-line"
+                        style="white-space: pre-wrap; line-height: normal">{{ publication.title }}
           </v-card-title>
           <article class="pl-4 font-size-16 text-white" v-text="text">
           </article>
@@ -73,8 +73,5 @@ const text = computed(() => {
 }
 .always-white {
   color: #fff;
-  & {
-    color: #fff !important;
-  }
 }
 </style>
