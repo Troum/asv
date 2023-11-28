@@ -126,7 +126,7 @@ const getColor = (index) => {
 
 watch(carouselSize.height, (value) => {
   if (value > 0) {
-    delimitersContainer.value['style'].bottom = `calc((${mobile ? 60 : 80} * 100%) / ${value})`
+    delimitersContainer.value['style'].bottom = `calc((${mobile ? 40 : 80} * 100%) / ${value})`
     delimitersContainer.value['style'].left = mobile.value ? '2.5%' : `13.5%`
   }
 })

@@ -64,6 +64,9 @@ article {
 @for $i from 1 to 72 {
   .font-size-#{$i * 1} {
     font-size: #{$i * 1}px !important;
+    @media (max-width: 320px) {
+      font-size: #{$i * 1 * 0.75}px !important;
+    }
   }
   .letter-spacing-#{$i} {
     letter-spacing: #{$i * 0.1}px !important;

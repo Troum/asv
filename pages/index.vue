@@ -140,10 +140,10 @@
           <template v-if="mobile">
             <template v-if="publications.list.slice(0, current).length > 2">
               <div class="d-flex align-center flex-column-gap-35"
-                   :style="`overflow-x: scroll; width: ${width * 2}px; margin-left:-${width / 2 + 35}px`">
+                   :style="`overflow-x: scroll; scroll-behavior: smooth; scroll-snap-type: x mandatory; width: ${width * 2}px; margin-left:-${width / 2 + 35}px`">
                 <template v-for="(publication, index) of publications.list.slice(0, current)"
                           :key="index" class="pa-0">
-                  <publication-card-component :publication="publication"/>
+                  <publication-card-component style="scroll-snap-align: start;" :publication="publication"/>
                 </template>
               </div>
             </template>

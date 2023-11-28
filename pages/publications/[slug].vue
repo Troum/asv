@@ -16,8 +16,8 @@
                 <NuxtLink to="/publications" class="ml-4 text-decoration-none text-primary">{{ $t('buttons.back') }}</NuxtLink>
               </v-btn>
             </v-card-title>
-            <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
-            <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333">
+            <v-card-title tag="h1" class="text-uppercase font-size-36 px-0" style="white-space: pre-wrap">{{ publication.title }}</v-card-title>
+            <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333; white-space: pre-wrap">
               {{ publication.subtitle }} / {{ publication.createdAt }}
             </v-card-subtitle>
             <v-card-text class="px-0">

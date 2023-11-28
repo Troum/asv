@@ -1,6 +1,8 @@
 <template>
   <v-card
       :width="mobile ? '100%' : $display.width(width, 350)"
+      :to="`/catalog/${product.slug}`"
+      :ripple="false"
       height="100%"
       elevation="0"
       :rounded="0"

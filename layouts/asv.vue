@@ -185,12 +185,9 @@
       <template v-if="isIndex">
         <template v-if="!mobile">
           <div class="z-index-5 position-absolute menu-bar"
-               :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
+               :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 130)}px`">
             <div class="py-15"
                  :style="`display: grid; grid-template-columns: repeat(${menu.length + 1}, auto); grid-column-gap: 32px; grid-template-rows: max-content`">
-              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="21" viewBox="0 0 27 21" :fill="menuTextColor">
-                <path d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z" :fill="menuTextColor"/>
-              </svg>
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
                   <v-menu :open-on-hover="true" style="transition: background-color 0.3s ease-in-out; background-color: rgba(0,0,0, .84)">
@@ -273,14 +270,14 @@
         </div>
         <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
           <div class="d-flex flex-column align-baseline justify-start">
-            <div class="d-flex flex-column flex-row-gap-5">
-              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
+            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+              <span class="text-white text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ $t('salesDepartment') }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+37068655420">+370
                 686 554 20</a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('serviceDepartment') }}
               </span>
@@ -288,7 +285,7 @@
                 +375 17 336 23 02
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('financialDepartment') }}
               </span>
@@ -296,7 +293,7 @@
                 +370 604 855564
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 e-mail
               </span>
@@ -305,7 +302,7 @@
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
                  href="mailto:service@asv-trade.by">service@asv-trade.by</a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5">
+            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('titles.address') }}
               </span>
