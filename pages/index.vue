@@ -254,7 +254,6 @@ watch(height, (value) => {
 onMounted(async () => {
   await nextTick()
   if (scrollContainer.value) {
-    console.log(scrollContainer.value)
     scrollContainer.value.scrollLeft =
         (scrollContainer.value.scrollWidth - scrollContainer.value.clientWidth) / 2;
   }
