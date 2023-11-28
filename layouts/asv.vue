@@ -217,7 +217,7 @@
                 <template v-else>
                   <NuxtLink :to="item.route"
                             transition="fade"
-                            :style="`color: ${menuTextColor}!important`"
+                            :style="`--color: ${menuTextColor}`"
                             class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20">
                     {{ item.title }}
                   </NuxtLink>
@@ -884,9 +884,10 @@ const menuTextColor = computed(() => {
 }
 
 .on-hover {
+  --color: #FFF;
   letter-spacing: 2px;
   transition: all .3s ease-in-out;
-
+  color: var(--color) !important;
   &:hover {
     color: #00EAFC !important;
   }
