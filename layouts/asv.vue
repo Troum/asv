@@ -198,7 +198,7 @@
                       <NuxtLink :to="item.route"
                                 v-bind="props"
                                 transition="fade"
-                                :style="`color: ${menuTextColor}!important`"
+                                :style="`color: ${menuTextColor ?? '#FFF'}!important`"
                                 class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20 on-hover menu">
                         {{ item.title }}
                       </NuxtLink>
