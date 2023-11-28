@@ -139,11 +139,13 @@
         <client-only>
           <template v-if="mobile">
             <template v-if="publications.list.slice(0, current).length > 2">
-              <div class="d-flex align-center flex-column-gap-35"
-                   :style="`overflow-x: scroll; scroll-behavior: smooth; scroll-snap-type: x mandatory; width: ${width * 2}px; margin-left:-${width / 2 + 35}px`">
+              <div ref="scrollContainer" class="d-flex align-center justify-space-between flex-column-gap-35 mobile_slider"
+                   :style="`scroll-snap-type: x mandatory; position: relative; overflow-x: scroll; width: 120%; margin-left:-10%`">
                 <template v-for="(publication, index) of publications.list.slice(0, current)"
                           :key="index" class="pa-0">
-                  <publication-card-component style="scroll-snap-align: start;" :publication="publication"/>
+                  <div :style="`flex: 0 0 auto; width: ${width / 1.5}px; scroll-snap-align: center;`">
+                    <publication-card-component :publication="publication"/>
+                  </div>
                 </template>
               </div>
             </template>
@@ -187,7 +189,7 @@
 </template>
 
 <script setup>
-import {ref, watch} from "vue"
+import {ref, watch, onMounted} from "vue"
 import {mdiChevronRight} from "@mdi/js";
 import CarouselComponent from "~/components/CarouselComponent.vue";
 import SlideGroupComponent from "~/components/SlideGroupComponent.vue";
@@ -214,6 +216,7 @@ const props = defineProps({
     default: 0
   }
 })
+const scrollContainer = ref(null)
 const langStore = useLangStore()
 const { tm, locale } = useI18n()
 const {$display} = useNuxtApp()
@@ -248,7 +251,14 @@ watch(height, (value) => {
   }
 })
 
-
+onMounted(async () => {
+  await nextTick()
+  if (scrollContainer.value) {
+    console.log(scrollContainer.value)
+    scrollContainer.value.scrollLeft =
+        (scrollContainer.value.scrollWidth - scrollContainer.value.clientWidth) / 2;
+  }
+})
 </script>
 
 <style lang="scss" scoped>
@@ -301,6 +311,23 @@ watch(height, (value) => {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+.mobile_slider {
+  &::-webkit-scrollbar {
+    width: 1px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: transparent;
   }
 }
 </style>
