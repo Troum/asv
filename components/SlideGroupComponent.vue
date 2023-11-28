@@ -60,7 +60,7 @@
                         :hover="false"
                         :to="`/manufacturer/${item.slug}`"
                         v-bind="props"
-                        width="25%"
+                        :width="`${100 / slide.slides.length >= 25 ? 100 / slide.slides.length : 25}%`"
                         :height="isIndex ? '95%' : '100%'"
                         :class="['rounded-0 hover', { 'on': isHovering }]">
                   <v-card-text class="d-flex align-center justify-center pa-0 fill-height">
