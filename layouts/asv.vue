@@ -879,7 +879,7 @@ const menuTextColor = computed(() => {
   &:not(.text-white, .more_info__button) {
     font-weight: bold;
     text-decoration: none;
-    color: inherit !important;
+    color: inherit;
   }
 }
 
