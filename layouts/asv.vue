@@ -188,8 +188,8 @@
                :style="`height: ${$display.height(display.height.value, 120)}px; top: ${$display.navBar(display.height.value, 157)}px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
             <div class="py-15"
                  :style="`display: grid; grid-template-columns: repeat(${menu.length + 1}, auto); grid-column-gap: 32px; grid-template-rows: max-content`">
-              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="21" viewBox="0 0 27 21" fill="none">
-                <path d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z" fill="white"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="21" viewBox="0 0 27 21" :fill="menuTextColor">
+                <path d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z" :fill="menuTextColor"/>
               </svg>
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
@@ -198,7 +198,8 @@
                       <NuxtLink :to="item.route"
                                 v-bind="props"
                                 transition="fade"
-                                class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover font-size-20 on-hover menu">
+                                :style="`color: ${menuTextColor}!important`"
+                                class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20 on-hover menu">
                         {{ item.title }}
                       </NuxtLink>
                     </template>
@@ -206,7 +207,7 @@
                       <template v-for="(filter, index) in filters" :key="index">
                         <NuxtLink :to="`${item.route}?filter=${filter.value}`"
                                   transition="fade"
-                                  class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover font-size-20">
+                                  class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20">
                           {{ filter.title }}
                         </NuxtLink>
                       </template>
@@ -216,7 +217,8 @@
                 <template v-else>
                   <NuxtLink :to="item.route"
                             transition="fade"
-                            class="d-flex align-center text-uppercase text-decoration-none text-white font-weight-bold on-hover font-size-20">
+                            :style="`color: ${menuTextColor}!important`"
+                            class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20">
                     {{ item.title }}
                   </NuxtLink>
                 </template>
@@ -528,6 +530,7 @@ import Slide from "~/models/Slide";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 import Filter from "~/models/Filter";
+import {useMenuColorStore} from "~/store/menuColor";
 
 const drawer = ref(false)
 const {find, create} = useStrapi()
@@ -546,6 +549,7 @@ const {width} = useElementSize(slogan)
 const {height} = useElementSize(networksContainer)
 const phonesContainerSize = useElementSize(phonesContainer)
 const breadcrumbsContainerSize = useElementSize(image)
+const menuColor = useMenuColorStore()
 const marginTop = ref(0)
 const socialNetworks = computed(() => {
   return commonStore.getNetworks
@@ -634,7 +638,8 @@ await find('main-page', {
                 item.attributes.link,
                 mobile.value ? item.attributes.mobile_src.data.attributes.url :
                     item.attributes.src.data.attributes.url,
-                item.attributes.background
+                item.attributes.background,
+                item.attributes.textColor,
             ).toJson()
           })
       )
@@ -789,6 +794,7 @@ watch(locale, async (value) => {
                   item.attributes.link,
                   mobile.value ? item.attributes.mobile_src.data.attributes.url : item.attributes.src.data.attributes.url,
                   item.attributes.background,
+                  item.attributes.textColor,
               ).toJson()
             })
         )
@@ -863,8 +869,9 @@ onMounted(() => {
     setLocale(langStore.getLang)
   }
 })
-
-
+const menuTextColor = computed(() => {
+  return menuColor.getColor
+})
 </script>
 
 <style lang="scss" scoped>

@@ -102,8 +102,9 @@ import {mdiCircle} from "@mdi/js";
 import {useElementSize} from "@vueuse/core";
 import ChevronRight from "~/components/icons/chevronRight.vue";
 import ChevronLeft from "~/components/icons/chevronLeft.vue";
+import {useMenuColorStore} from "~/store/menuColor";
 
-defineProps({
+const props = defineProps({
   slides: {
     type: Array,
     default: () => {
@@ -111,6 +112,7 @@ defineProps({
     }
   }
 })
+const menuColor = useMenuColorStore()
 const current = ref(0)
 const carousel = ref(null)
 const delimitersContainer = ref(null)
@@ -127,6 +129,9 @@ watch(carouselSize.height, (value) => {
     delimitersContainer.value['style'].bottom = `calc((${mobile ? 60 : 80} * 100%) / ${value})`
     delimitersContainer.value['style'].left = mobile.value ? '2.5%' : `13.5%`
   }
+})
+watch(current, (value) => {
+  menuColor.setColor(props.slides[value].textColor)
 })
 </script>
 
