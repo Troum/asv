@@ -128,7 +128,7 @@
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
              :style="`margin-top: ${slideGroupHeight}px;margin-bottom: ${slideGroupHeight}px; font-family: 'Arial', sans-serif`">
         <div class="d-flex justify-space-between align-center mb-15">
-          <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.news')"></h2>
+          <h2 class="text-uppercase text-left text-lg-center font-size-48" v-html="$t('titles.news')"></h2>
           <v-btn style="opacity: 1; font-family: 'Open Sans Condensed Bold', sans-serif" variant="plain"
                  :ripple="false"
                  class="d-flex align-center font-size-18 font-weight-bold">
