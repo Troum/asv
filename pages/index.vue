@@ -315,7 +315,7 @@ onMounted(async () => {
 }
 .mobile_slider {
   &::-webkit-scrollbar {
-    width: 1px;
+    width: 0;
   }
 
   &::-webkit-scrollbar-track {
