@@ -10,7 +10,7 @@
               {{ $t('contacts.name') }}
             </v-card-title>
             <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
-              <v-card-subtitle v-if="!_.isEmpty(contacts.sale_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts?.sale_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.sale_contact_title }}</span>
@@ -18,7 +18,7 @@
                      :href="`tel:${contacts.sale_contact}`">{{ contacts.sale_contact }}</a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle v-if="!_.isEmpty(contacts.service_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts?.service_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.service_contact_title }}</span>
@@ -26,7 +26,7 @@
                      :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`">{{ contacts.service_contact }}</a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle v-if="!_.isEmpty(contacts.financial_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts?.financial_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.financial_contact_title }}</span>
@@ -34,7 +34,7 @@
                      :href="`tel:${contacts.financial_contact.replaceAll(' ', '')}`">{{ contacts.financial_contact }}</a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle v-if="!_.isEmpty(contacts.email_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts?.email_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <envelop />
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.email_contact_title }}</span>
@@ -42,7 +42,7 @@
                      :href="`mailto:${contacts.email_contact}`"></a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle v-if="!_.isEmpty(contacts.address_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts?.address_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <place />
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.address_contact_title }}</span>
