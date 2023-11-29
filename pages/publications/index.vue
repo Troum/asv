@@ -55,7 +55,7 @@ const {find} = useStrapi()
 const publications = usePublicationsStore()
 const commonStore = useCommonStore()
 const count = computed(() => {
-  return useDisplay().xlAndUp ? 4 : 3
+  return useDisplay().xlAndUp ? 6 : 4
 })
 const {$dateTime} = useNuxtApp()
 const current = ref(count.value)
@@ -118,7 +118,7 @@ watch(locale, async () => {
     @media (min-width: 1920px) {
       flex: 0 0 calc(25% - 30px);
     }
-    @media (max-width: 920px) {
+    @media (min-width: 920px) {
       flex: 0 0 calc(50% - 30px);
     }
     @media (max-width: 768px) {

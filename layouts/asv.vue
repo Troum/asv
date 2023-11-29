@@ -44,7 +44,8 @@
               <v-hover>
                 <template v-slot:default="{ isHovering, props }">
                   <v-btn v-bind="props" icon variant="plain" :ripple="false" style="opacity: 1" :href="social.href">
-                    <svg-icon type="mdi" :class="isHovering ? 'text-info' : 'text-white'" :path="social.icon"></svg-icon>
+                    <svg-icon type="mdi" :class="isHovering ? 'text-info' : 'text-white'"
+                              :path="social.icon"></svg-icon>
                   </v-btn>
                 </template>
               </v-hover>
@@ -95,7 +96,8 @@
               <v-hover>
                 <template v-slot:default="{ isHovering, props }">
                   <v-btn v-bind="props" icon variant="plain" :ripple="false" style="opacity: 1" :href="social.href">
-                    <svg-icon type="mdi" :class="isHovering ? 'text-info' : 'text-white'" :path="social.icon"></svg-icon>
+                    <svg-icon type="mdi" :class="isHovering ? 'text-info' : 'text-white'"
+                              :path="social.icon"></svg-icon>
                   </v-btn>
                 </template>
               </v-hover>
@@ -131,15 +133,17 @@
           <div ref="phonesContainer" class="d-flex align-center phones__container">
             <div class="d-flex flex-column justify-center align-end"
                  style="font-family: 'Open Sans Condensed Bold', sans-serif">
-              <span class="font-weight-bold text-uppercase font-size-16">{{ $t('salesDepartment') }}</span>
-              <span class="font-weight-bold text-uppercase font-size-16">{{ $t('serviceDepartment') }}</span>
+              <span class="font-weight-bold text-uppercase font-size-16">{{ contacts.sale_contact_title }}</span>
+              <span class="font-weight-bold text-uppercase font-size-16">{{ contacts.service_contact_title  }}</span>
             </div>
             <div ref="phoneSeparator" class="separator"></div>
             <div class="d-flex flex-column justify-center align-start">
-              <a href="tel:+37068655420" class="phone_link font-weight-bold text-uppercase font-size-16">+370 686 55
-                420</a>
-              <a href="tel:+375173362302" class="phone_link font-weight-bold text-uppercase font-size-16">+375 17 336 23
-                02</a>
+              <a :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`" class="phone_link font-weight-bold text-uppercase font-size-16">{{
+                  contacts.sale_contact
+                }}</a>
+              <a :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`" class="phone_link font-weight-bold text-uppercase font-size-16">
+                {{ contacts.service_contact }}
+              </a>
             </div>
           </div>
           <div ref="phonesContainer" class="d-flex align-center langs__container">
@@ -153,17 +157,20 @@
               <v-btn variant="plain" icon
                      @click="setLocale('lt')"
                      :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
-                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">LT
+                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">
+                LT
               </v-btn>
               <v-btn variant="plain" icon
                      @click="setLocale('ru')"
                      :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
-                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">RU
+                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">
+                RU
               </v-btn>
               <v-btn variant="plain" icon
                      @click="setLocale('en')"
                      :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
-                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'en' ? 'active__lang' : ''}`">EN
+                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'en' ? 'active__lang' : ''}`">
+                EN
               </v-btn>
             </div>
             <div class="d-flex flex-column justify-center align-center flex-row-gap-4 ml-12">
@@ -190,7 +197,8 @@
                  :style="`display: grid; grid-template-columns: repeat(${menu.length + 1}, auto); grid-column-gap: 32px; grid-template-rows: max-content`">
               <template v-for="item of menu">
                 <template v-if="item.route.includes('catalog')">
-                  <v-menu :open-on-hover="true" style="transition: background-color 0.3s ease-in-out; background-color: rgba(0,0,0, .84)">
+                  <v-menu :open-on-hover="true"
+                          style="transition: background-color 0.3s ease-in-out; background-color: rgba(0,0,0, .84)">
                     <template v-slot:activator="{ props }">
                       <NuxtLink :to="item.route"
                                 v-bind="props"
@@ -281,7 +289,8 @@
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('serviceDepartment') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+375173362302">
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+                 href="tel:+375173362302">
                 +375 17 336 23 02
               </a>
             </div>
@@ -289,7 +298,8 @@
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ $t('financialDepartment') }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+370604855564">
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+                 href="tel:+370604855564">
                 +370 604 855564
               </a>
             </div>
@@ -338,7 +348,8 @@
                             class="w-50"></v-text-field>
             </div>
             <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
-              <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined" density="compact"
+              <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined"
+                            density="compact"
                             :rules="[rules.required]"
                             v-model="feedback.phone"
                             :rounded="0"
@@ -389,42 +400,46 @@
         </div>
         <div class="footer-info">
           <div class="contacts-container">
-            <div class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!isEmpty(contacts.sale_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
-                {{ $t('salesDepartment') }}
+                {{ contacts.sale_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+37068655420">+370
-                686 554 20</a>
-            </div>
-            <div class="d-flex flex-column flex-row-gap-2">
-              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
-                {{ $t('serviceDepartment') }}
-              </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+375173362302">
-                +375 17 336 23 02
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" :href="`tel:${contacts.sale_contact?.replaceAll(' ','')}`">
+                {{ contacts.sale_contact }}
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!isEmpty(contacts.service_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
-                {{ $t('financialDepartment') }}
-              </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="tel:+370604855564">
-                +370 604 855564
-              </a>
-            </div>
-            <div class="d-flex flex-column flex-row-gap-2">
-              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
-                e-mail
+                {{ contacts.service_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
-                 href="mailto:info@asvtrade.lt">info@asvtrade.lt</a>
+                 :href="`tel:${contacts.service_contact?.replaceAll(' ','')}`">
+                {{ contacts.service_contact }}
+              </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!isEmpty(contacts.financial_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
-                {{ $t('titles.address') }}
+                {{ contacts.financial_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href="" style="word-wrap: break-word"
-                 v-html="$t('address')">
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
+                 :href="`tel:${contacts.financial_contact?.replaceAll(' ','')}`">
+                {{ contacts.financial_contact }}}
+              </a>
+            </div>
+            <div v-if="!isEmpty(contacts.email_contact)" class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
+                {{ contacts.email_contact_title }}
+              </span>
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
+                 :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
+            </div>
+            <div v-if="!isEmpty(contacts.address_contact)" class="d-flex flex-column flex-row-gap-2">
+              <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
+                {{ contacts.address_contact_title }}
+              </span>
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" href=""
+                 style="word-wrap: break-word"
+                 v-html="contacts.address_contact">
               </a>
             </div>
           </div>
@@ -450,7 +465,8 @@
                             class="w-50"></v-text-field>
             </div>
             <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined" density="compact"
+              <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined"
+                            density="compact"
                             :rules="[rules.required]"
                             v-model="feedback.phone"
                             :rounded="0"
@@ -484,11 +500,11 @@
                   :style="`padding-left: calc((240 * 100%) / 1920); padding-right: calc((240 * 100%) / 1920);min-height: 200px; width: ${$display.footer(display.width.value, $display.socialBar(display.width.value, 150))}px; margin-left: ${$display.socialBar(display.width.value, 150)}px`">
           <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
           <div class="d-flex justify-space-between flex-column-gap-60" style="font-family: 'Arial', sans-serif">
-            <small class="text-secondary-light">
+            <small class="text-secondary-light font-size-11">
               © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
             </small>
             <div class="d-flex justify-space-between align-start flex-column-gap-15">
-              <small class="text-secondary-light text-right">
+              <small class="text-secondary-light text-right font-size-11">
                 {{
                   $t('development')
                 }}
@@ -501,7 +517,7 @@
     </template>
 
   </v-layout>
-  <search-dialog />
+  <search-dialog/>
 </template>
 
 <script setup>
@@ -528,6 +544,7 @@ import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 import Filter from "~/models/Filter";
 import {useMenuColorStore} from "~/store/menuColor";
+import {isEmpty} from "lodash";
 
 const drawer = ref(false)
 const {find, create} = useStrapi()
@@ -564,14 +581,14 @@ let menu = computed(() => {
   return tm('menu')
 })
 
-const { mobile } = useDisplay()
+const {mobile} = useDisplay()
 const mainPageCarousel = useCarouselStore()
 const services = useServicesStore()
 const publications = usePublicationsStore()
 const clients = useClientsStore()
 const isOpen = ref(false)
 const filters = ref([])
-
+const contacts = ref({})
 const feedback = ref({
   name: null,
   company: null,
@@ -678,7 +695,7 @@ await find('main-page', {
                 ).toJson()
               })
           )
-              break;
+          break;
         case display.width.value > 768 && display.width.value <= 920:
           services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
                 const ch = Math.floor(i / 2);
@@ -701,7 +718,7 @@ await find('main-page', {
                     }
                   })
           )
-              break
+          break
         default:
           services.addItems(response.data.attributes.services.data.reduce((all, one, i) => {
                 const ch = Math.floor(i / 4);
@@ -726,6 +743,12 @@ await find('main-page', {
           )
           break
       }
+    })
+    .then(async () => {
+      await find('contacts', {locale: locale.value})
+          .then(response => {
+            contacts.value = response.data.attributes
+          })
     })
 
 watch(width, (value) => {
@@ -856,6 +879,12 @@ watch(locale, async (value) => {
           )
         }
       })
+      .then(() => {
+        find('contacts', {locale: locale.value})
+            .then(response => {
+              contacts.value = response.data.attributes
+            })
+      })
 }, {immediate: true})
 const openSearch = () => {
   commonStore.setSearch(true)
@@ -885,9 +914,11 @@ const menuTextColor = computed(() => {
   letter-spacing: 2px;
   transition: all .3s ease-in-out;
   color: var(--color) !important;
+
   &:hover {
     color: #00EAFC !important;
   }
+
   &.menu {
     position: relative;
     transition: .3s ease-in-out;

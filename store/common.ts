@@ -17,7 +17,7 @@ export const useCommonStore = defineStore({
                 },
                 {
                     icon: mdiYoutube,
-                    href: 'https://youtube.com'
+                    href: 'https://www.youtube.com/@ASVGroupBaltic'
                 }
             ],
             component: null,

@@ -1,6 +1,6 @@
 <template>
   <v-card
-      min-height="684"
+      :min-height="xl ? height * 0.6334 : height * 0.70334"
       elevation="0"
       :rounded="0"
       class="mx-auto align-self-baseline"
@@ -8,12 +8,11 @@
     <v-hover>
       <template v-slot:default="{ isHovering, props }">
         <div v-bind="props" class="d-flex align-center justify-center position-relative">
-          <nuxt-img
-              provider="strapi"
-              style="min-height: 200px"
-              :src="doctor.avatar"
-          >
-          </nuxt-img>
+          <div :style="`display: grid; grid-template-columns: ${mobile ? '100%' : $display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
+            <div
+                :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${doctor.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+            ></div>
+          </div>
           <template v-if="false">
             <v-fade-transition>
               <template v-if="isHovering">
@@ -81,6 +80,7 @@
 import Doctor from "~/models/Doctor";
 import {computed} from "vue";
 import truncate from "truncate-html";
+import {useDisplay} from "vuetify";
 
 const length = ref(10)
 const showMore = ref(false)
@@ -92,6 +92,8 @@ const props = defineProps({
     }
   }
 })
+const {$display} = useNuxtApp()
+const { width, height, mobile, xl } = useDisplay()
 const more = () => {
   if (showMore.value) {
     length.value = 10

@@ -157,7 +157,7 @@
           </template>
           <template v-else>
             <div class="publications">
-              <template v-for="(publication, key) of publications.list.slice(0, current)" :key="key">
+              <template v-for="(publication, key) of publications.list.slice(0, xl ? 4 : 3)" :key="key">
                 <publication-card-component :publication="publication"/>
               </template>
             </div>
@@ -220,7 +220,7 @@ const scrollContainer = ref(null)
 const langStore = useLangStore()
 const { tm, locale } = useI18n()
 const {$display} = useNuxtApp()
-const { mobile, width } = useDisplay()
+const { mobile, width, xl } = useDisplay()
 const showMore = ref(false)
 const isIndex = computed(() => {
   return useRoute().name === 'index'

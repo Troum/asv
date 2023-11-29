@@ -17,7 +17,7 @@
           </v-card-subtitle>
           <v-card-text class="px-0">
             <nuxt-img provider="strapi" style="width: 100%" class="my-5" :src="page.image"></nuxt-img>
-            <article v-html="page.description"></article>
+            <article v-html="content"></article>
           </v-card-text>
           <template v-if="false">
             <v-card-subtitle tag="h4"
@@ -58,14 +58,6 @@
               </vueper-slides>
             </v-card-text>
           </template>
-          <v-card-subtitle tag="h4"
-                           class="text-uppercase font-size-18 font-weight-bold px-0 text-pre-wrap mt-5"
-                           style="color: #000;opacity: 1">{{ $t('contacts.subtitle') }}
-          </v-card-subtitle>
-          <v-card-subtitle tag="h4"
-                           class="text-uppercase font-size-18 font-weight-regular px-0 text-pre-wrap mt-5"
-                           style="color: #000; opacity: 1">{{ $t('titles.trainers') }}
-          </v-card-subtitle>
           <template v-if="timeout">
             {{ $t('loading') }}
           </template>
@@ -103,7 +95,7 @@
               <template v-else>
                 <div class="d-flex align-baseline justify-start flex-column-gap-35">
                   <template v-for="(doctor, index) of doctors" :key="index">
-                    <div style="flex: 0 0 auto; width: calc(100% / 4)">
+                    <div :style="`flex: 0 0 auto; width: calc(100% / ${lg ? 3 : 4})`">
                       <doctor-card-component :doctor="doctor"/>
                     </div>
                   </template>
@@ -124,7 +116,7 @@ import 'vueperslides/dist/vueperslides.css'
 import {useCommonStore} from "~/store/common";
 import DoctorCardComponent from "~/components/DoctorCardComponent.vue";
 import CertificateCardComponent from "~/components/CertificateCardComponent.vue";
-import {onBeforeMount, ref, watch} from "vue"
+import {onBeforeMount, ref, watch, computed} from "vue"
 import Doctor from "~/models/Doctor";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
@@ -140,8 +132,7 @@ defineProps({
   }
 })
 const {locale, t} = useI18n()
-const {mobile} = useDisplay()
-
+const {mobile, lg, xl} = useDisplay()
 definePageMeta({
   breadcrumb: 'pages.about.title'
 })
@@ -197,7 +188,18 @@ commonStore.setComponent({
   logo: '/logo-w.svg'
 })
 commonStore.setTitle(null)
-
+const content = computed(() => {
+  const parser = new DOMParser()
+  const html = parser.parseFromString(page.value.description, 'text/html')
+  html.querySelectorAll('p').forEach(item => {
+    if (item.innerText === '') {
+      item.style.display = 'block'
+      item.style.height = '1rem'
+      item.style.marginBottom = '0px!important'
+    }
+  })
+  return html.body.innerHTML
+})
 watch(locale, async (value) => {
   timeout.value = true
   await find('about', {
@@ -242,6 +244,7 @@ watch(locale, async (value) => {
       })
       .then(() => timeout.value = false)
 }, {immediate: true})
+
 </script>
 
 <style lang="scss" scoped>
