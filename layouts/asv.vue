@@ -400,7 +400,7 @@
         </div>
         <div class="footer-info">
           <div class="contacts-container">
-            <div v-if="!isEmpty(contacts.sale_contact)" class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!_.isEmpty(contacts.sale_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.sale_contact_title }}
               </span>
@@ -408,7 +408,7 @@
                 {{ contacts.sale_contact }}
               </a>
             </div>
-            <div v-if="!isEmpty(contacts.service_contact)" class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!_.isEmpty(contacts.service_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.service_contact_title }}
               </span>
@@ -417,7 +417,7 @@
                 {{ contacts.service_contact }}
               </a>
             </div>
-            <div v-if="!isEmpty(contacts.financial_contact)" class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!_.isEmpty(contacts.financial_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.financial_contact_title }}
               </span>
@@ -426,14 +426,14 @@
                 {{ contacts.financial_contact }}}
               </a>
             </div>
-            <div v-if="!isEmpty(contacts.email_contact)" class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!_.isEmpty(contacts.email_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.email_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
                  :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
             </div>
-            <div v-if="!isEmpty(contacts.address_contact)" class="d-flex flex-column flex-row-gap-2">
+            <div v-if="!_.isEmpty(contacts.address_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.address_contact_title }}
               </span>
@@ -544,7 +544,7 @@ import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 import Filter from "~/models/Filter";
 import {useMenuColorStore} from "~/store/menuColor";
-import {isEmpty} from "lodash";
+import _ from "lodash";
 
 const drawer = ref(false)
 const {find, create} = useStrapi()
