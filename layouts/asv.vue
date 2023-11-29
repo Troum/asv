@@ -260,6 +260,7 @@
     </client-only>
     <v-main class="d-flex flex-column align-center justify-center">
       <NuxtPage :appBarHeight="$display.navBar(display.height.value, 157)"
+                :contacts="contacts"
                 :frameMargin="marginTop"/>
     </v-main>
     <template v-if="!isIndex">
@@ -423,7 +424,7 @@
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
                  :href="`tel:${contacts.financial_contact?.replaceAll(' ','')}`">
-                {{ contacts.financial_contact }}}
+                {{ contacts.financial_contact }}
               </a>
             </div>
             <div v-if="!_.isEmpty(contacts.email_contact)" class="d-flex flex-column flex-row-gap-2">

@@ -10,46 +10,45 @@
               {{ $t('contacts.name') }}
             </v-card-title>
             <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
-              <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts.sale_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">{{ $t('salesDepartment') }}</span>
+                  <span class="text-uppercase font-size-16">{{ contacts.sale_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="tel:+37068655420">+370 686 55 420</a>
+                     :href="`tel:${contacts.sale_contact}`">{{ contacts.sale_contact }}</a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts.service_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">{{ $t('serviceDepartment') }}</span>
+                  <span class="text-uppercase font-size-16">{{ contacts.service_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="tel:+375291661880">+375 29 166 18 80</a>
+                     :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`">{{ contacts.service_contact }}</a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts.financial_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">{{ $t('financialDepartment') }}</span>
+                  <span class="text-uppercase font-size-16">{{ contacts.financial_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="tel:+370604855564">+370 604 855564</a>
+                     :href="`tel:${contacts.financial_contact.replaceAll(' ', '')}`">{{ contacts.financial_contact }}</a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts.email_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <envelop />
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">e-mail</span>
+                  <span class="text-uppercase font-size-16">{{ contacts.email_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     href="mailto:info@asvtrade.lt">info@asvtrade.lt</a>
+                     :href="`mailto:${contacts.email_contact}`"></a>
                 </div>
               </v-card-subtitle>
-              <v-card-subtitle style="opacity: 1" class="d-flex flex-column-gap-25">
+              <v-card-subtitle v-if="!_.isEmpty(contacts.address_contact)" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <place />
                 <div class="d-flex flex-column flex-row-gap-10">
-                  <span class="text-uppercase font-size-16">{{ $t('titles.address') }}</span>
+                  <span class="text-uppercase font-size-16">{{ contacts.address_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
                      style="white-space: pre-wrap"
-                     href="#">
-                    Ул. П. Жвиркос 6-2,<br> ЛТ-02223 Вильнюс
+                     href="#" v-html="contacts.address_contact">
                   </a>
                 </div>
               </v-card-subtitle>
@@ -71,6 +70,7 @@ import {useCommonStore} from "~/store/common";
 import Place from "~/components/icons/place.vue";
 import {useI18n} from "vue-i18n";
 import {useDisplay} from "vuetify";
+import _ from "lodash"
 definePageMeta({
   breadcrumb: 'pages.contacts.title'
 })
@@ -78,6 +78,12 @@ defineProps({
   frameMargin: {
     type: Number,
     default: 0
+  },
+  contacts: {
+    type: Object,
+    default: () => {
+      return {}
+    }
   }
 })
 const { locale, tm } = useI18n()
