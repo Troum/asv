@@ -108,7 +108,7 @@ const description = computed(() => {
 })
 const minHeight = computed(() => {
   switch (name.value) {
-    case 'lg': return height.value * 0.6334
+    case 'lg': return height.value * 0.7334
     case 'xl': return height.value * 0.70334
     case 'xxl': return height.value * 0.6034
   }
