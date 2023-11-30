@@ -29,7 +29,7 @@ export default {
         markerElement.src = '/marker.svg'
         const map = new ymaps3.YMap(document.getElementById('map'), {
               location: {
-                center: [27.503692,53.871127],
+                center: [25.261339, 54.606342],
                 zoom: 17
               },
               behaviors: []
@@ -38,7 +38,7 @@ export default {
         map.addChild(new ymaps3.YMapDefaultSchemeLayer())
         map.addChild(new ymaps3.YMapDefaultFeaturesLayer({zIndex: 1800}))
         map.addChild(new ymaps3.YMapMarker({
-              coordinates: [27.503692,53.871127],
+              coordinates: [25.261339, 54.606342],
               draggable: false
             },
             markerElement

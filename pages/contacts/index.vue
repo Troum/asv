@@ -31,11 +31,13 @@
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.financial_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     :href="`tel:${contacts.financial_contact.replaceAll(' ', '')}`">{{ contacts.financial_contact }}</a>
+                     :href="`tel:${contacts.financial_contact.replaceAll(' ', '')}`">{{
+                      contacts.financial_contact
+                    }}</a>
                 </div>
               </v-card-subtitle>
               <v-card-subtitle v-if="contacts?.email_contact" style="opacity: 1" class="d-flex flex-column-gap-25">
-                <envelop />
+                <envelop/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.email_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
@@ -43,7 +45,7 @@
                 </div>
               </v-card-subtitle>
               <v-card-subtitle v-if="contacts?.address_contact" style="opacity: 1" class="d-flex flex-column-gap-25">
-                <place />
+                <place/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.address_contact_title }}</span>
                   <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
@@ -55,6 +57,26 @@
             </v-card-text>
           </v-card>
         </div>
+        <div ref="map" style="filter: grayscale(100%)">
+          <template v-if="locale === 'ru'">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1352.7673177295308!2d25.260600502786573!3d54.606350913179725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDM2JzIyLjgiTiAyNcKwMTUnNDAuOCJF!5e0!3m2!1sru!2sby!4v1701363302018!5m2!1sru!2sby"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </template>
+          <template v-if="locale === 'lt'">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d2310.866131303371!2d25.2606005!3d54.6063509!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDM2JzIyLjgiTiAyNcKwMTUnNDAuOCJF!5e0!3m2!1slt!2sby!4v1701363419281!5m2!1slt!2sby"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </template>
+          <template v-if="locale === 'en'">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d2310.866131303371!2d25.2606005!3d54.6063509!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDM2JzIyLjgiTiAyNcKwMTUnNDAuOCJF!5e0!3m2!1sen!2sby!4v1701363488626!5m2!1sen!2sby"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </template>
+        </div>
       </div>
     </v-col>
   </v-container>
@@ -62,7 +84,6 @@
 
 <script setup>
 import {ref, watch} from "vue"
-import MapComponent from "~/components/MapComponent.vue";
 import Phone from "~/components/icons/phone.vue";
 import Envelop from "~/components/icons/envelop.vue";
 import {useElementSize} from "@vueuse/core";
@@ -70,7 +91,7 @@ import {useCommonStore} from "~/store/common";
 import Place from "~/components/icons/place.vue";
 import {useI18n} from "vue-i18n";
 import {useDisplay} from "vuetify";
-import _ from "lodash"
+
 definePageMeta({
   breadcrumb: 'pages.contacts.title'
 })
@@ -86,10 +107,10 @@ defineProps({
     }
   }
 })
-const { locale, tm } = useI18n()
-const { mobile } = useDisplay()
+const {locale, tm} = useI18n()
+const {mobile} = useDisplay()
 const map = ref(null)
-const { width, height } = useElementSize(map)
+const {width, height} = useElementSize(map)
 const commonStore = useCommonStore()
 const description = computed(() => {
   return tm('contacts.description')

@@ -35,13 +35,70 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 75% !important;
   }
 }
+h1 {
+  @media (max-width: 960px) {
+    font-size: 2.5rem!important;
+  }
+}
+h2 {
+  @media (max-width: 960px) {
+    font-size: 2.2rem!important;
+  }
+}
+h3 {
+  @media (max-width: 960px) {
+    font-size: 2rem!important;
+  }
+}
 h4 {
-  font-size: 21px;
+  @media (max-width: 960px) {
+    font-size: 1.5rem!important;
+  }
+}
+h5 {
+  @media (max-width: 960px) {
+    font-size: 1.2rem!important;
+  }
+}
+h6 {
+  @media (max-width: 960px) {
+    font-size: 1.1rem!important;
+  }
 }
 article {
   font-family: Arial, sans-serif !important;
   & p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px !important;
+  }
+  & h1 {
+    @media (max-width: 960px) {
+      font-size: 2.5rem!important;
+    }
+  }
+  & h2 {
+    @media (max-width: 960px) {
+      font-size: 2.2rem!important;
+    }
+  }
+  & h3 {
+    @media (max-width: 960px) {
+      font-size: 2rem!important;
+    }
+  }
+  & h4 {
+    @media (max-width: 960px) {
+      font-size: 1.5rem!important;
+    }
+  }
+  & h5 {
+    @media (max-width: 960px) {
+      font-size: 1.2rem!important;
+    }
+  }
+  & h6 {
+    @media (max-width: 960px) {
+      font-size: 1.1rem!important;
+    }
   }
   & p {
     font-size: 1rem !important;
@@ -123,6 +180,21 @@ article {
   &.v-field--focused {
     & .v-field__outline {
       border-width: 5px !important;
+    }
+  }
+}
+.carousel__viewport {
+  display: flex;
+  & .carousel__track {
+    display: flex;
+    column-gap: 3.3% !important;
+    transform-style: preserve-3d;
+    flex: 0 0 auto;
+    & .carousel__slide {
+      width: 30%;
+      @media (max-width: 920px) {
+        width: 100%;
+      }
     }
   }
 }

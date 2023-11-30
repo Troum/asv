@@ -8,7 +8,7 @@
     <v-hover>
       <template v-slot:default="{ isHovering, props }">
         <div v-bind="props" class="d-flex align-center justify-center position-relative">
-          <div :style="`display: grid; grid-template-columns: ${mobile ? '100%' : $display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
+          <div :style="`display: grid; grid-template-columns: ${mobile ? 320 : $display.width(width, 350)}px; grid-template-rows: ${mobile ? 320 : $display.width(width, 350)}px`">
             <div
                 :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${doctor.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
             ></div>
@@ -55,16 +55,16 @@
       </template>
     </v-hover>
     <div style="display: grid; grid-template-columns: 1fr; grid-auto-rows: minmax(120px, auto) 50px">
-      <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0"
+      <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0 text-left"
                        style="white-space: pre-wrap">
         {{ doctor.position }}
       </v-card-subtitle>
-      <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0" style="white-space: pre-wrap">
+      <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0 text-left" style="white-space: pre-wrap">
         {{ doctor.name }}
       </v-card-title>
     </div>
     <div ></div>
-    <v-card-text class="text-secondary-light px-0" v-html="description"></v-card-text>
+    <v-card-text class="text-secondary-light px-0 text-left" v-html="description"></v-card-text>
 
     <v-card-actions class="px-0" :style="`position: ${!showMore ? 'absolute' : 'relative'}; bottom: 0`">
       <v-btn @click="more" style="opacity: 1" :ripple="false" variant="plain" class="px-0">
@@ -108,11 +108,13 @@ const description = computed(() => {
 })
 const minHeight = computed(() => {
   switch (name.value) {
+    case 'xs': return height.value * 0.8534
+    case 'sm': return height.value * 0.7534
+    case 'md': return height.value * 0.7534
     case 'lg': return height.value * 0.7334
     case 'xl': return height.value * 0.70334
     case 'xxl': return height.value * 0.6034
   }
-  return '100%'
 })
 </script>
 
