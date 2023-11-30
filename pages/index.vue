@@ -164,13 +164,11 @@
           </template>
         </client-only>
       </v-col>
-      <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative" style="font-family: 'Arial', sans-serif">
+      <v-col cols="12" class="d-flex flex-column pa-0 mx-auto position-relative" style="font-family: 'Arial', sans-serif">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
-        <div class="clients">
-          <template v-for="(client, key) of clients.list.slice(0, current)" :key="key">
-            <client-card-component :client="client"/>
-          </template>
-        </div>
+        <client-only>
+          <client-slider :current="current" :clients="clients.list"/>
+        </client-only>
         <v-row class="ma-0 pa-0">
           <v-col cols="10"
                  :style="`margin-bottom: ${slideGroupHeight}px;`"
@@ -194,7 +192,7 @@ import {mdiChevronRight} from "@mdi/js";
 import CarouselComponent from "~/components/CarouselComponent.vue";
 import SlideGroupComponent from "~/components/SlideGroupComponent.vue";
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
-import ClientCardComponent from "~/components/ClientCardComponent.vue";
+import ClientSlider from "~/components/ClientSlider.vue";
 import {useElementSize} from "@vueuse/core";
 import {useDisplay} from "vuetify";
 import SvgIcon from "@jamescoyle/vue-icon";
@@ -327,6 +325,20 @@ onMounted(async () => {
 
   &::-webkit-scrollbar-thumb:hover {
     background: transparent;
+  }
+}
+.infinity-slider-container {
+  overflow: hidden;
+
+  .slider {
+    display: flex;
+  }
+
+  .slider-item {
+    flex: 0 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
   }
 }
 </style>
