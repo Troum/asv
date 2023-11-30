@@ -7,8 +7,8 @@
           {{ $t('loading') }}
         </template>
         <template v-else>
-          <v-card color="transparent" flat class="px-0 publication" style="padding-top: 60px; padding-bottom: 60px">
-            <v-card-title class="d-flex justify-end">
+          <v-card color="transparent" flat class="px-0 publication_details" style="padding-top: 60px; padding-bottom: 60px">
+            <v-card-title class="d-flex justify-end w-100">
               <v-btn style="opacity: 1;" variant="plain"
                      :ripple="false"
                      class="d-flex align-center font-size-18 font-weight-bold">
@@ -16,8 +16,8 @@
                 <NuxtLink to="/publications" class="ml-4 text-decoration-none text-primary">{{ $t('buttons.back') }}</NuxtLink>
               </v-btn>
             </v-card-title>
-            <v-card-title tag="h1" class="text-uppercase font-size-36 px-0" style="white-space: pre-wrap">{{ publication.title }}</v-card-title>
-            <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333; white-space: pre-wrap">
+            <v-card-title tag="h1" class="text-uppercase font-size-36 px-0">{{ publication.title }}</v-card-title>
+            <v-card-subtitle tag="h4" class="text-uppercase font-size-18 px-0" style="color: #333;">
               {{ publication.subtitle }} / {{ publication.createdAt }}
             </v-card-subtitle>
             <v-card-text class="px-0">

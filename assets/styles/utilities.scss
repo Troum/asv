@@ -90,3 +90,22 @@ table tbody td {
   }
 
 }
+.publication_details {
+  & .v-card-title, .v-card-subtitle {
+    text-transform: uppercase !important;
+    display: block !important;
+    flex: none !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    letter-spacing: normal !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    word-wrap: break-word !important;
+  }
+
+}
