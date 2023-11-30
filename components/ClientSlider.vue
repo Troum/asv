@@ -24,7 +24,6 @@ defineProps({
 const { mobile } = useDisplay()
 </script>
 <style lang="scss" scoped>
-@import 'vue3-carousel/dist/carousel.css';
 .carousel__track {
   transform-style: preserve-3d;
 }
