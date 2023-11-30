@@ -164,23 +164,11 @@
           </template>
         </client-only>
       </v-col>
-      <v-col cols="12" class="d-flex flex-column pa-0 mx-auto position-relative" style="font-family: 'Arial', sans-serif">
+      <v-col cols="12" class="d-flex flex-column pa-0 mx-auto position-relative mb-4" style="font-family: 'Arial', sans-serif">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
         <client-only>
           <client-slider :current="current" :clients="clients.list"/>
         </client-only>
-        <v-row class="ma-0 pa-0">
-          <v-col cols="10"
-                 :style="`margin-bottom: ${slideGroupHeight}px;`"
-                 class="d-flex flex-column pa-0 mx-auto flex-row-gap-48 position-relative">
-            <template v-if="clients.list.length > 8">
-              <v-btn @click="showMore = true" style="font-family: 'Open Sans Condensed Bold', sans-serif"
-                     :height="50" :width="160" class="rounded-0 mx-auto bg-primary" variant="tonal">
-                <span class="text-white font-weight-bold">{{ $t('buttons.allClients') }}</span>
-              </v-btn>
-            </template>
-          </v-col>
-        </v-row>
       </v-col>
     </v-row>
   </v-container>
