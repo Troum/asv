@@ -54,7 +54,7 @@
             <lazy-client-only>
               <div class="d-flex flex-column fill-height justify-center align-start"
                    style="row-gap: 40px">
-                <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
+                <h2 class="text-white font-size-32" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
                 <p class="text-white font-size-16">{{ slide.description }}</p>
                 <template v-if="slide.link">
                   <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link"

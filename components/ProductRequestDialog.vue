@@ -47,13 +47,13 @@ const onSubmit = async () => {
 </script>
 
 <template>
-<v-dialog :persistent="true" max-width="75%" :model-value="status">
+<v-dialog :persistent="true" max-width="98%" :model-value="status">
   <v-form @submit.prevent="onSubmit" class="feedback-container">
-  <v-card color="primary" class="pa-10 position-relative">
+  <v-card color="primary" class="pa-10 px-5 position-relative">
     <v-btn @click="emits('closeDialog')" :ripple="false" variant="plain"
            style="top: 2.5%"
            class="position-absolute" location="top right">
-      <svg-icon size="48" type="mdi" :path="mdiClose" style="color: #fff;"></svg-icon>
+      <svg-icon size="36" type="mdi" :path="mdiClose" style="color: #fff;"></svg-icon>
     </v-btn>
     <v-card-title class="mb-6">
       <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
@@ -88,13 +88,13 @@ const onSubmit = async () => {
                     hide-details variant="outlined" class="w-100"></v-textarea>
       </div>
     </v-card-text>
-    <v-card-actions class="d-flex justify-space-between flex-column-gap-22 w-100 px-4">
-      <small class="text-secondary-light">
-        <sup>*</sup> {{ message }}
-      </small>
-      <v-btn height="50" type="submit" variant="outlined" class="rounded-0 font-size-20">
+    <v-card-actions class="d-flex justify-space-between flex-column flex-row-gap-22 w-100 px-4">
+      <v-btn height="42" type="submit" variant="outlined" class="rounded-0 font-size-16">
         {{ $t('form.submit') }}
       </v-btn>
+      <small class="text-secondary-light font-size-10">
+        <sup>*</sup> {{ message }}
+      </small>
     </v-card-actions>
   </v-card>
   </v-form>

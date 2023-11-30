@@ -30,6 +30,9 @@ blockquote {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans Condensed Bold",sans-serif;
   line-height: normal !important;
+  @media (max-width: 960px) {
+    font-size: 75% !important;
+  }
 }
 h4 {
   font-size: 21px;
@@ -69,7 +72,10 @@ article {
   .font-size-#{$i * 1} {
     font-size: #{$i * 1}px !important;
     @media (max-width: 320px) {
-      font-size: #{$i * 0.75}px !important;
+      font-size: #{$i * 0.65}px !important;
+    }
+    @media (max-width: 920px) {
+      font-size: #{$i * 0.8}px !important;
     }
   }
   .letter-spacing-#{$i} {

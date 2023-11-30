@@ -11,7 +11,7 @@
           <template v-if="mobile">
             <div>
               <div class="text-center">
-                <nuxt-img provider="strapi" :src="product.avatar[0].attributes.url" style="max-width: 320px"></nuxt-img>
+                <nuxt-img provider="strapi" :src="product.avatar[0].attributes.url" style="max-width: 100%"></nuxt-img>
               </div>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>

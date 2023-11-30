@@ -47,3 +47,46 @@ table tbody td {
   align-items: center;
   width: 100% !important;
 }
+.publication {
+  & .v-card-title {
+    text-transform: uppercase !important;
+    display: block !important;
+    flex: none !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    letter-spacing: normal !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    overflow: hidden !important;
+    padding: 0.5rem 1rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    word-wrap: break-word !important;
+    @media (max-width: 920px) {
+      font-size: .85rem !important;
+    }
+  }
+  & .v-card-subtitle {
+    text-transform: uppercase !important;
+    display: block !important;
+    flex: none !important;
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    letter-spacing: normal !important;
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+    overflow: hidden !important;
+    padding: 0.5rem 1rem !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    word-wrap: break-word !important;
+    @media (max-width: 920px) {
+      font-size: .65rem !important;
+      font-weight: 400 !important;
+      color: #fff !important;
+    }
+  }
+
+}

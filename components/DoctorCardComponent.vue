@@ -1,6 +1,6 @@
 <template>
   <v-card
-      :min-height="xl ? height * 0.6334 : height * 0.70334"
+      :min-height="minHeight"
       elevation="0"
       :rounded="0"
       class="mx-auto align-self-baseline"
@@ -93,7 +93,7 @@ const props = defineProps({
   }
 })
 const {$display} = useNuxtApp()
-const { width, height, mobile, xl } = useDisplay()
+const { width, height, mobile, name, lg, xl, xxl  } = useDisplay()
 const more = () => {
   if (showMore.value) {
     length.value = 10
@@ -105,6 +105,14 @@ const more = () => {
 }
 const description = computed(() => {
   return truncate(props.doctor.description, length.value, {byWords: true})
+})
+const minHeight = computed(() => {
+  switch (name.value) {
+    case 'lg': return height.value * 0.6334
+    case 'xl': return height.value * 0.70334
+    case 'xxl': return height.value * 0.6034
+  }
+  return '100%'
 })
 </script>
 

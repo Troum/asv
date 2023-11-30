@@ -275,7 +275,7 @@
       <v-footer class="d-block bg-primary px-8 py-10" style="min-height: 400px">
         <div class="d-flex align-self-baseline justify-space-between w-100">
           <v-img :max-width="$display.logo(display.width.value, 600)" src="/logo-w.svg"></v-img>
-          <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.menu') }}</h4>
+          <h4 class="font-size-36 font-weight-bold text-uppercase text-center mr-4 mr-lg-0">{{ $t('titles.menu') }}</h4>
         </div>
         <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
           <div class="d-flex flex-column align-baseline justify-start">
@@ -366,7 +366,7 @@
                           hide-details variant="outlined" class="w-100"></v-textarea>
             </div>
             <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <small class="text-secondary-light">
+              <small class="text-secondary-light font-size-12">
                 <sup>*</sup> {{ message }}
               </small>
               <v-btn type="submit" variant="outlined" class="rounded-0">
@@ -376,11 +376,11 @@
           </v-form>
         </div>
         <v-divider class="w-100 my-5" style="border-width: 0.12px; opacity: 1" color="info"/>
-        <div class="d-flex flex-column flex-row-gap-30">
-          <small class="text-secondary-light">
+        <div class="d-flex flex-column flex-row-gap-10">
+          <small class="text-secondary-light font-size-12">
             © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
           </small>
-          <div class="d-flex align-start flex-column-gap-15">
+          <div class="d-flex align-start justify-space-between flex-column-gap-15">
             <small class="text-secondary-light text-right">
               {{
                 $t('development')

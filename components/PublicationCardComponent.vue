@@ -1,18 +1,18 @@
 <template>
   <v-hover>
     <template v-slot:default="{ isHovering, props }">
-      <v-card :height="420" v-bind="props" elevation="0" class="d-flex align-center justify-space-between rounded-0 pa-0 position-relative">
-        <v-card-text class="d-flex flex-column flex-row-gap-20 pl-0 pr-4 py-8 w-62 fill-height bg-primary z-index-2">
+      <v-card :height="440" v-bind="props" elevation="0" class="d-flex align-center justify-space-between rounded-0 pa-0 position-relative publication">
+        <v-card-text class="d-flex flex-column flex-row-gap-20 pl-0 pr-4 py-8 w-62 fill-height bg-primary z-index-2 position-relative">
           <v-card-title class="pl-4 text-left font-weight-bold text-white text-uppercase letter-spacing-1 font-size-21 title-line"
-                        style="white-space: pre-wrap; line-height: normal">{{ publication.title }}
+                        style="line-height: normal">{{ publication.title }}
           </v-card-title>
           <article class="pl-4 font-size-16 text-white" v-text="text">
           </article>
           <client-only>
-            <v-card-subtitle style="font-size: 12px" v-html="publication.createdAt"></v-card-subtitle>
+            <v-card-subtitle style="font-size: 12px; position: absolute; bottom: 10px" v-html="publication.createdAt"></v-card-subtitle>
           </client-only>
         </v-card-text>
-        <div class="position-relative" style="height: 420px">
+        <div class="position-relative" style="height: 440px">
           <nuxt-img provider="strapi" height="420px" class="w-100 h-100 position-relative z-index-1"
                     :src="publication.image"></nuxt-img>
           <v-fade-transition>
@@ -51,7 +51,7 @@ const props = defineProps({
 })
 const { mobile } = useDisplay()
 const text = computed(() => {
-  return truncate(props.publication.article.replace(/(<([^>]+)>)/gi, ""), 20, {byWords: true})
+  return truncate(props.publication.article.replace(/(<([^>]+)>)/gi, ""), mobile.value ? 17 : 20, {byWords: true})
 })
 </script>
 
