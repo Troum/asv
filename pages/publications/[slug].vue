@@ -7,7 +7,7 @@
           {{ $t('loading') }}
         </template>
         <template v-else>
-          <v-card color="transparent" flat class="px-0" style="padding-top: 60px; padding-bottom: 60px">
+          <v-card color="transparent" flat class="px-0 publication" style="padding-top: 60px; padding-bottom: 60px">
             <v-card-title class="d-flex justify-end">
               <v-btn style="opacity: 1;" variant="plain"
                      :ripple="false"
