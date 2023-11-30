@@ -11,7 +11,7 @@
             <v-card-title class="d-flex justify-end w-100">
               <v-btn style="opacity: 1;" variant="plain"
                      :ripple="false"
-                     class="d-flex align-center font-size-18 font-weight-bold">
+                     class="d-flex align-center font-size-18 font-weight-bold ml-auto">
                 <svg-icon size="26" type="mdi" :path="mdiChevronLeft"/>
                 <NuxtLink to="/publications" class="ml-4 text-decoration-none text-primary">{{ $t('buttons.back') }}</NuxtLink>
               </v-btn>
