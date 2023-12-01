@@ -23,8 +23,12 @@
             {{ $t('loading') }}
           </template>
           <template v-else>
-            <v-card-text>
-              <doctors-slider :doctors="doctors" />
+            <v-card-text class="d-flex justify-start align-baseline flex-wrap flex-column flex-lg-row" style="flex: 0 0 auto; column-gap: 3%; row-gap: 5%">
+              <template v-for="(doctor, key) of doctors" :key="key">
+                <div :style="`width: ${mobile ? '100%' : '30%'}`">
+                  <doctor-card-component :doctor="doctor"/>
+                </div>
+              </template>
             </v-card-text>
           </template>
 
@@ -42,7 +46,7 @@ import Doctor from "~/models/Doctor";
 import {useI18n} from "vue-i18n";
 import {useLangStore} from "~/store/lang";
 import {useDisplay} from "vuetify";
-import DoctorsSlider from "~/components/DoctorsSlider.vue";
+import DoctorCardComponent from "~/components/DoctorCardComponent.vue";
 
 definePageMeta({
   breadcrumb: 'pages.about.title'

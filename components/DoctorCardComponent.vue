@@ -1,6 +1,6 @@
 <template>
   <v-card
-      :min-height="minHeight"
+      :min-height="width <= 320 ? height * 1.25 : minHeight"
       elevation="0"
       :rounded="0"
       class="mx-auto align-self-baseline"
@@ -54,7 +54,7 @@
         </div>
       </template>
     </v-hover>
-    <div style="display: grid; grid-template-columns: 1fr; grid-auto-rows: minmax(120px, auto) 50px">
+    <div style="display: grid; grid-template-columns: 1fr; grid-auto-rows: minmax(120px, auto) 50px minmax(160px, auto) 50px ">
       <v-card-subtitle class="font-size-16 text-info-darken text-initial font-weight-regular pt-9 px-0 text-left"
                        style="white-space: pre-wrap">
         {{ doctor.position }}
@@ -62,17 +62,13 @@
       <v-card-title class="font-size-18 font-weight-bold text-uppercase px-0 text-left" style="white-space: pre-wrap">
         {{ doctor.name }}
       </v-card-title>
+      <v-card-text class="text-secondary-light px-0 text-left" v-html="description"></v-card-text>
+      <v-card-actions class="px-0">
+        <v-btn @click="more" style="opacity: 1" :ripple="false" variant="plain" class="px-0">
+          <span class="text-info">{{ showMore ? $t('buttons.collapse') : $t('buttons.expand') }}</span>
+        </v-btn>
+      </v-card-actions>
     </div>
-    <div ></div>
-    <v-card-text class="text-secondary-light px-0 text-left" v-html="description"></v-card-text>
-
-    <v-card-actions class="px-0" :style="`position: ${!showMore ? 'absolute' : 'relative'}; bottom: 0`">
-      <v-btn @click="more" style="opacity: 1" :ripple="false" variant="plain" class="px-0">
-        <span class="text-info">{{ showMore ? $t('buttons.collapse') : $t('buttons.expand') }}</span>
-      </v-btn>
-    </v-card-actions>
-
-
   </v-card>
 </template>
 
@@ -80,8 +76,8 @@
 import Doctor from "~/models/Doctor";
 import {computed} from "vue";
 import truncate from "truncate-html";
-import {useDisplay} from "vuetify";
-
+import {useDisplay, useLocale} from "vuetify";
+const { current } = useLocale()
 const length = ref(10)
 const showMore = ref(false)
 const props = defineProps({
@@ -93,7 +89,7 @@ const props = defineProps({
   }
 })
 const {$display} = useNuxtApp()
-const { width, height, mobile, name, lg, xl, xxl  } = useDisplay()
+const { width, height, mobile, name } = useDisplay()
 const more = () => {
   if (showMore.value) {
     length.value = 10
@@ -108,13 +104,11 @@ const description = computed(() => {
 })
 const minHeight = computed(() => {
   switch (name.value) {
-    case 'xs': return height.value * 0.9534
-    case 'sm': return height.value * 0.8534
     case 'md': return height.value * 0.7534
-    case 'lg': return height.value * 0.7334
-    case 'xl': return height.value * 0.70334
-    case 'xxl': return height.value * 0.6034
+    case 'lg': return height.value * 0.8334
+    case 'xl': return height.value * 0.5334
   }
+  return height.value * 0.89
 })
 </script>
 
