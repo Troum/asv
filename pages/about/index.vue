@@ -7,7 +7,7 @@
         {{ $t('loading') }}
       </template>
       <template v-else>
-        <v-card flat style="padding-top: 60px; padding-bottom: 60px">
+        <v-card flat style="padding-top: 60px; padding-bottom: 60px" class="about">
           <v-card-title tag="h1" class="text-uppercase font-size-36 px-0 text-pre-wrap" style="line-height: 40px">
             {{ page.title }}
           </v-card-title>

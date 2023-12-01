@@ -90,13 +90,11 @@ table tbody td {
   }
 
 }
-.publication_details {
+.publication_details, .about {
   & .v-card-title, .v-card-subtitle {
     text-transform: uppercase !important;
     display: block !important;
     flex: none !important;
-    font-size: 1.25rem !important;
-    font-weight: 700 !important;
     -webkit-hyphens: none !important;
     hyphens: none !important;
     letter-spacing: normal !important;
@@ -109,3 +107,4 @@ table tbody td {
   }
 
 }
+
