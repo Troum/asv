@@ -279,46 +279,45 @@
         </div>
         <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
           <div class="d-flex flex-column align-baseline justify-start">
-            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.sale_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase font-size-16" style="letter-spacing: .00005rem">
-                {{ $t('salesDepartment') }}
+                {{ contacts.sale_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href="tel:+37068655420">+370
-                686 554 20</a>
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`">
+              {{ contacts.sale_contact }}
+              </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.service_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
-                {{ $t('serviceDepartment') }}
+                {{ contacts.service_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="tel:+375173362302">
-                +375 17 336 23 02
+                 :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`">
+                {{ contacts.service_contact }}
               </a>
             </div>
             <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
-                {{ $t('financialDepartment') }}
+                {{ contacts.financial_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="tel:+370604855564">
-                +370 604 855564
+                 :href="`tel:${contacts.financial_contact.replaceAll(' ', '')}`">
+                {{ contacts.financial_contact }}
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.email_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
-                e-mail
+                {{ contacts.email_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="mailto:inbox@asv-trade.by">inbox@asv-trade.by</a>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 href="mailto:service@asv-trade.by">service@asv-trade.by</a>
+                 :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.address_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
-                {{ $t('titles.address') }}
+                {{ contacts.address_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" href=""
-                 v-html="$t('address')">
+                 v-html="contacts.address_contact">
               </a>
             </div>
           </div>
@@ -380,14 +379,6 @@
           <small class="text-secondary-light font-size-12">
             © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
           </small>
-          <div class="d-flex align-start justify-space-between flex-column-gap-15">
-            <small class="text-secondary-light text-right">
-              {{
-                $t('development')
-              }}
-            </small>
-            <v-img src="/fcb.svg" max-width="75"></v-img>
-          </div>
         </div>
       </v-footer>
     </template>
@@ -504,14 +495,6 @@
             <small class="text-secondary-light font-size-11">
               © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
             </small>
-            <div class="d-flex justify-space-between align-start flex-column-gap-15">
-              <small class="text-secondary-light text-right font-size-11">
-                {{
-                  $t('development')
-                }}
-              </small>
-              <v-img src="/fcb.svg" width="150"></v-img>
-            </div>
           </div>
         </v-footer>
       </client-only>

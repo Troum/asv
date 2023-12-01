@@ -6,7 +6,7 @@
       <div class="contact-page">
         <div class="py-16">
           <v-card flat>
-            <v-card-title class="mb-16" :class="{'font-size-36': mobile}">
+            <v-card-title class="mb-16 font-weight-bold" :class="{'font-size-36': mobile}">
               {{ $t('contacts.name') }}
             </v-card-title>
             <v-card-text class="mt-16 pa-0 d-flex flex-column flex-row-gap-32">
@@ -14,7 +14,7 @@
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.sale_contact_title }}</span>
-                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
+                  <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
                      :href="`tel:${contacts.sale_contact}`">{{ contacts.sale_contact }}</a>
                 </div>
               </v-card-subtitle>
@@ -22,7 +22,7 @@
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.service_contact_title }}</span>
-                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
+                  <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
                      :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`">{{ contacts.service_contact }}</a>
                 </div>
               </v-card-subtitle>
@@ -30,7 +30,7 @@
                 <phone/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.financial_contact_title }}</span>
-                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
+                  <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
                      :href="`tel:${contacts.financial_contact.replaceAll(' ', '')}`">{{
                       contacts.financial_contact
                     }}</a>
@@ -40,15 +40,15 @@
                 <envelop/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.email_contact_title }}</span>
-                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
-                     :href="`mailto:${contacts.email_contact}`"></a>
+                  <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
+                     :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
                 </div>
               </v-card-subtitle>
               <v-card-subtitle v-if="contacts?.address_contact" style="opacity: 1" class="d-flex flex-column-gap-25">
                 <place/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.address_contact_title }}</span>
-                  <a class="on-hover text-primary text-decoration-none font-weight-medium font-size-20"
+                  <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
                      style="white-space: pre-wrap"
                      href="#" v-html="contacts.address_contact">
                   </a>

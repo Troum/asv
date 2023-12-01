@@ -31,7 +31,6 @@
               </template>
             </v-card-text>
           </template>
-
         </v-card>
       </template>
     </v-col>
