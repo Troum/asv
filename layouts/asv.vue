@@ -203,7 +203,7 @@
                       <NuxtLink :to="item.route"
                                 v-bind="props"
                                 transition="fade"
-                                :style="`--color: #FFF`"
+                                :style="`--menu-text-color: ${menuTextColor}`"
                                 class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20 on-hover menu">
                         {{ item.title }}
                       </NuxtLink>
@@ -212,7 +212,7 @@
                       <template v-for="(filter, index) in filters" :key="index">
                         <NuxtLink :to="`${item.route}?filter=${filter.value}`"
                                   transition="fade"
-                                  class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20">
+                                  class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover in_menu font-size-20">
                           {{ filter.title }}
                         </NuxtLink>
                       </template>
@@ -222,7 +222,7 @@
                 <template v-else>
                   <NuxtLink :to="item.route"
                             transition="fade"
-                            :style="`--color: ${menuTextColor}`"
+                            :style="`--menu-text-color: ${menuTextColor}`"
                             class="d-flex align-center text-uppercase text-decoration-none font-weight-bold on-hover font-size-20">
                     {{ item.title }}
                   </NuxtLink>
@@ -894,10 +894,12 @@ const menuTextColor = computed(() => {
 }
 
 .on-hover {
-  --color: #FFF;
   letter-spacing: 2px;
   transition: all .3s ease-in-out;
-  color: var(--color) !important;
+  color: var(--menu-text-color) !important;
+  &.in_menu {
+    color: #fff !important;
+  }
 
   &:hover {
     color: #00EAFC !important;

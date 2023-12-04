@@ -164,7 +164,7 @@
           </template>
         </client-only>
       </v-col>
-      <v-col cols="12" class="d-flex flex-column pa-0 mx-auto position-relative mb-4" style="font-family: 'Arial', sans-serif">
+      <v-col cols="10" lg="10" class="d-flex flex-column pa-0 mx-auto position-relative mb-4" style="font-family: 'Arial', sans-serif">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
         <client-only>
           <client-slider :current="current" :clients="clients.list"/>

@@ -77,10 +77,16 @@
             <lazy-client-only>
               <div class="d-flex flex-column fill-height justify-center align-start"
                    style="row-gap: 40px">
-                <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                <p class="text-white font-size-16">{{ slide.description }}</p>
+                <template v-if="slide.textColor">
+                  <h2 :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor}`" v-html="slide.title"></h2>
+                  <p class="font-size-16" :style="`color: ${slide.textColor}`">{{ slide.description }}</p>
+                </template>
+                <template v-else>
+                  <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
+                  <p class="text-white font-size-16">{{ slide.description }}</p>
+                </template>
                 <template v-if="slide.link">
-                  <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button">
+                  <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button" :style="`color: ${slide.textColor}`">
                     {{ $t('buttons.details') }}
                   </v-btn>
                 </template>
@@ -95,7 +101,7 @@
 </template>
 
 <script setup>
-import {ref, watch} from "vue"
+import {ref, watch, onMounted} from "vue"
 import {useDisplay} from "vuetify";
 import SvgIcon from '@jamescoyle/vue-icon'
 import {mdiCircle} from "@mdi/js";
@@ -123,6 +129,12 @@ const { mobile } = useDisplay()
 const getColor = (index) => {
   return `color: ${index === current.value ? '#00EAFC' : '#D9D9D9'}`
 }
+
+onMounted(() => {
+  if (props.slides.length === 1) {
+    menuColor.setColor(props.slides[0].textColor)
+  }
+})
 
 watch(carouselSize.height, (value) => {
   if (value > 0) {
