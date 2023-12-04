@@ -83,7 +83,7 @@
                           controls
                           style="max-width: 100%"
                           preload="auto"
-                          :src="`https://dashboard.a-sv.site${product.video}`"/>
+                          :src="`https://dashboard.asvtrade.lt${product.video}`"/>
                     </v-card-text>
                   </v-card>
                 </v-window-item>
@@ -93,7 +93,7 @@
           <template v-else>
             <div class="product-card" :style="`grid-template-columns: ${$display.width(display.width.value, 540)}px 1fr`">
               <div class="position-relative d-flex justify-center"
-                  :style="`width: ${$display.width(display.width.value, 540)}px; height: ${$display.height(display.height.value, 540)}px; background-image: url('https://dashboard.a-sv.site${product.avatar[indexOfPhotos].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+                  :style="`width: ${$display.width(display.width.value, 540)}px; height: ${$display.height(display.height.value, 540)}px; background-image: url('https://dashboard.asvtrade.lt${product.avatar[indexOfPhotos].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
               >
                 <div class="position-absolute" style="bottom: 15px">
                   <v-btn @click="indexOfPhotos < (product.avatar.length - 1) ? indexOfPhotos++ : indexOfPhotos = 0"
@@ -173,7 +173,7 @@
                           style="max-width: 100%"
                           controls
                           preload="auto"
-                          :src="`https://dashboard.a-sv.site${product.video}`"/>
+                          :src="`https://dashboard.asvtrade.lt${product.video}`"/>
                     </v-card-text>
                   </v-card>
                 </v-window-item>
@@ -235,7 +235,7 @@ const replace = (html) => {
   const container = document.createElement('div')
   container.innerHTML = html
   container.querySelectorAll('img').forEach((img) => {
-    img.src = `https://dashboard.a-sv.site${img.src}`
+    img.src = `https://dashboard.asvtrade.lt${img.src}`
   })
   return container.innerHTML
 }

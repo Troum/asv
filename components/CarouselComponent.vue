@@ -44,7 +44,7 @@
     >
       <div class="w-100 fill-height position-relative"
            :class="{'d-flex align-center': mobile}"
-           :style="`background-color: ${slide.background}; background-image: url('https://dashboard.a-sv.site${slide.src}'); background-size: ${mobile ? 'cover' : 'contain'}; background-repeat: no-repeat`">
+           :style="`background-color: ${slide.background}; background-image: url('https://dashboard.asvtrade.lt${slide.src}'); background-size: ${mobile ? 'cover' : 'contain'}; background-repeat: no-repeat`">
         <template v-if="mobile">
           <v-sheet
               class="z-index-3 position-relative px-3"
