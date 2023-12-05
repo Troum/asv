@@ -799,6 +799,8 @@ watch(locale, async (value) => {
                   mobile.value ? item.attributes.mobile_src.data.attributes.url : item.attributes.src.data.attributes.url,
                   item.attributes.background,
                   item.attributes.textColor,
+                  item.attributes.button_color,
+                  item.attributes.button_text_color,
               ).toJson()
             })
         )
