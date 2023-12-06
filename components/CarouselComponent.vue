@@ -6,6 +6,7 @@
       :cycle="true"
       :height="$display.height(display.height.value, 790)"
       hide-delimiters
+      :show-arrows="slides.length > 1"
   >
     <template v-slot:prev="{ props }">
       <v-btn

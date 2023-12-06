@@ -190,6 +190,9 @@ article {
     column-gap: 3.3% !important;
     transform-style: preserve-3d;
     flex: 0 0 auto;
+    @media (max-width: 920px) {
+      column-gap: 0 !important;
+    }
     & .carousel__slide {
       width: 30%;
       @media (max-width: 920px) {

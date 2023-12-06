@@ -1,9 +1,18 @@
 <template>
-  <Carousel :autoplay="1000" :itemsToShow="mobile ? 1 : 5" :wrapAround="true" :transition="500">
-    <Slide v-for="(client, key) of clients.slice(0, current)" :key="key">
-      <client-card-component :client="client"/>
-    </Slide>
-  </Carousel>
+  <template v-if="!mobile">
+    <Carousel :autoplay="1000" :itemsToShow="6" :wrapAround="true" :transition="500">
+      <Slide v-for="(client, key) of clients.slice(0, current)" :key="key">
+        <client-card-component :client="client"/>
+      </Slide>
+    </Carousel>
+  </template>
+  <template v-else>
+    <Carousel :autoplay="1000" :transition="500" :itemsToShow="1" :wrapAround="true" snapAlign="center">
+      <Slide v-for="(client, key) of clients.slice(0, current)" :key="key">
+        <client-card-component :client="client"/>
+      </Slide>
+    </Carousel>
+  </template>
 </template>
 
 <script setup>

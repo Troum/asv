@@ -10,8 +10,20 @@
         <v-col cols="12" class="mx-0 position-relative" :class="{'page-frames': !mobile, 'px-6': mobile}">
           <template v-if="mobile">
             <div>
-              <div class="text-center">
-                <nuxt-img provider="strapi" :src="product.avatar[0].attributes.url" style="max-width: 100%"></nuxt-img>
+              <div class="d-flex align-center justify-center text-center position-relative">
+                <div class="position-relative d-flex justify-center"
+                     :style="`width: 100%; height: ${$display.height(display.height.value, 540)}px; background-image: url('https://dashboard.asvtrade.lt${product.avatar[indexOfPhotos].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+                ></div>
+                <div class="position-absolute" style="bottom: 15px">
+                  <v-btn @click="indexOfPhotos < (product.avatar.length - 1) ? indexOfPhotos++ : indexOfPhotos = 0"
+                         class="pa-0 mr-3" width="50" height="50" :ripple="false" color="primary" icon>
+                    <svg-icon :path="mdiChevronLeft" type="mdi"></svg-icon>
+                  </v-btn>
+                  <v-btn @click="indexOfPhotos > 0 ? indexOfPhotos-- : indexOfPhotos = (product.avatar.length - 1)"
+                         class="pa-0 ml-3" width="50" height="50" :ripple="false" color="info" icon>
+                    <svg-icon :path="mdiChevronRight" type="mdi" style="color: #ffffff"></svg-icon>
+                  </v-btn>
+                </div>
               </div>
               <v-card :rounded="0" :elevation="0">
                 <v-card-subtitle class="font-size-18 font-weight-light px-0">{{ product.company }}</v-card-subtitle>
