@@ -42,70 +42,64 @@
       </div>
     </template>
     <v-carousel-item
+        cover
         v-for="(slide, i) in slides"
+        :width="display.width.value"
+        :height="display.height.value - 95"
         :key="i"
+        :src="`https://dashboard.asvtrade.lt${slide.src}`"
+        content-class="px-4 px-lg-0 pt-lg-16"
     >
-      <div class="w-100 fill-height position-relative"
-           :class="{'d-flex align-center': mobile}">
-        <v-img :src="`https://dashboard.asvtrade.lt${slide.src}`">
-          <template v-if="mobile">
-            <v-sheet
-                class="z-index-3 position-relative px-3"
-                color="transparent"
-                height="100%"
-            >
-              <lazy-client-only>
-                <div class="d-flex flex-column fill-height justify-center align-start"
-                     style="row-gap: 40px">
-                  <template v-if="slide.textColor">
-                    <h2 class="font-size-32" :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor ?? '#fff'}`" v-html="slide.title"></h2>
-                    <p class="font-size-16" :style="`color: ${slide.textColor ?? '#fff'}`" v-html="slide.description"></p>
-                  </template>
-                  <template v-else>
-                    <h2 class="text-white font-size-32" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                    <p class="text-white font-size-16" v-html="slide.description"></p>
-                  </template>
-                  <template v-if="slide.link">
-                    <v-btn  rounded="0" :ripple="false" variant="tonal" :href="slide.link"
-                            :style="`color: ${slide.buttonTextColor}; background-color: ${slide.buttonColor}`"
-                            class="more_info__button">
-                      {{ $t('buttons.details') }}
-                    </v-btn>
-                  </template>
-                </div>
-              </lazy-client-only>
-            </v-sheet>
-          </template>
-          <template v-else>
-            <v-sheet
-                class="z-index-3 position-relative"
-                color="transparent"
-                :width="$display.slideContentWidth(display.width.value, 540)"
-                style="margin-left: calc((255 * 100%) / 1920)"
-                height="100%"
-            >
-              <lazy-client-only>
-                <div class="d-flex flex-column fill-height justify-center align-start"
-                     style="row-gap: 40px">
-                  <template v-if="slide.textColor">
-                    <h2 :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor}`" v-html="slide.title"></h2>
-                    <p class="font-size-16" :style="`color: ${slide.textColor}`" v-html="slide.description"></p>
-                  </template>
-                  <template v-else>
-                    <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                    <p class="text-white font-size-16" v-html="slide.description"></p>
-                  </template>
-                  <template v-if="slide.link">
-                    <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button" :style="`color: ${slide.buttonTextColor}; background-color: ${slide.buttonColor}`">
-                      {{ $t('buttons.details') }}
-                    </v-btn>
-                  </template>
-                </div>
-              </lazy-client-only>
-            </v-sheet>
-          </template>
-        </v-img>
-      </div>
+      <template v-if="mobile">
+        <lazy-client-only>
+          <div class="d-flex flex-column fill-height justify-center align-start"
+               style="row-gap: 40px">
+            <template v-if="slide.textColor">
+              <article class="carousel_main_page" :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor ?? '#fff'}`" v-html="slide.title"></article>
+              <article class="carousel_main_page" :style="`color: ${slide.textColor ?? '#fff'}`" v-html="slide.description"></article>
+            </template>
+            <template v-else>
+              <article class="carousel_main_page" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></article>
+              <article class="carousel_main_page" v-html="slide.description"></article>
+            </template>
+            <template v-if="slide.link">
+              <v-btn  rounded="0" :ripple="false" variant="tonal" :href="slide.link"
+                      :style="`color: ${slide.buttonTextColor}; background-color: ${slide.buttonColor}`"
+                      class="more_info__button">
+                {{ $t('buttons.details') }}
+              </v-btn>
+            </template>
+          </div>
+        </lazy-client-only>
+      </template>
+      <template v-else>
+        <v-sheet
+            class="z-index-3 position-relative"
+            color="transparent"
+            :width="$display.slideContentWidth(display.width.value, 540)"
+            style="margin-left: calc((255 * 100%) / 1920)"
+            height="100%"
+        >
+          <lazy-client-only>
+            <div class="d-flex flex-column fill-height justify-center align-start"
+                 style="row-gap: 40px">
+              <template v-if="slide.textColor">
+                <article class="carousel_main_page" :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor}`" v-html="slide.title"></article>
+                <article class="carousel_main_page" :style="`color: ${slide.textColor}`" v-html="slide.description"></article>
+              </template>
+              <template v-else>
+                <article class="carousel_main_page" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></article>
+                <article class="carousel_main_page" v-html="slide.description"></article>
+              </template>
+              <template v-if="slide.link">
+                <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button" :style="`color: ${slide.buttonTextColor}; background-color: ${slide.buttonColor}`">
+                  {{ $t('buttons.details') }}
+                </v-btn>
+              </template>
+            </div>
+          </lazy-client-only>
+        </v-sheet>
+      </template>
 
     </v-carousel-item>
   </v-carousel>

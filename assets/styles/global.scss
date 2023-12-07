@@ -1,4 +1,10 @@
 @font-face {
+  font-family: "Open Sans Condensed Light";
+  font-weight: 200;
+  src: local("Plumb Condensed"),
+  url(/fonts/OpenSans-CondensedLight.ttf) format("truetype");
+}
+@font-face {
   font-family: "Open Sans Condensed";
   font-weight: 400;
   src: local("Plumb Condensed"),

@@ -6,6 +6,7 @@ body {
   font-family: 'Open Sans Condensed', sans-serif;
   overflow-x: hidden;
 }
+
 blockquote {
   position: relative;
   display: flex;
@@ -18,6 +19,7 @@ blockquote {
   @media (max-width: 1280px) {
     padding: 30px 30px 30px 108px;
   }
+
   &::before {
     position: absolute;
     display: block;
@@ -28,106 +30,164 @@ blockquote {
     left: 2%;
   }
 }
+
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans Condensed Bold",sans-serif;
+  font-family: "Open Sans Condensed Bold", sans-serif;
   line-height: normal !important;
   @media (max-width: 960px) {
     font-size: 75% !important;
   }
 }
+
 h1 {
+  font-size: 2.7rem !important;
+
   @media (max-width: 960px) {
-    font-size: 2.5rem!important;
+    font-size: 2.4rem !important;
   }
 }
+
 h2 {
+  font-size: 2.488rem !important;
+
   @media (max-width: 960px) {
-    font-size: 2.2rem!important;
+    font-size: 2.2rem !important;
   }
 }
+
 h3 {
+  font-size: 2.074rem !important;
+
   @media (max-width: 960px) {
-    font-size: 2rem!important;
+    font-size: 1.84rem !important;
   }
 }
+
 h4 {
+  font-size: 1.724rem !important;
   @media (max-width: 960px) {
-    font-size: 1.5rem!important;
+    font-size: 1.5rem !important;
   }
 }
+
 h5 {
+  font-size: 1.44rem !important;
   @media (max-width: 960px) {
-    font-size: 1.2rem!important;
+    font-size: 1.2rem !important;
   }
 }
+
 h6 {
+  font-size: 1.2rem !important;
   @media (max-width: 960px) {
-    font-size: 1.1rem!important;
+    font-size: 1.1rem !important;
   }
 }
+
 article {
   font-family: Arial, sans-serif !important;
+
+
   & p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px !important;
+    font-weight: normal !important;
   }
+
   & h1 {
     @media (max-width: 960px) {
-      font-size: 2.5rem!important;
+      font-size: 2.5rem !important;
     }
   }
+
   & h2 {
     @media (max-width: 960px) {
-      font-size: 2.2rem!important;
+      font-size: 2.2rem !important;
     }
   }
+
   & h3 {
     @media (max-width: 960px) {
-      font-size: 2rem!important;
+      font-size: 1.84rem !important;
     }
   }
+
   & h4 {
     @media (max-width: 960px) {
-      font-size: 1.5rem!important;
+      font-size: 1.5rem !important;
     }
   }
+
   & h5 {
     @media (max-width: 960px) {
-      font-size: 1.2rem!important;
+      font-size: 1.2rem !important;
     }
   }
+
   & h6 {
     @media (max-width: 960px) {
-      font-size: 1.1rem!important;
+      font-size: 1.1rem !important;
     }
   }
+
   & p {
     font-size: 1rem !important;
+
     & img {
       display: block;
       margin-outside: 15px;
     }
   }
+
   & ul {
     list-style: circle !important;
     margin-bottom: 15px !important;
+
     & li {
       display: flex;
       flex-flow: row;
       align-items: center;
+
       & p {
         margin-bottom: 0 !important;
+
         &::before {
           content: "•";
           margin-right: 10px;
         }
       }
+
       &::marker {
         color: #000 !important;
         font-size: 0.8rem !important;
       }
     }
   }
+  &.carousel_main_page {
+
+    & h1, h2, h3, h4, h5, h6 {
+      font-family: "Open Sans Condensed", sans-serif;
+      margin-bottom: 0 !important;
+      font-weight: 400 !important;
+      line-height: 1 !important;
+      & strong {
+        font-family: "Open Sans Condensed Bold", sans-serif;
+        font-weight: 600 !important;
+      }
+    }
+    & p {
+      font-family: "Open Sans Condensed", sans-serif;
+      font-weight: 400 !important;
+      margin-bottom: 0 !important;
+      & strong {
+        display: block;
+        font-family: "Open Sans Condensed Bold", sans-serif;
+        margin-bottom: 15px !important;
+        font-weight: 600 !important;
+      }
+    }
+  }
 }
+
 @for $i from 1 to 72 {
   .font-size-#{$i * 1} {
     font-size: #{$i * 1}px !important;
@@ -176,6 +236,7 @@ article {
 .v-card__overlay {
   opacity: 0 !important;
 }
+
 .v-field--variant-outlined {
   &.v-field--focused {
     & .v-field__outline {
@@ -183,8 +244,10 @@ article {
     }
   }
 }
+
 .carousel__viewport {
   display: flex;
+
   & .carousel__track {
     display: flex;
     column-gap: 3.3% !important;
@@ -193,6 +256,7 @@ article {
     @media (max-width: 920px) {
       column-gap: 0 !important;
     }
+
     & .carousel__slide {
       width: 30%;
       @media (max-width: 920px) {
