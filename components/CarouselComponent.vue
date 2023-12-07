@@ -57,11 +57,11 @@
                    style="row-gap: 40px">
                 <template v-if="slide.textColor">
                 <h2 class="font-size-32" :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor ?? '#fff'}`" v-html="slide.title"></h2>
-                <p class="font-size-16" :style="`color: ${slide.textColor ?? '#fff'}`">{{ slide.description }}</p>
+                <p class="font-size-16" :style="`color: ${slide.textColor ?? '#fff'}`" v-html="slide.description"></p>
                 </template>
                 <template v-else>
                   <h2 class="text-white font-size-32" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                  <p class="text-white font-size-16">{{ slide.description }}</p>
+                  <p class="text-white font-size-16" v-html="slide.description"></p>
                 </template>
                 <template v-if="slide.link">
                   <v-btn  rounded="0" :ripple="false" variant="tonal" :href="slide.link"
@@ -87,11 +87,11 @@
                    style="row-gap: 40px">
                 <template v-if="slide.textColor">
                   <h2 :style="$display.fontSize(display.height.value, 64) + `; color: ${slide.textColor}`" v-html="slide.title"></h2>
-                  <p class="font-size-16" :style="`color: ${slide.textColor}`">{{ slide.description }}</p>
+                  <p class="font-size-16" :style="`color: ${slide.textColor}`" v-html="slide.description"></p>
                 </template>
                 <template v-else>
                   <h2 class="text-white" :style="$display.fontSize(display.height.value, 64)" v-html="slide.title"></h2>
-                  <p class="text-white font-size-16">{{ slide.description }}</p>
+                  <p class="text-white font-size-16" v-html="slide.description"></p>
                 </template>
                 <template v-if="slide.link">
                   <v-btn  rounded="0" :ripple="false" variant="outlined" :href="slide.link" class="more_info__button" :style="`color: ${slide.buttonTextColor}; background-color: ${slide.buttonColor}`">

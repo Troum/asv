@@ -280,7 +280,7 @@
         <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
           <div class="d-flex flex-column align-baseline justify-start">
             <div v-if="contacts.sale_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
-              <span class="text-white text-uppercase font-size-16" style="letter-spacing: .00005rem">
+              <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.sale_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`">
@@ -296,7 +296,7 @@
                 {{ contacts.service_contact }}
               </a>
             </div>
-            <div class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.financial_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.financial_contact_title }}
               </span>
