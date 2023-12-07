@@ -11,7 +11,7 @@
     <div :style="`display: grid; grid-template-columns: ${mobile ? '100%' : $display.width(width, 350)}px; grid-template-rows: ${$display.height(height, 350)}px`">
       <template v-if="Object.hasOwn(product.avatar[0], 'attributes')">
         <div
-            :style="`width: 100%; height: 100%; background-image: url('https://dashboard.asvtrade.lt${product.avatar[0].attributes.url}'); background-size: ${mobile ? 'cover' : 'contain'}; background-repeat: no-repeat; background-position: center center`"
+            :style="`width: 100%; height: 100%; background-image: url('https://dashboard.asvtrade.lt${product.avatar[0].attributes.url}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
         ></div>
       </template>
       <template v-else>
