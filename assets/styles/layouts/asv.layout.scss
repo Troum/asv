@@ -37,6 +37,10 @@
     width: 100%;
     padding-left: calc((255 * 100%) / 1920);
     padding-right: calc((255 * 100%) / 1920);
+    @media (orientation: landscape) {
+      padding-left: calc((80 * 100%) / 1920);
+      padding-right: calc((80 * 100%) / 1920);
+    }
     & .phones__container {
       letter-spacing: 0.8px;
       & .separator {

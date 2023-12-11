@@ -7,12 +7,12 @@
           <slide-group-component :height="slideGroupHeight" :slides="services.list"
                                  class="position-absolute"
                                  :is-index="isIndex"
-                                 :style="`top: ${height - 20}px; left: 0; right: 0;`"/>
+                                 :style="`top: ${height - (orientation === 'landscape-primary' ? -15 : 20)}px; left: 0; right: 0;`"/>
         </client-only>
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
              :class="{'flex-row-gap-46': !mobile}"
-             :style="`margin-top: ${slideGroupHeight + 40}px; font-family: 'Arial', sans-serif`">
+             :style="`margin-top: ${slideGroupHeight + (orientation === 'landscape-primary' ? 130 : 40)}px; font-family: 'Arial', sans-serif`">
         <h2 class="text-uppercase text-center font-size-48" :class="{ 'mb-16': mobile }" v-html="$t('mainPage.about.title')"></h2>
         <template v-if="!mobile">
           <div class="position-relative py-0">
@@ -126,7 +126,7 @@
         </template>
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
-             :style="`margin-top: ${slideGroupHeight}px;margin-bottom: ${slideGroupHeight}px; font-family: 'Arial', sans-serif`">
+             :style="`margin-top: ${slideGroupHeight - mobile ? 10 : 0}px;margin-bottom: ${slideGroupHeight}px; font-family: 'Arial', sans-serif`">
         <div class="d-flex justify-space-between align-center mb-15">
           <h2 class="text-uppercase text-left text-lg-center font-size-48" v-html="$t('titles.news')"></h2>
           <v-btn style="opacity: 1; font-family: 'Open Sans Condensed Bold', sans-serif" variant="plain"
@@ -164,7 +164,7 @@
           </template>
         </client-only>
       </v-col>
-      <v-col cols="12" class="pa-0 mx-auto position-relative mb-4" style="font-family: 'Arial', sans-serif">
+      <v-col cols="12" class="pa-0 mx-auto position-relative mb-4 mt-7" style="font-family: 'Arial', sans-serif">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
         <client-only>
           <client-slider :current="current" :clients="clients.list"/>
@@ -181,7 +181,7 @@ import CarouselComponent from "~/components/CarouselComponent.vue";
 import SlideGroupComponent from "~/components/SlideGroupComponent.vue";
 import PublicationCardComponent from "~/components/PublicationCardComponent.vue";
 import ClientSlider from "~/components/ClientSlider.vue";
-import {useElementSize} from "@vueuse/core";
+import {useElementSize, useScreenOrientation} from "@vueuse/core";
 import {useDisplay} from "vuetify";
 import SvgIcon from "@jamescoyle/vue-icon";
 import {useCarouselStore} from "~/store/carousel";
@@ -202,6 +202,7 @@ const props = defineProps({
     default: 0
   }
 })
+const {orientation} = useScreenOrientation()
 const scrollContainer = ref(null)
 const langStore = useLangStore()
 const { tm, locale } = useI18n()

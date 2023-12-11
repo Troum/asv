@@ -107,41 +107,72 @@
       </v-navigation-drawer>
     </template>
     <v-app-bar :fixed="true" elevation="0"
-               :height="$display.navBar(display.height.value, 157)">
+               :height="$display.navBar(display.height.value, mobile ? 250 : 157)">
       <div class="appbar">
         <NuxtLink to="/">
-          <v-img :width="$display.logo(display.width.value, mobile ? 500 : 200)" src="/logo.svg"></v-img>
+          <v-img
+              :width="$display.logo(display.width.value, mobile ? (orientation === 'landscape-primary' ? 250 : 500) : 200)"
+              src="/logo.svg"></v-img>
         </NuxtLink>
-        <v-btn style="opacity: 1; text-transform: initial; font-size: 18px" variant="plain"
-               @click="openSearch"
-               :ripple="false"
-               class="d-flex align-center">
-          <span class="mr-4 font-size-20">{{ $t('search') }}</span>
-          <svg-icon size="26" type="mdi" :path="mdiMagnify"/>
-        </v-btn>
-        <template v-if="mobile">
-          <v-btn @click="drawer = !drawer" class="d-flex align-center my-auto px-0" icon variant="text" :ripple="false"
-                 style="opacity: 1; width: fit-content;">
-            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                  d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
-                  fill="#000"/>
-            </svg>
+        <template v-if="orientation === 'landscape-primary'">
+          <div class="d-flex justify-self-end align-center">
+            <v-btn style="opacity: 1; text-transform: initial; font-size: 18px; margin-right: 20px" variant="plain"
+                   :class="{}"
+                   @click="openSearch"
+                   :ripple="false"
+                   class="d-flex align-center">
+              <span class="mr-4 font-size-20">{{ $t('search') }}</span>
+              <svg-icon size="26" type="mdi" :path="mdiMagnify"/>
+            </v-btn>
+            <template v-if="mobile">
+              <v-btn @click="drawer = !drawer" class="d-flex align-center my-auto px-0" icon variant="text"
+                     :ripple="false"
+                     style="opacity: 1; width: fit-content;">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                      d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
+                      fill="#000"/>
+                </svg>
+              </v-btn>
+            </template>
+          </div>
+        </template>
+        <template v-else>
+          <v-btn style="opacity: 1; text-transform: initial; font-size: 18px" variant="plain"
+                 :class="{}"
+                 @click="openSearch"
+                 :ripple="false"
+                 class="d-flex align-center">
+            <span class="mr-4 font-size-20">{{ $t('search') }}</span>
+            <svg-icon size="26" type="mdi" :path="mdiMagnify"/>
           </v-btn>
+          <template v-if="mobile">
+            <v-btn @click="drawer = !drawer" class="d-flex align-center my-auto px-0" icon variant="text"
+                   :ripple="false"
+                   style="opacity: 1; width: fit-content;">
+              <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 8.7757H20V12.1745H0V8.7757ZM0 0.278809H26.6667V3.67757H0V0.278809ZM0 20.6714H12.0583V17.2726H0V20.6714Z"
+                    fill="#000"/>
+              </svg>
+            </v-btn>
+          </template>
         </template>
         <template v-if="!mobile">
           <div ref="phonesContainer" class="d-flex align-center phones__container">
             <div class="d-flex flex-column justify-center align-end"
                  style="font-family: 'Open Sans Condensed Bold', sans-serif">
               <span class="font-weight-bold text-uppercase font-size-16">{{ contacts.sale_contact_title }}</span>
-              <span class="font-weight-bold text-uppercase font-size-16">{{ contacts.service_contact_title  }}</span>
+              <span class="font-weight-bold text-uppercase font-size-16">{{ contacts.service_contact_title }}</span>
             </div>
             <div ref="phoneSeparator" class="separator"></div>
             <div class="d-flex flex-column justify-center align-start">
-              <a :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`" class="phone_link font-weight-bold text-uppercase font-size-16">{{
+              <a :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`"
+                 class="phone_link font-weight-bold text-uppercase font-size-16">{{
                   contacts.sale_contact
                 }}</a>
-              <a :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`" class="phone_link font-weight-bold text-uppercase font-size-16">
+              <a :href="`tel:${contacts.service_contact.replaceAll(' ', '')}`"
+                 class="phone_link font-weight-bold text-uppercase font-size-16">
                 {{ contacts.service_contact }}
               </a>
             </div>
@@ -279,15 +310,18 @@
         </div>
         <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
           <div class="d-flex flex-column align-baseline justify-start">
-            <div v-if="contacts.sale_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.sale_contact" class="d-flex flex-column flex-row-gap-5 mb-4"
+                 style="line-height: normal">
               <span class="text-white text-uppercase font-size-18" style="letter-spacing: .00005rem">
                 {{ contacts.sale_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18" :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`">
-              {{ contacts.sale_contact }}
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+                 :href="`tel:${contacts.sale_contact.replaceAll(' ', '')}`">
+                {{ contacts.sale_contact }}
               </a>
             </div>
-            <div v-if="contacts.service_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.service_contact" class="d-flex flex-column flex-row-gap-5 mb-4"
+                 style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.service_contact_title }}
               </span>
@@ -296,7 +330,8 @@
                 {{ contacts.service_contact }}
               </a>
             </div>
-            <div v-if="contacts.financial_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.financial_contact" class="d-flex flex-column flex-row-gap-5 mb-4"
+                 style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.financial_contact_title }}
               </span>
@@ -305,14 +340,16 @@
                 {{ contacts.financial_contact }}
               </a>
             </div>
-            <div v-if="contacts.email_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.email_contact" class="d-flex flex-column flex-row-gap-5 mb-4"
+                 style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.email_contact_title }}
               </span>
               <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
                  :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
             </div>
-            <div v-if="contacts.address_contact" class="d-flex flex-column flex-row-gap-5 mb-4" style="line-height: normal">
+            <div v-if="contacts.address_contact" class="d-flex flex-column flex-row-gap-5 mb-4"
+                 style="line-height: normal">
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.address_contact_title }}
               </span>
@@ -330,50 +367,104 @@
             </template>
           </div>
         </div>
-        <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
-          <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
-        </div>
-        <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
-          <v-form @submit.prevent="onSubmit" class="feedback-container">
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
-              <v-text-field :label="$t('form.name')" type="text" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required]"
-                            v-model="feedback.name"
+        <template v-if="orientation === 'landscape-primary'">
+          <div class="d-flex align-self-baseline justify-center w-100 pt-10">
+            <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
+          </div>
+        </template>
+        <template v-else>
+          <div class="d-flex align-self-baseline justify-center w-100 pt-10">
+            <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
+          </div>
+        </template>
+        <template v-if="orientation === 'landscape-primary'">
+          <div class="d-flex align-self-baseline justify-center w-100 pt-10">
+            <v-form @submit.prevent="onSubmit" class="feedback-container">
+              <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
+                <v-text-field :label="$t('form.name')" type="text" hide-details variant="outlined" density="compact"
+                              :rules="[rules.required]"
+                              v-model="feedback.name"
+                              :rounded="0"
+                              class="w-50"></v-text-field>
+                <v-text-field :label="$t('form.company')" type="text" hide-details variant="outlined" density="compact"
+                              :rules="[rules.required]"
+                              v-model="feedback.company"
+                              :rounded="0"
+                              class="w-50"></v-text-field>
+              </div>
+              <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
+                <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined"
+                              density="compact"
+                              :rules="[rules.required]"
+                              v-model="feedback.phone"
+                              :rounded="0"
+                              class="w-50 border-opacity-100"></v-text-field>
+                <v-text-field label="E-mail" type="email" hide-details variant="outlined" density="compact"
+                              :rules="[rules.required, rules.email]"
+                              v-model="feedback.email"
+                              :rounded="0"
+                              class="w-50"></v-text-field>
+              </div>
+              <div class="d-flex w-100 mb-5">
+                <v-textarea :rules="[rules.required]" v-model="feedback.feedback" :label="$t('form.message')"
                             :rounded="0"
-                            class="w-50"></v-text-field>
-              <v-text-field :label="$t('form.company')" type="text" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required]"
-                            v-model="feedback.company"
+                            hide-details variant="outlined" class="w-100"></v-textarea>
+              </div>
+              <div class="d-flex justify-space-between flex-column-gap-22 w-100">
+                <small class="text-secondary-light font-size-12">
+                  <sup>*</sup> {{ message }}
+                </small>
+                <v-btn type="submit" variant="outlined" class="rounded-0">
+                  {{ $t('form.submit') }}
+                </v-btn>
+              </div>
+            </v-form>
+          </div>
+        </template>
+        <template v-else>
+          <div class="d-flex align-self-baseline justify-space-between w-100 pt-10">
+            <v-form @submit.prevent="onSubmit" class="feedback-container">
+              <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
+                <v-text-field :label="$t('form.name')" type="text" hide-details variant="outlined" density="compact"
+                              :rules="[rules.required]"
+                              v-model="feedback.name"
+                              :rounded="0"
+                              class="w-50"></v-text-field>
+                <v-text-field :label="$t('form.company')" type="text" hide-details variant="outlined" density="compact"
+                              :rules="[rules.required]"
+                              v-model="feedback.company"
+                              :rounded="0"
+                              class="w-50"></v-text-field>
+              </div>
+              <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
+                <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined"
+                              density="compact"
+                              :rules="[rules.required]"
+                              v-model="feedback.phone"
+                              :rounded="0"
+                              class="w-50 border-opacity-100"></v-text-field>
+                <v-text-field label="E-mail" type="email" hide-details variant="outlined" density="compact"
+                              :rules="[rules.required, rules.email]"
+                              v-model="feedback.email"
+                              :rounded="0"
+                              class="w-50"></v-text-field>
+              </div>
+              <div class="d-flex w-100 mb-5">
+                <v-textarea :rules="[rules.required]" v-model="feedback.feedback" :label="$t('form.message')"
                             :rounded="0"
-                            class="w-50"></v-text-field>
-            </div>
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100 mb-5">
-              <v-text-field :label="$t('form.phoneNumber')" type="text" hide-details variant="outlined"
-                            density="compact"
-                            :rules="[rules.required]"
-                            v-model="feedback.phone"
-                            :rounded="0"
-                            class="w-50 border-opacity-100"></v-text-field>
-              <v-text-field label="E-mail" type="email" hide-details variant="outlined" density="compact"
-                            :rules="[rules.required, rules.email]"
-                            v-model="feedback.email"
-                            :rounded="0"
-                            class="w-50"></v-text-field>
-            </div>
-            <div class="d-flex w-100 mb-5">
-              <v-textarea :rules="[rules.required]" v-model="feedback.feedback" :label="$t('form.message')" :rounded="0"
-                          hide-details variant="outlined" class="w-100"></v-textarea>
-            </div>
-            <div class="d-flex justify-space-between flex-column-gap-22 w-100">
-              <small class="text-secondary-light font-size-12">
-                <sup>*</sup> {{ message }}
-              </small>
-              <v-btn type="submit" variant="outlined" class="rounded-0">
-                {{ $t('form.submit') }}
-              </v-btn>
-            </div>
-          </v-form>
-        </div>
+                            hide-details variant="outlined" class="w-100"></v-textarea>
+              </div>
+              <div class="d-flex justify-space-between flex-column-gap-22 w-100">
+                <small class="text-secondary-light font-size-12">
+                  <sup>*</sup> {{ message }}
+                </small>
+                <v-btn type="submit" variant="outlined" class="rounded-0">
+                  {{ $t('form.submit') }}
+                </v-btn>
+              </div>
+            </v-form>
+          </div>
+        </template>
         <v-divider class="w-100 my-5" style="border-width: 0.12px; opacity: 1" color="info"/>
         <div class="d-flex flex-column flex-row-gap-10">
           <small class="text-secondary-light font-size-12">
@@ -396,7 +487,8 @@
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.sale_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20" :href="`tel:${contacts.sale_contact?.replaceAll(' ','')}`">
+              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
+                 :href="`tel:${contacts.sale_contact?.replaceAll(' ','')}`">
                 {{ contacts.sale_contact }}
               </a>
             </div>
@@ -509,7 +601,7 @@ import {computed, onMounted, ref, watch} from "vue";
 import {useDisplay} from "vuetify";
 import SvgIcon from '@jamescoyle/vue-icon'
 import {useCommonStore} from "~/store/common";
-import {useElementSize} from "@vueuse/core";
+import {useElementSize, useScreenOrientation} from "@vueuse/core";
 import {mdiClose, mdiMagnify} from "@mdi/js";
 import {useRoute} from "vue-router";
 import Lt from "~/components/icons/lt.vue";
@@ -564,7 +656,7 @@ let message = computed(() => {
 let menu = computed(() => {
   return tm('menu')
 })
-
+const {orientation} = useScreenOrientation()
 const {mobile} = useDisplay()
 const mainPageCarousel = useCarouselStore()
 const services = useServicesStore()
@@ -899,6 +991,7 @@ const menuTextColor = computed(() => {
   letter-spacing: 2px;
   transition: all .3s ease-in-out;
   color: var(--menu-text-color) !important;
+
   &.in_menu {
     color: #fff !important;
   }

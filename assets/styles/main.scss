@@ -83,10 +83,14 @@ h6 {
     font-size: 1.1rem !important;
   }
 }
-
+sup {
+  top: -1em !important;
+  @media (orientation: landscape) {
+    top: -.45em !important;
+  }
+}
 article {
   font-family: Arial, sans-serif !important;
-
 
   & p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 15px !important;
@@ -163,7 +167,16 @@ article {
     }
   }
   &.carousel_main_page {
-
+    &.carousel_description {
+      @media (orientation: landscape) {
+        max-width: 55%;
+        & p {
+          &:not(:first-of-type) {
+            display: inline;
+          }
+        }
+      }
+    }
     & h1, h2, h3, h4, h5, h6 {
       font-family: "Open Sans Condensed", sans-serif;
       margin-bottom: 0 !important;
@@ -178,11 +191,27 @@ article {
       font-family: "Open Sans Condensed", sans-serif;
       font-weight: 400 !important;
       margin-bottom: 0 !important;
+      @media (max-width: 920px) {
+        font-size: .9rem !important;
+      }
       & strong {
         display: block;
         font-family: "Open Sans Condensed Bold", sans-serif;
         margin-bottom: 15px !important;
         font-weight: 600 !important;
+      }
+    }
+    & h1 {
+      font-size: 2.4rem !important;
+      line-height: 1.1 !important;
+      @media (max-width: 920px) {
+        font-size: 2.2rem !important;
+      }
+      @media (min-width: 1220px) {
+        font-size: 3rem !important;
+      }
+      @media (min-width: 1920px) {
+        font-size: 4rem !important;
       }
     }
   }
