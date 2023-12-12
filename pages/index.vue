@@ -12,7 +12,7 @@
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
              :class="{'flex-row-gap-46': !mobile}"
-             :style="`margin-top: ${slideGroupHeight + (orientation === 'landscape-primary' ? 130 : 40)}px; font-family: 'Arial', sans-serif`">
+             :style="`margin-top: ${slideGroupHeight + (orientation === 'landscape-primary' ? 250 : 40)}px; font-family: 'Arial', sans-serif`">
         <h2 class="text-uppercase text-center font-size-48" :class="{ 'mb-16': mobile }" v-html="$t('mainPage.about.title')"></h2>
         <template v-if="!mobile">
           <div class="position-relative py-0">

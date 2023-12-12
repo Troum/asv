@@ -107,7 +107,7 @@
       </v-navigation-drawer>
     </template>
     <v-app-bar :fixed="true" elevation="0"
-               :height="$display.navBar(display.height.value, mobile ? 250 : 157)">
+               :height="$display.navBar(display.height.value, mobile ? (orientation === 'landscape-primary' ? 250 : 150) : 157)">
       <div class="appbar">
         <NuxtLink to="/">
           <v-img
@@ -367,7 +367,7 @@
             </template>
           </div>
         </div>
-        <template v-if="orientation === 'landscape-primary'">
+        <template v-if="orientation === 'landscape-primary' || orientation === 'landscape-secondary'">
           <div class="d-flex align-self-baseline justify-center w-100 pt-10">
             <h4 class="font-size-36 font-weight-bold text-uppercase text-center">{{ $t('titles.askQuestion') }}</h4>
           </div>

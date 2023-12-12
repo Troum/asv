@@ -108,3 +108,20 @@ table tbody td {
 
 }
 
+.carousel {
+  &__viewport {
+    @media (orientation: landscape) {
+      height: 45vh !important;
+    }
+  }
+  &__prev {
+    @media (orientation: landscape) {
+      left: 28% !important
+    }
+  }
+  &__next {
+    @media (orientation: landscape) {
+      right: 28% !important
+    }
+  }
+}

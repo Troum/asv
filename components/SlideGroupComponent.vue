@@ -6,7 +6,7 @@
       </template>
       <Slide v-for="(slide, index) of services.list" :key="index">
           <div class="d-flex justify-center align-center w-100 position-relative"
-               :style="`overflow: hidden; height: ${isIndex ? 95 : 100}%`">
+               :style="`overflow: hidden; height: ${isIndex ? (orientation === 'landscape-primary' ? 100 : 95) : 100}%`">
             <template v-if="mobile">
               <v-hover>
                 <template v-slot:default="{ isHovering, props }">
