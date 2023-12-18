@@ -57,7 +57,7 @@
         </template>
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
-             :style="`margin-top: ${slideGroupHeight - 40}px; row-gap: 48px; font-family: 'Arial', sans-serif`">
+             :style="`margin-top: ${orientation === 'landscape-primary' ? 40 : slideGroupHeight - 40}px; row-gap: 48px; font-family: 'Arial', sans-serif`">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('mainPage.service.title')"></h2>
         <template v-if="mobile">
           <div class="d-flex flex-column pa-4 text-center flex-row-gap-40">
@@ -126,7 +126,7 @@
         </template>
       </v-col>
       <v-col cols="10" class="d-flex flex-column pa-0 mx-auto position-relative"
-             :style="`margin-top: ${slideGroupHeight - mobile ? 10 : 0}px;margin-bottom: ${slideGroupHeight}px; font-family: 'Arial', sans-serif`">
+             :style="`margin-top: ${orientation === 'landscape-primary' ? 40 : (slideGroupHeight - mobile ? 10 : 0)}px;margin-bottom: ${slideGroupHeight}px; font-family: 'Arial', sans-serif`">
         <div class="d-flex justify-space-between align-center mb-15">
           <h2 class="text-uppercase text-left text-lg-center font-size-48" v-html="$t('titles.news')"></h2>
           <v-btn style="opacity: 1; font-family: 'Open Sans Condensed Bold', sans-serif" variant="plain"
@@ -164,7 +164,7 @@
           </template>
         </client-only>
       </v-col>
-      <v-col cols="12" class="pa-0 mx-auto position-relative mb-4 mt-7" style="font-family: 'Arial', sans-serif">
+      <v-col cols="12" :class="`pa-0 mx-auto position-relative mb-4 ${orientation === 'landscape-primary' ? 'mt-16' : 'mt-7'}`" style="font-family: 'Arial', sans-serif">
         <h2 class="text-uppercase text-center font-size-48" v-html="$t('titles.clients')"></h2>
         <client-only>
           <client-slider :current="current" :clients="clients.list"/>
