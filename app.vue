@@ -1,5 +1,5 @@
 <template>
-  <div class="position-relative">
+  <div class="position-relative" translate="no">
     <template v-if="commonStore.getLoading">
       <div class="h-screen w-100 bg-primary d-flex justify-center align-center position-fixed"
            style="z-index: 1011; top: 0; left: 0">
