@@ -60,7 +60,7 @@
           </v-card>
         </div>
         <div ref="map" style="filter: grayscale(100%)">
-          <MapComponent />
+          <MapComponent :height="height" :width="width"/>
         </div>
       </div>
     </v-col>
@@ -68,7 +68,7 @@
 </template>
 
 <script setup>
-import {computed, ref, watch} from "vue"
+import {computed, ref, watch, defineProps} from "vue"
 import Phone from "~/components/icons/phone.vue";
 import Envelop from "~/components/icons/envelop.vue";
 import {useElementSize} from "@vueuse/core";
