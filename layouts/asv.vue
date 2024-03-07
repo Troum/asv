@@ -458,7 +458,7 @@
         <v-divider class="w-100 my-5" style="border-width: 0.12px; opacity: 1" color="info"/>
         <div class="d-flex flex-column flex-row-gap-10">
           <small class="text-secondary-light font-size-12">
-            © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
+            © {{ new Date().getFullYear() }} <span v-html="$t('copyright', {address: 'info', domain: 'a-sv.site', link: 'mailto:info@a-sv.site'})"></span>
           </small>
         </div>
       </v-footer>
@@ -577,7 +577,7 @@
           <v-divider class="w-100" style="border-width: 0.12px; opacity: 1" color="info"/>
           <div class="d-flex justify-space-between flex-column-gap-60" style="font-family: 'Arial', sans-serif">
             <small class="text-secondary-light font-size-11">
-              © {{ new Date().getFullYear() }} <span v-html="$t('copyright')"></span>
+              © {{ new Date().getFullYear() }} <span v-html="$t('copyright', {address: 'info', domain: 'a-sv.site', link: 'mailto:info@a-sv.site'})"></span>
             </small>
           </div>
         </v-footer>

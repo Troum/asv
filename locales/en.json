@@ -101,13 +101,13 @@
     "success": "You're message has been successfully sent",
     "notice": "Your data will not be shared with third parties. We guarantee confidentiality and protect personal data"
   },
-  "copyright": "JLLC «ASV Trade» All rights to exclusive materials of the <a href=\"mailto:info@asv-trade.by\">www.asv-trade.by</a> site (hereinafter referred to as the Site) are regulated in accordance with the Law of the Republic of Belarus \"On Copyright and Related Rights\". Violation of copyright in relation to the portal is prosecuted by law. Any copying, reprinting and distribution of materials of the Site without an active backlink is prohibited",
+  "copyright": "JLLC «ASV Trade» All rights to exclusive materials of the <a href=\"{link}\">{address}{'@'}{domain}</a> site (hereinafter referred to as the Site) are regulated in accordance with the Law of the Republic of Belarus \"On Copyright and Related Rights\". Violation of copyright in relation to the portal is prosecuted by law. Any copying, reprinting and distribution of materials of the Site without an active backlink is prohibited",
   "development": "Design and Development",
   "address": "220089, Minsk, 33A Zheleznodorozhnaya str,<br/>corp.1 (5th floor)",
   "contacts": {
     "subtitle": "\"ASV TRADING\" COMPANY HAS A LARGE NUMBER OF LEADING SPECIALISTS FOR TRAINING TO WORK WITH OUR EQUIPMENT",
-    "name": "JSC «ASV Trade» ",
-    "description": "ASV Trade JLLC is a leading belarussian distributor of professional medical equipment. Our company is engaged in supplying equipment under well-known brands, the manufacturers of which are leaders in their field. All products meet the highest requirements and are manufactured in such countries as Japan, USA, France, Germany, Israel, Spain and others."
+    "name": "JLLC «ASV Trade» ",
+    "description": "JLLC ASV Trade is a leading belorussian distributor of professional medical equipment. Our company is engaged in supplying equipment under well-known brands, the manufacturers of which are leaders in their field. All products meet the highest requirements and are manufactured in such countries as Japan, USA, France, Germany, Israel, Spain and others."
   },
   "pages": {
     "main": {
