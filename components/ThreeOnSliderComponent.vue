@@ -22,10 +22,13 @@ const items = ref([
 const sliderContainer = ref(null);
 
 const showItem = (index) => {
-  const container = sliderContainer.value;
+  const container = sliderContainer?.value;
   const itemWidth = container.querySelector('.slider-item').offsetWidth;
   const newPosition = -index * itemWidth;
-  container.style.transform = `translateX(${newPosition}px)`;
+  if (container) {
+    container.style.transform = `translateX(${newPosition}px)`;
+  }
+
 };
 
 const nextItem = () => {
