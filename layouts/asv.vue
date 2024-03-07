@@ -174,7 +174,6 @@
           </div>
           <div ref="phonesContainer" class="d-flex align-center langs__container">
             <div class="d-flex flex-column justify-center align-end flex-row-gap-1">
-              <lt/>
               <ru/>
               <us/>
             </div>
