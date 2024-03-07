@@ -38,7 +38,7 @@ export default {
         map.addChild(new ymaps3.YMapDefaultSchemeLayer())
         map.addChild(new ymaps3.YMapDefaultFeaturesLayer({zIndex: 1800}))
         map.addChild(new ymaps3.YMapMarker({
-              coordinates: [25.261339, 54.606342],
+              coordinates: [27.503692, 53.871127],
               draggable: false
             },
             markerElement
