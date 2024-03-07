@@ -40,8 +40,10 @@
                 <envelop/>
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.email_contact_title }}</span>
-                  <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
-                     :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
+                  <template v-for="email of contactEmails">
+                    <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
+                       :href="`mailto:${email}`">{{ email }}</a>
+                  </template>
                 </div>
               </v-card-subtitle>
               <v-card-subtitle v-if="contacts?.address_contact" style="opacity: 1" class="d-flex flex-column-gap-25">
@@ -83,7 +85,7 @@
 </template>
 
 <script setup>
-import {ref, watch} from "vue"
+import {computed, ref, watch} from "vue"
 import Phone from "~/components/icons/phone.vue";
 import Envelop from "~/components/icons/envelop.vue";
 import {useElementSize} from "@vueuse/core";
@@ -126,6 +128,9 @@ watch(locale, () => {
     content: description.value,
     logo: '/logo-w.svg'
   })
+})
+const contactEmails = computed(() => {
+  return contacts.email_contact?.split(',') ?? []
 })
 </script>
 
