@@ -47,7 +47,7 @@
         :width="display.width.value"
         :height="mobile && orientation === 'landscape-primary' ? height : display.height.value - 95"
         :key="i"
-        :src="`https://dashboard.asvtrade.lt${slide.src}`"
+        :src="`https://dashboard.a-sv.site${slide.src}`"
         content-class="px-4 px-lg-0 pt-lg-16"
     >
       <template v-if="mobile">

@@ -10,7 +10,7 @@
         <div v-bind="props" class="d-flex align-center justify-center position-relative">
           <div :style="`display: grid; grid-template-columns: ${mobile ? 320 : $display.width(width, 350)}px; grid-template-rows: ${mobile ? 320 : $display.width(width, 350)}px`">
             <div
-                :style="`width: 100%; height: 100%; background-image: url('https://dashboard.asvtrade.lt${doctor.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
+                :style="`width: 100%; height: 100%; background-image: url('https://dashboard.a-sv.site${doctor.avatar}'); background-size: contain; background-repeat: no-repeat; background-position: center center`"
             ></div>
           </div>
           <template v-if="false">

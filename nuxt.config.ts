@@ -59,12 +59,12 @@ export default defineNuxtConfig({
         storage: 'localStorage'
     },
     strapi: {
-        url: 'https://dashboard.asvtrade.lt'
+        url: 'https://dashboard.a-sv.site'
     },
     image: {
         quality: 80,
         strapi: {
-            baseURL: 'https://dashboard.asvtrade.lt'
+            baseURL: 'https://dashboard.a-sv.site'
         }
     },
     vite: {
