@@ -975,7 +975,7 @@ const menuTextColor = computed(() => {
   return menuColor.getColor
 })
 const contactEmails = computed(() => {
-  return contacts.email_contact?.split(',') ?? []
+  return contacts.value.email_contact?.split(',') ?? []
 })
 </script>
 
