@@ -67,7 +67,7 @@
             <article>
               {{ $t('mainPage.service.articles.second') }}
             </article>
-            <article v-html="$t('mainPage.service.articles.third.content', {address: 'info', domain: 'a-sv.site', link: 'mailto:info@a-sv.site'})">
+            <article v-html="$t('mainPage.service.articles.third.content', {address: 'info', domain: 'asvtrade.by', link: 'mailto:info@asvtrade.by'})">
             </article>
             <article>
               {{ $t('mainPage.service.articles.fourth') }}
