@@ -28,7 +28,6 @@ const showItem = (index) => {
   if (container) {
     container.style.transform = `translateX(${newPosition}px)`;
   }
-
 };
 
 const nextItem = () => {
