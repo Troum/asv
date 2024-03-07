@@ -339,8 +339,10 @@
               <span class="text-white text-uppercase" style="letter-spacing: .00005rem">
                 {{ contacts.email_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
-                 :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
+              <template v-for="email of contactEmails">
+                <a class="on-hover text-white text-decoration-none font-weight-bold font-size-18"
+                   :href="`mailto:${email}`">{{ email }}</a>
+              </template>
             </div>
             <div v-if="contacts.address_contact" class="d-flex flex-column flex-row-gap-5 mb-4"
                  style="line-height: normal">
@@ -508,7 +510,7 @@
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.email_contact_title }}
               </span>
-              <template v-for="email of contacts.email_contact.split(',')">
+              <template v-for="email of contactEmails">
                 <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
                    :href="`mailto:${email}`">{{ email }}</a>
               </template>
@@ -971,6 +973,9 @@ onMounted(() => {
 })
 const menuTextColor = computed(() => {
   return menuColor.getColor
+})
+const contactEmails = computed(() => {
+  return contacts.email_contact?.split(',') ?? []
 })
 </script>
 
