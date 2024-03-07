@@ -1,5 +1,4 @@
 import { createI18n } from 'vue-i18n'
-import lt from '@/locales/lt.json'
 import ru from '@/locales/ru.json'
 import en from '@/locales/en.json'
 export default defineNuxtPlugin(({ vueApp }) => {
@@ -8,12 +7,11 @@ export default defineNuxtPlugin(({ vueApp }) => {
         globalInjection: true,
         warnHtmlInMessage: false,
         warnHtmlMessage: false,
-        locale: 'lt',
+        locale: 'ru',
         specialCharacters: {
             linked: '@',
         },
         messages: {
-            lt,
             ru,
             en
         }
