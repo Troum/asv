@@ -186,12 +186,6 @@
             <div ref="langSeparator" class="separator"></div>
             <div class="d-flex flex-column justify-center align-start flex-row-gap-4">
               <v-btn variant="plain" icon
-                     @click="setLocale('lt')"
-                     :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
-                     :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'lt' ? 'active__lang' : ''}`">
-                LT
-              </v-btn>
-              <v-btn variant="plain" icon
                      @click="setLocale('ru')"
                      :ripple="false" style="opacity: 1; width: fit-content; height: fit-content"
                      :class="`lang_link font-weight-bold text-uppercase font-size-16 pa-0 ${locale === 'ru' ? 'active__lang' : ''}`">
@@ -514,8 +508,10 @@
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
                 {{ contacts.email_contact_title }}
               </span>
-              <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
-                 :href="`mailto:${contacts.email_contact}`">{{ contacts.email_contact }}</a>
+              <template v-for="email of contacts.email_contact.split(',')">
+                <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
+                   :href="`mailto:${email}`">{{ email }}</a>
+              </template>
             </div>
             <div v-if="!_.isEmpty(contacts.address_contact)" class="d-flex flex-column flex-row-gap-2">
               <span class="text-accent text-uppercase font-size-16" style="letter-spacing: .00005rem">
