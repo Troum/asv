@@ -97,7 +97,7 @@ import {useDisplay} from "vuetify";
 definePageMeta({
   breadcrumb: 'pages.contacts.title'
 })
-defineProps({
+const props = defineProps({
   frameMargin: {
     type: Number,
     default: 0
@@ -130,7 +130,7 @@ watch(locale, () => {
   })
 })
 const contactEmails = computed(() => {
-  return contacts.email_contact?.split(',') ?? []
+  return props.contacts.email_contact?.split(',') ?? []
 })
 </script>
 

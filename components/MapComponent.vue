@@ -29,7 +29,7 @@ export default {
         markerElement.src = '/marker.svg'
         const map = new ymaps3.YMap(document.getElementById('map'), {
               location: {
-                center: [25.261339, 54.606342],
+                center: [27.503692, 53.871127],
                 zoom: 17
               },
               behaviors: []
