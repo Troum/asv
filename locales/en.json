@@ -50,9 +50,9 @@
     "title": "Main Page",
     "about": {
       "title": "<span class=\"text-info\">About</span>",
-      "description": "Joint Stock Company „ASV Trade“ was established on 08th April 2013. The main activity of the company is wholesale trade of medical equipment and consumables.<br/>We are representing the best known manufacturers of medical equipment in the fields of ophthalmology, aesthetics, rehabilitation & gynecology <br/> JSC “ASV Trade” is part of a Companies group, therefore, in cooperation with other Group companies, we provide professional technical service of the equipment.",
+      "description": "JLLC „ASV Trade“ was established on 08th April 2013. The main activity of the company is wholesale trade of medical equipment and consumables.<br/>We are representing the best known manufacturers of medical equipment in the fields of ophthalmology, aesthetics, rehabilitation & gynecology <br/> JSC “ASV Trade” is part of a Companies group, therefore, in cooperation with other Group companies, we provide professional technical service of the equipment.",
       "articles": {
-        "first": "<span class=\"text-info\">ASV Trade</span> is a leading lithuanian distributor of professional medical equipment. Our company supplies medical equipment of well-known brands whose manufacturers are leaders in their field. All products meet the highest requirements and standards.",
+        "first": "<span class=\"text-info\">ASV Trade</span> is a leading belorussian distributor of professional medical equipment. Our company supplies medical equipment of well-known brands whose manufacturers are leaders in their field. All products meet the highest requirements and standards.",
         "second": "<span class=\"text-info\">ASV Trade</span> understands the importance of equipping medical institutions, so we supply only high quality medical equipment. All questions concerning prices and equipment set can be clarified by telephone with our employees.",
         "third": "<span class=\"text-info\">ASV Trade</span> specialists regularly undergo training abroad and can expertly help you choose the necessary equipment and consumables.",
         "fourth": "<span class=\"text-info\">ASV Trade</span> performs commissioning, warranty and post-warranty repair of equipment. In addition, the company can offer a comprehensive annual maintenance of your equipment on the most favorable terms."
@@ -101,13 +101,13 @@
     "success": "You're message has been successfully sent",
     "notice": "Your data will not be shared with third parties. We guarantee confidentiality and protect personal data"
   },
-  "copyright": "JSC «ASV Trade» All rights to exclusive materials of <a href=\"www.a-sv.site\">www.a-sv.site</a> website (hereinafter referred to as the Site) are governed by the Lithuanian Law on Copyright and Related Rights. Infringement of copyrights on the Site is prosecuted by law. Any copying, reprinting and dissemination of materials on the Site is prohibited without an active reverse link.",
+  "copyright": "JLLC «ASV Trade» All rights to exclusive materials of the <a href=\"mailto:info@asv-trade.by\">www.asv-trade.by</a> site (hereinafter referred to as the Site) are regulated in accordance with the Law of the Republic of Belarus \"On Copyright and Related Rights\". Violation of copyright in relation to the portal is prosecuted by law. Any copying, reprinting and distribution of materials of the Site without an active backlink is prohibited",
   "development": "Design and Development",
   "address": "220089, Minsk, 33A Zheleznodorozhnaya str,<br/>corp.1 (5th floor)",
   "contacts": {
     "subtitle": "\"ASV TRADING\" COMPANY HAS A LARGE NUMBER OF LEADING SPECIALISTS FOR TRAINING TO WORK WITH OUR EQUIPMENT",
     "name": "JSC «ASV Trade» ",
-    "description": "ASV Trade CJSC is a leading lithuanian distributor of professional medical equipment. Our company is engaged in supplying equipment under well-known brands, the manufacturers of which are leaders in their field. All products meet the highest requirements and are manufactured in such countries as Japan, USA, France, Germany, Israel, Spain and others."
+    "description": "ASV Trade JLLC is a leading belarussian distributor of professional medical equipment. Our company is engaged in supplying equipment under well-known brands, the manufacturers of which are leaders in their field. All products meet the highest requirements and are manufactured in such countries as Japan, USA, France, Germany, Israel, Spain and others."
   },
   "pages": {
     "main": {
