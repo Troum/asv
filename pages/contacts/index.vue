@@ -41,7 +41,7 @@
                 <div class="d-flex flex-column flex-row-gap-10">
                   <span class="text-uppercase font-size-16">{{ contacts.email_contact_title }}</span>
                   <template v-for="email of contactEmails">
-                    <a class="on-hover text-white text-decoration-none font-weight-bold font-size-20"
+                    <a class="on-hover text-primary text-decoration-none font-weight-bold font-size-20"
                        :href="`mailto:${email}`">{{ email }}</a>
                   </template>
                 </div>
